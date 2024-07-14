@@ -3,7 +3,7 @@ title: "【Python】Ruff を使って Python らしいコードを学ぼう【�
 emoji: "🔰"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Python", "Ruff", "初心者"]
-published: false
+published: true
 ---
 
 # はじめに
