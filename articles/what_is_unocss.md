@@ -29,6 +29,10 @@ https://github.com/unocss/unocss
 
 > Instant On-demand Atomic CSS Engine
 
+> 爆速生成、オンデマンドで利用可能なアトミック CSS エンジン
+
+といったところでしょうか。
+
 - Customizable
 - Powerful
 - Fast
@@ -101,6 +105,37 @@ export default defineConfig({
   margin: 7.5px;
 }
 ```
+
+## What is Atomic CSS?
+
+そもそも Atomic CSS とはなんでしょうか。
+[Antony Fu 氏](https://antfu.me/)のブログ[Reimagin Atomic CSS](https://antfu.me/posts/reimagine-atomic-css)で言及されています。
+この記事の中で John Polacek 氏の記事が引用されており、
+
+> Atomic CSS is the approach to CSS architecture that favors small, single-purpose classes with names based on visual function.
+
+とあります。日本語に訳すと、
+
+> Atomic CSS とは視覚的な機能に基づいた命名である、小さく単一の目的を持つクラスを支持する CSS アーキテクチャのアプローチである。
+
+となるでしょうか。
+
+Atomic CSS は関数型 CSS(Functional CSS) や CSS ユーティリティ(CSS utilities)とも呼ばれています。
+基本的に Atomic CSS フレームワークは以下のような CSS の集まりであると言えます。
+
+```css
+.m-0 {
+  margin: 0;
+}
+.text-red {
+  color: red;
+}
+/* ... */
+```
+
+Atomic CSS の是非については多くの場所で議論されているので、ここでは割愛します。
+
+UnoCSS は
 
 ## プリセット
 
@@ -199,7 +234,12 @@ Windi CSS が 2023 年 3 月時点で活発なメンテも行われておらず�
 - **共通の特徴**:
 
   - オンデマンドでのスタイル生成。
-  - Attributify モード、ショートカット、バリアントグループ、コンパイルモードなど、多くの機能を共有
+  - 多くの機能を共有
+    - Attributify モード
+    - ショートカット
+    - バリアントグループ
+    - コンパイルモード
+    - など
 
 - **独自の特徴**:
 
