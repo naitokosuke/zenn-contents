@@ -10,6 +10,8 @@ published: false
 
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
 
+今回は
+
 - 公式ドキュメント
   https://unocss.dev/
 
@@ -174,8 +176,8 @@ https://antfu.me/posts/reimagine-atomic-css
 
 # UnoCSS とその他の違い
 
-UnoCSS は Windi CSS チームメンバーの一人が作りはじめました。
-Windi CSS から多くのインスピレーションを受けております。
+UnoCSS は Windi CSS チームメンバーの一人が作りました。
+Windi CSS から多くのインスピレーションを受けています。
 また、Windi CSS が 2023 年 3 月時点ですでにメンテされていないことから、UnoCSS は Windi CSS の _"spiritual successor"(「精神的続編」)_ とされています。
 
 公式ドキュメントには Windi CSS, TailWind CSS それぞれとの比較がされています。
@@ -207,22 +209,26 @@ Windi CSS から多くのインスピレーションを受けております。
 
 - **エンジン**:
 
-  - Tailwind CSS は PostCSS プラグインとして設計されているのに対し、UnoCSS はビルドツールとの統合を重視したアイソモーフィックエンジンであり、より柔軟に様々な環境で使用可能
+  - Tailwind CSS は PostCSS プラグインとして設計されている
+  - UnoCSS はビルドツールとの統合を重視した "isomorphic" なエンジンであり、より柔軟に様々な環境で使用可能
 
 - **設計目標**:
 
-  - UnoCSS はフルに拡張可能でカスタマイズ可能な設計を持ち、Tailwind CSS よりも意見が少なく、柔軟性が高い
-  - Tailwind CSS は意見が強く、特定のコンベンションに従う必要があるため、独自のデザインシステムを構築するのが難しい場合がある
+  - UnoCSS はフルに拡張可能でカスタマイズ可能な設計を持ち、Tailwind CSS よりも柔軟性が高い("un-opinionated")
+  - Tailwind CSS は "opinionated" であり、独自のデザインシステムを構築するのが難しい場合がある
 
 - **機能の追加**:
 
-  - UnoCSS では、独自のプリセットやコミュニティによるさまざまなプリセットを使用して、新機能を実験しやすい
-  - Tailwind CSS は、独自のプラグインシステムや設定に依存しているため、特定の機能を追加する際に制限がある
+  - UnoCSS は独自のプリセットやコミュニティによるさまざまなプリセットを使用して、新機能を実験しやすい
+  - Tailwind CSS は独自のプラグインシステムや設定に依存していて、特定の機能を追加する際に制限がある
 
 - **サポートと統合**:
 
   - UnoCSS は CDN ランタイムやインスペクタなどの機能をサポートし、ビルドツールとの深い統合を提供
   - Tailwind CSS は PostCSS プラグインとして提供されている
 
-- **移行の難易度**:
-  - Tailwind CSS から高度にカスタマイズされたプロジェクトを UnoCSS に移行するのは難しいが、これは UnoCSS の高性能と拡張性を重視した設計によるものである
+## TailWind CSS から UnoCSS への移行
+
+Tailwind CSS で大幅にカスタマイズされたプロジェクトを UnoCSS に移行することは、困難を伴うかもしれません。
+これは、UnoCSS が Tailwind CSS のプラグインや設定をサポートしていないためです。
+しかし、UnoCSS の高いパフォーマンスと拡張性は、移行の難しさや必要な苦労に見合った価値があるでしょう。
