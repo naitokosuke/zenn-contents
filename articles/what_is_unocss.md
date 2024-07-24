@@ -185,7 +185,7 @@ https://antfu.me/posts/reimagine-atomic-css
 
 UnoCSS は Windi CSS チームメンバーの一人が作りました。
 Windi CSS から多くのインスピレーションを受けています。
-また、Windi CSS が 2023 年 3 月時点ですでにメンテされていないことから、UnoCSS は Windi CSS の _"spiritual successor"(「精神的続編」)_ とされています。
+Windi CSS が 2023 年 3 月時点で活発なメンテも行われておらず、UnoCSS は Windi CSS の _"spiritual successor"(「精神的続編」)_ とされています。
 
 公式ドキュメントには Windi CSS, TailWind CSS それぞれとの比較がされています。
 
