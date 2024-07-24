@@ -111,7 +111,7 @@ export default defineConfig({
 ## What is Atomic CSS?
 
 そもそも Atomic CSS とはなんでしょうか。
-[Antony Fu 氏](https://antfu.me/)のブログ[Reimagin Atomic CSS](https://antfu.me/posts/reimagine-atomic-css)で言及されています。
+[Antony Fu 氏](https://antfu.me/)のブログ[Reimagine Atomic CSS](https://antfu.me/posts/reimagine-atomic-css)で言及されています。
 この記事の中で John Polacek 氏の記事が引用されており、
 
 > Atomic CSS is the approach to CSS architecture that favors small, single-purpose classes with names based on visual function.
