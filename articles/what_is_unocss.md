@@ -29,7 +29,7 @@ https://github.com/unocss/unocss
 
 > Instant On-demand Atomic CSS Engine
 
-> 爆速生成、オンデマンドで利用可能なアトミック CSS エンジン
+> オンデマンドで利用可能な爆速アトミック CSS エンジン
 
 といったところでしょうか。
 
@@ -135,7 +135,7 @@ Atomic CSS は関数型 CSS(Functional CSS) や CSS ユーティリティ(CSS ut
 
 Atomic CSS の是非については多くの場所で議論されているので、ここでは割愛します。
 
-UnoCSS は
+UnoCSS は オンデマンドで利用可能な爆速アトミック CSS エンジンです。
 
 ## プリセット
 
