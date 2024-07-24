@@ -1,5 +1,5 @@
 ---
-title: "UnoCSS"
+title: "UnoCSS【atomic CSS engine】"
 emoji: "🎃"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["UnoCSS", "CSS"]
@@ -10,13 +10,20 @@ published: false
 
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
 
-今回は
+今回は CSS フレームワーク(厳密には Atomic CSS エンジン)である、UnoCSS について書いていきます。
+公式ドキュメントの日本語化対応も見据えています。
 
-- 公式ドキュメント
-  https://unocss.dev/
+流行している Tailwind CSS との比較についても触れます。
 
-- GitHub
-  https://github.com/unocss/unocss
+# ドキュメント
+
+**公式ドキュメント**
+
+https://unocss.dev/
+
+**GitHub**
+
+https://github.com/unocss/unocss
 
 # UnoCSS の特徴
 
