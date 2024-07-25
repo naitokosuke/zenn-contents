@@ -693,3 +693,66 @@ https://unocss.dev/transformers/compile-class
 ```
 
 のようにコンパイルされます。
+
+### Preflights
+
+生の CSS を "preflight" として設定から注入することができます。
+`theme` を用いて CSS をカスタマイズできます。
+
+```ts
+preflights: [
+  {
+    getCSS: ({ theme }) => `
+      * {
+        color: ${theme.colors.gray?.[700] ?? "#333"};
+        padding: 0;
+        margin: 0;
+      }
+    `,
+  },
+];
+```
+
+### Layers
+
+CSS の順序は優先順位に影響します。
+エンジンはルールの順序を保持しますが、ユーティリティのいくつかをグループ化して、その順序を明示的に制御したい場合もあります。
+
+Tailwind CSS は 3 つの固定レイヤー(`base`, `components`, `utilities`)を持っています。
+対して UnoCSS は、自由 にレイヤーを定義することができます。
+レイヤーを定義したい場合はルールの 3 番目の要素としてメタデータを指定できます。
+省略すれば `default` となります。
+
+```ts
+rules: [
+  [/^m-(\d)$/, ([, d]) => ({ margin: `${d / 4}rem` }), { layer: "utilities" }],
+  ["btn", { padding: "4px" }],
+];
+```
+
+というルールからは以下の CSS が生成されます。
+
+```css
+/* default レイヤー */
+.btn {
+  padding: 4px;
+}
+
+/* utilities レイヤー */
+.m-2 {
+  margin: 0.5rem;
+}
+```
+
+そして以下のように記述することでレイヤーの順序を制御することができます。
+
+```ts
+layers: {
+  'components': -1,
+  'default': 1,
+  'utilities': 2,
+  'my-layer': 3,
+}
+```
+
+順序を指定しない場合はレイヤー名の辞書順になります。
