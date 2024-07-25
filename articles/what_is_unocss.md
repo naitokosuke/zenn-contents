@@ -138,6 +138,22 @@ Atomic CSS は関数型 CSS(Functional CSS) や CSS ユーティリティ(CSS ut
 Atomic CSS の是非については多くの場所で議論されています。
 この記事では割愛します。
 
+## 設定ファイル
+
+UnoCSS の設定はそれ専用のファイルに記述することが強く推奨されています。
+デフォルトではプロジェクトのルートディレクトリ直下にある 
+
+- `uno.config.{js,ts,mjs,mts}` 
+- `unocss.config.{js,ts,mjs,mts}`
+
+を見るようになっています。
+(もちろんこちらで指定することもできます。)
+
+`vite.config.ts` に記述するのに比べて、専用("dedicated")の設定ファイル内に記述する方が IDE や ESLint プラグインとの統合によりうまく機能します。
+HMR についてもです。
+
+本記事では UnoCSS についての設定は `uno.config.ts` を用いる(指す)ことにします。
+
 ## プリセット
 
 作成(定義)した CSS ユーティリティはプリセットとして共有することができます。
@@ -287,9 +303,14 @@ Tailwind CSS で大幅にカスタマイズされたプロジェクトを UnoCSS
 これは、UnoCSS が Tailwind CSS のプラグインや設定をサポートしていないためです。
 しかし、UnoCSS の高いパフォーマンスと拡張性は、移行の難しさや必要な苦労に見合った価値があるでしょう。
 
-## 特徴的な機能(公式プリセット)
+# 特徴的な機能
 
-特徴的な機能(公式プリセット)を紹介します。
+UnoCSS の特徴的な機能は主に2種類に分かれます。
+
+- 公式プリセット
+- 設定
+
+## 公式プリセット
 
 ### Attributify モード
 
@@ -361,7 +382,7 @@ I'm feeling <i-line-md-emoji-grin /> today!
 
 https://unocss.dev/presets/typography
 
-`@unocss/preset-typography` プリセットにより、標準の HTML 要素にタイポグラフィスタイルを簡単に適用するための「プローズクラス」が提供されています。
+`@unocss/preset-typography` プリセットにより、標準の HTML 要素にタイポグラフィスタイルを簡単に適用するための "prose" クラス が提供されています。
 これらのクラスを使用することで、例えば段落や見出し、リスト、リンクなどの要素に対して、統一されたタイポグラフィのスタイルを適用できます。
 
 ```html
@@ -414,11 +435,11 @@ export default defineConfig({
 のみです。
 フォントプロバイダ追加 PR ウェルカムとのことです。
 
-`none` を`provider`オプションに指定することでフォントをシステムフォントとして扱うことができます。
+`none` を`provider`オプションに指定することで、フォントをシステムフォントとして扱うことができます。
 
 ### Rem to px
 
-`@unocss/preset-rem-to-px` プリセットを用いることで rem を px へ変換することができます。
+`@unocss/preset-rem-to-px` プリセットを用いることで `rem` を `px` へ変換することができます。
 (デフォルトでは `1rem = 16px`)
 
 ```html
@@ -440,3 +461,13 @@ export default defineConfig({
   margin: 8px;
 }
 ```
+
+となります。
+
+## 設定
+
+https://unocss.dev/config/
+
+> Configurations are what make UnoCSS powerful.
+
+### 
