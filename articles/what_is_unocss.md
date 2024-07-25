@@ -141,9 +141,9 @@ Atomic CSS の是非については多くの場所で議論されています。
 ## 設定ファイル
 
 UnoCSS の設定はそれ専用のファイルに記述することが強く推奨されています。
-デフォルトではプロジェクトのルートディレクトリ直下にある 
+デフォルトではプロジェクトのルートディレクトリ直下にある
 
-- `uno.config.{js,ts,mjs,mts}` 
+- `uno.config.{js,ts,mjs,mts}`
 - `unocss.config.{js,ts,mjs,mts}`
 
 を見るようになっています。
@@ -305,7 +305,7 @@ Tailwind CSS で大幅にカスタマイズされたプロジェクトを UnoCSS
 
 # 特徴的な機能
 
-UnoCSS の特徴的な機能は主に2種類に分かれます。
+UnoCSS の特徴的な機能は主に 2 種類に分かれます。
 
 - 公式プリセット
 - 設定
@@ -494,12 +494,13 @@ shortcuts: {
 shortcuts: [
   // 静的ショートカット
   {
-    btn: 'py-2 px-4 font-semibold rounded-lg shadow-md',
-    'red': 'text-red-100',s
+    btn: "py-2 px-4 font-semibold rounded-lg shadow-md",
+    red: "text-red-100",
+    s,
   },
   // 動的ショートカット
   [/^btn-(.*)$/, ([, c]) => `bg-${c}-400 text-${c}-100 py-2 px-4 rounded-lg`],
-]
+];
 ```
 
 ### Theme
@@ -523,31 +524,36 @@ theme: {
 
 ```ts
 rules: [
-  [/^text-(.*)$/, ([, c], { theme }) => {
-    if (theme.colors[c])
-      return { color: theme.colors[c] }
-  }],
-]
+  [
+    /^text-(.*)$/,
+    ([, c], { theme }) => {
+      if (theme.colors[c]) return { color: theme.colors[c] };
+    },
+  ],
+];
 ```
 
 ```ts
 variants: [
   {
-    name: 'variant-name',
+    name: "variant-name",
     match(matcher, { theme }) {
       // ...
     },
   },
-]
+];
 ```
 
 ```ts
 shortcuts: [
-  [/^badge-(.*)$/, ([, c], { theme }) => {
-    if (Object.keys(theme.colors).includes(c))
-      return `bg-${c}4:10 text-${c}5 rounded`
-  }],
-]
+  [
+    /^badge-(.*)$/,
+    ([, c], { theme }) => {
+      if (Object.keys(theme.colors).includes(c))
+        return `bg-${c}4:10 text-${c}5 rounded`;
+    },
+  ],
+];
 ```
 
 ブレークポイントも設定できます。
@@ -604,7 +610,9 @@ rules: [
 7. 最終的に以下の CSS となる
 
 ```css
-.hover\:m-2:hover { margin: 0.5rem; }
+.hover\:m-2:hover {
+  margin: 0.5rem;
+}
 ```
 
 ユーザがホバーしたときにだけ `m-2` を適用することが実現できます。
@@ -639,12 +647,11 @@ Hello [World]{.text-blue-500}
 
 からは `text-2xl`, `font-bold`, `text-blue-500`, `w-32`, `h-32` クラスが抽出されます。
 
-
 ### Transformers
 
 規約のサポートのために、ソースコード変形のための統一されたインターフェースを提供します。
 
-複数のクラスをを1つのクラスにコンパイルする "Transformers" があります。
+複数のクラスをを 1 つのクラスにコンパイルする "Transformers" があります。
 
 https://unocss.dev/transformers/compile-class
 
