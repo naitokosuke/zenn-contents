@@ -614,3 +614,11 @@ rules: [
 
 https://github.com/unocss/unocss/tree/main/packages/preset-mini/src/_variants
 
+### Extractors
+
+ソースコード中のユーティリティを抽出するために "extractor" が使われます。
+
+デフォルトでは [extractorSplit](https://github.com/unocss/unocss/blob/main/packages/core/src/extractors/split.ts) が適用されています。
+この "extractor" によりソースコードをトークンに分割しエンジンに渡しています。
+
+公式の
