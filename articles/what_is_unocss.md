@@ -464,10 +464,153 @@ export default defineConfig({
 
 となります。
 
-## 設定
+## Config
 
 https://unocss.dev/config/
 
 > Configurations are what make UnoCSS powerful.
 
-### 
+### Shortcuts
+
+複数のルールを組み合わせて短縮することができます。
+これは Windi CSS に着想を得ています。
+
+単一のルールに対してエイリアスを定義することもできます。
+
+```ts
+shortcuts: {
+  // 複数のユーティリティをまとめる
+  'btn': 'py-2 px-4 font-semibold rounded-lg shadow-md',
+  'btn-green': 'text-white bg-green-500 hover:bg-green-700',
+
+// 単一のユーティリティのエイリアス
+  'red': 'text-red-100',
+}
+```
+
+ルールと同様に正規表現(`RegExp`)と関数を活用することで動的なショートカットも実現できます。
+
+```ts
+shortcuts: [
+  // 静的ショートカット
+  {
+    btn: 'py-2 px-4 font-semibold rounded-lg shadow-md',
+    'red': 'text-red-100',s
+  },
+  // 動的ショートカット
+  [/^btn-(.*)$/, ([, c]) => `bg-${c}-400 text-${c}-100 py-2 px-4 rounded-lg`],
+]
+```
+
+### Theme
+
+UnoCSS では Tailwind CSS, Windi CSS ではおなじみのテーマ化システムをサポートしています。
+設定に `theme` プロパティを記述すればデフォルトのテーマに深く統合されます。
+
+```ts
+theme: {
+  // ...
+  colors: {
+    'veryCool': '#0000ff', // class="text-very-cool"
+    'brand': {
+      'primary': 'hsl(var(--hue, 217) 78% 51%)', //class="bg-brand-primary"
+    },
+  },
+}
+```
+
+ルール、バリアント、ショートカット内でもテーマを用いることができます。
+
+```ts
+rules: [
+  [/^text-(.*)$/, ([, c], { theme }) => {
+    if (theme.colors[c])
+      return { color: theme.colors[c] }
+  }],
+]
+```
+
+```ts
+variants: [
+  {
+    name: 'variant-name',
+    match(matcher, { theme }) {
+      // ...
+    },
+  },
+]
+```
+
+```ts
+shortcuts: [
+  [/^badge-(.*)$/, ([, c], { theme }) => {
+    if (Object.keys(theme.colors).includes(c))
+      return `bg-${c}4:10 text-${c}5 rounded`
+  }],
+]
+```
+
+ブレークポイントも設定できます。
+しかし、異なる単位の混在には UnoCSS は対応していません。
+ブレークポイントの記述の際には単位の統一が必要です。
+
+:::message
+ブレークポイントの場合はデフォルトのテーマを上書きしてしまうことに注意が必要です。
+:::
+
+```ts
+theme: {
+  // ...
+  breakpoints: {
+    sm: '320px',
+    // md: '40rem',
+    md: `${40 * 16}px`,
+    lg: '960px',
+  },
+}
+```
+
+### Variants
+
+バリアントを用いることで既存のルールにバリエーションを適用することができます。
+(Tailwind CSS の `hover:` バリアントのように)
+
+```ts
+variants: [
+  // hover:
+  (matcher) => {
+    if (!matcher.startsWith('hover:'))
+      return matcher
+    return {
+      // slice `hover:` prefix and passed to the next variants and rules
+      matcher: matcher.slice(6),
+      selector: s => `${s}:hover`,
+    }
+  },
+],
+rules: [
+  [/^m-(\d)$/, ([, d]) => ({ margin: `${d / 4}rem` })],
+]
+```
+
+:::details `hover:m-2` の場合の流れ
+
+1. `hover:m-2` が抽出される
+2. `hover:m-2` が判定のために全てのバリアントに送られる
+3. `hover:m-2` がマッチし、`m-2` を返す
+4. `m-2` がさらに次のバリアントの判定のために用いられる
+5. 他にマッチしなければ `m-2` がルールの判定に渡される
+6. 最初のルールにマッチし、`.m-2 { margin: 0.5rem; }` が生成される
+7. 最終的に以下の CSS となる
+
+```css
+.hover\:m-2:hover { margin: 0.5rem; }
+```
+
+ユーザがホバーしたときにだけ `m-2` を適用することが実現できます。
+:::
+
+バリアントシステムのより高度な使い方を知るには、デフォルトのプリセットの実装を確認するのがよいでしょう。
+
+https://github.com/unocss/unocss/tree/main/packages/preset-mini/src/_variants
+
