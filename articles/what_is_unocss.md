@@ -619,6 +619,69 @@ https://github.com/unocss/unocss/tree/main/packages/preset-mini/src/_variants
 ソースコード中のユーティリティを抽出するために "extractor" が使われます。
 
 デフォルトでは [extractorSplit](https://github.com/unocss/unocss/blob/main/packages/core/src/extractors/split.ts) が適用されています。
-この "extractor" によりソースコードをトークンに分割しエンジンに渡しています。
+この "extractor" がソースコードをトークンに分割しエンジンに渡しています。
 
-公式の
+[MDC(Markdown Components)](https://content.nuxt.com/usage/markdown) シンタックスのための "extractor" があります。
+
+https://unocss.dev/extractors/mdc
+
+`.md`, `.mdc`, `.markdown` ファイルに適用され、インライン props クラスを抽出します。
+
+例えば、
+
+```md
+# Title{.text-2xl.font-bold}
+
+Hello [World]{.text-blue-500}
+
+![image](/image.png){.w-32.h-32}
+```
+
+からは `text-2xl`, `font-bold`, `text-blue-500`, `w-32`, `h-32` クラスが抽出されます。
+
+
+### Transformers
+
+規約のサポートのために、ソースコード変形のための統一されたインターフェースを提供します。
+
+複数のクラスをを1つのクラスにコンパイルする "Transformers" があります。
+
+https://unocss.dev/transformers/compile-class
+
+例えば、
+
+```html
+<div class=":uno: text-center sm:text-left">
+  <div class=":uno: text-sm font-bold hover:text-red"></div>
+</div>
+```
+
+は、
+
+```html
+<div class="uno-qlmcrp">
+  <div class="uno-0qw2gr"></div>
+</div>
+```
+
+```css
+.uno-qlmcrp {
+  text-align: center;
+}
+.uno-0qw2gr {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+.uno-0qw2gr:hover {
+  --un-text-opacity: 1;
+  color: rgb(248 113 113 / var(--un-text-opacity));
+}
+@media (min-width: 640px) {
+  .uno-qlmcrp {
+    text-align: left;
+  }
+}
+```
+
+のようにコンパイルされます。
