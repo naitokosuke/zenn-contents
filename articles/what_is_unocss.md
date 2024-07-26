@@ -756,3 +756,51 @@ layers: {
 ```
 
 順序を指定しない場合はレイヤー名の辞書順になります。
+
+### Autocomplete
+
+https://unocss.dev/config/autocomplete
+
+https://unocss.dev/tools/autocomplete
+
+VS Code 拡張機能の自動補完をカスタマイズすることができます。
+(静的なルールでは何も設定しなくても自動補完が効きます。)
+
+```ts
+rules: [
+  [
+    /^custom-autocomplete-m-(\d)$/,
+    ([, d]) => ({ margin: `${d / 4}rem` }),
+    { autocomplete: 'custom-autocomplete-m-<num>' },
+  ],
+]
+```
+
+自動補完は [Playground](https://unocss.dev/play/) でも確認することができます。
+
+`autocomplete` 設定を用いることでより具体的なテンプレートや短縮記法を定義することもできます。
+
+```ts
+autocomplete: {
+  templates: [
+    // theme inferring
+    'bg-$color/<opacity>',
+    // short hands
+    'text-<font-size>',
+    // logic OR groups
+    '(b|border)-(solid|dashed|dotted|double|hidden|none)',
+    // constants
+    'w-half',
+  ],
+  shorthands: {
+    // equal to `opacity: "(0|10|20|30|40|50|60|70|90|100)"`
+    'opacity': Array.from({ length: 11 }, (_, i) => i * 10),
+    'font-size': '(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)',
+    // override built-in short hands
+    'num': '(0|1|2|3|4|5|6|7|8|9)',
+  },
+  extractors: [
+      // ...extractors
+  ],
+}
+```
