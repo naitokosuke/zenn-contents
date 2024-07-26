@@ -16,7 +16,7 @@ UnoCSS は軽量かつ柔軟で、開発者にとってとても扱いやすい�
 
 流行している Tailwind CSS との比較についても言及し、UnoCSS の特徴について説明します。
 
-:::messages alert
+:::message alert
 おことわり
 
 ぼくは UnoCSS を業務で利用したことはありません。
@@ -218,7 +218,7 @@ https://unocss.dev/presets/#presets
 
 [@unocss/preset-wind](https://unocss.dev/presets/wind) は TailWind CSS / Windi CSS のコンパクトなプリセットです。
 
-:::messages alert
+:::message alert
 このプリセットにより TailWind CSS と Windi CSS との互換性の提供を目指していますが、完全な互換性は保証されていません。
 具体的な利用方法についてはそれぞれの公式ドキュメントを参照してくださいとのことです。
 :::
