@@ -11,10 +11,10 @@ published: false
 
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
 
-今回は ~~CSS フレームワーク~~ Atomic CSS エンジンである、UnoCSS について書いていきます。
-公式ドキュメントの日本語化対応も見据えています。
+今回は最近注目を集めている ~~CSS フレームワーク~~ Atomic CSS エンジンである、UnoCSS について書いていきます。
+UnoCSS は軽量かつ柔軟で、開発者にとってとても扱いやすいツールです。
 
-流行している Tailwind CSS との比較についても触れます。
+流行している Tailwind CSS との比較についても言及し、UnoCSS の特徴について説明します。
 
 # ドキュメント
 
@@ -36,6 +36,8 @@ _オンデマンドな爆速アトミック CSS エンジン_
 > - Powerful
 > - Fast
 > - Joyful
+
+技術的の説明で、"Joyful" があるのはとても珍しい気がします。いいですね。
 
 # What is UnoCSS?
 
