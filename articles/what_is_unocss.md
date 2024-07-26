@@ -32,14 +32,10 @@ _オンデマンドな爆速アトミック CSS エンジン_
 
 といったところでしょうか。
 
-特徴としては、
-
-- Customizable
-- Powerful
-- Fast
-- Joyful
-
-が挙げられています
+> - Customizable
+> - Powerful
+> - Fast
+> - Joyful
 
 # What is UnoCSS?
 
@@ -49,13 +45,10 @@ https://unocss.dev/guide/#what-is-unocss
 >
 > The core is un-opinionated and all the CSS utilities are provided via presets.
 
-これを日本語に訳すと以下のようになるでしょうか。
+UnoCSS は即時的 Atomic CSS エンジンで、柔軟かつ拡張可能であるように設計されています。
+コアの部分は特定のものや考えにとらわれず、すべての CSS ユーティリティはプリセットを通じて提供されます。
 
-> UnoCSS は瞬間(即時)的 Atomic CSS エンジンで、柔軟かつ拡張可能であるように設計されています。
->
-> コアの部分は特定のものや考えにとらわれず、すべての CSS ユーティリティはプリセットを通じて提供されます。
-
-カスタム CSS ユーティリティを config ファイルに定義することができます。
+例えば、カスタム CSS ユーティリティを config ファイルに定義することができます。
 
 ```ts:uno.config.ts
 import { defineConfig } from 'unocss'
@@ -70,13 +63,13 @@ export default defineConfig({
 これにより `m-1` という CSS ユーティリティを利用することができます。
 
 UnoCSS はオンデマンドなので、コード内で用いない限り何もしません。
-例えば以下のようなコンポーネントでは、
+以下のコンポーネントでは、
 
 ```html
 <div class="m-1">Hello</div>
 ```
 
-`m-1` が検知され、そして紐づく CSS が生成されます。
+`m-1` が検知され、紐づく CSS が生成されます。
 
 ```css
 .m-1 {
@@ -117,14 +110,10 @@ export default defineConfig({
 
 > Atomic CSS is the approach to CSS architecture that favors small, single-purpose classes with names based on visual function.
 
-とあります。日本語に訳すと、
-
-> Atomic CSS とは視覚的な機能に基づいた命名である、小さく単一の目的を持つクラスを支持する CSS アーキテクチャのアプローチである。
-
-となるでしょうか。
+Atomic CSS とは、視覚的な機能に基づいて命名された単一の目的を持つ小さなクラスを支持する CSS アーキテクチャのアプローチである。
 
 Atomic CSS は関数型 CSS(Functional CSS) や CSS ユーティリティ(CSS utilities)とも呼ばれています。
-基本的に Atomic CSS フレームワークは以下のような CSS の集まりであると言えます。
+基本的に Atomic CSS フレームワークは以下のような CSS の集まりであると言えるでしょう。
 
 ```css
 .m-0 {
@@ -151,13 +140,13 @@ UnoCSS の設定はそれ専用のファイルに記述することが強く推�
 (もちろんこちらで指定することもできます。)
 
 `vite.config.ts` に記述するのに比べて、専用("dedicated")の設定ファイル内に記述する方が IDE や ESLint プラグインとの統合によりうまく機能します。
-HMR についてもです。
+HMR についても有効です。
 
 本記事では UnoCSS についての設定は `uno.config.ts` を用いる(指す)ことにします。
 
 ## プリセット
 
-作成(定義)した CSS ユーティリティはプリセットとして共有することができます。
+定義した CSS ユーティリティはプリセットとして共有することができます。
 例えば、企業のデザインシステム用にプリセットを切り出しておいて、それを共有できます。
 
 ```ts:my-preset.ts
