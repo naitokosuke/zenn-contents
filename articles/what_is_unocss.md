@@ -51,7 +51,6 @@ https://2023.stateofcss.com/ja-JP/css-frameworks/
 
 ![State of CSS CSS フレームワーク部門満足度ランキング2位](/images/what_is_unocss/image2.png)
 
-
 # What is UnoCSS?
 
 https://unocss.dev/guide/#what-is-unocss
