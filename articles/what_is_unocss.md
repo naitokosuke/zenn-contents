@@ -16,6 +16,14 @@ UnoCSS は軽量かつ柔軟で、開発者にとってとても扱いやすい�
 
 流行している Tailwind CSS との比較についても言及し、UnoCSS の特徴について説明します。
 
+:::warn
+おことわり
+
+ぼくは UnoCSS を業務で利用したことはありません。
+使ってみようと勉強している段階なので、具体的な TIPS はこの記事にはあまり含まれていません。
+公式ドキュメントの翻訳ベースの内容になっています。
+:::
+
 # ドキュメント
 
 https://unocss.dev/
@@ -38,6 +46,16 @@ _オンデマンドな爆速アトミック CSS エンジン_
 > - Joyful
 
 技術的の説明で、"Joyful" があるのはとても珍しい気がします。いいですね。
+ぼくは UnoCSS 作者の [Anthony Fu 氏](https://antfu.me/) のファンなんですが、彼の手がける OSS はどれも "Joyful" です。
+もちろん UnoCSS もめちゃ "Joyful" です。
+
+この記事は長いです。
+後でも言及しますが、疲れる前に 
+
+- [公式Playground](https://unocss.dev/play/)
+- [interactive docs](https://unocss.dev/interactive/)
+
+で "Joyful" を体験してください。
 
 # UnoCSS がアツい！
 
@@ -160,6 +178,9 @@ HMR についても有効です。
 
 ## プリセット
 
+プリセットは UnoCSS の心臓です。
+プリセットのおかげでカスタムフレームワークをすぐに作成できてしまいます。
+
 定義した CSS ユーティリティはプリセットとして共有することができます。
 例えば、企業のデザインシステム用にプリセットを切り出しておいて、それを共有できます。
 
@@ -193,9 +214,26 @@ export default defineConfig({
 
 https://unocss.dev/presets/#presets
 
-コミュニティプリセットもあります。
+このうち [@unocss/preset-uno](https://unocss.dev/presets/uno) はデフォルトのプリセットとなっています。
+
+[@unocss/preset-wind](https://unocss.dev/presets/wind) は TailWind CSS / Windi CSS のコンパクトなプリセットです。
+
+:::warn
+このプリセットにより TailWind CSS と Windi CSS との互換性の提供を目指していますが、完全な互換性は保証されていません。
+具体的な利用方法についてはそれぞれの公式ドキュメントを参照してくださいとのことです。
+:::
+
+このプリセットの内容は [`interactive docs`](https://unocss.dev/interactive/) または直接[ソースコード](https://github.com/unocss/unocss/tree/main/packages/preset-wind)を確認してください。
+
+:::message
+2024 年 7 月現在、[@unocss/preset-uno](https://unocss.dev/presets/uno) は [@unocss/preset-wind](https://unocss.dev/presets/wind) と同一のプリセットになっています。
+:::
+
+コミュニティプリセットも多くあります。
 
 https://unocss.dev/presets/community
+
+探すのも楽しいので気になる方はぜひご自身で探してみてください。
 
 ## Playground & Interactive Docs
 
@@ -240,7 +278,7 @@ https://unocss.dev/guide/#examples
 
 # Why UnoCSS?
 
-UnoCSS の背景をより理解するために、UnoCSS クリエイターである [Antony Fu 氏](https://antfu.me/)のブログを読むことが推奨されています。
+UnoCSS の背景をより理解するために、UnoCSS 作者である [Antony Fu 氏](https://antfu.me/)のブログを読むことが推奨されています。
 https://antfu.me/posts/reimagine-atomic-css
 
 # UnoCSS とその他の違い
@@ -273,7 +311,7 @@ Windi CSS が 2023 年 3 月時点で活発なメンテも行われておらず�
   - UnoCSS は最大限の拡張性とパフォーマンスを追求して設計されており、純粋な CSS アイコン、値なし Attributify、Tagify、Web フォントなどの新機能を導入
 
 - **カスタマイズ性**:
-  - UnoCSS は、すべての機能がオプションで提供されており、独自のコンベンションやデザインシステム、プリセットを簡単に作成できる
+  - UnoCSS は、すべての機能がオプションで提供されており、独自の規約やデザインシステム、プリセットを簡単に作成できる
 
 ## UnoCSS vs Tailwind CSS
 
