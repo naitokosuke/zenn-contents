@@ -50,9 +50,9 @@ _オンデマンドな爆速アトミック CSS エンジン_
 もちろん UnoCSS もめちゃ "Joyful" です。
 
 この記事は長いです。
-後でも言及しますが、疲れる前に 
+後でも言及しますが、疲れる前に
 
-- [公式Playground](https://unocss.dev/play/)
+- [公式 Playground](https://unocss.dev/play/)
 - [interactive docs](https://unocss.dev/interactive/)
 
 で "Joyful" を体験してください。
@@ -812,9 +812,9 @@ rules: [
   [
     /^custom-autocomplete-m-(\d)$/,
     ([, d]) => ({ margin: `${d / 4}rem` }),
-    { autocomplete: 'custom-autocomplete-m-<num>' },
+    { autocomplete: "custom-autocomplete-m-<num>" },
   ],
-]
+];
 ```
 
 自動補完は [Playground](https://unocss.dev/play/) でも確認することができます。
