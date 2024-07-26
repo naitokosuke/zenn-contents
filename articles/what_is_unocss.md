@@ -339,7 +339,7 @@ Windi CSS が 2023 年 3 月時点で活発なメンテも行われておらず�
   - UnoCSS は CDN ランタイムやインスペクタなどの機能をサポートし、ビルドツールとの深い統合を提供
   - Tailwind CSS は PostCSS プラグインとして提供されている
 
-## TailWind CSS から UnoCSS への移行
+## Tailwind CSS から UnoCSS への移行
 
 Tailwind CSS で大幅にカスタマイズされたプロジェクトを UnoCSS に移行することは、困難を伴うかもしれません。
 これは、UnoCSS が Tailwind CSS のプラグインや設定をサポートしていないためです。
