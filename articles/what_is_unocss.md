@@ -11,7 +11,7 @@ published: false
 
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
 
-今回は最近注目を集めている ~~CSS フレームワーク~~ Atomic CSS エンジンである、UnoCSS について書いていきます。
+今回は最近注目を集めている ~~CSS フレームワーク~~ **Atomic CSS エンジン**である、UnoCSS について書いていきます。
 UnoCSS は軽量かつ柔軟で、開発者にとってとても扱いやすいツールです。
 
 流行している Tailwind CSS との比較についても言及し、UnoCSS の特徴について説明します。
@@ -20,7 +20,7 @@ UnoCSS は軽量かつ柔軟で、開発者にとってとても扱いやすい�
 おことわり
 
 ぼくは UnoCSS を業務で利用したことはありません。
-使ってみようと勉強している段階なので、具体的な TIPS はこの記事にはあまり含まれていません。
+勉強している段階なので、具体的な TIPS はこの記事ではあまり含まれていません。
 公式ドキュメントの翻訳ベースの内容になっています。
 :::
 
@@ -29,6 +29,10 @@ UnoCSS は軽量かつ柔軟で、開発者にとってとても扱いやすい�
 https://unocss.dev/
 
 https://github.com/unocss/unocss
+
+公式ドキュメントのほかに、UnoCSS 作者である Anthony Fu 氏[^1]のブログを読むことでより UnoCSS についてのより深い理解や、UnoCSS の背景知識を得ることできます。
+
+https://antfu.me/posts
 
 # UnoCSS とは
 
@@ -47,7 +51,7 @@ _オンデマンドな即時的アトミック CSS エンジン_
 > - Fast
 > - Joyful
 
-技術的の説明で、"Joyful" があるのはとても珍しい気がします。いいですね。
+技術的の説明で、**"Joyful"** があるのはとても珍しい気がします。いいですね。
 ぼくは UnoCSS 作者の [Anthony Fu 氏](https://antfu.me/) のファンなんですが、彼の手がける OSS はどれも "Joyful" だと思います。
 もちろん UnoCSS もめちゃ "Joyful" です。
 
@@ -153,7 +157,7 @@ export default defineConfig({
 
 > Atomic CSS is the approach to CSS architecture that favors small, single-purpose classes with names based on visual function.
 
-Atomic CSS とは、視覚的な機能に基づいて命名された単一の目的を持つ小さなクラスを支持する CSS アーキテクチャのアプローチである。
+Atomic CSS とは、**視覚的な機能に基づいて命名された単一の目的を持つ小さなクラス**を支持する CSS アーキテクチャのアプローチである。
 
 Atomic CSS は関数型 CSS(Functional CSS) や CSS ユーティリティ(CSS utilities)とも呼ばれています。
 基本的に Atomic CSS フレームワークは以下のような CSS の集まりであると言えるでしょう。
@@ -190,10 +194,10 @@ HMR についても有効です。
 ## Preset
 
 プリセットは UnoCSS の心臓です。
-プリセットのおかげでカスタムフレームワークをすぐに作成できてしまいます。
+プリセットのおかげでカスタムフレームワークをすぐに作成することができます。
 
-定義した CSS ユーティリティはプリセットとして共有することができます。
-例えば、企業のデザインシステム用にプリセットを切り出しておいて、それを共有できます。
+定義した CSS ユーティリティはプリセットとして共有できます。
+(例えば、企業のデザインシステム用にプリセットを切り出しておいて、それを共有するなど。)
 
 ```ts:my-preset.ts
 import { Preset } from 'unocss'
@@ -240,11 +244,11 @@ https://unocss.dev/presets/#presets
 2024 年 7 月現在、[@unocss/preset-uno](https://unocss.dev/presets/uno) は [@unocss/preset-wind](https://unocss.dev/presets/wind) と同一のプリセットになっています。
 :::
 
-コミュニティプリセットも多くあります。
+**コミュニティ**プリセットも多くあります。
 
 https://unocss.dev/presets/community
 
-探すのも楽しいので気になる方はぜひご自身で探してみてください。
+探すのも楽しいので気になる方はぜひご自身で探してみてください 👍
 
 ## Playground & Interactive Docs
 
@@ -257,13 +261,15 @@ https://unocss.dev/play/
 
 https://unocss.dev/interactive/
 
+![UnoCSS interactive docs のスクショ](/images/what_is_unocss/image4.png)
+
 何から検索してよいのかわからないときは random: を選択して、まずはどんなのがあるのか見てみるのもよいでしょう。
 デフォルトプリセットの検索だけでなく、一般的な CSS プロパティも検索することができます。(MDN へのリンク)
-UnoCSS は利用しなくても、このインタラクティブドキュメントを利用して学習するなどもよいのではないでしょうか。
+UnoCSS は利用してなくても、CSS 学習にも使えるのではないでしょうか 🤔
 
 ## Integrations
 
-Vite, Webpack といったツールや、Nuxt, Astro といったフレームワークとも統合できます。
+Vite, Webpack といったビルドツールや、Nuxt, Astro といったフレームワークなど、さまざまなものと統合できます。
 VS Code の拡張機能もあります。
 
 https://unocss.dev/integrations/
@@ -289,14 +295,19 @@ https://unocss.dev/guide/#examples
 
 # Why UnoCSS?
 
-UnoCSS の背景をより理解するために、UnoCSS 作者である [Antony Fu 氏](https://antfu.me/)のブログを読むことが推奨されています。
+UnoCSS の背景をより理解するために、UnoCSS 作者である [Antony Fu 氏](https://antfu.me/)のブログ記事を読むことが推奨されています。
 https://antfu.me/posts/reimagine-atomic-css
 
 # How is UnoCSS Different from X?
 
-UnoCSS は Windi CSS チームメンバーの一人が作りました。
+UnoCSS は Windi CSS チームメンバーの一人(Anthony Fu 氏)が作りました。
+
+https://x.com/antfu7/status/1445368569550688256
+
+https://x.com/antfu7/status/1452802545118711812
+
 Windi CSS から多くのインスピレーションを受けています。
-Windi CSS が 2023 年 3 月時点で活発なメンテも行われておらず、UnoCSS は Windi CSS の _"spiritual successor"_(_「精神的続編」_) とされています。
+Windi CSS は 2023 年 3 月時点で活発なメンテも行われておらず、UnoCSS は Windi CSS の _"spiritual successor"_(_「精神的続編」_) とされています。
 
 公式ドキュメントには Windi CSS, TailWind CSS それぞれとの比較がされています。
 
@@ -306,12 +317,12 @@ https://unocss.dev/guide/why#how-is-unocss-different-from-x
 
 - **起源と開発経緯**:
 
-  - UnoCSS は Windi CSS チームのメンバーによって始められ、Windi CSS の多くのアイデアを取り入れている。
-  - Windi CSS は 2023 年 3 月以降、積極的なメンテナンスが行われていないが、UnoCSS はその「精神的続編」として位置づけられている
+  - UnoCSS は Windi CSS チームのメンバーによって始められ、Windi CSS の多くのアイデアを取り入れている
+  - UnoCSS は Windi CSS の「精神的続編」として位置づけられている
 
 - **共通の特徴**:
 
-  - オンデマンドでのスタイル生成。
+  - オンデマンドでのスタイル生成
   - 多くの機能を共有
     - Attributify モード
     - ショートカット
@@ -321,10 +332,16 @@ https://unocss.dev/guide/why#how-is-unocss-different-from-x
 
 - **独自の特徴**:
 
-  - UnoCSS は最大限の拡張性とパフォーマンスを追求して設計されており、純粋な CSS アイコン、値なし Attributify、Tagify、Web フォントなどの新機能を導入
+  - UnoCSS は最大限の拡張性とパフォーマンスを追求して設計
+  - WindiCSS にはなかった新機能
+    - 純粋な CSS アイコン
+    - 値なし Attributify
+    - Tagify
+    - Web フォント
+    - など
 
 - **カスタマイズ性**:
-  - UnoCSS は、すべての機能がオプションで提供されており、独自の規約やデザインシステム、プリセットを簡単に作成できる
+  - UnoCSS はすべての機能がオプションで提供されており、独自の規約やデザインシステム、プリセットを簡単に作成できる
 
 ## UnoCSS vs Tailwind CSS
 
@@ -344,13 +361,16 @@ https://unocss.dev/guide/why#how-is-unocss-different-from-x
 
 - **機能の追加**:
 
-  - UnoCSS は独自のプリセットやコミュニティによるさまざまなプリセットを使用して、新機能を実験しやすい
   - Tailwind CSS は独自のプラグインシステムや設定に依存していて、特定の機能を追加する際に制限がある
+  - UnoCSS は柔軟であるため新機能を実験しやすい
 
 - **サポートと統合**:
 
   - UnoCSS は CDN ランタイムやインスペクタなどの機能をサポートし、ビルドツールとの深い統合を提供
   - Tailwind CSS は PostCSS プラグインとして提供されている
+
+UnoCSS は Windi CSS のアイデアを取り入れつつも、さらに進化させた「精神的続編」として位置づけられており、柔軟性と拡張性を重視した設計が特徴です。
+一方、Tailwind CSS は包括的なユーティリティクラスセットと PostCSS プラグインとしてのアプローチにより広く利用されていますが、カスタマイズ性や柔軟性においては一定の制約があると言えます。
 
 # Official Presets and Config
 
