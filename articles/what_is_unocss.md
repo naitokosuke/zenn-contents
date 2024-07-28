@@ -358,10 +358,21 @@ Tailwind CSS で大幅にカスタマイズされたプロジェクトを UnoCSS
 
 # 特徴的な機能
 
-UnoCSS の特徴的な機能は主に 2 種類に分かれます。
+UnoCSS の特徴として特筆すべきは、
 
-- 公式プリセット
-- 設定
+- 多彩な公式プリセット(preset)
+- 柔軟な設定システム(config)
+
+です。
+
+多彩な公式プリセットは基本的なスタイル設定だけでなく、特定のデザインニーズに対応するものまで幅広く提供されています。
+開発者はプロジェクトの要求に応じて適切なプリセットを選択し、迅速にスタイリングを進めることができます。
+
+柔軟な設定システムは、テーマ設定、プラグインの追加、ショートコードの定義など、さまざまなカスタマイズオプションをサポートしています。
+プロジェクトの一貫性を保ちながら、特定の要件に合わせた詳細な調整が可能です。
+
+このように、UnoCSS は高度にカスタマイズ可能なツールであり、開発者が直感的に使いこなせるよう設計されています。
+公式プリセットと設定システムの組み合わせにより、開発者は独自のデザインや機能をプロジェクトに統合しやすくなっています。
 
 ## 公式プリセット
 
@@ -370,6 +381,18 @@ UnoCSS の特徴的な機能は主に 2 種類に分かれます。
 https://unocss.dev/presets/attributify
 
 `@unocss/preset-attributify` プリセットを使用すると、ユーティリティをクラスではなく HTML 属性を用いることで実現できます。
+
+```ts:uno.config.ts
+import { presetAttributify } from 'unocss'
+
+export default defineConfig({
+  presets: [
+    presetAttributify({ /* preset options */ }),
+    // ...
+  ],
+})
+```
+
 例えば、ユーティリティクラスを用いてボタンを作成しようとすると、以下のようになることがあります。
 
 ```html
@@ -407,6 +430,64 @@ https://unocss.dev/presets/attributify
 ```html
 <button border="~ red">Button</button>
 ```
+
+値のない属性も使用できます。
+
+```html
+<div class="m-2 rounded text-teal-400" />
+```
+
+```html
+<div m-2 rounded text-teal-400 />
+```
+
+:::message
+Attributify モードの使用にあたって注意点がいくつかあります。
+
+- クラス名と HTML 属性名の衝突
+- JSX での属性名の扱い
+
+1. クラス名と HTML 属性名の衝突
+
+https://unocss.dev/presets/attributify#properties-conflicts
+
+既存の属性名との衝突するだけでなく、今後追加される HTML の属性と衝突する恐れもあります。
+プレフィックスの使用(を強制させること)で回避できます。
+
+```ts:uno.config.ts
+export default defineConfig({
+  presets: [
+    // ...
+    presetAttributify({ prefix: 'un-', prefixedOnly: true }),
+    // ...
+  ],
+)}
+```
+
+2. JSX での属性名の扱い
+
+JSX では属性の存在をブール値 `true` として扱うため、`<div foo>` と記述すると、自動的に `<div foo={true}>` に変換されることがあります。
+この変換により、UnoCSS が生成する CSS が対応する HTML 要素に適用されなくなる可能性があります。
+これは UnoCSS が属性の存在だけでなく、属性の値もチェックするためです。
+
+これは [@unocss/transformer-attributify-jsx](https://unocss.dev/transformers/attributify-jsx) の利用でこれを回避できます。
+
+```ts:uno.config.ts
+import { defineConfig, presetAttributify, transformerAttributifyJsx } from 'unocss'
+
+export default defineConfig({
+  // ...
+  presets: [
+    // ...
+    presetAttributify(),
+  ],
+  transformers: [
+    transformerAttributifyJsx(), // <--
+  ],
+})
+```
+
+:::
 
 ### Tagify モード
 
@@ -459,9 +540,7 @@ https://unocss.dev/presets/web-fonts
 `@unocss/preset-web-fonts` プリセットでは、単にフォント名から Web フォントを利用することができます。
 
 ```ts:config.uno.ts
-import { defineConfig } from 'unocss'
-import presetWebFonts from '@unocss/preset-web-fonts'
-import presetUno from '@unocss/preset-uno'
+import { defineConfig, presetWebFonts, presetUno } from 'unocss'
 import axios from 'axios'
 import ProxyAgent from 'proxy-agent'
 
