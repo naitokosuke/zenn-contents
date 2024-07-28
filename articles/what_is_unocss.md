@@ -457,7 +457,7 @@ export default defineConfig({
 <div m-2 rounded text-teal-400 />
 ```
 
-:::message
+:::message alert
 Attributify モードの使用にあたって注意点がいくつかあります。
 
 - クラス名と HTML 属性名の衝突
