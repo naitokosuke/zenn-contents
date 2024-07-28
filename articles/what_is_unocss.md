@@ -267,6 +267,17 @@ https://unocss.dev/interactive/
 デフォルトプリセットの検索だけでなく、一般的な CSS プロパティも検索することができます。(MDN へのリンク)
 UnoCSS は利用してなくても、CSS 学習にも使えるのではないでしょうか 🤔
 
+### Browser Style Reset
+
+https://unocss.dev/guide/style-reset#browser-style-reset
+
+UnoCSS はデフォルトでスタイルのリセットやプリフライトを提供していません。
+グローバルな CSS を汚染しないようにするためと、最大限の柔軟性を保つためです。
+
+UnoCSS を単独で使用する場合は、[Normalize.css](https://github.com/csstools/normalize.css) のようなリセットライブラリを使用する必要があります。
+簡単に利用できる小さなコレクション(`@unocss/preset`)も提供されており、npm などでインストールできます。
+含まれているリセット CSS のうちいずれかを `main.js` にインポートして利用できます。
+
 ### Integrations
 
 Vite, Webpack といったビルドツールや、Nuxt, Astro といったフレームワークなど、さまざまなものと統合できます。
