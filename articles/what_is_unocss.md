@@ -307,7 +307,7 @@ https://unocss.dev/guide/why#how-is-unocss-different-from-x
 - **起源と開発経緯**:
 
   - UnoCSS は Windi CSS チームのメンバーによって始められ、Windi CSS の多くのアイデアを取り入れている。
-  - Windi CSS は 2023 年 3 月以降、積極的なメンテナンスが行われていないが、UnoCSS はその「スピリチュアルな後継」として位置づけられている
+  - Windi CSS は 2023 年 3 月以降、積極的なメンテナンスが行われていないが、UnoCSS はその「精神的続編」として位置づけられている
 
 - **共通の特徴**:
 
