@@ -7,7 +7,7 @@ publication_name: "comm_vue_nuxt"
 published: false
 ---
 
-# はじめに
+## はじめに
 
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
 
@@ -24,7 +24,7 @@ UnoCSS は軽量かつ柔軟で、開発者にとってとても扱いやすい�
 公式ドキュメントの翻訳ベースの内容になっています。
 :::
 
-# ドキュメント
+## ドキュメント
 
 https://unocss.dev/
 
@@ -34,7 +34,7 @@ https://github.com/unocss/unocss
 
 https://antfu.me/posts
 
-# UnoCSS とは
+## UnoCSS とは
 
 ![UnoCSS 公式ページのスクショ](/images/what_is_unocss/image3.png)
 
@@ -63,7 +63,7 @@ _オンデマンドな即時的アトミック CSS エンジン_
 
 で "Joyful" な Atomic CSS エンジンを体験してください。
 
-# UnoCSS がアツい！
+## UnoCSS がアツい！
 
 最近、CSS フレームワークのトレンドを追っている方なら、UnoCSS の名前を目にする機会が増えているかもしれません。
 特に海外では注目を集めており、CSS 人気調査サイトでもその人気が急上昇していることが報告されています。
@@ -84,7 +84,7 @@ https://2023.stateofcss.com/ja-JP/css-frameworks/
 この記事がその一助となれば幸いです。
 コミュニティをみんなで盛り上げていきましょう！
 
-# What is UnoCSS?
+## What is UnoCSS?
 
 https://unocss.dev/guide/#what-is-unocss
 
@@ -149,7 +149,7 @@ export default defineConfig({
 }
 ```
 
-## What is Atomic CSS?
+### What is Atomic CSS?
 
 そもそも Atomic CSS とはなんでしょうか。
 [Antony Fu 氏](https://antfu.me/)のブログ [Reimagine Atomic CSS](https://antfu.me/posts/reimagine-atomic-css) で言及されています。
@@ -175,7 +175,7 @@ Atomic CSS は関数型 CSS(Functional CSS) や CSS ユーティリティ(CSS ut
 Atomic CSS の是非については多くの場所で議論されています。
 この記事では割愛します。
 
-## Configuration
+### Configuration
 
 UnoCSS の設定はそれ専用のファイルに記述することが強く推奨されています。
 デフォルトではプロジェクトのルートディレクトリ直下にある
@@ -191,7 +191,7 @@ HMR についても有効です。
 
 本記事では UnoCSS についての設定は `uno.config.ts` を用いる(指す)ことにします。
 
-## Preset
+### Preset
 
 プリセットは UnoCSS の心臓です。
 プリセットのおかげでカスタムフレームワークをすぐに作成することができます。
@@ -250,7 +250,7 @@ https://unocss.dev/presets/community
 
 探すのも楽しいので気になる方はぜひご自身で探してみてください 👍
 
-## Playground & Interactive Docs
+### Playground & Interactive Docs
 
 公式 Playground があります。
 ブラウザ上ですぐに試すことができるのはとてもありがたいです。
@@ -267,7 +267,7 @@ https://unocss.dev/interactive/
 デフォルトプリセットの検索だけでなく、一般的な CSS プロパティも検索することができます。(MDN へのリンク)
 UnoCSS は利用してなくても、CSS 学習にも使えるのではないでしょうか 🤔
 
-## Integrations
+### Integrations
 
 Vite, Webpack といったビルドツールや、Nuxt, Astro といったフレームワークなど、さまざまなものと統合できます。
 VS Code の拡張機能もあります。
@@ -285,7 +285,7 @@ https://unocss.dev/integrations/
 - [ESLint](https://unocss.dev/integrations/eslint)
 - [VS Code](https://unocss.dev/integrations/vscode)
 
-# Examples
+## Examples
 
 実際の UnoCSS 使用例が公式 GitHub リポジトリにあります。
 https://github.com/unocss/unocss/tree/main/examples
@@ -293,12 +293,12 @@ https://github.com/unocss/unocss/tree/main/examples
 StackBlitz で実際に動かすことのできるものもあります。
 https://unocss.dev/guide/#examples
 
-# Why UnoCSS?
+## Why UnoCSS?
 
 UnoCSS の背景をより理解するために、UnoCSS 作者である [Antony Fu 氏](https://antfu.me/)のブログ記事を読むことが推奨されています。
 https://antfu.me/posts/reimagine-atomic-css
 
-# How is UnoCSS Different from X?
+## How is UnoCSS Different from X?
 
 UnoCSS は Windi CSS チームメンバーの一人(Anthony Fu 氏)が作りました。
 
@@ -313,7 +313,7 @@ Windi CSS は 2023 年 3 月時点で活発なメンテも行われておらず�
 
 https://unocss.dev/guide/why#how-is-unocss-different-from-x
 
-## UnoCSS vs Windi CSS
+### UnoCSS vs Windi CSS
 
 - **起源と開発経緯**:
 
@@ -343,7 +343,7 @@ https://unocss.dev/guide/why#how-is-unocss-different-from-x
 - **カスタマイズ性**:
   - UnoCSS はすべての機能がオプションで提供されており、独自の規約やデザインシステム、プリセットを簡単に作成できる
 
-## UnoCSS vs Tailwind CSS
+### UnoCSS vs Tailwind CSS
 
 - **インスピレーション**:
 
@@ -372,7 +372,7 @@ https://unocss.dev/guide/why#how-is-unocss-different-from-x
 UnoCSS は Windi CSS のアイデアを取り入れつつも、さらに進化させた「精神的続編」として位置づけられており、柔軟性と拡張性を重視した設計が特徴です。
 一方、Tailwind CSS は包括的なユーティリティクラスセットと PostCSS プラグインとしてのアプローチにより広く利用されていますが、カスタマイズ性や柔軟性においては一定の制約があると言えます。
 
-# Official Presets and Config
+## Official Presets and Config
 
 UnoCSS の特徴として特筆すべきは、
 
@@ -390,9 +390,9 @@ UnoCSS の特徴として特筆すべきは、
 このように、UnoCSS は高度にカスタマイズ可能なツールであり、開発者が直感的に使いこなせるよう設計されています。
 公式プリセットと設定システムの組み合わせにより、開発者は独自のデザインや機能をプロジェクトに統合しやすくなっています。
 
-## Official Preset
+### Official Preset
 
-### Attributify モード
+#### Attributify モード
 
 https://unocss.dev/presets/attributify
 
@@ -505,7 +505,7 @@ export default defineConfig({
 
 :::
 
-### Tagify モード
+#### Tagify モード
 
 https://unocss.dev/presets/tagify
 
@@ -528,7 +528,7 @@ I'm feeling <i-line-md-emoji-grin /> today!
 
 のように記述することができます。
 
-### Typography
+#### Typography
 
 https://unocss.dev/presets/typography
 
@@ -549,7 +549,7 @@ https://unocss.dev/presets/typography
 これは `not`が CSS セレクタでのみ使用でき、UnoCSS ではスキャンできないからです。
 :::
 
-### Web Fonts
+#### Web Fonts
 
 https://unocss.dev/presets/web-fonts
 
@@ -585,7 +585,7 @@ export default defineConfig({
 
 `none` を`provider`オプションに指定することで、フォントをシステムフォントとして扱うことができます。
 
-### Rem to px
+#### Rem to px
 
 `@unocss/preset-rem-to-px` プリセットを用いることで `rem` を `px` へ変換することができます。
 (デフォルトでは `1rem = 16px`)
@@ -612,13 +612,13 @@ export default defineConfig({
 
 となります。
 
-## Config
+### Config
 
 https://unocss.dev/config/
 
 > Configurations are what make UnoCSS powerful.
 
-### Shortcuts
+#### Shortcuts
 
 複数のルールを組み合わせて短縮することができます。
 これは Windi CSS に着想を得ています。
@@ -651,7 +651,7 @@ shortcuts: [
 ];
 ```
 
-### Theme
+#### Theme
 
 UnoCSS では Tailwind CSS, Windi CSS ではおなじみのテーマ化システムをサポートしています。
 設定に `theme` プロパティを記述すればデフォルトのテーマに深く統合されます。
@@ -724,7 +724,7 @@ theme: {
 }
 ```
 
-### Variants
+#### Variants
 
 バリアントを用いることで既存のルールにバリエーションを適用することができます。
 (Tailwind CSS の `hover:` バリアントのように)
@@ -770,7 +770,7 @@ rules: [
 
 https://github.com/unocss/unocss/tree/main/packages/preset-mini/src/_variants
 
-### Extractors
+#### Extractors
 
 ソースコード中のユーティリティを抽出するために "extractor" が使われます。
 
@@ -795,7 +795,7 @@ Hello [World]{.text-blue-500}
 
 からは `text-2xl`, `font-bold`, `text-blue-500`, `w-32`, `h-32` クラスが抽出されます。
 
-### Transformers
+#### Transformers
 
 規約のサポートのために、ソースコード変形のための統一されたインターフェースを提供します。
 
@@ -841,7 +841,7 @@ https://unocss.dev/transformers/compile-class
 
 のようにコンパイルされます。
 
-### Preflights
+#### Preflights
 
 生の CSS を "preflight" として設定から注入することができます。
 `theme` を用いて CSS をカスタマイズできます。
@@ -860,7 +860,7 @@ preflights: [
 ];
 ```
 
-### Layers
+#### Layers
 
 CSS の順序は優先順位に影響します。
 エンジンはルールの順序を保持しますが、ユーティリティのいくつかをグループ化して、その順序を明示的に制御したい場合もあります。
@@ -904,7 +904,7 @@ layers: {
 
 順序を指定しない場合はレイヤー名の辞書順になります。
 
-### Autocomplete
+#### Autocomplete
 
 https://unocss.dev/config/autocomplete
 
@@ -952,7 +952,7 @@ autocomplete: {
 }
 ```
 
-# おわりに
+## おわりに
 
 この記事では、UnoCSS についてその特徴や利点、設定方法、そして他の CSS フレームワークとの比較などを紹介しました。
 UnoCSS は、軽量で柔軟なアトミック CSS エンジンとして、開発者にとって非常に便利なツールです。
