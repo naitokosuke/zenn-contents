@@ -171,7 +171,7 @@ Atomic CSS は関数型 CSS(Functional CSS) や CSS ユーティリティ(CSS ut
 Atomic CSS の是非については多くの場所で議論されています。
 この記事では割愛します。
 
-## 設定ファイル
+## Configuration
 
 UnoCSS の設定はそれ専用のファイルに記述することが強く推奨されています。
 デフォルトではプロジェクトのルートディレクトリ直下にある
@@ -187,7 +187,7 @@ HMR についても有効です。
 
 本記事では UnoCSS についての設定は `uno.config.ts` を用いる(指す)ことにします。
 
-## プリセット
+## Preset
 
 プリセットは UnoCSS の心臓です。
 プリセットのおかげでカスタムフレームワークをすぐに作成できてしまいます。
@@ -292,13 +292,15 @@ https://unocss.dev/guide/#examples
 UnoCSS の背景をより理解するために、UnoCSS 作者である [Antony Fu 氏](https://antfu.me/)のブログを読むことが推奨されています。
 https://antfu.me/posts/reimagine-atomic-css
 
-# UnoCSS とその他の違い
+# How is UnoCSS Different from X?
 
 UnoCSS は Windi CSS チームメンバーの一人が作りました。
 Windi CSS から多くのインスピレーションを受けています。
-Windi CSS が 2023 年 3 月時点で活発なメンテも行われておらず、UnoCSS は Windi CSS の _"spiritual successor"_ (_「精神的続編」_) とされています。
+Windi CSS が 2023 年 3 月時点で活発なメンテも行われておらず、UnoCSS は Windi CSS の _"spiritual successor"_(_「精神的続編」_) とされています。
 
 公式ドキュメントには Windi CSS, TailWind CSS それぞれとの比較がされています。
+
+https://unocss.dev/guide/why#how-is-unocss-different-from-x
 
 ## UnoCSS vs Windi CSS
 
@@ -350,13 +352,7 @@ Windi CSS が 2023 年 3 月時点で活発なメンテも行われておらず�
   - UnoCSS は CDN ランタイムやインスペクタなどの機能をサポートし、ビルドツールとの深い統合を提供
   - Tailwind CSS は PostCSS プラグインとして提供されている
 
-## Tailwind CSS から UnoCSS への移行
-
-Tailwind CSS で大幅にカスタマイズされたプロジェクトを UnoCSS に移行することは、困難を伴うかもしれません。
-これは、UnoCSS が Tailwind CSS のプラグインや設定をサポートしていないためです。
-しかし、UnoCSS の高いパフォーマンスと拡張性は、移行の難しさや必要な苦労に見合った価値があるでしょう。
-
-# 特徴的な機能
+# Official Presets and Config
 
 UnoCSS の特徴として特筆すべきは、
 
@@ -374,7 +370,7 @@ UnoCSS の特徴として特筆すべきは、
 このように、UnoCSS は高度にカスタマイズ可能なツールであり、開発者が直感的に使いこなせるよう設計されています。
 公式プリセットと設定システムの組み合わせにより、開発者は独自のデザインや機能をプロジェクトに統合しやすくなっています。
 
-## 公式プリセット
+## Official Preset
 
 ### Attributify モード
 
