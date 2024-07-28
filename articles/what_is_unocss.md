@@ -30,13 +30,15 @@ https://unocss.dev/
 
 https://github.com/unocss/unocss
 
-# UnoCSS の特徴
+# UnoCSS とは
+
+![UnoCSS 公式ページのスクショ](/images/what_is_unocss/image3.png)
 
 > Instant On-demand Atomic CSS Engine
 
 キャッチコピーのように訳すとすれば、
 
-_オンデマンドな爆速アトミック CSS エンジン_
+_オンデマンドな即時的アトミック CSS エンジン_
 
 といったところでしょうか。
 
@@ -46,18 +48,21 @@ _オンデマンドな爆速アトミック CSS エンジン_
 > - Joyful
 
 技術的の説明で、"Joyful" があるのはとても珍しい気がします。いいですね。
-ぼくは UnoCSS 作者の [Anthony Fu 氏](https://antfu.me/) のファンなんですが、彼の手がける OSS はどれも "Joyful" です。
+ぼくは UnoCSS 作者の [Anthony Fu 氏](https://antfu.me/) のファンなんですが、彼の手がける OSS はどれも "Joyful" だと思います。
 もちろん UnoCSS もめちゃ "Joyful" です。
 
-この記事は長いです。
+この記事は長いです 🙇‍♂️
 後でも言及しますが、疲れる前に
 
 - [公式 Playground](https://unocss.dev/play/)
 - [interactive docs](https://unocss.dev/interactive/)
 
-で "Joyful" を体験してください。
+で "Joyful" な Atomic CSS エンジンを体験してください。
 
 # UnoCSS がアツい！
+
+最近、CSS フレームワークのトレンドを追っている方なら、UnoCSS の名前を目にする機会が増えているかもしれません。
+特に海外では注目を集めており、CSS 人気調査サイトでもその人気が急上昇していることが報告されています。
 
 https://risingstars.js.org/2022/ja#section-css-in-js
 
@@ -68,6 +73,12 @@ https://risingstars.js.org/2023/ja#section-css-in-js
 https://2023.stateofcss.com/ja-JP/css-frameworks/
 
 ![State of CSS CSS フレームワーク部門満足度ランキング2位](/images/what_is_unocss/image2.png)
+
+しかし、日本ではまだ UnoCSS の認知度が高くないのかなと感じております。
+公式ドキュメントをはじめ、日本語での情報の少なさも一因と考えられます。
+日本語での情報が増え、利用者が増えることを願っています。
+この記事がその一助となれば幸いです。
+コミュニティをみんなで盛り上げていきましょう！
 
 # What is UnoCSS?
 
@@ -219,7 +230,7 @@ https://unocss.dev/presets/#presets
 [@unocss/preset-wind](https://unocss.dev/presets/wind) は TailWind CSS / Windi CSS のコンパクトなプリセットです。
 
 :::message alert
-このプリセットにより TailWind CSS と Windi CSS との互換性の提供を目指していますが、完全な互換性は保証されていません。
+このプリセットで TailWind CSS と Windi CSS との互換性の提供を目指していますが、完全な互換性は保証されていません。
 具体的な利用方法についてはそれぞれの公式ドキュメントを参照してくださいとのことです。
 :::
 
