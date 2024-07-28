@@ -1,12 +1,3 @@
----
-title: "爆速 Atomic CSS エンジン UnoCSS を徹底解説"
-emoji: "1️⃣"
-type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["UnoCSS", "CSS"]
-publication_name: "comm_vue_nuxt"
-published: false
----
-
 ## はじめに
 
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
@@ -310,7 +301,7 @@ https://unocss.dev/guide/#examples
 UnoCSS の背景をより理解するために、UnoCSS 作者である [Antony Fu 氏](https://antfu.me/)のブログ記事を読むことが推奨されています。
 https://antfu.me/posts/reimagine-atomic-css
 
-## How is UnoCSS Different from X?
+### How is UnoCSS Different from X?
 
 UnoCSS は Windi CSS チームメンバーの一人(Anthony Fu 氏)が作りました。
 
@@ -325,12 +316,12 @@ Windi CSS は 2023 年 3 月時点で活発なメンテも行われておらず�
 
 https://unocss.dev/guide/why#how-is-unocss-different-from-x
 
-### UnoCSS vs Windi CSS
+#### UnoCSS vs Windi CSS
 
 - **起源と開発経緯**:
 
   - UnoCSS は Windi CSS チームのメンバーによって始められ、Windi CSS の多くのアイデアを取り入れている
-  - UnoCSS は **Windi CSS の「精神的続編」**として位置づけられている
+  - UnoCSS は Windi CSS の「精神的続編」として位置づけられている
 
 - **共通の特徴**:
 
@@ -344,7 +335,7 @@ https://unocss.dev/guide/why#how-is-unocss-different-from-x
 
 - **独自の特徴**:
 
-  - UnoCSS は最大限の**拡張性と**パフォーマンス\*\*を追求して設計
+  - UnoCSS は最大限の**拡張性**と**パフォーマンス**を追求して設計
   - WindiCSS にはなかった新機能
     - 純粋な CSS アイコン
     - 値なし Attributify
@@ -355,7 +346,7 @@ https://unocss.dev/guide/why#how-is-unocss-different-from-x
 - **カスタマイズ性**:
   - UnoCSS は**すべての機能がオプション**で提供されており、独自の規約やデザインシステム、プリセットを簡単に作成できる
 
-### UnoCSS vs Tailwind CSS
+#### UnoCSS vs Tailwind CSS
 
 - **インスピレーション**:
 
