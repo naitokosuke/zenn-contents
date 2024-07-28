@@ -31,7 +31,7 @@ https://unocss.dev/
 
 https://github.com/unocss/unocss
 
-公式ドキュメントのほかに、UnoCSS 作者である Anthony Fu 氏[^1]のブログを読むことでより UnoCSS についてのより深い理解や、UnoCSS の背景知識を得ることできます。
+公式ドキュメントのほかに、UnoCSS 作者である Anthony Fu 氏のブログを読むことでより UnoCSS についてのより深い理解や、UnoCSS の背景知識を得ることできます。
 
 https://antfu.me/posts
 
