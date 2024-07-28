@@ -1,6 +1,6 @@
 ---
-title: "UnoCSS【atomic CSS engine】"
-emoji: "🎃"
+title: "Atomic CSS エンジン UnoCSS を徹底解説"
+emoji: "1️⃣"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["UnoCSS", "CSS"]
 publication_name: "comm_vue_nuxt"
@@ -330,11 +330,11 @@ https://unocss.dev/guide/why#how-is-unocss-different-from-x
 - **起源と開発経緯**:
 
   - UnoCSS は Windi CSS チームのメンバーによって始められ、Windi CSS の多くのアイデアを取り入れている
-  - UnoCSS は Windi CSS の「精神的続編」として位置づけられている
+  - UnoCSS は **Windi CSS の「精神的続編」**として位置づけられている
 
 - **共通の特徴**:
 
-  - オンデマンドでのスタイル生成
+  - **オンデマンド**でのスタイル生成
   - 多くの機能を共有
     - Attributify モード
     - ショートカット
@@ -344,7 +344,7 @@ https://unocss.dev/guide/why#how-is-unocss-different-from-x
 
 - **独自の特徴**:
 
-  - UnoCSS は最大限の拡張性とパフォーマンスを追求して設計
+  - UnoCSS は最大限の**拡張性と**パフォーマンス\*\*を追求して設計
   - WindiCSS にはなかった新機能
     - 純粋な CSS アイコン
     - 値なし Attributify
@@ -353,7 +353,7 @@ https://unocss.dev/guide/why#how-is-unocss-different-from-x
     - など
 
 - **カスタマイズ性**:
-  - UnoCSS はすべての機能がオプションで提供されており、独自の規約やデザインシステム、プリセットを簡単に作成できる
+  - UnoCSS は**すべての機能がオプション**で提供されており、独自の規約やデザインシステム、プリセットを簡単に作成できる
 
 ### UnoCSS vs Tailwind CSS
 
@@ -368,7 +368,7 @@ https://unocss.dev/guide/why#how-is-unocss-different-from-x
 
 - **設計目標**:
 
-  - UnoCSS はフルに拡張可能でカスタマイズ可能な設計を持ち、Tailwind CSS よりも柔軟性が高い("un-opinionated")
+  - UnoCSS は**フルに拡張可能**で**カスタマイズ可能**な設計を持ち、Tailwind CSS よりも**柔軟性が高い**("un-opinionated")
   - Tailwind CSS は "opinionated" であり、独自のデザインシステムを構築するのが難しい場合がある
 
 - **機能の追加**:
@@ -381,7 +381,7 @@ https://unocss.dev/guide/why#how-is-unocss-different-from-x
   - UnoCSS は CDN ランタイムやインスペクタなどの機能をサポートし、ビルドツールとの深い統合を提供
   - Tailwind CSS は PostCSS プラグインとして提供されている
 
-UnoCSS は Windi CSS のアイデアを取り入れつつも、さらに進化させた「精神的続編」として位置づけられており、柔軟性と拡張性を重視した設計が特徴です。
+UnoCSS は Windi CSS のアイデアを取り入れつつも、さらに進化させた「精神的続編」として位置づけられており、**柔軟性**と**拡張性**を重視した設計が特徴です。
 一方、Tailwind CSS は包括的なユーティリティクラスセットと PostCSS プラグインとしてのアプローチにより広く利用されていますが、カスタマイズ性や柔軟性においては一定の制約があると言えます。
 
 ## Official Presets and Config
@@ -970,8 +970,8 @@ autocomplete: {
 UnoCSS は、軽量で柔軟なアトミック CSS エンジンとして、開発者にとって非常に便利なツールです。
 多彩な公式プリセットと柔軟な設定システムにより、プロジェクトに最適なスタイルを迅速に実装することができます。
 
-UnoCSS のコミュニティはまだ成長中であり、日本語の情報も少ない状況です。
-しかし、今後の普及とともに、日本語リソースも増えていくことが期待されます。
+UnoCSS の**コミュニティはまだ成長中**であり、日本語の情報も少ない状況です。
+今後の普及とともに、日本語リソースも増えていくことが期待されます。
 この記事がその一助となり、さらに多くの開発者が UnoCSS を利用するきっかけになれば幸いです。
 (公式ドキュメントの日本語翻訳にも挑戦してみたいとぼくは思っています。)
 
