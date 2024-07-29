@@ -270,6 +270,210 @@ UnoCSS を単独で使用する場合は、[Normalize.css](https://github.com/cs
 簡単に利用できる小さなコレクション(`@unocss/preset`)も提供されており、npm などでインストールできます。
 含まれているリセット CSS のうちいずれかを `main.js` にインポートして利用できます。
 
+### Extracting
+
+UnoCSS はコードからユーティリティの使用を探し出し、対応する CSS をオンデマンドに生成します。
+これを抽出("extracting")と呼びます。
+
+UnoCSS ではこの抽出を複数のソースから行います。
+- ビルドツールパイプライン
+- ファイルシステムおよびファイルの監視
+- インラインプレーンテキスト
+
+#### ビルドツールパイプライン
+
+Vite と Webpack の統合によりビルドツールパイプラインからの抽出を可能にしています。
+ビルドツールパイプラインからの抽出は追加のファイル I/O を必要とせず、最も効率的かつ正確です。
+
+デフォルトではビルドパイプライン中の
+
+- `.jsx`, `.tsx`
+- `.vue`
+- `.md`
+- `.html`
+- `.svelte`
+- `.astro`
+
+の拡張子のファイルからユーティリティを抽出します。
+デフォルトでは `.js` も `.ts` は含まれていません。
+
+含めるためには以下のような設定が必要です。
+
+```ts:uno.config.ts
+export default defineConfig({
+  content: {
+    pipeline: {
+      include: [
+        // the default
+        /\.(vue|svelte|[jt]sx|mdx?|astro|elm|php|phtml|html)($|\?)/,
+        // include js/ts files
+        'src/**/*.{js,ts}',
+      ],
+      // exclude files
+      // exclude: []
+    },
+  },
+})
+```
+
+`@unocss-include` という魔法のコメントも利用できます。
+このコメントにより、UnoCSS にこのファイルの読み取りを強制させることができます。
+
+```js
+// @unocss-include
+export const classes = {
+  active: 'bg-primary text-white',
+  inactive: 'bg-gray-200 text-gray-500',
+}
+```
+
+同様に `@unocss-ignore` も利用できます。
+このコメントによりファイル全体を無視させます。
+
+````md
+#  Attributify JSX transformer
+
+Support [valueless attributify](/presets/attributify#valueless-attributify) in JSX/TSX: `@unocss/transformer-attributify-jsx`.
+
+## Presentation
+
+<!-- @unocss-ignore -->
+
+```jsx
+export function Component() {
+  return (
+    <div text-red text-center text-5xl animate-bounce>
+      unocss
+    </div>
+  )
+}
+```
+````
+
+`@unocss-skip-start` と `@unocss-skip-end` を**ペア**で使うことでコードブロックからの抽出をさせないようにできます。
+ペアで使わなければ効果を発揮しないので、必ずペアで使用しましょう。
+
+```html
+<p class="text-green text-xl">
+  Green Large
+</p>
+
+<!-- @unocss-skip-start -->
+<!-- `text-red` will not be extracted -->
+<p class="text-red">
+  Red
+</p>
+<!-- @unocss-skip-end -->
+```
+
+#### ファイルシステム
+
+ビルドツールパイプラインへのアクセスができない場合は手動でファイルを明記する必要があります。
+
+```ts:uno.config.ts
+export default defineConfig({
+  content: {
+    filesystem: [
+      'src/**/*.php',
+      'public/*.html',
+    ],
+  },
+})
+```
+
+#### インラインテキスト
+
+また、別の場所から取得したインラインテキストからユーティリティの使用を抽出することもできます。
+非同期関数を渡してコンテンツを返すことも可能ですが、その関数はビルド時に一度だけ呼び出されることに注意してください。
+
+```ts:uno.config.ts
+export default defineConfig({
+  content: {
+    inline: [
+      // plain text
+      '<div class="p-4 text-red">Some text</div>',
+      // async getter
+      async () => {
+        const response = await fetch('https://example.com')
+        return response.text()
+      },
+    ],
+  },
+})
+```
+
+#### Safelist, Static List Combinations, Blocklist
+
+UnoCSS はビルド時には動作します。
+それはつまり、静的に表示されるユーティリティのみが生成されてアプリに適用されるということです。
+動的に使用されるユーティリティや実行時に外部から取得されるユーティリティは検知されず適用されません。
+
+しかし、下記のような動的なユーティリティを利用したいこともあるでしょう。
+
+```html
+<div class="p-${size}"></div>
+```
+
+UnoCSS はビルド時に静的抽出により動作します。
+そのため、コンパイル時点ですべてのユーティリティの組み合わせを把握できません。
+そのため、`safelist` オプションを利用して手動で指定することができます。
+
+```ts:uno.config.ts
+safelist: 'p-1 p-2 p-3 p-4'.split(' ')
+```
+
+または、
+
+```ts:uno.config.ts
+safelist: [
+  ...Array.from({ length: 4 }, (_, i) => `p-${i + 1}`),
+]
+```
+
+からは以下の CSS が生成されます。
+
+```css
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 0.75rem; }
+.p-4 { padding: 1rem; }
+```
+
+:::message
+真の意味の実行時動的生成を実現のために、[`@unocss/runtime`](https://unocss.dev/integrations/runtime) が提供されています。
+
+これによりブラウザ上で UnoCSS を実行できます。
+DOM の変更を検知してすぐにスタイルを生成します。
+:::
+
+または、すべての組み合わせを列挙しているオブジェクトを用いることもできます。
+利用する `color` を全て把握している場合などを想定しています。
+
+```html
+<div class="${classes[color]}"></div>
+```
+
+```ts
+const classes = {
+  red: 'text-red border-red',
+  green: 'text-green border-green',
+  blue: 'text-blue border-blue',
+}
+```
+
+`safelist` と同様に、ユーティリティを無効にするために `blocklist` を設定できます。
+
+例えば以下の設定では、
+
+```ts:uno.config.ts
+blocklist: [
+  'p-1',
+  /^p-[2-4]$/,
+]
+```
+
+`p-1`, `p-2`, `p-3`, `p-4` の生成を無効にします。
+
 ### Integrations
 
 Vite, Webpack といったビルドツールや、Nuxt, Astro といったフレームワークなど、さまざまなものと統合できます。
