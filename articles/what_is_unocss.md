@@ -3,7 +3,6 @@ title: "爆速 Atomic CSS エンジン UnoCSS を徹底解説"
 emoji: "🎃"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["UnoCSS", "CSS"]
-publication_name: "comm_vue_nuxt"
 published: false
 ---
 
