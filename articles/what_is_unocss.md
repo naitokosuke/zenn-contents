@@ -37,7 +37,13 @@ https://github.com/unocss/unocss
 
 公式ドキュメントのほかに、UnoCSS 作者である Anthony Fu 氏のブログを読むことでより UnoCSS についてのより深い理解や、UnoCSS の背景知識を得ることできます。
 
-https://antfu.me/posts
+https://antfu.me/posts/reimagine-atomic-css
+
+:::details ⚠️
+こちらのポストも背景理解を深めるでしょう。
+
+https://antfu.me/posts/windicss-and-tailwind-jit
+:::
 
 ## UnoCSS とは
 
@@ -289,6 +295,7 @@ UnoCSS はコードからユーティリティの使用を探し出し、対応�
 これを抽出("extracting")と呼びます。
 
 UnoCSS ではこの抽出を複数のソースから行います。
+
 - ビルドツールパイプライン
 - ファイルシステムおよびファイルの監視
 - インラインプレーンテキスト
@@ -335,16 +342,16 @@ export default defineConfig({
 ```js
 // @unocss-include
 export const classes = {
-  active: 'bg-primary text-white',
-  inactive: 'bg-gray-200 text-gray-500',
-}
+  active: "bg-primary text-white",
+  inactive: "bg-gray-200 text-gray-500",
+};
 ```
 
 同様に `@unocss-ignore` も利用できます。
 このコメントによりファイル全体を無視させます。
 
 ````md
-#  Attributify JSX transformer
+# Attributify JSX transformer
 
 Support [valueless attributify](/presets/attributify#valueless-attributify) in JSX/TSX: `@unocss/transformer-attributify-jsx`.
 
@@ -358,7 +365,7 @@ export function Component() {
     <div text-red text-center text-5xl animate-bounce>
       unocss
     </div>
-  )
+  );
 }
 ```
 ````
@@ -367,15 +374,11 @@ export function Component() {
 ペアで使わなければ効果を発揮しないので、必ずペアで使用しましょう。
 
 ```html
-<p class="text-green text-xl">
-  Green Large
-</p>
+<p class="text-green text-xl">Green Large</p>
 
 <!-- @unocss-skip-start -->
 <!-- `text-red` will not be extracted -->
-<p class="text-red">
-  Red
-</p>
+<p class="text-red">Red</p>
 <!-- @unocss-skip-end -->
 ```
 
@@ -446,10 +449,18 @@ safelist: [
 からは以下の CSS が生成されます。
 
 ```css
-.p-1 { padding: 0.25rem; }
-.p-2 { padding: 0.5rem; }
-.p-3 { padding: 0.75rem; }
-.p-4 { padding: 1rem; }
+.p-1 {
+  padding: 0.25rem;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-3 {
+  padding: 0.75rem;
+}
+.p-4 {
+  padding: 1rem;
+}
 ```
 
 :::message
@@ -468,10 +479,10 @@ DOM の変更を検知してすぐにスタイルを生成します。
 
 ```ts
 const classes = {
-  red: 'text-red border-red',
-  green: 'text-green border-green',
-  blue: 'text-blue border-blue',
-}
+  red: "text-red border-red",
+  green: "text-green border-green",
+  blue: "text-blue border-blue",
+};
 ```
 
 `safelist` と同様に、ユーティリティを無効にするために `blocklist` を設定できます。
