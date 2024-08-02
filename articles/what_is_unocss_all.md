@@ -47,7 +47,7 @@ https://antfu.me/posts/windicss-and-tailwind-jit
 
 ## UnoCSS とは
 
-![UnoCSS 公式ページのスクショ](/images/what_is_unocss/image3.png)
+![UnoCSS 公式ページのスクショ](/images/what_is_unocss_all/image3.png)
 
 > Instant On-demand Atomic CSS Engine
 
@@ -81,13 +81,13 @@ _オンデマンドな即時的アトミック CSS エンジン_
 
 https://risingstars.js.org/2022/ja#section-css-in-js
 
-![2022 JavaScript Rising Stars CSS in JS 部門1位](/images/what_is_unocss/image1.png)
+![2022 JavaScript Rising Stars CSS in JS 部門1位](/images/what_is_unocss_all/image1.png)
 
 https://risingstars.js.org/2023/ja#section-css-in-js
 
 https://2023.stateofcss.com/ja-JP/css-frameworks/
 
-![State of CSS CSS フレームワーク部門満足度ランキング2位](/images/what_is_unocss/image2.png)
+![State of CSS CSS フレームワーク部門満足度ランキング2位](/images/what_is_unocss_all/image2.png)
 
 しかし、日本ではまだ UnoCSS の認知度が高くないのかなと感じております。
 公式ドキュメントをはじめ、日本語での情報の少なさも一因と考えられます。
@@ -272,7 +272,7 @@ https://unocss.dev/play/
 
 https://unocss.dev/interactive/
 
-![UnoCSS interactive docs のスクショ](/images/what_is_unocss/image4.png)
+![UnoCSS interactive docs のスクショ](/images/what_is_unocss_all/image4.png)
 
 何から検索してよいのかわからないときは random: を選択して、まずはどんなのがあるのか見てみるのもよいでしょう。
 デフォルトプリセットの検索だけでなく、一般的な CSS プロパティも検索することができます。(MDN へのリンク)
