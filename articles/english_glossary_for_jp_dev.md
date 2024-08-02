@@ -120,10 +120,6 @@ pseudo-class: 擬似クラス
 **意味**: 注意事項、警告
 **例文**: "One **caveat** to consider is that the library may not be fully compatible with older versions of the framework."
 
-:::message
-発音記号: ``
-:::
-
 ## Let's Say
 
 **意味**: 例えば
