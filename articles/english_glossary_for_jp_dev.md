@@ -28,7 +28,7 @@ published: true
 
 少しでもみなさんの学習の役に立てば幸いです。
 
-:::message warn
+:::message alert
 例文については ChatGPT(gpt-4o) に考えてもらいました。
 僕の方で簡単にチェックはしていますが、あらかじめご了承ください。
 :::
