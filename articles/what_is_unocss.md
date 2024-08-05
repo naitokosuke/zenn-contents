@@ -358,7 +358,7 @@ pnpm add -D @unocss/preset-uno
 }
 ```
 
-## attributify モード
+## 属性化モード
 
 https://unocss.dev/presets/attributify#attributify-mode
 
