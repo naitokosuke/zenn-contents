@@ -20,7 +20,7 @@ Tailwind CSS などの CSS フレームワークを利用したことのある�
 ## UnoCSS と日本
 
 UnoCSS は軽量かつ柔軟な **Atomic CSS エンジン**であり、現在最も注目を集めている CSS ツールの一つです。
-🙋‍♂️
+
 https://risingstars.js.org/2022/ja#section-css-in-js
 
 ![2022 JavaScript Rising Stars CSS in JS 部門1位](/images/what_is_unocss/image1.png)
