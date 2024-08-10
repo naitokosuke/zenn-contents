@@ -155,7 +155,7 @@ Tailwind CSS, Windi CSS にどのような課題があり、それを解決す�
 
 そうして生まれた UnoCSS の特徴を紹介していきます。
 
-![UnoCSS interactive docs のスクショ](/images/what_is_unocss/image3.png)
+![UnoCSS 公式ドキュメントトップページ のスクショ](/images/what_is_unocss/image3.png)
 
 > Instant On-demand Atomic CSS Engine
 
