@@ -1,5 +1,5 @@
 ---
-title: "UnoCSS とは: その魅力と誕生秘話"
+title: "経緯を知って UnoCSS を知る"
 emoji: "🎴"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["UnoCSS", "CSS", "CSSinJS"]
