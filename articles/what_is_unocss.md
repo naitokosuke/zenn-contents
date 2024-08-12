@@ -248,14 +248,13 @@ https://github.com/unocss/unocss/tree/main/examples
 設定ファイルに「ルール」として記述できます。
 
 ```ts:uno.config.ts
-// uno.config.ts
-import { defineConfig } from "unocss"
+import { defineConfig } from "unocss";
 
 export default defineConfig({
   rules: [
     ["m-1", { margin: "1px" }],
   ],
-})
+});
 ```
 
 ```html
@@ -271,11 +270,13 @@ export default defineConfig({
 より柔軟(動的)なルールを設定するには正規表現と関数を用います。
 
 ```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
 export default defineConfig({
   rules: [
     [/^m-([.\d]+)$/, ([, num]) => ({ margin: `${num}px` })],
   ],
-})
+});
 ```
 
 ```html
@@ -308,7 +309,7 @@ export const myPreset: Preset = {
   variants: [/* ... */],
   shortcuts: [/* ... */],
   // ...
-}
+};
 ```
 
 ```ts:uno.config.ts
@@ -319,7 +320,7 @@ export default defineConfig({
   presets: [
     myPreset,
   ],
-})
+});
 ```
 
 ## 公式プリセット
