@@ -591,16 +591,20 @@ export default defineConfig({
 レイヤーの順序も制御することができます。
 (順序を指定しない場合はレイヤー名の辞書順になります。)
 
-```ts
-layers: {
-  "components": -1,
-  "default": 1,
-  "utilities": 2,
-  "my-layer": 3,
-}
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  layers: {
+    "components": -1,
+    "default": 1,
+    "utilities": 2,
+    "my-layer": 3,
+  },
+});
 ```
 
-カスタム CSS をレイヤー間に挿入したい場合は、エントリーモジュールを更新します。
+カスタム CSS をレイヤー間に挿入したい場合はエントリーモジュールを更新します。
 
 ```ts
 // "uno:[layer-name].css"
