@@ -298,6 +298,10 @@ export default defineConfig({
 UnoCSS は、HTML や JavaScript/TypeScript のコードから使用されているクラスを自動的に「抽出（extracting）」し、**必要な**スタイルのみを生成します。
 無駄な CSS が生成されるのを防ぎ、非常に軽量かつ効率的なスタイルシートを作成できます。
 
+:::message
+「抽出」が "extracting" に対応する訳として適切かどうかわからないため「」で囲んで表記しています。
+:::
+
 UnoCSS では複数のソースから「抽出」することができます。
 
 - ビルドツールパイプライン
@@ -324,7 +328,7 @@ export default defineConfig({
         // js/ts ファイル
         "src/**/*.{js,ts}",
       ],
-      // exclude: []
+      // exclude: [],
     },
   },
 });
@@ -362,8 +366,8 @@ export default defineConfig({
     inline: [
       "<div class="p-4 text-red">Some text</div>",
       async () => {
-        const response = await fetch("https://example.com")
-        return response.text()
+        const response = await fetch("https://example.com");
+        return response.text();
       },
     ],
   },
