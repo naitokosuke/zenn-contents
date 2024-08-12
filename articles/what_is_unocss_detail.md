@@ -235,7 +235,7 @@ export default defineConfig({
 ```
 
 ```ts:my-preset.ts
-import { Preset } from "unocss"
+import { Preset } from "unocss";
 
 export const myPreset: Preset = {
   name: "my-preset",
@@ -248,8 +248,8 @@ export const myPreset: Preset = {
 ```
 
 ```ts:uno.config.ts
-import { defineConfig } from "unocss"
-import { myPreset } from "./my-preset"
+import { defineConfig } from "unocss";
+import { myPreset } from "./my-preset";
 
 export default defineConfig({
   presets: [
@@ -431,47 +431,36 @@ export default defineConfig({
 
 デフォルトでは [extractorSplit](https://github.com/unocss/unocss/blob/main/packages/core/src/extractors/split.ts) が適用されています。
 
-例えば、
-
-```md
-# Title{.text-2xl.font-bold}
-
-Hello [World]{.text-blue-500}
-
-![image](/image.png){.w-32.h-32}
-```
-
-からは `text-2xl`, `font-bold`, `text-blue-500`, `w-32`, `h-32` クラスが抽出されます。
-
 ### トランスフォーマー
 
 トランスフォーマーはソースコード変形のための統一されたインターフェースを提供します。
 
 ```ts:my-transformer.ts
-import { createFilter } from "@rollup/pluginutils"
-import { SourceCodeTransformer } from "unocss"
+import { createFilter } from "@rollup/pluginutils";
+import { SourceCodeTransformer } from "unocss";
 
 interface MyOptions {
   // カスタムオプションを定義
-}
+};
 
 export default function myTransformers(options: MyOptions = {}): SourceCodeTransformer {
   return {
     name: "my-transformer",
     enforce: "pre",
     idFilter(id) {
-      return id.match(/\.[tj]sx$/)
+      return id.match(/\.[tj]sx$/);
     },
     async transform(code, id, { uno }) {
-      code.appendRight(0, "/* transformed by my-transformer */")
+      code.appendRight(0, "/* transformed by my-transformer */");
     },
-  }
-}
+  };
+};
+
 ```
 
 ```ts:uno.config.ts
 import { defineConfig } from "unocss";
-import { myTransformers } from "./my-transformers"
+import { myTransformers } from "./my-transformers";
 
 export default defineConfig({
   transformers: [myTransformers()],
@@ -519,15 +508,18 @@ export const App = () => {
 .uno-qlmcrp {
   text-align: center;
 }
+
 .uno-0qw2gr {
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 700;
 }
+
 .uno-0qw2gr:hover {
   --un-text-opacity: 1;
   color: rgb(248 113 113 / var(--un-text-opacity));
 }
+
 @media (min-width: 640px) {
   .uno-qlmcrp {
     text-align: left;
@@ -571,11 +563,15 @@ Tailwind CSS は 3 つの固定レイヤー(`base`, `components`, `utilities`)�
 レイヤーを定義したい場合はルールの 3 番目の要素としてメタデータを指定できます。
 省略すれば `default` となります。
 
-```ts
-rules: [
-  [/^m-(\d)$/, ([, d]) => ({ margin: `${d / 4}rem` }), { layer: "utilities" }],
-  ["btn", { padding: "4px" }],
-];
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  rules: [
+    [/^m-(\d)$/, ([, d]) => ({ margin: `${d / 4}rem` }), { layer: "utilities" }],
+    ["btn", { padding: "4px" }],
+  ],
+});
 ```
 
 というルールからは以下の順の CSS が生成されます。
@@ -597,9 +593,108 @@ rules: [
 
 ```ts
 layers: {
-  'components': -1,
-  'default': 1,
-  'utilities': 2,
-  'my-layer': 3,
+  "components": -1,
+  "default": 1,
+  "utilities": 2,
+  "my-layer": 3,
 }
+```
+
+カスタム CSS をレイヤー間に挿入したい場合は、エントリーモジュールを更新します。
+
+```ts
+// "uno:[layer-name].css"
+import "uno:components.css";
+
+// "components" と "utilities" 以外のレイヤーがここにフォールバックされます
+import "uno.css";
+
+// カスタムCSS
+import "./my-custom.css";
+
+// "utilities" レイヤーが最も優先されます
+import "uno:utilities.css";
+```
+
+#### CSS カスケードレイヤー
+
+https://developer.mozilla.org/ja/docs/Web/CSS/@layer
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  outputToCssLayers: true,
+});
+```
+
+とすることで、CSS カスケードレイヤー付きの CSS を生成することができます。
+
+レイヤー名を変更することもできます。
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  outputToCssLayers: {
+    cssLayerName: (layer) => {
+      if (layer === "default") {
+        return "utilities";
+      }
+      if (layer === "shortcuts") {
+        return "utilities.shortcuts";
+      }
+      return layer;
+    }
+  },
+});
+```
+
+### オートコンプリート
+
+VS Code 拡張機能の自動補完をカスタマイズすることができます。
+(静的なルールでは何も設定しなくても自動補完が効きます。)
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  rules: [
+    [
+      /^custom-autocomplete-m-(\d+)$/,
+      ([, d]) => ({ margin: `${d / 4}rem` }),
+      { autocomplete: "custom-autocomplete-m-<num>" },
+    ],
+  ],
+});
+```
+
+[公式 Playground](https://unocss.dev/play/?version=0.61.9&html=Q&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmcAvnOlBCHAEQCuWEAxgM6u0DcAUN6gB6RYKDAEN6AG3hpMOfIWBEAFAm5w4USalYAuOAG016g0eNwA9AD1m9VjGoBacfebUwE1DFQOQDpQB1kAGoASgAScwAaU2MlfUiUAF0QuABeAD44FTgQUSgibD0AAzCEZAs4ABZSKFQQIrIQ6LN1JGcWNw8vPVobO0d213Au718AHix6EHTaMmbjRPnF7lIQziA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4IgLgTghgdgzgMwPYQLYAkyoDYgFwJTZwCmANCBCXAA5LwCWAbifocSQL5A)
+
+`autocomplete` 設定を用いることでより具体的なテンプレートや短縮記法を定義することもできます。
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  autocomplete: {
+    templates: [
+      // テーマから推測されるテンプレート
+      'bg-$color/<opacity>',
+      // 省略形
+      'text-<font-size>',
+      // 論理 OR グループ
+      '(b|border)-(solid|dashed|dotted|double|hidden|none)',
+      // 定数
+      'w-half',
+    ],
+    shorthands: {
+      // `opacity: "(0|10|20|30|40|50|60|70|90|100)"` と同じ意味
+      'opacity': Array.from({ length: 11 }, (_, i) => i * 10),
+      'font-size': '(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)',
+      // 組み込みの省略形を上書き
+      'num': '(0|1|2|3|4|5|6|7|8|9)',
+    },
+  },
+});
 ```
