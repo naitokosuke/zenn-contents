@@ -1,5 +1,5 @@
 ---
-title: "UnoCSS 完全解説【2024年】"
+title: "UnoCSS の設定を詳しく見る"
 emoji: "🎴"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["UnoCSS", "CSS", "CSSinJS"]
