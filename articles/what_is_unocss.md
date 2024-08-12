@@ -245,7 +245,7 @@ https://github.com/unocss/unocss/tree/main/examples
 
 ### 独自ユーティリティの定義と使用
 
-設定ファイルに「ルール」として記述できます。
+設定ファイルにルールとして記述できます。
 
 ```ts:uno.config.ts
 import { defineConfig } from "unocss";
@@ -295,7 +295,7 @@ export default defineConfig({
 
 ## プリセット
 
-いくつかのルールを「プリセット」として抽出してそれを共有できます。
+いくつかのルールをプリセットとして抽出してそれを共有できます。
 
 ```ts:my-preset.ts
 import { type Preset } from "unocss";
