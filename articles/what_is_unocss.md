@@ -293,6 +293,83 @@ export default defineConfig({
 }
 ```
 
+## 「抽出(extracting)」
+
+UnoCSS は、HTML や JavaScript/TypeScript のコードから使用されているクラスを自動的に「抽出（extracting）」し、**必要な**スタイルのみを生成します。
+無駄な CSS が生成されるのを防ぎ、非常に軽量かつ効率的なスタイルシートを作成できます。
+
+UnoCSS では複数のソースから「抽出」することができます。
+
+- ビルドツールパイプライン
+- ファイルシステム
+- インラインテキスト
+
+### ビルドツールパイプライン
+
+ビルドツールパイプラインからの「抽出」は最も効率的かつ正確な方法です。
+「抽出」対象のファイルはデフォルトでは、- `.jsx`, `.tsx`, `.vue`, `.md`, `.html`, `.svelte`, `.astro` です。
+デフォルトでは `.js`, `.ts` が対象外です。
+
+`.js`, `.ts` を含めるには設定ファイルに記述します。
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  content: {
+    pipeline: {
+      include: [
+        // デフォルト
+        /\.(vue|svelte|[jt]sx|mdx?|astro|elm|php|phtml|html)($|\?)/,
+        // js/ts ファイル
+        "src/**/*.{js,ts}",
+      ],
+      // exclude: []
+    },
+  },
+});
+```
+
+### ファイルシステム
+
+ビルドツールのパイプラインにアクセスできない統合（PostCSS プラグインなど）を使用している場合や、
+コードがパイプラインを通らないようなバックエンドフレームワークと統合している場合には、手動で「抽出」するファイルを指定することができます。
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  content: {
+    filesystem: [
+      "src/**/*.php",
+      "public/*.html",
+    ],
+  },
+});
+```
+
+### インラインテキスト
+
+インラインテキストからも「抽出」することができます。
+
+関数を用いて動的にテキストを渡すことができますが、ビルド時に一度だけ呼ばれることに注意が必要です。
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  content: {
+    inline: [
+      "<div class="p-4 text-red">Some text</div>",
+      async () => {
+        const response = await fetch("https://example.com")
+        return response.text()
+      },
+    ],
+  },
+});
+```
+
 ## プリセット
 
 いくつかのルールをプリセットとして抽出してそれを共有できます。
