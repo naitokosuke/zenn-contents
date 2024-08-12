@@ -258,7 +258,7 @@ export default defineConfig({
 });
 ```
 
-また、コンストラクタをエクスポートすることでオプションを受け取ることもできます。
+また、オプションを受け取ることもできます。
 
 ```ts:my-preset.ts
 import { definePreset, type Preset } from "unocss";
@@ -379,4 +379,227 @@ export default defineConfig({
 
 :::message alert
 ブレークポイントの指定には統一された単位を使用してください。
+単位ごとにサイズ順にソートされるためです。
 :::
+
+### バリアント
+
+バリアントを用いることで既存のルールにバリエーションを適用することができます。
+(Tailwind CSS の `hover:` バリアントのように)
+
+```ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  variants: [
+    // hover:
+    (matcher) => {
+      if (!matcher.startsWith("hover:")) return matcher;
+      return {
+        // プレフィックス `hover:` (6文字)を取り除く
+        matcher: matcher.slice(6),
+        selector: (s) => `${s}:hover`,
+      };
+    },
+  ],
+  rules: [[/^m-(\d)$/, ([, d]) => ({ margin: `${d / 4}rem` })]],
+});
+```
+
+:::details `hover:m-2` の場合の流れ ⏬️
+
+1. `hover:m-2` が抽出される
+2. `hover:m-2` が判定のために全てのバリアントに送られる
+3. `hover:m-2` がマッチし、`m-2` を返す
+4. `m-2` がさらに次のバリアントの判定のために用いられる
+5. 他にマッチしなければ `m-2` がルールの判定に渡される
+6. 最初のルールにマッチし、`.m-2 { margin: 0.5rem; }` が生成される
+7. 最終的に以下の CSS となる
+
+```css
+.hover\:m-2:hover {
+  margin: 0.5rem;
+}
+```
+
+ユーザがホバーしたときにだけ `m-2` を適用することが実現できます。
+:::
+
+### エクストラクタ
+
+ソースコード中のユーティリティを抽出するためにエクストラクタが使われます。
+
+デフォルトでは [extractorSplit](https://github.com/unocss/unocss/blob/main/packages/core/src/extractors/split.ts) が適用されています。
+
+例えば、
+
+```md
+# Title{.text-2xl.font-bold}
+
+Hello [World]{.text-blue-500}
+
+![image](/image.png){.w-32.h-32}
+```
+
+からは `text-2xl`, `font-bold`, `text-blue-500`, `w-32`, `h-32` クラスが抽出されます。
+
+### トランスフォーマー
+
+トランスフォーマーはソースコード変形のための統一されたインターフェースを提供します。
+
+```ts:my-transformer.ts
+import { createFilter } from "@rollup/pluginutils"
+import { SourceCodeTransformer } from "unocss"
+
+interface MyOptions {
+  // カスタムオプションを定義
+}
+
+export default function myTransformers(options: MyOptions = {}): SourceCodeTransformer {
+  return {
+    name: "my-transformer",
+    enforce: "pre",
+    idFilter(id) {
+      return id.match(/\.[tj]sx$/)
+    },
+    async transform(code, id, { uno }) {
+      code.appendRight(0, "/* transformed by my-transformer */")
+    },
+  }
+}
+```
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+import { myTransformers } from "./my-transformers"
+
+export default defineConfig({
+  transformers: [myTransformers()],
+});
+```
+
+では、UnoCSS がビルドプロセス中に `.tsx` または `.jsx` ファイルを処理するときに自動的に変換が実行されます。
+
+例えば、
+
+```tsx
+export const App = () => {
+  return <div>Hello World</div>;
+};
+```
+
+は、
+
+```tsx
+/* transformed by my-transformer */
+export const App = () => {
+  return <div>Hello World</div>;
+};
+```
+
+と変換されます。
+
+例えば、複数のクラスを 1 つのクラスにコンパイルするトランスーフォーマー [`transformer-compile-class`](https://unocss.dev/transformers/compile-class) では、
+
+```html
+<div class=":uno: text-center sm:text-left">
+  <div class=":uno: text-sm font-bold hover:text-red"></div>
+</div>
+```
+
+が、
+
+```html
+<div class="uno-qlmcrp">
+  <div class="uno-0qw2gr"></div>
+</div>
+```
+
+```css
+.uno-qlmcrp {
+  text-align: center;
+}
+.uno-0qw2gr {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+.uno-0qw2gr:hover {
+  --un-text-opacity: 1;
+  color: rgb(248 113 113 / var(--un-text-opacity));
+}
+@media (min-width: 640px) {
+  .uno-qlmcrp {
+    text-align: left;
+  }
+}
+```
+
+のようにコンパイルされます。
+
+### プリフライト
+
+生の CSS をプリフライトとして設定から注入することができます。
+これによりデフォルトスタイルの指定や CSS リセットを行うことができます。
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  preflights: [
+    {
+      getCSS: ({ theme }) => `
+        * {
+          color: ${theme.colors.gray?.[700] ?? "#333"};
+          padding: 0;
+          margin: 0;
+        }
+      `,
+    },
+  ],
+});
+```
+
+### レイヤー
+
+CSS の順序は優先順位に影響します。
+エンジンはルールの順序を保持しますが、ユーティリティをグループ化してその順序を明示的に制御したい場合もあります。
+
+Tailwind CSS は 3 つの固定レイヤー(`base`, `components`, `utilities`)を持っています。
+それに対して UnoCSS では、自由 にレイヤーを定義することができます。
+
+レイヤーを定義したい場合はルールの 3 番目の要素としてメタデータを指定できます。
+省略すれば `default` となります。
+
+```ts
+rules: [
+  [/^m-(\d)$/, ([, d]) => ({ margin: `${d / 4}rem` }), { layer: "utilities" }],
+  ["btn", { padding: "4px" }],
+];
+```
+
+というルールからは以下の順の CSS が生成されます。
+
+```css
+/* layer: default */
+.btn {
+  padding: 4px;
+}
+
+/* layer: utilities */
+.m-2 {
+  margin: 0.5rem;
+}
+```
+
+レイヤーの順序も制御することができます。
+(順序を指定しない場合はレイヤー名の辞書順になります。)
+
+```ts
+layers: {
+  'components': -1,
+  'default': 1,
+  'utilities': 2,
+  'my-layer': 3,
+}
+```
