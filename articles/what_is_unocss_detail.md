@@ -257,3 +257,126 @@ export default defineConfig({
   ],
 });
 ```
+
+また、コンストラクタをエクスポートすることでオプションを受け取ることもできます。
+
+```ts:my-preset.ts
+import { definePreset, type Preset } from "unocss";
+
+interface MyPresetOptions {
+  primaryColor?: string;
+  secondaryColor?: string;
+}
+
+export default definePreset((options?: MyPresetOptions): Preset => {
+  return {
+    name: "my-preset",
+    rules: [
+      ["bg-primary", { "background-color": options?.primaryColor || "blue" }],
+      ["bg-secondary", { "background-color": options?.secondaryColor || "green" }],
+    ],
+  };
+});
+```
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+import myPreset from "./my-preset";
+
+export default defineConfig({
+  presets: [
+    myPreset({
+      primaryColor: "#42B983",
+      secondaryColor: "#35495E",
+    }),
+  ],
+});
+```
+
+### ショートカット
+
+複数のルールを組み合わせてひとつの短縮系にすることができます。
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  shortcuts: {
+    // 複数のユーティリティのショートカット
+    "btn": "py-2 px-4 font-semibold rounded-lg shadow-md",
+    "btn-green": "text-white bg-green-500 hover:bg-green-700",
+    // ひとつのユーティリティに対するエイリアスショートカット
+    "red": "text-red-100",
+  }
+});
+```
+
+ルールと同様に動的なショートカットも定義できます。
+
+[公式 Playground](https://unocss.dev/play/?html=DwIwrgLhD2B2AEBjANgQwM7oLwCIQQX1gFoBzAJwFNLYd4A%2BAWQE94AhSGWYAenCjj0AUEA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmcAvnOlBCHAEQCuWEAxgM6u0DcAUN6gB6RYKDAEN6AG3hpMOfIWBEAFAm5w4rABbQYzejFYAuOAG016xOYt0ARjCy1jtMAE8AtACY4Yfm4AsFAQwbqyoIMA2EBLIcFSMaMhuEiRaosgQAO5uIMi0ADRWZAXWJgD0AHp2WG5KAHQAVACUACSleXBKJu3MALqNcAC8AHxwAAY2RG7NCMyk-gAM83AwAsHTs24AjIve7l4%2B-rEQ8aiJyaM9xXCX3KSNPEA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4IgLgTghgdgzgMwPYQLYAkyoDYgFwJTZwCmAvkA)
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  shortcuts: [
+    { btn: "py-2 px-4 font-semibold rounded-lg shadow-md" },
+    [/^btn-(.*)$/, ([, c]) => `bg-${c}-400 text-${c}-100 py-2 px-4 rounded-lg`],
+  ],
+});
+```
+
+### テーマ
+
+UnoCSS では Tailwind CSS, Windi CSS でおなじみのテーマ化システムをサポートしています。
+
+[公式 Playground](https://unocss.dev/play/?html=DwZwDghgdgBAxgGwiEBeARAFwKYA9MC0AbtgE4CeBcA9tQujAHwAS2CC1wA9ONIzKEixEyNFjyEARqWgATAmFIBLALYQKDRgHVqpBLICE3XlEZA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmcAvnOlBCHAEQCuWEAxgM6u0DcAUN6gB6RYKDAEN6AG3hpMOfIWBEAFAm5w4MABaoQqAFyI16uMwgTorA6uPHaAN1RQAngFpTZ2gdoBiAAz-fADFA2gAaOCMbACMoUSxkK0ibODAoUFFnL01WCSU7DKUXF016VHCAJgBGAHYASjhqgA4AUjgAVkrm2rCI5LJQpNIB9SGjKElUSzgAbSTZvoB6AD0YARgXJQA6ACpagBIF4eSlafDmAF1wpC0dVDJ6gF4APkM%2B9WB0OCUb3U3TcygrGmF3qUFQMHoUCwiBMZmgBh%2BqD%2BcMBwPOZCSIyO6kuRlxpFqPCAA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4IgLgTghgdgzgMwPYQLYAkyoDYgFwJTZwCmAvkA)
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  theme: {
+    colors: {
+      "very-cool": "#0000FF",
+      brand: {
+        primary: "hsl(var(--hue, 217) 78% 51%)",
+      },
+    },
+  },
+  rules: [
+    [
+      /^text-(.*)$/,
+      ([, c], { theme }) => {
+        if (theme.colors[c]) return { color: theme.colors[c] }
+      },
+    ],
+  ],
+});
+```
+
+ブレークポイントの設定もできます。
+
+:::message
+ブレークポイントの設定はマージではなく上書きされます。
+:::
+
+[公式 Playground](https://unocss.dev/play/?html=DwZwDghgdgBAxgGwiEBeARAFwKYA9MC0AbtgE4CeBcA9tQjCALYBcO%2BBp2AJjI163kIBzTtlgIhA9gHcAFgEsc6AFAwYAPgAS2BAmrAA9OGjL1y0JFiJkaLIIIAjUtC4EwpeYwgV06gOrUpAhcAISGxlBmQA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmcAvnOlBCHAOQCuWEAxgM6u0BQnqAHpLBQYAhvQA28NJhz5CwIgAoEnOHBgALVCFQAuRCtVxmEMdFZ7lhw7QBuqKAE8AtMZO09tAMQAGX94Bi-rQANAZWAEZQwljIFmFWcGBQoMKOHuqsYgo2qQpOTur0qMFwAEwAjADsAJRwlQAcAKRwAKzljdUh8aqkoQlwkajCANaQ2DDm%2Bv2qrCAeACy%2BYLxd03AgsXQtSyt902JEHgBsO6sJvfEXPaGk1ZxAA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4IgLgTghgdgzgMwPYQLYAkyoDYgFwJTZwCmAvkA)
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  theme: {
+    breakpoints: {
+      sm: "320px",
+      md: `${40 * 16}px`,
+      lg: "960px",
+    },
+  },
+});
+```
+
+:::message alert
+ブレークポイントの指定には統一された単位を使用してください。
+:::
