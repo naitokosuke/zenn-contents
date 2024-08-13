@@ -37,6 +37,9 @@ https://unocss.dev/play/
 公式 Playground が提供されています。
 こちらを活用して、UnoCSS を体験してみてください。
 
+また、この記事内でサンプルコード付きの公式 Playground へのリンクを用意しています。
+ぜひ実際にコードを動かしながら記事を読んでください。
+
 ## UnoCSS とは
 
 ![UnoCSS 公式ドキュメントトップページ のスクショ](/images/what_is_unocss_detail/image1.png)
@@ -453,7 +456,6 @@ export default function myTransformers(options: MyOptions = {}): SourceCodeTrans
     },
   };
 };
-
 ```
 
 ```ts:uno.config.ts
