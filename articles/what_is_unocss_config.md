@@ -15,14 +15,9 @@ published: false
 https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss
 
 こちらの記事では、UnoCSS の成り立ちや経緯を紹介し、UnoCSS の特徴について紹介しました。
-今回は UnoCSS の詳細を紹介したいと思います。
-
-:::message alert
-おことわり
-
-公式ドキュメントの翻訳ベースの内容になっています。
-この記事の内容はすべて公式ドキュメントに書いてあるということです。
-:::
+今回は UnoCSS の設定について紹介したいと思います。
+設定プロパティを知ることで、UnoCSS の特徴をより深く理解することができます。
+また、設定プロパティの豊富さから UnoCSS の**柔軟さ**を感じていただきたいです。
 
 ## ドキュメント
 
@@ -69,8 +64,6 @@ export default defineConfig({
 });
 ```
 
-![UnoCSS 公式Playground での例のスクショ](/images/what_is_unocss_detail/image2.png)
-
 上記からは
 
 ```css
@@ -81,16 +74,17 @@ export default defineConfig({
 
 という CSS が生成されます。
 
+![UnoCSS 公式Playground での例のスクショ](/images/what_is_unocss_detail/image2.png)
+
 ## UnoCSS の特徴(Configuration)
 
-UnoCSS の大きな特徴の一つは、必要な機能やスタイルを設定ファイルによって柔軟に選択できる点です。
-(不要な機能を使わないということでもあります。)
+UnoCSS の大きな特徴の一つは、必要な機能やスタイルを設定ファイルによって**柔軟**に選択できる点です。
+(**不要な機能を使わない**ということでもあります。)
 
 プロジェクトごとに最適なスタイルやユーティリティを選択でき、不要な CSS が生成されることを防ぎます。
 必要なプリセットやプラグインを指定することで、プロジェクトに合わせたカスタム CSS 環境を簡単に構築することができます。
 
 設定ファイルは専用のファイル `uno.config.ts` を用いることが推奨されています。
-ここからは、設定ファイルによって提供される UnoCSS の特徴を紹介していきます。
 
 ### ルール
 
@@ -163,7 +157,7 @@ UnoCSS は生成された CSS 内で定義されたルールの順序を尊重�
 
 動的に定義されるルールについてはアルファベット順に生成されます。
 
-[[公式 Playground]](https://unocss.dev/play/?html=DwEwlgbgBAxgNgQwM5ILwCIAuBTAHpgWgCdsQod8CBzE7AO3L0ICM4BXbKdAPgAls4cAPbAA9OAjcAUEA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmcAvnOlBCHAEQCuWEAxgM6u0DcAUN6gB6RYKDAEN6AG3hpMOfIWBEAFAm5w4YKKlaoYrAFwBtALoAaNXCiTtRi%2BsMB6AHowBMALRKAdAGoAlAAkDqZwSoYhzBAS0MZ%2BcAC8AHyhquppcJHRUPpwAAYBCJnQpLnm6aR%2BZhbG3BU8QA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4IgLgTghgdgzgMwPYQLYAkyoDYgFwJTZwCmAvkA)
+[公式 Playground](https://unocss.dev/play/?html=DwEwlgbgBAxgNgQwM5ILwCIAuBTAHpgWgCdsQod8CBzE7AO3L0ICM4BXbKdAPgAls4cAPbAA9OAjcAUEA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmcAvnOlBCHAEQCuWEAxgM6u0DcAUN6gB6RYKDAEN6AG3hpMOfIWBEAFAm5w4YKKlaoYrAFwBtALoAaNXCiTtRi%2BsMB6AHowBMALRKAdAGoAlAAkDqZwSoYhzBAS0MZ%2BcAC8AHyhquppcJHRUPpwAAYBCJnQpLnm6aR%2BZhbG3BU8QA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4IgLgTghgdgzgMwPYQLYAkyoDYgFwJTZwCmAvkA)
 
 ```ts:uno.config.ts
 import { defineConfig } from "unocss";
@@ -217,7 +211,7 @@ UnoCSS では生成される CSS のサイズを小さくするために、CSS �
 UnoCSS は Atomic CSS エンジンであり、コアユーティリティを提供していません。
 上記の例のように、自らルールを設定することができます。
 
-そして、ルールをいくつか定義していくうちに、それらをプリセットとして切り出すことができます。
+そして、複数のルールをプリセットとして切り出すことができます。
 これが UnoCSS の一番の特徴です。
 
 プリセットは特定のユースケースに合わせたスタイルの管理を簡単にするための設定の集合です。
@@ -295,7 +289,7 @@ export default defineConfig({
 
 ### ショートカット
 
-複数のルールを組み合わせてひとつの短縮系にすることができます。
+複数のルールを組み合わせてひとつのショートカットを定義できます。
 
 ```ts:uno.config.ts
 import { defineConfig } from "unocss";
@@ -328,7 +322,7 @@ export default defineConfig({
 
 ### テーマ
 
-UnoCSS では Tailwind CSS, Windi CSS でおなじみのテーマ化システムをサポートしています。
+UnoCSS でも Tailwind CSS, Windi CSS でおなじみのテーマ化システムをサポートしています。
 
 [公式 Playground](https://unocss.dev/play/?html=DwZwDghgdgBAxgGwiEBeARAFwKYA9MC0AbtgE4CeBcA9tQujAHwAS2CC1wA9ONIzKEixEyNFjyEARqWgATAmFIBLALYQKDRgHVqpBLICE3XlEZA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmcAvnOlBCHAEQCuWEAxgM6u0DcAUN6gB6RYKDAEN6AG3hpMOfIWBEAFAm5w4MABaoQqAFyI16uMwgTorA6uPHaAN1RQAngFpTZ2gdoBiAAz-fADFA2gAaOCMbACMoUSxkK0ibODAoUFFnL01WCSU7DKUXF016VHCAJgBGAHYASjhqgA4AUjgAVkrm2rCI5LJQpNIB9SGjKElUSzgAbSTZvoB6AD0YARgXJQA6ACpagBIF4eSlafDmAF1wpC0dVDJ6gF4APkM%2B9WB0OCUb3U3TcygrGmF3qUFQMHoUCwiBMZmgBh%2BqD%2BcMBwPOZCSIyO6kuRlxpFqPCAA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4IgLgTghgdgzgMwPYQLYAkyoDYgFwJTZwCmAvkA)
 
@@ -684,20 +678,20 @@ export default defineConfig({
   autocomplete: {
     templates: [
       // テーマから推測されるテンプレート
-      'bg-$color/<opacity>',
+      "bg-$color/<opacity>",
       // 省略形
-      'text-<font-size>',
+      "text-<font-size>",
       // 論理 OR グループ
-      '(b|border)-(solid|dashed|dotted|double|hidden|none)',
+      "(b|border)-(solid|dashed|dotted|double|hidden|none)",
       // 定数
-      'w-half',
+      "w-half",
     ],
     shorthands: {
       // `opacity: "(0|10|20|30|40|50|60|70|90|100)"` と同じ意味
-      'opacity': Array.from({ length: 11 }, (_, i) => i * 10),
-      'font-size': '(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)',
+      "opacity": Array.from({ length: 11 }, (_, i) => i * 10),
+      "font-size": "(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)",
       // 組み込みの省略形を上書き
-      'num': '(0|1|2|3|4|5|6|7|8|9)',
+      "num": "(0|1|2|3|4|5|6|7|8|9)",
     },
   },
 });
