@@ -427,3 +427,18 @@ export default defineConfig({
 });
 ```
 :::
+
+### preset-tagify
+
+このプリセットでタグ化モードを利用できます。
+このプリセットは特定の要素に対して単一の UnoCSS ルールを適用する場合に便利です。
+
+```ts:uno.config.ts
+import { defineConfig, presetTagify } from "unocss";
+
+export default defineConfig({
+  presets: [
+    presetTagify({ /* options */ }),
+  ],
+});
+```
