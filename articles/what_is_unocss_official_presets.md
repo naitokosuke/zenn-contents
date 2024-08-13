@@ -235,3 +235,77 @@ export default defineConfig({
 </div>
 ```
 
+#### アイコンコレクションとリゾルバの設定
+
+##### ブラウザ
+
+`iconify` のコレクションをロードするには、`@iconify/json` ではなく、`@iconify-json/[the-collection-you-want]` を使うべきです。
+`json` ファイルは巨大だからです。
+
+##### バンドラー
+
+バンドラーを使用するのであれば、コレクションを動的インポートとして提供できます。
+コレクションは非同期チャンクとしてバンドルされ、必要なときに読み込まれます。
+
+```ts:uno.config.ts
+import { defineConfig, presetIcons } from "unocss";
+import presetIcons from "@unocss/preset-icons/browser";
+
+export default defineConfig({
+  presets: [
+    presetIcons({
+      collections: {
+        carbon: () => import("@iconify-json/carbon/icons.json").then(i => i.default),
+        mdi: () => import("@iconify-json/mdi/icons.json").then(i => i.default),
+        logos: () => import("@iconify-json/logos/icons.json").then(i => i.default),
+      },
+    }),
+  ],
+});
+```
+
+##### CDN
+
+CDN から取得する場合は、`cdn` オプションを指定できます。
+CDN プロバイダーとしては、[`esm.sh`](https://esm.sh/) が推奨されています。
+
+```ts:uno.config.ts
+import { defineConfig, presetIcons } from "unocss";
+
+export default defineConfig({
+  presets: [
+    presetIcons({
+      cdn: "https://esm.sh/",
+    }),
+  ],
+});
+```
+
+##### カスタムコレクション
+
+[公式 Playground](https://unocss.dev/play/?version=0.62.1&html=DwEwlgbgBAxgNgQwM5ILwCIBmcCmAPKAcwQAcBaARgAYoArAVyQBcxMBPMmHAOyZwCcoYPgFsknHn0Eiw3MgAsySGPxw90APgBQUKMCQkE3WIhQYwnRkwD2IgFwww-eDih88TMgFY8cKCMoqTWAAegMjbVDwCG0gA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmANHGFKgM6owCSAxgVWRdbQKpYRwC%2Bc6KBBBwARAFduDKlVEBuAFALUAD0iwUGAIbiANvDSYc%2BQsCIAKBArjlKNGFQBccANrWbt9jC4RzAShJ3GzZ7RmZLII8mXV1UBhhgZmcrD1S4BnEqGGFkyLT04CgGWOdRAB4qADciOErgVAB3ACEIFQBeAHIABjgegEYAJn6hjoA%2BMoZC4tR09o6ANi6O9IBPTsXlqE6AViWBYBjOokpULDGygHpJotjxi6qiUdFA-JteF9eGLSgAIwJnfxwNqjOCgdQwcyiAACwCYWGA6BWAFoAFZUAhXb5-LAXWHMAB0aIIoj8%2BJgAAtTuZgECQcB8YYdPoAnk%2BJFeH53ABdBQcxRAA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4XyA)
+
+[`CustomIconLoader`](https://github.com/iconify/iconify/blob/main/packages/utils/src/loader/types.ts#L24) や [`InlineCollection`](https://github.com/iconify/iconify/blob/main/packages/utils/src/loader/types.ts#L104) を利用して、独自のカスタムコレクションを提供することもできます。
+
+```ts:uno.config.ts
+import { defineConfig, presetIcons } from "unocss";
+
+export default defineConfig({
+  presetIcons({
+    collections: {
+      custom: {
+        circle: "<svg viewBox='0 0 120 120'><circle cx='60' cy='60' r='50'></circle></svg>",
+        /* ... */
+      },
+      carbon: () => import("@iconify-json/carbon/icons.json").then(i => i.default as any),
+      /* ... */
+    },
+  });
+});
+```
+
+##### Node.js
+
+`Node.js` ではインストール済みのアイコンデータセットを自動的に探します。
+`iconify` コレクションを登録する必要はありません。
+
