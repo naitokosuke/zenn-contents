@@ -309,3 +309,121 @@ export default defineConfig({
 `Node.js` ではインストール済みのアイコンデータセットを自動的に探します。
 `iconify` コレクションを登録する必要はありません。
 
+### preset-attributify
+
+このプリセットで属性化モードを利用できます。
+ユーティリティをクラスではなく HTML 属性を用いることが可能になります。
+
+```ts:uno.config.ts
+import { defineConfig, presetAttributify } from "unocss";
+
+export default defineConfig({
+  presets: [
+    presetAttributify({ /* preset options */ }),
+  ],
+});
+```
+
+#### 属性化モード
+
+[公式 Playground](https://unocss.dev/play/?version=0.62.1&html=DwIwrgLhD2B2BQACRIDmBeARCANmApgLQAsADKYgBbQBu%2BATgFy4GECs5iAJgIb0DWzPEQ4VeAxtTpMWRAGzlMSRBHwAPCFgDOAW0QB3SgEtVS5ADM4mzDrjREOI6koQziAA5YAnoQBMiNRI3EGh6LgYsf3poMFhwrhRhP0V4AD5lACFIGARgAHpwKDh00HpEPJLCnJRQ8PosAD9EenwuTEQdP0RUgDUeYRx8LS1EAEEoeiNC-Hyq4vhgLiMaGrCGDq7o2PiVdQhCVX6STl7%2BgkHhsYmpyBm8pZp0oA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmANHGFKgM6owCCMMUwARgK4zDoCeZF1tAKpYIcAL5x0UCCDgAiNiIDGVKnIDcAKE2oAHpFgoMAQzYAbeGkw58hYEQAUCTXHKUaMKgC44AbReubgIwwhAOAJQkAa78HgxMrBxc3BFRrgC6UWLhWkA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4XyA)
+
+ユーティリティクラスを用いてボタンを作成しようとすると、以下のようになることがあります。
+
+```html
+<button
+  class="bg-blue-400 hover:bg-blue-500 text-sm text-white font-mono font-light py-2 px-4 rounded border-2 border-blue-200 dark:bg-blue-500 dark:hover:bg-blue-600"
+>
+  Button
+</button>
+```
+
+長くなればなるほど可読性も低下し、メンテナンスも困難になります。
+属性化モードを利用すれば、
+
+```html
+<button
+  bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600"
+  text="sm white"
+  font="mono light"
+  p="y-2 x-4"
+  border="2 rounded blue-200"
+>
+  Button
+</button>
+```
+
+と、属性に分割できます。
+`text-sm` と `text-white` のように重複したプレフィックスを除いてグループ化(`text="sm white"`)することができます。
+
+また、`flex`, `grid`, `border` のようにプレフィックスと全く同じ名前のユーティリティについては `~` が使えます。
+
+```html
+<button class="border border-red">Button</button>
+```
+
+```html
+<button border="~ red">Button</button>
+```
+
+値のない属性も使用できます。
+
+```html
+<div class="m-2 rounded text-teal-400">Valueless Attribute</div>
+```
+
+```html
+<div m-2 rounded text-teal-400>Valueless Attribute</div>
+```
+
+:::message alert
+属性化モードの使用にあたって注意点がいくつかあります。
+
+- クラス名と HTML 属性名の衝突
+- JSX での属性名の扱い
+
+1. クラス名と HTML 属性名の衝突
+
+https://unocss.dev/presets/attributify#properties-conflicts
+
+既存の属性名との衝突するだけでなく、今後追加される HTML の属性と衝突する恐れもあります。
+プレフィックスの使用で回避できます。
+
+```ts:uno.config.ts
+import { defineConfig, presetAttributify } from "unocss";
+
+export default defineConfig({
+  presets: [
+    // ...
+    presetAttributify({ 
+      prefix: "uno-", 
+      prefixedOnly: true,
+    }),
+    // ...
+  ],
+}); 
+```
+
+2. JSX での属性名の扱い
+
+JSX では属性の存在をブール値 `true` として扱うため、`<div foo>` と記述すると、自動的に `<div foo={true}>` に変換されることがあります。
+この変換により、UnoCSS が生成する CSS が対応する HTML 要素に適用されなくなる可能性があります。
+これは UnoCSS が属性の存在だけでなく、属性の値もチェックするためです。
+
+ [@unocss/transformer-attributify-jsx](https://unocss.dev/transformers/attributify-jsx) の利用して回避できます。
+
+```ts:uno.config.ts
+import { defineConfig, presetAttributify, transformerAttributifyJsx } from "unocss";
+
+export default defineConfig({
+  // ...
+  presets: [
+    // ...
+    presetAttributify(),
+  ],
+  transformers: [
+    transformerAttributifyJsx(),
+  ],
+});
+```
+:::
