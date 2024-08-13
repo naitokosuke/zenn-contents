@@ -254,7 +254,7 @@ import { myPreset } from "./my-preset";
 
 export default defineConfig({
   presets: [
-    myPreset,
+    myPreset(),
   ],
 });
 ```
