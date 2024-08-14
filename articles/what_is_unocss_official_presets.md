@@ -517,4 +517,81 @@ export default defineConfig({
 
 また、`none` を指定することで、フォントをシステムフォントとして扱うことができます。
 
+### タイポグラフィ
 
+[公式 Playground](https://unocss.dev/play/?version=0.62.1&html=DwEwlgbgBAxgNgQwM5ILwCIBmcCmAPKbfAWhgHs4oBzBAB2IE9iAmAVigCsBXJAFzExMYOAHa8cAJyhhxAWySlR4qbLAjiAC2JIYEnKPQA%2BAFBQooSLEQoMshBIDWIMgHcRR02fMaAjIcD9DIAlDIATDIDXDMAA9L4mXua0hoBjDIC1DICdDMHJacAIUBp6mBgAxEaAVwyAzwyA9QyRCImp6bWR8Z5mwPGAzQyAPwyAkwwAXObkIDiG5CJIFDgAdHBkVAAU6AASOHBTUADqZBJwIACE6ACUANyR-YMNMV4tVsho6CJkvMR2js5uRgAGd7xvUIBJDID%2B8oAxBkAFgyAQAZgCchmQRmNJtM5otlmQ1hstrtDscyANDOZiFAUkFQoAZBkAyvqAfQZAJEMgCsGQAiDIBAf7Onki4Ag5ws0Hg11s9icrhEUCePLcjCWUxcHliwGiQTCkWiTTiNTSGWCWRyeUKJQqVUVdUyEUaEraXV64Mxg2Go1wsNmCxFSPWmx2%2ByOEQh5n152atCuNlu90e3Je7kMH3u33%2BwLBEItMKmNoRKwdqOdGKxOLxBJJFJp9I9jIizJMTMgJiAA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmANHGFKgM6owCqWEZF1tAKgJ6RFQCGYACw5wAvnHRQIIOACIArowDGVKjIDcAKA2oAHpFgoMvOQBt4aTDnyFgRABQINccpRowqALjgBtJ85es9Ix2AJRkAPThcICj%2BoAQGX7OLG6c3HyCHA4J-jQmqIow0AByvCCoXjIgvFAA1sgQAO5YMmRa-v6RcMpUAKI6MKhYyHCA9gxwuADK43CA3QyANwyA9QyA-QyASQyAtQyAPwyAgAwTU4DF2oAAUYBrDIC3DIDDDPPLgCQKgBYMgOoMgGYMgIDGgCYMgFUMh4AdDIDlDPOAEwxZzi6vX6gy8jjabRkiggaBkYIBEOhJmg5QAxAAOABCAFZcAAxABszQRzhEJBJsl4HgEEAAbqgoHDEBTARBkVA0XiACwAZjx2O6xIh-jJFJkVNpwCowH6yCZ4OF-iRKNkqIAjFzMeiAIJE8mK0T6iGitoiMJ%2BAC65LNaiAA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4XyA)
+
+`@unocss/preset-typography` プリセットにより、標準の HTML 要素にタイポグラフィスタイルを簡単に適用するための 「散文("prose")」クラスが提供されています。
+これらの「散文」を使用することで、例えば段落や見出し、リスト、リンクなどの要素に対して、統一されたタイポグラフィのスタイルを適用できます。
+
+```ts:uno.config.ts
+import { defineConfig, presetUno, presetTypography } from "unocss";
+
+export default defineConfig({
+  presets: [
+    presetUno(), // 必須
+    presetTypography(),
+  ],
+});
+```
+
+```html
+<article text-base prose prose-truegray xl="text-xl">
+  {{ markdown }}
+  <p class="not-prose">Some text</p>
+</article>
+```
+
+要素に `not-prose` を適用することでタイポグラフィスタイルを取り消すことができます。
+
+:::message alert
+`not-prose` はクラスとしてのみ使用でき、属性としては使用できません。
+これは `not` が CSS セレクタでのみ使用でき、UnoCSS ではスキャンできないからです。
+:::
+
+<br />
+
+マークダウンの例
+
+```ts:uno.config.ts
+import { defineConfig, presetUno, presetTypography } from "unocss";
+
+export default defineConfig({
+  presets: [
+    presetUno(), // 必須
+    presetTypography({
+      selectorName: "markdown", 
+
+      // cssExtend は CSS セレクタをキー、CSS 宣言ブロックを値として持つオブジェクト
+      cssExtend: {
+        "code": {
+          color: "#8B5CF6",
+        },
+        "a:hover": {
+          color: "#F43F5E",
+        },
+        "a:visited": {
+          color: "#14B8A6",
+        },
+      },
+    }),
+  ],
+});
+```
+
+```html
+<div class="flex flex-col gap-y-25 justify-center items-center min-h-screen">
+  <div class="markdown">
+    <h1>タイトル</h1>
+    <p>テキストテキスト<a href="#">リンク</a>テキストテキスト</p>
+    <p>コード: <code>console.log("Hello World!");</code></p>
+    <p class="not-markdown">`not` を使うと、<code>console.log("Hello World!");</code> <- スタイルが当たらない！</p>
+  </div>
+  <div class="markdown markdown-yellow">
+    <h1>タイトル</h1>
+    <p>テキストテキスト<a href="#">リンク</a>テキストテキスト</p>
+    <p>コード: <code>console.log("Hello World!");</code> </p>
+    <p class="not-markdown">`not` を使うと、<code>console.log("Hello World!");</code> <- スタイルが当たらない！</p>
+  </div>
+</div>
+```
