@@ -319,7 +319,7 @@ import { defineConfig, presetAttributify } from "unocss";
 
 export default defineConfig({
   presets: [
-    presetAttributify({ /* preset options */ }),
+    presetAttributify({ /* プリセットオプション */ }),
   ],
 });
 ```
@@ -438,7 +438,7 @@ import { defineConfig, presetTagify } from "unocss";
 
 export default defineConfig({
   presets: [
-    presetTagify({ /* options */ }),
+    presetTagify({ /* プリセットオプション */ }),
   ],
 });
 ```
