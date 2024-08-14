@@ -41,11 +41,22 @@ https://unocss.dev/play/
 また、この記事内でサンプルコード付きの公式 Playground へのリンクを用意しています。
 ぜひ実際にコードを動かしながら記事を読んでください。
 
+## UnoCSS とは
+
+![UnoCSS 公式ドキュメントトップページ のスクショ](/images/what_is_unocss_official_presets/image2.png)
+
+> **Instant On-demand Atomic CSS Engine**
+
+> Customizable · Powerful · Fast · Joyful
+
+UnoCSS は、**オンデマンド**で動作する **Atomic CSS エンジン**です。
+Tailwind CSS, Windi CSS の影響を受け、より**迅速**で**柔軟**なスタイル定義を可能にするために設計されました。
+
 ## プリセット
 
 プリセットは UnoCSS の心臓です。
 
-UnoCSS のプリセットはあらかじめ定義された一連のスタイルやルールのセットです。
+UnoCSS のプリセットはあらかじめ定義された一連の**スタイルやルールのセット**です。
 プリセットを使うことで共通のスタイルや機能を手軽にプロジェクトに追加でき、設定する手間が省けます。
 
 プリセットは公式で提供されているものもありますし、自分でカスタムプリセットを作成することも可能です。

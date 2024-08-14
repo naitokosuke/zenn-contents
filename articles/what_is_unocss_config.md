@@ -42,7 +42,7 @@ https://unocss.dev/play/
 
 ## UnoCSS とは
 
-![UnoCSS 公式ドキュメントトップページ のスクショ](/images/what_is_unocss_detail/image1.png)
+![UnoCSS 公式ドキュメントトップページ のスクショ](/images/what_is_unocss_config/image1.png)
 
 > **Instant On-demand Atomic CSS Engine**
 
@@ -77,7 +77,7 @@ export default defineConfig({
 
 という CSS が生成されます。
 
-![UnoCSS 公式Playground での例のスクショ](/images/what_is_unocss_detail/image2.png)
+![UnoCSS 公式Playground での例のスクショ](/images/what_is_unocss_config/image2.png)
 
 ## UnoCSS の特徴(Configuration)
 
