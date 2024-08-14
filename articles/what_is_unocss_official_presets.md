@@ -131,7 +131,7 @@ export default defineConfig({
 - Bootstrap
 - Tachyons 
 
-などの人気のあるユーティリティファーストフレームワークの共通のスーパーセットを提供しようとしています。
+などの人気ユーティリティファーストフレームワークの共通のスーパーセットを提供しようとしています。
 
 ```css
 /* Tachyons */
@@ -160,6 +160,21 @@ Tailwind CSS, Windi CSS と互換があるので、ユーティリティの詳�
 https://tailwindcss.com/
 
 https://windicss.org/
+
+<br />
+
+:::message
+UnoCSS では `presets` オプションを明記しない限り、デフォルトプリセットが適用されます。
+無効にするには空の配列を指定します。
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  presets: [], 
+});
+```
+:::
 
 
 ### preset-icons
