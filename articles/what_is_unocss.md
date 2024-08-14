@@ -100,7 +100,7 @@ Atomic CSS とは、**視覚的な機能に基づいて命名された単一の�
 - [Windi CSS](https://windicss.org/)
 - [Tachyons](https://tachyons.io/)
 
-のような Utility First CSS フレームワークがあります。
+のような ユーティリティファースト CSS フレームワークがあります。
 おおよそ以下のような CSS のコレクションになっています。
 
 ```css
