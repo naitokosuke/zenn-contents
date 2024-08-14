@@ -177,9 +177,27 @@ export default defineConfig({
 ```
 :::
 
+### preset-wind
+
+`@unocss/preset-wind` は、UnoCSSでTailwind CSS, Windi CSS のユーティリティを利用できるプリセットです。
+
+```ts:uno.config.ts
+import { defineConfig, presetWind } from "unocss";
+
+export default defineConfig({
+  presets: [
+    presetWind(),
+  ],
+});
+```
+
+このプリセットの第一目標は Tailwind CSS, Windi CSS との互換性の提供です。
+ただし、完全な互換性までは保証されていません。
+各ユーティリティの詳しい使い方は各フレームワークの公式ドキュメントを参照するのがよいです。
+
 ### preset-mini
 
-UnoCSC のためのベーシックなプリセットです。
+UnoCSS のためのベーシックなプリセットです。
 
 ```ts:uno.config.ts
 import { defineConfig, presetMini } from "unocss";
