@@ -159,55 +159,21 @@ Tailwind CSS, Windi CSS にどのような課題があり、それを解決す�
 
 > Instant On-demand Atomic CSS Engine
 
-### Fully Customizable
+| 特徴                | 説明                                                                                       |
+|-----------------------|--------------------------------------------------------------------------------------------|
+| **Fully Customizable** | **コアユーティリティなし**、全ての機能はプリセットで提供                                        |
+| **Instant**           | パース、AST、スキャンなし。WindiCSSやTailwind CSS JITより5倍以上**高速**                        |
+| **Lightweight**       | 依存関係ゼロでブラウザフレンドリー、約6KB（最小化＋brotli圧縮）                              |
+| **Rich Integrations** | Vite, Webpack, PostCSS, CLI, VS Code, EsLint などのファーストクラスサポート                   |
+| **Shortcuts**         | ユーティリティの動的グループ化とエイリアス                                                   |
+| **Attributify Mode**  | 属性内のグループユーティリティ                                                              |
+| **Pure CSS Icons**    | アイコンを単なるクラスとして使用                                                             |
+| **Variant Groups**    | グループユーティリティの共通プレフィックスの短縮系                                           |
+| **CSS Directives**    | `@apply` ディレクティブによるCSSの再利用                                                    |
+| **Compilation Mode**  | ビルド時に複数クラスを1つに統合                                                              |
+| **Inspector**         | インタラクティブなデバッグとインスペクト                                                     |
+| **CDN Runtime Build** | CDNインポート(1行)によるUnoCSSの利用                                                        |
 
-コアユーティリティなし
-全ての機能はプリセットによって提供される
-
-### Instant
-
-パースなし、AST なし、スキャンなし
-WindiCSS や Tailwind CSS JIT より 5 倍以上高速
-
-### Lightweight
-
-依存関係ゼロでブラウザフレンドリー :約 6KB（最小化＋ brotli 圧縮）
-
-### Rich Integrations
-
-Vite, Webpack, PostCSS, CLI, VS Code,EsLint などのファーストクラスサポート
-
-### Shortcuts
-
-ユーティリティの動的グループ化とエイリアス
-
-### Attributify Mode
-
-属性内のグループユーティリティ
-
-### Pure CSS Icons
-
-アイコンを単なるクラスとして使用
-
-### Variant Groups
-
-グループユーティリティの共通プレフィックスの短縮系
-
-### CSS Directives
-
-`@apply` ディレクティブによる CSS の再利用
-
-### Compilation Mode
-
-ビルド時に複数クラスを 1 つに統合
-
-### Inspector
-
-インタラクティブなデバッグとインスペクト
-
-### CDN Runtime Build
-
-CDN インポート(1 行)による UnoCSS の利用
 
 ## UnoCSS 特徴まとめ
 
