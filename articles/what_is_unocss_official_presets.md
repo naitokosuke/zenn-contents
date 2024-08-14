@@ -130,8 +130,8 @@ export default defineConfig({
 - Windi CSS
 - Bootstrap
 - Tachyons 
+
 などの人気のあるユーティリティファーストフレームワークの共通のスーパーセットを提供しようとしています。
-つまり、以下は全て有効です。
 
 ```css
 /* Tachyons */
