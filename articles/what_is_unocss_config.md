@@ -22,8 +22,8 @@ https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss
 ## ドキュメント
 
 :::message
-この記事を書いている時点の UnoCSS バージョン: v0.61.6
-https://github.com/unocss/unocss/releases/tag/v0.61.6
+この記事を書いている時点の UnoCSS バージョン: v0.62.1
+https://github.com/unocss/unocss/releases/tag/v0.62.1
 :::
 
 https://unocss.dev/
