@@ -485,3 +485,36 @@ export default defineConfig({
   ],
 });
 ```
+
+### preset-web-fonts
+
+`@unocss/preset-web-fonts` プリセットを使うことで、フォント名を指定するだけで簡単に Web フォントを利用できます。
+
+```ts:config.uno.ts
+import { defineConfig, presetWebFonts, presetUno } from "unocss";
+
+export default defineConfig({
+  presets: [
+    presetUno(),
+    presetWebFonts({
+      provider: "google",
+      fonts: {
+        sans: "Roboto",
+        mono: ["Fira Code", "Fira Mono:400,700"],
+      },
+    }),
+  ],
+})
+```
+
+2024 年 8 月現在、フォントのプロバイダは
+
+- `google`: [Google Fonts](https://fonts.google.com/)
+- `bunny`: [Bunny Fonts](https://fonts.bunny.net/)
+- `fontshare`: [Fontshare](https://www.fontshare.com/)
+
+のみです。
+
+また、`none` を指定することで、フォントをシステムフォントとして扱うことができます。
+
+
