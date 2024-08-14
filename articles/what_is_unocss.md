@@ -1,5 +1,5 @@
 ---
-title: "経緯を知って UnoCSS を知る"
+title: "UnoCSS を知る、まずは経緯から"
 emoji: "🎴"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["UnoCSS", "CSS", "CSSinJS"]
@@ -90,7 +90,7 @@ UnoCSS の誕生した経緯が作者 Anthony Fu 氏のブログ記事 [Reimagin
 
 Atomic CSS は Functional CSS, Utility First CSS とも呼ばれます。
 
-John Polacek 氏の記事 [Let’s Define Exactly What Atomic CSS is](https://css-tricks.com/lets-define-exactly-atomic-css/) によれば、
+John Polacek 氏の記事 [Let’s Define Exactly What Atomic CSS is](https://css-tricks.com/lets-define-exactly-atomic-css/) に以下の記述があります。
 
 > Atomic CSS is the approach to CSS architecture that favors small, single-purpose classes with names based on visual function.
 
@@ -498,10 +498,12 @@ UnoCSS はまだ日本国内では広く知られていないかもしれませ�
 
 さらに詳しい情報や具体的な使い方については、今後以下のような記事を執筆予定です。
 
-- **完全解説**: 公式ドキュメントの翻訳をベースにした詳細な解説記事
+- **もっと詳しく**
+公式ドキュメントの翻訳をベースにした詳細な解説記事
   - 設定
   - 公式プリセット
-- **人気フレームワークとの比較記事**: Tailwind CSS や Windi CSS などの他の CSS フレームワークとの比較記事
+- **人気フレームワークとの比較**
+Tailwind CSS や Windi CSS などの他の CSS フレームワークとの比較記事
 
 これらの記事もぜひご期待ください。
 UnoCSS の魅力をもっと知りたい方は公式サイトやコミュニティリソースを活用して、積極的に情報を収集してみてください。

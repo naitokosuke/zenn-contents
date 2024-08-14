@@ -1,5 +1,5 @@
 ---
-title: "UnoCSS の設定を詳しく見る"
+title: "もっとくわしく UnoCSS ～設定篇～"
 emoji: "🎴"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["UnoCSS", "CSS", "CSSinJS"]
