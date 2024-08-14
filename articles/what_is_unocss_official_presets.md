@@ -386,7 +386,7 @@ export default defineConfig({
 
 https://unocss.dev/presets/attributify#properties-conflicts
 
-既存の属性名との衝突するだけでなく、今後追加される HTML の属性と衝突する恐れもあります。
+既存の属性名と衝突するだけでなく、今後追加される HTML の属性と衝突する恐れもあります。
 プレフィックスの使用で回避できます。
 
 ```ts:uno.config.ts
