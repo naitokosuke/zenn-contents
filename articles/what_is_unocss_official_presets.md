@@ -595,3 +595,42 @@ export default defineConfig({
   </div>
 </div>
 ```
+
+### preset-rem-to-px
+
+`@unocss/preset-rem-to-px` プリセットを用いることで `rem` を `px` へ変換することができます。
+(デフォルトでは `1rem = 16px`)
+
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+import presetRemToPx from "@unocss/preset-rem-to-px";
+
+export default defineConfig({
+  rules:[
+    [/^m-([.\d]+)$/, ([, num]) => ({ margin: `${num}rem` })],
+  ],
+  presets: [presetRemToPx()],
+});
+```
+
+```html
+<div class="m-2">rem to px</div>
+```
+
+からは
+
+```css
+.m-2 {
+  margin: 2rem;
+}
+```
+
+が生成されますが、`@unocss/preset-rem-to-px` を使えば、
+
+```css
+.m-2 {
+  margin: 32px;
+}
+```
+
+となります。
