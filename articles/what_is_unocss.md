@@ -227,6 +227,8 @@ export default defineConfig({
 }
 ```
 
+<br />
+
 より柔軟(動的)なルールを設定するには正規表現と関数を用います。
 
 ```ts:uno.config.ts
