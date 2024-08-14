@@ -109,6 +109,7 @@ https://unocss.dev/presets/#presets
 | [`@unocss/preset-typography`](https://unocss.dev/presets/typography) | タイポグラフィプリセット |
 | [`@unocss/preset-rem-to-px`](https://unocss.dev/presets/rem-to-px) | `rem` を `px` に変換 |
 
+順番に見ていきましょう。
 
 ### preset-uno
 
@@ -155,7 +156,7 @@ export default defineConfig({
 }
 ```
 
-Tailwind CSS, Windi CSS と互換があるので、ユーティリティの詳細はそれぞれの公式ドキュメントを参照できます。
+ユーティリティの詳細は各フレームワークの公式ドキュメントを参照するのがよいでしょう。
 
 https://tailwindcss.com/
 
@@ -176,6 +177,97 @@ export default defineConfig({
 ```
 :::
 
+### preset-mini
+
+UnoCSC のためのベーシックなプリセットです。
+
+```ts:uno.config.ts
+import { defineConfig, presetMini } from "unocss";
+
+export default defineConfig({
+  presets: [
+    presetMini(),
+  ],
+});
+```
+
+`@unocss/prest-mini` は `@unocss/preset-wind` のサブセットです。
+必要不可欠なユーティリティは含まれていますが、Tailwind CSS で導入された "opinionated" なものや複雑なものは除外されています。
+(`container`, `animation`, `gradient`, など)
+
+Tailwind CSS や Windi CSS のおなじみのユーティリティをベースにして、独自のカスタムプリセットを作成するための良い出発点になるでしょう。
+
+#### ダークモード
+
+このプリセットでは、`dark:` バリアントを使用したクラスベースのダークモードを生成します。
+
+```html
+<div class="dark:bg-red:10" />
+```
+
+からは、
+
+```css
+.dark .dark\:bg-red\:10 {
+  background-color: rgb(248 113 113 / 0.1);
+}
+```
+
+が生成されます。
+
+メディアクエリベースのダークモードを使用するのであれば、`@dark:` バリアントを使用します。
+
+```html
+<div class="@dark:bg-red:10" />
+```
+
+```css
+@media (prefers-color-scheme: dark) {
+  .\@dark\:bg-red\:10 {
+    background-color: rgb(248 113 113 / 0.1);
+  }
+}
+```
+
+またはプリセットオプションで設定することができます。
+
+```ts:uno.config.ts
+import { defineConfig, presetMini } from "unocss";
+
+export default defineConfig({
+  presets: [
+    presetMini({
+      dark: "media",
+    }),
+  ],
+});
+```
+
+#### CSS @layer
+
+[CSS のレイヤー](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) `@layer` は、`layer-xx:` バリアントでサポートされています。
+
+```html
+<div class="layer-foo:p4" />
+<div class="layer-bar:m4" />
+```
+
+からは、
+
+```css
+@layer foo {
+  .layer-foo\:p4 {
+    padding: 1rem;
+  }
+}
+@layer bar {
+  .layer-bar\:m4 {
+    margin: 1rem;
+  }
+}
+```
+
+が生成されます。
 
 ### preset-icons
 
