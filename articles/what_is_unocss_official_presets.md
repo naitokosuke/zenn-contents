@@ -339,8 +339,6 @@ export default defineConfig({
 });
 ```
 
-#### 属性化モード
-
 [公式 Playground](https://unocss.dev/play/?version=0.62.1&html=DwIwrgLhD2B2BQACRIDmBeARCANmApgLQAsADKYgBbQBu%2BATgFy4GECs5iAJgIb0DWzPEQ4VeAxtTpMWRAGzlMSRBHwAPCFgDOAW0QB3SgEtVS5ADM4mzDrjREOI6koQziAA5YAnoQBMiNRI3EGh6LgYsf3poMFhwrhRhP0V4AD5lACFIGARgAHpwKDh00HpEPJLCnJRQ8PosAD9EenwuTEQdP0RUgDUeYRx8LS1EAEEoeiNC-Hyq4vhgLiMaGrCGDq7o2PiVdQhCVX6STl7%2BgkHhsYmpyBm8pZp0oA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmANHGFKgM6owCCMMUwARgK4zDoCeZF1tAKpYIcAL5x0UCCDgAiNiIDGVKnIDcAKE2oAHpFgoMAQzYAbeGkw58hYEQAUCTXHKUaMKgC44AbReubgIwwhAOAJQkAa78HgxMrBxc3BFRrgC6UWLhWkA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4XyA)
 
 ユーティリティクラスを用いてボタンを作成しようとすると、以下のようになることがあります。
@@ -454,6 +452,36 @@ import { defineConfig, presetTagify } from "unocss";
 export default defineConfig({
   presets: [
     presetTagify({ /* プリセットオプション */ }),
+  ],
+});
+```
+
+タグ化モードを使えば、
+
+```html
+<span class="text-red"> red text </span>
+<div class="flex"> flexbox </div>
+I'm feeling <span class="i-line-md-emoji-grin"></span> today!
+```
+
+は、
+
+```html
+<text-red> red text </text-red>
+<flex> flexbox </flex>
+I'm feeling <i-line-md-emoji-grin /> today!
+```
+
+と書くことができます。
+
+プレフィックスを付与することもできます。
+
+```ts:uno.config.ts
+export default defineConfig({
+  presets: [
+    presetTagify({
+      prefix: "uno-",
+    }),
   ],
 });
 ```
