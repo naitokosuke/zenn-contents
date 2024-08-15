@@ -7,7 +7,7 @@ publication_name: "comm_vue_nuxt"
 published: false
 ---
 
-## はじめに
+## 🫡 はじめに
 
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
 今回は ~~CSS フレームワーク~~ **Atomic CSS エンジン**である UnoCSS について紹介したいと思います。
@@ -20,7 +20,7 @@ https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss
 公式プリセットを活用することで UnoCSS をパワーを最大限に生かすことができます。
 公式プリセット(UnoCSS の特徴)を知って、UnoCSS を好きになっていただきたいです。
 
-## ドキュメント
+## 📑 ドキュメント
 
 :::message
 この記事を書いている時点の UnoCSS バージョン: v0.62.1
@@ -31,7 +31,7 @@ https://unocss.dev/
 
 https://github.com/unocss/unocss
 
-## 公式 Playground
+## 🛝 公式 Playground
 
 https://unocss.dev/play/
 
@@ -41,7 +41,7 @@ https://unocss.dev/play/
 また、この記事内でサンプルコード付きの公式 Playground へのリンクを用意しています。
 ぜひ実際にコードを動かしながら記事を読んでください。
 
-## UnoCSS とは
+## 1️⃣ UnoCSS とは
 
 ![UnoCSS 公式ドキュメントトップページ のスクショ](/images/what_is_unocss_official_presets/image2.png)
 
@@ -52,7 +52,7 @@ https://unocss.dev/play/
 UnoCSS は、**オンデマンド**で動作する **Atomic CSS エンジン**です。
 Tailwind CSS, Windi CSS の影響を受け、より**迅速**で**柔軟**なスタイル定義を可能にするために設計されました。
 
-## プリセット
+## 🛠️ プリセット
 
 プリセットは UnoCSS の心臓です。
 
@@ -102,7 +102,7 @@ export default defineConfig({
 });
 ```
 
-## 公式プリセット
+## 📌 公式プリセット
 
 https://unocss.dev/presets/#presets
 
@@ -126,7 +126,7 @@ https://unocss.dev/presets/#presets
 
 公式プリセットを順番に見ていきましょう。
 
-### preset-uno
+### ☝️ preset-uno
 
 UnoCSS のデフォルトプリセットです。
 `@unocss/preset-wind`, `@unocss/prest-mini` を継承しています。
@@ -194,7 +194,7 @@ export default defineConfig({
 
 :::
 
-### preset-wind
+### 💨 preset-wind
 
 `@unocss/preset-wind` は、UnoCSS で Tailwind CSS, Windi CSS のユーティリティを利用できるプリセットです。
 
@@ -214,7 +214,7 @@ export default defineConfig({
 各ユーティリティの詳しい使い方は各フレームワークの公式ドキュメントを参照するのがよいです。
 :::
 
-### preset-mini
+### 🐤 preset-mini
 
 UnoCSS のためのベーシックなプリセットです。
 
@@ -234,7 +234,7 @@ export default defineConfig({
 
 Tailwind CSS や Windi CSS のおなじみのユーティリティをベースにして、独自のカスタムプリセットを作成するための良い出発点になるでしょう。
 
-#### ダークモード
+#### 🌚 ダークモード
 
 このプリセットでは、`dark:` バリアントを使用したクラスベースのダークモードを生成します。
 
@@ -280,7 +280,7 @@ export default defineConfig({
 });
 ```
 
-#### CSS @layer
+#### 🗄️ CSS @layer
 
 [CSS のレイヤー](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) `@layer` は、`layer-xx:` バリアントでサポートされています。
 
@@ -306,7 +306,7 @@ export default defineConfig({
 
 が生成されます。
 
-### preset-icons
+### 🍱 preset-icons
 
 以下の規約に従うことで、純粋な CSS でアイコンを使用できます。
 
@@ -327,7 +327,7 @@ export default defineConfig({
 
 ![公式 Playground での preset-icons の使用例](/images/what_is_unocss_official_presets/image1.png)
 
-#### インストール
+#### 🧑‍💻 インストール
 
 [Iconify](https://iconify.design/) はアイコンのデータソースとして用います。
 アイコンセットを使用するには、`@iconify-json/*` パターンに従って、
@@ -345,7 +345,7 @@ pnpm add -D @iconify/json
 
 利用可能な全てのコレクションは [Icônes](https://icones.js.org/) や [Iconify](https://iconify.design/) で参照することができます。
 
-#### 追加プロパティ
+#### ➕ 追加プロパティ
 
 アイコンのデフォルトの動作を制御するために、追加の CSS プロパティを指定することができます。
 
@@ -365,7 +365,7 @@ export default defineConfig({
 });
 ```
 
-#### モードの上書き
+#### ✍️ モードの上書き
 
 [公式 Playground](https://unocss.dev/play/?version=0.62.1&html=DwEwlgbgBAxgNgQwM5ILwCIDuBaAZgVzjilzgFMAPKMAFzIFslsYyA7OgJygCt8kawuAJ7M2nKAHMEAB2wVsAZgAMUOhRrYALBWL0wrbAAtsSGBzJt0APgBQUKKEixEKDGGwRTAexBlsYGC9WJAAuXDBybBohaT84MAlDDWlWaXprYAB6cAhbe0doeGQ0dHdPQN9-QOCwiL9o2Ox4xOTU%2BgB%2BemQAa1VKDXMQRSUlDOzIWyycqyA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmANHGFKgM6owCSAxgVWRdbQKpYRwC%2Bc6KBBBwARAFduDKlVEBuAFALUAD0iwUGAIbiANvDSYc%2BQsCIAKBArjlKNGFQBccANrWbt9jC4RzAShJ3GzZ7RmZLII8qBi1dVGcAZgA6AAZAjw8GZCxnUQALGBgwJwB6EuoQJKo8ktF0j14A9wBdQMbFIA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4XyA)
 
@@ -384,14 +384,14 @@ export default defineConfig({
 </div>
 ```
 
-#### アイコンコレクションとリゾルバの設定
+#### ⚙️ アイコンコレクションとリゾルバの設定
 
-##### ブラウザ
+##### 🌐 ブラウザ
 
 `iconify` のコレクションをロードするには、`@iconify/json` ではなく、`@iconify-json/[the-collection-you-want]` を使うべきです。
 `json` ファイルは巨大だからです。
 
-##### バンドラー
+##### 🎀 バンドラー
 
 バンドラーを使用するのであれば、コレクションを動的インポートとして提供できます。
 コレクションは非同期チャンクとしてバンドルされ、必要なときに読み込まれます。
@@ -413,7 +413,7 @@ export default defineConfig({
 });
 ```
 
-##### CDN
+##### 🚛 CDN
 
 CDN から取得する場合は、`cdn` オプションを指定できます。
 CDN プロバイダーとしては、[`esm.sh`](https://esm.sh/) が推奨されています。
@@ -430,7 +430,7 @@ export default defineConfig({
 });
 ```
 
-##### カスタムコレクション
+##### 🧰 カスタムコレクション
 
 [公式 Playground](https://unocss.dev/play/?version=0.62.1&html=DwEwlgbgBAxgNgQwM5ILwCIBmcCmAPKAcwQAcBaARgAYoArAVyQBcxMBPMmHAOyZwCcoYPgFsknHn0Eiw3MgAsySGPxw90APgBQUKMCQkE3WIhQYwnRkwD2IgFwww-eDih88TMgFY8cKCMoqTWAAegMjbVDwCG0gA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmANHGFKgM6owCSAxgVWRdbQKpYRwC%2Bc6KBBBwARAFduDKlVEBuAFALUAD0iwUGAIbiANvDSYc%2BQsCIAKBArjlKNGFQBccANrWbt9jC4RzAShJ3GzZ7RmZLII8mXV1UBhhgZmcrD1S4BnEqGGFkyLT04CgGWOdRAB4qADciOErgVAB3ACEIFQBeAHIABjgegEYAJn6hjoA%2BMoZC4tR09o6ANi6O9IBPTsXlqE6AViWBYBjOokpULDGygHpJotjxi6qiUdFA-JteF9eGLSgAIwJnfxwNqjOCgdQwcyiAACwCYWGA6BWAFoAFZUAhXb5-LAXWHMAB0aIIoj8%2BJgAAtTuZgECQcB8YYdPoAnk%2BJFeH53ABdBQcxRAA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4XyA)
 
@@ -453,12 +453,12 @@ export default defineConfig({
 });
 ```
 
-##### Node.js
+##### 🌳 Node.js
 
 `Node.js` ではインストール済みのアイコンデータセットを自動的に探します。
 `iconify` コレクションを登録する必要はありません。
 
-### preset-attributify
+### 🍀 preset-attributify
 
 このプリセットで属性化モードを利用できます。
 ユーティリティをクラスではなく HTML 属性を用いることが可能になります。
@@ -576,7 +576,7 @@ export default defineConfig({
 
 :::
 
-### preset-tagify
+### 🏷️ preset-tagify
 
 このプリセットでタグ化モードを利用できます。
 このプリセットは特定の要素に対して単一の UnoCSS ルールを適用する場合に便利です。
@@ -621,7 +621,7 @@ export default defineConfig({
 });
 ```
 
-### preset-web-fonts
+### 🔠 preset-web-fonts
 
 `@unocss/preset-web-fonts` プリセットを使うことで、フォント名を指定するだけで簡単に Web フォントを利用できます。
 
@@ -652,7 +652,7 @@ export default defineConfig({
 
 また、`none` を指定することで、フォントをシステムフォントとして扱うことができます。
 
-### タイポグラフィ
+### 🖌️ タイポグラフィ
 
 [公式 Playground](https://unocss.dev/play/?version=0.62.1&html=DwEwlgbgBAxgNgQwM5ILwCIBmcCmAPKbfAWhgHs4oBzBAB2IE9iAmAVigCsBXJAFzExMYOAHa8cAJyhhxAWySlR4qbLAjiAC2JIYEnKPQA%2BAFBQooSLEQoMshBIDWIMgHcRR02fMaAjIcD9DIAlDIATDIDXDMAA9L4mXua0hoBjDIC1DICdDMHJacAIUBp6mBgAxEaAVwyAzwyA9QyRCImp6bWR8Z5mwPGAzQyAPwyAkwwAXObkIDiG5CJIFDgAdHBkVAAU6AASOHBTUADqZBJwIACE6ACUANyR-YMNMV4tVsho6CJkvMR2js5uRgAGd7xvUIBJDID%2B8oAxBkAFgyAQAZgCchmQRmNJtM5otlmQ1hstrtDscyANDOZiFAUkFQoAZBkAyvqAfQZAJEMgCsGQAiDIBAf7Onki4Ag5ws0Hg11s9icrhEUCePLcjCWUxcHliwGiQTCkWiTTiNTSGWCWRyeUKJQqVUVdUyEUaEraXV64Mxg2Go1wsNmCxFSPWmx2%2ByOEQh5n152atCuNlu90e3Je7kMH3u33%2BwLBEItMKmNoRKwdqOdGKxOLxBJJFJp9I9jIizJMTMgJiAA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmANHGFKgM6owCqWEZF1tAKgJ6RFQCGYACw5wAvnHRQIIOACIArowDGVKjIDcAKA2oAHpFgoMvOQBt4aTDnyFgRABQINccpRowqALjgBtJ85es9Ix2AJRkAPThcICj%2BoAQGX7OLG6c3HyCHA4J-jQmqIow0AByvCCoXjIgvFAA1sgQAO5YMmRa-v6RcMpUAKI6MKhYyHCA9gxwuADK43CA3QyANwyA9QyA-QyASQyAtQyAPwyAgAwTU4DF2oAAUYBrDIC3DIDDDPPLgCQKgBYMgOoMgGYMgIDGgCYMgFUMh4AdDIDlDPOAEwxZzi6vX6gy8jjabRkiggaBkYIBEOhJmg5QAxAAOABCAFZcAAxABszQRzhEJBJsl4HgEEAAbqgoHDEBTARBkVA0XiACwAZjx2O6xIh-jJFJkVNpwCowH6yCZ4OF-iRKNkqIAjFzMeiAIJE8mK0T6iGitoiMJ%2BAC65LNaiAA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4XyA)
 
@@ -737,7 +737,7 @@ export default defineConfig({
 </div>
 ```
 
-### preset-rem-to-px
+### 💇 preset-rem-to-px
 
 `@unocss/preset-rem-to-px` プリセットを用いることで `rem` を `px` へ変換することができます。
 (デフォルトでは `1rem = 16px`)
@@ -776,7 +776,7 @@ export default defineConfig({
 
 となります。
 
-## まとめ
+## 💡 まとめ
 
 UnoCSS はフレームワークではなくエンジンであると謳っていますが、強力な公式プリセットがたくさん提供されています。
 公式プリセットを使うことで、すぐに開発を開始できるだけでなく、UnoCSS のパワーをもっと引き出すことができます。
@@ -801,7 +801,7 @@ Tailwind の魅力をそのままに、軽量でシンプルな使い勝手を�
 [`@unocss/preset-attributify`](https://unocss.dev/presets/attributify) を用いれば、HTML 属性としてスタイルを指定できます。
 コードがより直感的で読みやすくなるのが個人的に好きです。
 
-## 最後に
+## 💚 最後に
 
 今回の記事が、UnoCSS を利用する際の参考になれば幸いです。
 UnoCSS の魅力をもっと知りたい方は公式サイトやコミュニティリソースを活用して、積極的に情報を収集してみてください。
