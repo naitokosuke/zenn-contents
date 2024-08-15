@@ -71,16 +71,7 @@ https://antfu.me/
 > Hey, I am Anthony Fu, a fanatical open sourceror.
 
 Anthony Fu 氏は OSS に多大なる貢献をしている開発者であり、
-
-:::details Anthony Fu 氏が手掛ける OSS
-
-- [Vitest](https://github.com/vitest-dev/vitest)
-- [Slidev](https://github.com/slidevjs/slidev)
-- [VueUse](https://github.com/vueuse/vueuse)
-- [Elk](https://github.com/elk-zone/elk)
-- [Type Challenges](https://github.com/type-challenges/type-challenges)
-
-:::
+([Vitest](https://github.com/vitest-dev/vitest), [Slidev](https://github.com/slidevjs/slidev), [VueUse](https://github.com/vueuse/vueuse), [Elk](https://github.com/elk-zone/elk), [Type Challenges](https://github.com/type-challenges/type-challenges))
 
 [Vue](https://github.com/vuejs/core), [Nuxt](https://github.com/nuxt/nuxt), [Vite](https://github.com/vitejs/vite) のコアチームメンバーでもあります。
 
@@ -116,10 +107,10 @@ Atomic CSS とは、**視覚的な機能に基づいて命名された単一の�
 ### 🌅 UnoCSS 誕生の経緯と背景
 
 作者である Anthony Fu 氏は Vite の作者であり、主に Vite を利用して開発を行なっています。
-また、Atomic CSS を活用したスピーディな開発を好んでおり、Vite のスターターテンプレート [Vitesse](https://github.com/antfu-collective/vitesse) 開発の UI フレームワークとして、Tailwind CSS を採用していました。
+Atomic CSS を活用したスピーディな開発を好んでおり、Vite のスターターテンプレート [Vitesse](https://github.com/antfu-collective/vitesse) 開発の UI フレームワークとして、Tailwind CSS を採用していました。
 
-Vite が Webpack などに比べて爆速であるのに対し、Tailwind は数 MB のユーティリティ CSS を生成するため、起動時や Vite の HMR で遅くなってしまっていました。
-当初は Atomic CSS を利用する際の代償(trade-off)だと考えていましたが、WindiCSS に出会い、考えが変わります。
+Vite が Webpack などに比べて爆速であるのに対し、Tailwind CSS は数 MB のユーティリティ CSS を生成するため、起動時や Vite の HMR で遅くなってしまっていました。
+当初は Atomic CSS を利用する際の代償(trade-off)だと考えていましたが、Windi CSS に出会い、考えが変わります。
 
 https://windicss.org/
 
@@ -159,20 +150,20 @@ Tailwind CSS, Windi CSS にどのような課題があり、それを解決す�
 
 > Instant On-demand Atomic CSS Engine
 
-| 特徴                   | 説明                                                                          |
-| ---------------------- | ----------------------------------------------------------------------------- |
-| **Fully Customizable** | **コアユーティリティなし**、全ての機能はプリセットで提供                      |
-| **Instant**            | パース、AST、スキャンなし。WindiCSS や Tailwind CSS JIT より 5 倍以上**高速** |
-| **Lightweight**        | 依存関係ゼロでブラウザフレンドリー、約 6KB（最小化＋ brotli 圧縮）            |
-| **Rich Integrations**  | Vite, Webpack, PostCSS, CLI, VS Code, EsLint などのファーストクラスサポート   |
-| **Shortcuts**          | ユーティリティの動的グループ化とエイリアス                                    |
-| **Attributify Mode**   | 属性内のグループユーティリティ                                                |
-| **Pure CSS Icons**     | アイコンを単なるクラスとして使用                                              |
-| **Variant Groups**     | グループユーティリティの共通プレフィックスの短縮系                            |
-| **CSS Directives**     | `@apply` ディレクティブによる CSS の再利用                                    |
-| **Compilation Mode**   | ビルド時に複数クラスを 1 つに統合                                             |
-| **Inspector**          | インタラクティブなデバッグとインスペクト                                      |
-| **CDN Runtime Build**  | CDN インポート(1 行)による UnoCSS の利用                                      |
+| 特徴                   | 説明                                                                           |
+| ---------------------- | ------------------------------------------------------------------------------ |
+| **Fully Customizable** | **コアユーティリティなし**、全ての機能はプリセットで提供                       |
+| **Instant**            | パース、AST、スキャンなし。Windi CSS や Tailwind CSS JIT より 5 倍以上**高速** |
+| **Lightweight**        | 依存関係ゼロでブラウザフレンドリー、約 6KB（最小化＋ brotli 圧縮）             |
+| **Rich Integrations**  | Vite, Webpack, PostCSS, CLI, VS Code, EsLint などのファーストクラスサポート    |
+| **Shortcuts**          | ユーティリティの動的グループ化とエイリアス                                     |
+| **Attributify Mode**   | 属性内のグループユーティリティ                                                 |
+| **Pure CSS Icons**     | アイコンを単なるクラスとして使用                                               |
+| **Variant Groups**     | グループユーティリティの共通プレフィックスの短縮系                             |
+| **CSS Directives**     | `@apply` ディレクティブによる CSS の再利用                                     |
+| **Compilation Mode**   | ビルド時に複数クラスを 1 つに統合                                              |
+| **Inspector**          | インタラクティブなデバッグとインスペクト                                       |
+| **CDN Runtime Build**  | CDN インポート(1 行)による UnoCSS の利用                                       |
 
 ## 💡 UnoCSS 特徴まとめ
 
@@ -181,7 +172,7 @@ Tailwind CSS, Windi CSS にどのような課題があり、それを解決す�
    全ての機能はプリセットで提供され、コアユーティリティがないため、開発者は自分のプロジェクトに最適な設定を柔軟に構築できます。
 
 2. **瞬時に反映されるパフォーマンス**:
-   パースや AST、スキャンが不要で、WindiCSS や Tailwind CSS JIT よりも 5 倍以上の速度で動作します。
+   パースや AST、スキャンが不要で、Windi CSS や Tailwind CSS JIT よりも 5 倍以上の速度で動作します。
    これにより、リアルタイムの開発体験が向上し、効率的なスタイリングが可能です。
 
 3. **豊富な統合と使いやすさ**:
@@ -272,7 +263,7 @@ UnoCSS では複数のソースから「抽出」することができます。
 ### 🚰 ビルドツールパイプライン
 
 ビルドツールパイプラインからの「抽出」は最も効率的かつ正確な方法です。
-「抽出」対象のファイルはデフォルトでは、- `.jsx`, `.tsx`, `.vue`, `.md`, `.html`, `.svelte`, `.astro` です。
+「抽出」対象のファイルはデフォルトでは、`.jsx`, `.tsx`, `.vue`, `.md`, `.html`, `.svelte`, `.astro` です。
 デフォルトでは `.js`, `.ts` が対象外です。
 
 `.js`, `.ts` を含めるには設定ファイルに記述します。
@@ -337,7 +328,7 @@ export default defineConfig({
 
 ## 🛠️ プリセット
 
-いくつかのルールをプリセットとして抽出してそれを共有できます。
+いくつかのルールをプリセットとしてし抜き出して共有できます。
 
 ```ts:my-preset.ts
 import type { Preset } from "unocss";
@@ -466,13 +457,6 @@ Vite サーバでは UnoCSS インスペクタを利用できます。
 
 インスペクタにより、生成された CSS ルールや各ファイルに適用されたクラスを確認できます。
 また、現在の設定に基づいてユーティリティをテストするための REPL も提供されています。
-
-:::message
-REPL (Read-Eval-Print Loop) とは、入力・評価・出力のループのことを指します。
-インタプリタにおいて、ユーザーとインタプリタが対話的にコード片を実行できるものです。
-
-https://ja.wikipedia.org/wiki/REPL
-:::
 
 ## 💭 まとめ
 
