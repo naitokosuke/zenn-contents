@@ -7,17 +7,17 @@ publication_name: "comm_vue_nuxt"
 published: false
 ---
 
-## はじめに
+## 👋 はじめに
 
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
 今回は ~~CSS フレームワーク~~ **Atomic CSS エンジン**である UnoCSS について紹介したいと思います。
 
-## 想定読者
+## 🧐 想定読者
 
 Tailwind CSS などの CSS フレームワークを利用したことのある開発者であればスラスラ読めると思いますが、初学者の方であっても問題なく読めると思います。
 (なぜならばぼく自身が CSS フレームワークを使ったモダンフロントエンド開発の経験がないからです 🙋‍♂️)
 
-## UnoCSS と日本
+## 🗾 UnoCSS と日本
 
 UnoCSS は軽量かつ柔軟な **Atomic CSS エンジン**であり、現在最も注目を集めている CSS ツールの一つです。
 
@@ -56,13 +56,13 @@ UnoCSS は世界的には人気を集めていますが、日本ではまだ情�
 設計思想に共感したり、特徴を気に入ってくれたりして、UnoCSS を好きになる方が増えることを願います。
 CSS フレームワークの選択肢の一つになってほしいです。
 
-## 背景
+## 🏛️ 背景
 
 Atomic CSS (エンジン)とはなんでしょうか。
 UnoCSS はどのようにして生まれたのでしょうか。
 Atomic CSS の考えを知り、UnoCSS の誕生の経緯や理由を知ることで、UnoCSS の設計思想や特徴を深く理解することができます。
 
-### Anhony Fu 氏
+### ⭐️ Anhony Fu 氏
 
 UnoCSS の作者は Anthony Fu 氏です。
 
@@ -86,7 +86,7 @@ Anthony Fu 氏は OSS に多大なる貢献をしている開発者であり、
 
 UnoCSS の誕生した経緯が作者 Anthony Fu 氏のブログ記事 [Reimagine Atomic CSS](https://antfu.me/posts/reimagine-atomic-css) に記されています。
 
-### Atomic CSS
+### ⚛️ Atomic CSS
 
 Atomic CSS は Functional CSS, Utility First CSS とも呼ばれます。
 
@@ -113,7 +113,7 @@ Atomic CSS とは、**視覚的な機能に基づいて命名された単一の�
 /* ... */
 ```
 
-### UnoCSS 誕生の経緯と背景
+### 🌅 UnoCSS 誕生の経緯と背景
 
 作者である Anthony Fu 氏は Vite の作者であり、主に Vite を利用して開発を行なっています。
 また、Atomic CSS を活用したスピーディな開発を好んでおり、Vite のスターターテンプレート [Vitesse](https://github.com/antfu-collective/vitesse) 開発の UI フレームワークとして、Tailwind CSS を採用していました。
@@ -138,7 +138,7 @@ Tailwind CSS の設計思想はオンデマンドなアプローチに合致し�
 
 https://x.com/antfu7/status/1445368569550688256
 
-### まとめ
+### 📝 まとめ
 
 UnoCSS は、Anthony Fu 氏が Tailwind CSS のパフォーマンス問題とカスタマイズの難しさを解決するために開発した、**オンデマンド**で動作する **Atomic CSS エンジン**です。
 Windi CSS の影響を受け、より**迅速**で**柔軟**なスタイル定義を可能にするために設計されました。
@@ -148,7 +148,7 @@ Atomic CSS は、**視覚的な機能に基づいて命名された単一の目�
 
 このように、UnoCSS は既存の CSS フレームワークの課題を解決し、開発者にとってより使いやすく、高速な開発体験を提供するために誕生しました。
 
-## UnoCSS の特徴
+## 🔍 UnoCSS の特徴
 
 UnoCSS の誕生背景を説明しました。
 Tailwind CSS, Windi CSS にどのような課題があり、それを解決するために Anthony Fu 氏が UnoCSS を作成したことが理解できましたでしょうか？
@@ -174,7 +174,7 @@ Tailwind CSS, Windi CSS にどのような課題があり、それを解決す�
 | **Inspector**          | インタラクティブなデバッグとインスペクト                                      |
 | **CDN Runtime Build**  | CDN インポート(1 行)による UnoCSS の利用                                      |
 
-## UnoCSS 特徴まとめ
+## 💡 UnoCSS 特徴まとめ
 
 1. **完全カスタマイズ可能で軽量**:
    UnoCSS は依存関係がなく、最小化＋ brotli 圧縮で約 6KB という非常に軽量な設計です。
@@ -188,7 +188,7 @@ Tailwind CSS, Windi CSS にどのような課題があり、それを解決す�
    Vite、Webpack、PostCSS、CLI、VS Code、ESLint などのツールとシームレスに統合でき、開発環境を選ばずに利用できます。
    また、`@apply`ディレクティブやショートカット機能、属性モードなどにより、直感的かつ効率的にスタイルを適用できるよう設計されています。
 
-## UnoCSS の基本的な使用方法
+## 🌿 UnoCSS の基本的な使用方法
 
 さて、UnoCSS の基本的な使い方を見ていきましょう。
 
@@ -202,7 +202,7 @@ https://unocss.dev/integrations/#integrations
 https://github.com/unocss/unocss/tree/main/examples
 :::
 
-### 独自ユーティリティの定義と使用
+### 🎨 独自ユーティリティの定義と使用
 
 設定ファイルにルールとして記述できます。
 
@@ -254,7 +254,7 @@ export default defineConfig({
 }
 ```
 
-## 「抽出(extracting)」
+## 🥤 「抽出(extracting)」
 
 UnoCSS は、HTML や JavaScript/TypeScript のコードから使用されているクラスを自動的に「抽出（extracting）」し、**必要な**スタイルのみを生成します。
 無駄な CSS が生成されるのを防ぎ、非常に軽量かつ効率的なスタイルシートを作成できます。
@@ -269,7 +269,7 @@ UnoCSS では複数のソースから「抽出」することができます。
 - ファイルシステム
 - インラインテキスト
 
-### ビルドツールパイプライン
+### 🚰 ビルドツールパイプライン
 
 ビルドツールパイプラインからの「抽出」は最も効率的かつ正確な方法です。
 「抽出」対象のファイルはデフォルトでは、- `.jsx`, `.tsx`, `.vue`, `.md`, `.html`, `.svelte`, `.astro` です。
@@ -295,7 +295,7 @@ export default defineConfig({
 });
 ```
 
-### ファイルシステム
+### 👀 ファイルシステム
 
 ビルドツールのパイプラインにアクセスできない統合（PostCSS プラグインなど）を使用している場合や、
 コードがパイプラインを通らないようなバックエンドフレームワークと統合している場合には、手動で「抽出」するファイルを指定することができます。
@@ -313,7 +313,7 @@ export default defineConfig({
 });
 ```
 
-### インラインテキスト
+### 🔤 インラインテキスト
 
 インラインテキストからも「抽出」することができます。
 
@@ -335,7 +335,7 @@ export default defineConfig({
 });
 ```
 
-## プリセット
+## 🛠️ プリセット
 
 いくつかのルールをプリセットとして抽出してそれを共有できます。
 
@@ -365,7 +365,7 @@ export default defineConfig({
 });
 ```
 
-## 公式プリセット
+## 📌 公式プリセット
 
 UnoCSS のコアユーティリティなしの「柔軟性」、「拡張性」を説明しました。
 Tailwind CSS などのユーティリティファースト CSS フレームワークに馴染みのある方々はルールやプリセットの定義を億劫に感じるかもしれません。
@@ -401,7 +401,7 @@ pnpm add -D @unocss/preset-uno
 }
 ```
 
-## 属性化モード
+## ✅ 属性化モード
 
 https://unocss.dev/presets/attributify#attributify-mode
 
@@ -457,7 +457,7 @@ presetAttributify({
 
 :::
 
-## インスペクタ
+## 🕵️ インスペクタ
 
 ![UnoCSS インスペクタを実際に使用したスクショ](/images/what_is_unocss/image5.png)
 
@@ -474,7 +474,7 @@ REPL (Read-Eval-Print Loop) とは、入力・評価・出力のループのこ�
 https://ja.wikipedia.org/wiki/REPL
 :::
 
-## まとめ
+## 💭 まとめ
 
 UnoCSS は、
 
@@ -489,7 +489,7 @@ UnoCSS は開発者にとっての新しい選択肢として注目されてい�
 UnoCSS はさらに多くの機能やカスタマイズオプションを提供しています。
 この記事を読んでくださった方の中で公式ドキュメントを読んでくれる方がいればめちゃ嬉しいです。
 
-## 最後に
+## 💚 最後に
 
 UnoCSS はまだ日本国内では広く知られていないかもしれません。
 しかし、その優れた設計思想や特徴を理解し、導入を検討する価値は十分にあります。
