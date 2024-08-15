@@ -108,17 +108,17 @@ https://unocss.dev/presets/#presets
 
 2024 年 8 月時点では、公式プリセットとして以下が提供されています。
 
-| プリセット名 | 説明 |
-|--------------|------|
-| [`@unocss/preset-uno`](https://unocss.dev/presets/uno) | デフォルトプリセット |
-| [`@unocss/preset-mini`](https://unocss.dev/presets/mini) | 最小かつ必要不可欠なルールとバリアント |
-| [`@unocss/preset-wind`](https://unocss.dev/presets/wind) | Tailwind CSS, Windi CSS のコンパクトなプリセット |
-| [`@unocss/preset-attributify`](https://unocss.dev/presets/attributify) | 属性化モード |
-| [`@unocss/preset-tagify`](https://unocss.dev/presets/tagify) | タグ化モード |
-| [`@unocss/preset-icons`](https://unocss.dev/presets/icons) | 純粋な CSS によるアイコン Powered by [Iconify](https://iconify.design/) |
-| [`@unocss/preset-web-fonts`](https://unocss.dev/presets/web-fonts) | Web フォント |
-| [`@unocss/preset-typography`](https://unocss.dev/presets/typography) | タイポグラフィプリセット |
-| [`@unocss/preset-rem-to-px`](https://unocss.dev/presets/rem-to-px) | `rem` を `px` に変換 |
+| プリセット名                                                           | 説明                                                                    |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| [`@unocss/preset-uno`](https://unocss.dev/presets/uno)                 | デフォルトプリセット                                                    |
+| [`@unocss/preset-mini`](https://unocss.dev/presets/mini)               | 最小かつ必要不可欠なルールとバリアント                                  |
+| [`@unocss/preset-wind`](https://unocss.dev/presets/wind)               | Tailwind CSS, Windi CSS のコンパクトなプリセット                        |
+| [`@unocss/preset-attributify`](https://unocss.dev/presets/attributify) | 属性化モード                                                            |
+| [`@unocss/preset-tagify`](https://unocss.dev/presets/tagify)           | タグ化モード                                                            |
+| [`@unocss/preset-icons`](https://unocss.dev/presets/icons)             | 純粋な CSS によるアイコン Powered by [Iconify](https://iconify.design/) |
+| [`@unocss/preset-web-fonts`](https://unocss.dev/presets/web-fonts)     | Web フォント                                                            |
+| [`@unocss/preset-typography`](https://unocss.dev/presets/typography)   | タイポグラフィプリセット                                                |
+| [`@unocss/preset-rem-to-px`](https://unocss.dev/presets/rem-to-px)     | `rem` を `px` に変換                                                    |
 
 <br />
 
@@ -142,31 +142,32 @@ export default defineConfig({
 ```
 
 このプリセットは、
+
 - Tailwind CSS
 - Windi CSS
 - Bootstrap
-- Tachyons 
+- Tachyons
 
 などの人気ユーティリティファーストフレームワークの共通のスーパーセットを提供しようとしています。
 
 ```css
 /* Tachyons */
-.ma4 { 
+.ma4 {
   margin: 1rem;
 }
 
 /* Tailwind CSS */
-.ml-3 { 
+.ml-3 {
   margin-left: 0.75rem;
 }
 
 /* Bootstrap */
-.ms-2 { 
+.ms-2 {
   margin-inline-start: 0.5rem;
 }
 
 /* Windi CSS */
-.mt-10px { 
+.mt-10px {
   margin-top: 10px;
 }
 ```
@@ -187,14 +188,15 @@ UnoCSS では `presets` オプションを明記しない限り、デフォル�
 import { defineConfig } from "unocss";
 
 export default defineConfig({
-  presets: [], 
+  presets: [],
 });
 ```
+
 :::
 
 ### preset-wind
 
-`@unocss/preset-wind` は、UnoCSSでTailwind CSS, Windi CSS のユーティリティを利用できるプリセットです。
+`@unocss/preset-wind` は、UnoCSS で Tailwind CSS, Windi CSS のユーティリティを利用できるプリセットです。
 
 ```ts:uno.config.ts
 import { defineConfig, presetWind } from "unocss";
@@ -314,11 +316,13 @@ export default defineConfig({
 [公式 Playground](https://unocss.dev/play/?version=0.62.1&html=DwEwlgbgBAxgNgQwM5ILwCIBmcCmAPKAcwQAcBaARgAYoArAVyQBcxMBPMmHAOyZwCcoYPgFsknHn0Eiw3MgAsySGPxw90APgBQUKKEixEKDGDIlFCbjHkB7fkrAiSuMk3mzNwAPTgI23frQ8Mho6KYi4GQIiPwiUHx4TGR2loQ4ZAAsVFSePpD%2Ber6GISZkcDaENuIQ9Djx%2BEkAzHhwub4FwABG9ExMNtzFxmGcCPyd-Ur0AyCjANYAXKYwo%2BNyIjb9ud29-R2%2BOrqDoaZMAO4467SmhPyy3LKEZJgIXGSnwopIMnAPZDhsOCQUFsEAEi1c50upmer3eblcOFG4hsmDItBsbHQBw03naWlx%2BSAA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmANHGFKgM6owCSAxgVWRdbQKpYRwC%2Bc6KBBBwARAFduDKlVEBuAFALUAD0iwUGAIbiANvDSYc%2BQsCIAKBArjlKNGFQBccANrWbt9jC4RzAShJ3GzZ7RmZLII8qBi1dVEcAZgA6AAZAjw8GZCxnUQALGBgwJwB6EuoQJKo8ktF0j14A9wBdQMbFIA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4XyA)
 
 ```html
-  <div class="i-ph-anchor-simple-thin"></div>
-  <div class="i-mdi-alarm text-orange-400"></div>
-  <div class="i-logos-vue text-3xl"></div>
-  <button class="i-carbon-sun dark:i-carbon-moon"></button>
-  <div class="i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy"></div>
+<div class="i-ph-anchor-simple-thin"></div>
+<div class="i-mdi-alarm text-orange-400"></div>
+<div class="i-logos-vue text-3xl"></div>
+<button class="i-carbon-sun dark:i-carbon-moon"></button>
+<div
+  class="i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy"
+></div>
 ```
 
 ![公式 Playground での preset-icons の使用例](/images/what_is_unocss_official_presets/image1.png)
@@ -336,13 +340,14 @@ export default defineConfig({
 ```bash
 pnpm add -D @iconify/json
 ```
+
 :::
 
 利用可能な全てのコレクションは [Icônes](https://icones.js.org/) や [Iconify](https://iconify.design/) で参照することができます。
 
 #### 追加プロパティ
 
-アイコンのデフォルトの動作を制御するために、追加のCSSプロパティを指定することができます。
+アイコンのデフォルトの動作を制御するために、追加の CSS プロパティを指定することができます。
 
 ```ts:uno.config.ts
 import { defineConfig, presetIcons } from "unocss";
@@ -371,7 +376,9 @@ export default defineConfig({
 - `?mask` は `mask` を意味し、アイコンをマスク画像としてレンダリングします。
 
 ```html
-<div class="w-full flex items-center justify-center gap-x-30 text-4xl min-h-screen">
+<div
+  class="w-full flex items-center justify-center gap-x-30 text-4xl min-h-screen"
+>
   <div class="i-vscode-icons:file-type-light-pnpm"></div>
   <div class="i-vscode-icons:file-type-light-pnpm?mask text-red-300"></div>
 </div>
@@ -535,13 +542,13 @@ import { defineConfig, presetAttributify } from "unocss";
 export default defineConfig({
   presets: [
     // ...
-    presetAttributify({ 
-      prefix: "uno-", 
+    presetAttributify({
+      prefix: "uno-",
       prefixedOnly: true,
     }),
     // ...
   ],
-}); 
+});
 ```
 
 2. JSX での属性名の扱い
@@ -550,7 +557,7 @@ JSX では属性の存在をブール値 `true` として扱うため、`<div fo
 この変換により、UnoCSS が生成する CSS が対応する HTML 要素に適用されなくなる可能性があります。
 これは UnoCSS が属性の存在だけでなく、属性の値もチェックするためです。
 
- [@unocss/transformer-attributify-jsx](https://unocss.dev/transformers/attributify-jsx) の利用して回避できます。
+[@unocss/transformer-attributify-jsx](https://unocss.dev/transformers/attributify-jsx) の利用して回避できます。
 
 ```ts:uno.config.ts
 import { defineConfig, presetAttributify, transformerAttributifyJsx } from "unocss";
@@ -566,6 +573,7 @@ export default defineConfig({
   ],
 });
 ```
+
 :::
 
 ### preset-tagify
@@ -587,7 +595,7 @@ export default defineConfig({
 
 ```html
 <span class="text-red"> red text </span>
-<div class="flex"> flexbox </div>
+<div class="flex">flexbox</div>
 I'm feeling <span class="i-line-md-emoji-grin"></span> today!
 ```
 
@@ -687,7 +695,7 @@ export default defineConfig({
   presets: [
     presetUno(), // 必須
     presetTypography({
-      selectorName: "markdown", 
+      selectorName: "markdown",
 
       // cssExtend は CSS セレクタをキー、CSS 宣言ブロックを値として持つオブジェクト
       cssExtend: {
@@ -712,13 +720,19 @@ export default defineConfig({
     <h1>タイトル</h1>
     <p>テキストテキスト<a href="#">リンク</a>テキストテキスト</p>
     <p>コード: <code>console.log("Hello World!");</code></p>
-    <p class="not-markdown">`not` を使うと、<code>console.log("Hello World!");</code> <- スタイルが当たらない！</p>
+    <p class="not-markdown">
+      `not` を使うと、<code>console.log("Hello World!");</code> <-
+      スタイルが当たらない！
+    </p>
   </div>
   <div class="markdown markdown-yellow">
     <h1>タイトル</h1>
     <p>テキストテキスト<a href="#">リンク</a>テキストテキスト</p>
-    <p>コード: <code>console.log("Hello World!");</code> </p>
-    <p class="not-markdown">`not` を使うと、<code>console.log("Hello World!");</code> <- スタイルが当たらない！</p>
+    <p>コード: <code>console.log("Hello World!");</code></p>
+    <p class="not-markdown">
+      `not` を使うと、<code>console.log("Hello World!");</code> <-
+      スタイルが当たらない！
+    </p>
   </div>
 </div>
 ```
@@ -767,22 +781,21 @@ export default defineConfig({
 UnoCSS はフレームワークではなくエンジンであると謳っていますが、強力な公式プリセットがたくさん提供されています。
 公式プリセットを使うことで、すぐに開発を開始できるだけでなく、UnoCSS のパワーをもっと引き出すことができます。
 
-| プリセット名 | 説明 |
-|--------------|------|
-| [`@unocss/preset-uno`](https://unocss.dev/presets/uno) | デフォルトプリセット |
-| [`@unocss/preset-mini`](https://unocss.dev/presets/mini) | 最小かつ必要不可欠なルールとバリアント |
-| [`@unocss/preset-wind`](https://unocss.dev/presets/wind) | Tailwind CSS, Windi CSS のコンパクトなプリセット |
-| [`@unocss/preset-attributify`](https://unocss.dev/presets/attributify) | 属性化モード |
-| [`@unocss/preset-tagify`](https://unocss.dev/presets/tagify) | タグ化モード |
-| [`@unocss/preset-icons`](https://unocss.dev/presets/icons) | 純粋な CSS によるアイコン Powered by [Iconify](https://iconify.design/) |
-| [`@unocss/preset-web-fonts`](https://unocss.dev/presets/web-fonts) | Web フォント |
-| [`@unocss/preset-typography`](https://unocss.dev/presets/typography) | タイポグラフィプリセット |
-| [`@unocss/preset-rem-to-px`](https://unocss.dev/presets/rem-to-px) | `rem` を `px` に変換 |
+| プリセット名                                                           | 説明                                                                    |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| [`@unocss/preset-uno`](https://unocss.dev/presets/uno)                 | デフォルトプリセット                                                    |
+| [`@unocss/preset-mini`](https://unocss.dev/presets/mini)               | 最小かつ必要不可欠なルールとバリアント                                  |
+| [`@unocss/preset-wind`](https://unocss.dev/presets/wind)               | Tailwind CSS, Windi CSS のコンパクトなプリセット                        |
+| [`@unocss/preset-attributify`](https://unocss.dev/presets/attributify) | 属性化モード                                                            |
+| [`@unocss/preset-tagify`](https://unocss.dev/presets/tagify)           | タグ化モード                                                            |
+| [`@unocss/preset-icons`](https://unocss.dev/presets/icons)             | 純粋な CSS によるアイコン Powered by [Iconify](https://iconify.design/) |
+| [`@unocss/preset-web-fonts`](https://unocss.dev/presets/web-fonts)     | Web フォント                                                            |
+| [`@unocss/preset-typography`](https://unocss.dev/presets/typography)   | タイポグラフィプリセット                                                |
+| [`@unocss/preset-rem-to-px`](https://unocss.dev/presets/rem-to-px)     | `rem` を `px` に変換                                                    |
 
 [`@unocss/preset-wind`](https://unocss.dev/presets/wind) は、Tailwind CSS や WindiCSS に慣れ親しんでいるユーザーにとってうってつけのプリセットです。
 Tailwind の魅力をそのままに、軽量でシンプルな使い勝手を提供します。
 学習コストも小さく、今までの知識を活かしながらすぐに UnoCSS を使い始めることができるでしょう。
-
 
 ぼくの推し公式プリセットは [`@unocss/preset-attributify`](https://unocss.dev/presets/attributify) です 😎
 [`@unocss/preset-attributify`](https://unocss.dev/presets/attributify) を用いれば、HTML 属性としてスタイルを指定できます。

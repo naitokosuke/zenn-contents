@@ -159,21 +159,20 @@ Tailwind CSS, Windi CSS にどのような課題があり、それを解決す�
 
 > Instant On-demand Atomic CSS Engine
 
-| 特徴                | 説明                                                                                       |
-|-----------------------|--------------------------------------------------------------------------------------------|
-| **Fully Customizable** | **コアユーティリティなし**、全ての機能はプリセットで提供                                        |
-| **Instant**           | パース、AST、スキャンなし。WindiCSSやTailwind CSS JITより5倍以上**高速**                        |
-| **Lightweight**       | 依存関係ゼロでブラウザフレンドリー、約6KB（最小化＋brotli圧縮）                              |
-| **Rich Integrations** | Vite, Webpack, PostCSS, CLI, VS Code, EsLint などのファーストクラスサポート                   |
-| **Shortcuts**         | ユーティリティの動的グループ化とエイリアス                                                   |
-| **Attributify Mode**  | 属性内のグループユーティリティ                                                              |
-| **Pure CSS Icons**    | アイコンを単なるクラスとして使用                                                             |
-| **Variant Groups**    | グループユーティリティの共通プレフィックスの短縮系                                           |
-| **CSS Directives**    | `@apply` ディレクティブによるCSSの再利用                                                    |
-| **Compilation Mode**  | ビルド時に複数クラスを1つに統合                                                              |
-| **Inspector**         | インタラクティブなデバッグとインスペクト                                                     |
-| **CDN Runtime Build** | CDNインポート(1行)によるUnoCSSの利用                                                        |
-
+| 特徴                   | 説明                                                                          |
+| ---------------------- | ----------------------------------------------------------------------------- |
+| **Fully Customizable** | **コアユーティリティなし**、全ての機能はプリセットで提供                      |
+| **Instant**            | パース、AST、スキャンなし。WindiCSS や Tailwind CSS JIT より 5 倍以上**高速** |
+| **Lightweight**        | 依存関係ゼロでブラウザフレンドリー、約 6KB（最小化＋ brotli 圧縮）            |
+| **Rich Integrations**  | Vite, Webpack, PostCSS, CLI, VS Code, EsLint などのファーストクラスサポート   |
+| **Shortcuts**          | ユーティリティの動的グループ化とエイリアス                                    |
+| **Attributify Mode**   | 属性内のグループユーティリティ                                                |
+| **Pure CSS Icons**     | アイコンを単なるクラスとして使用                                              |
+| **Variant Groups**     | グループユーティリティの共通プレフィックスの短縮系                            |
+| **CSS Directives**     | `@apply` ディレクティブによる CSS の再利用                                    |
+| **Compilation Mode**   | ビルド時に複数クラスを 1 つに統合                                             |
+| **Inspector**          | インタラクティブなデバッグとインスペクト                                      |
+| **CDN Runtime Build**  | CDN インポート(1 行)による UnoCSS の利用                                      |
 
 ## UnoCSS 特徴まとめ
 
@@ -499,11 +498,11 @@ UnoCSS はまだ日本国内では広く知られていないかもしれませ�
 さらに詳しい情報や具体的な使い方については、今後以下のような記事を執筆予定です。
 
 - **もっと詳しく**
-公式ドキュメントの翻訳をベースにした詳細な解説記事
+  公式ドキュメントの翻訳をベースにした詳細な解説記事
   - 設定
   - 公式プリセット
 - **人気フレームワークとの比較**
-Tailwind CSS や Windi CSS などの他の CSS フレームワークとの比較記事
+  Tailwind CSS や Windi CSS などの他の CSS フレームワークとの比較記事
 
 これらの記事もぜひご期待ください。
 UnoCSS の魅力をもっと知りたい方は公式サイトやコミュニティリソースを活用して、積極的に情報を収集してみてください。
