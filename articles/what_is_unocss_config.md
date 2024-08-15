@@ -279,7 +279,8 @@ export default defineConfig({
 また、オプションを受け取ることもできます。
 
 ```ts:my-preset.ts
-import { definePreset, type Preset } from "unocss";
+import { definePreset } from "unocss";
+import type { Preset } from "unocss";
 
 interface MyPresetOptions {
   primaryColor?: string;

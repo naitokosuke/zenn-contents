@@ -340,7 +340,7 @@ export default defineConfig({
 いくつかのルールをプリセットとして抽出してそれを共有できます。
 
 ```ts:my-preset.ts
-import { type Preset } from "unocss";
+import type { Preset } from "unocss";
 
 export const myPreset: Preset = {
   name: "my-preset",
