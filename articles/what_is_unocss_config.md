@@ -7,7 +7,7 @@ publication_name: "comm_vue_nuxt"
 published: false
 ---
 
-## はじめに
+## 🙋 はじめに
 
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
 今回は ~~CSS フレームワーク~~ **Atomic CSS エンジン**である UnoCSS について紹介したいと思います。
@@ -19,7 +19,7 @@ https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss
 設定プロパティを知ることで、UnoCSS の特徴をより深く理解することができます。
 また、設定プロパティの豊富さから UnoCSS の**柔軟さ**を感じていただきたいです。
 
-## ドキュメント
+## 📗 ドキュメント
 
 :::message
 この記事を書いている時点の UnoCSS バージョン: v0.62.1
@@ -30,7 +30,7 @@ https://unocss.dev/
 
 https://github.com/unocss/unocss
 
-## 公式 Playground
+## 🛝 公式 Playground
 
 https://unocss.dev/play/
 
@@ -40,7 +40,7 @@ https://unocss.dev/play/
 また、この記事内でサンプルコード付きの公式 Playground へのリンクを用意しています。
 ぜひ実際にコードを動かしながら記事を読んでください。
 
-## UnoCSS とは
+## 1️⃣ UnoCSS とは
 
 ![UnoCSS 公式ドキュメントトップページ のスクショ](/images/what_is_unocss_config/image1.png)
 
@@ -51,7 +51,7 @@ https://unocss.dev/play/
 UnoCSS は、**オンデマンド**で動作する **Atomic CSS エンジン**です。
 Tailwind CSS, Windi CSS の影響を受け、より**迅速**で**柔軟**なスタイル定義を可能にするために設計されました。
 
-## UnoCSS の例
+## 🤗 UnoCSS の例
 
 [公式 Playground](https://unocss.dev/play/?html=DwEwlgbgBAxgNgQwM5ILwCIC2BaAjABnQD4AJAUzjgHtgB6cCIgKCA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmcAvnOlBCHAEQCuWEAxgM6u0BQnqAHpLBQYAhvQA28NJhz5CwIgAoEnOHCjjUrAFxwA2rtogAtAEYADLQA0iOCGFQi2HbXNhetMgF1PlzqQCUnEA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4IgLgTghgdgzgMwPYQLYAkyoDYgFwJTZwCmAvkA)
 
@@ -79,7 +79,7 @@ export default defineConfig({
 
 ![UnoCSS 公式Playground での例のスクショ](/images/what_is_unocss_config/image2.png)
 
-## UnoCSS の特徴(Configuration)
+## ✨ UnoCSS の特徴(Configuration)
 
 UnoCSS の大きな特徴の一つは、必要な機能やスタイルを設定ファイルによって**柔軟**に選択できる点です。
 (**不要な機能を使わない**ということでもあります。)
@@ -89,9 +89,9 @@ UnoCSS の大きな特徴の一つは、必要な機能やスタイルを設定�
 
 設定ファイルは専用のファイル `uno.config.ts` を用いることが推奨されています。
 
-### ルール
+### 📏 ルール
 
-#### 静的ルール
+#### 🤫 静的ルール
 
 ルールによってユーティリティクラスと生成される CSS のペアを定義できます。
 
@@ -122,7 +122,7 @@ export default defineConfig({
 `font-weight` のようにプロパティ名に `-` が入る場合はクォーテーションで囲む必要があります。
 :::
 
-#### 動的ルール
+#### 🗣️ 動的ルール
 
 正規表現と関数を用いて動的にユーティリティを定義することができます。
 
@@ -157,7 +157,7 @@ export default defineConfig({
 }
 ```
 
-#### ルールの順序
+#### ☕️ ルールの順序
 
 UnoCSS は生成された CSS 内で定義されたルールの順序を尊重します。
 後に定義されたものがより高い優先度を持ちます。
@@ -198,7 +198,7 @@ export default defineConfig({
 }
 ```
 
-#### ルールのマージ
+#### 🤝 ルールのマージ
 
 UnoCSS では生成される CSS のサイズを小さくするために、CSS をマージします。
 
@@ -213,7 +213,7 @@ UnoCSS では生成される CSS のサイズを小さくするために、CSS �
 }
 ```
 
-### プリセット
+### 🛠️ プリセット
 
 UnoCSS は Atomic CSS エンジンであり、コアユーティリティを提供していません。
 上記の例のように、自らルールを設定することができます。
@@ -294,7 +294,7 @@ export default defineConfig({
 });
 ```
 
-### ショートカット
+### 🏃 ショートカット
 
 複数のルールを組み合わせてひとつのショートカットを定義できます。
 
@@ -327,7 +327,7 @@ export default defineConfig({
 });
 ```
 
-### テーマ
+### 💐 テーマ
 
 UnoCSS でも Tailwind CSS, Windi CSS でおなじみのテーマ化システムをサポートしています。
 
@@ -383,7 +383,7 @@ export default defineConfig({
 単位ごとにサイズ順にソートされるためです。
 :::
 
-### バリアント
+### 🫚 バリアント
 
 バリアントを用いることで既存のルールにバリエーションを適用することができます。
 (Tailwind CSS の `hover:` バリアントのように)
@@ -426,7 +426,7 @@ export default defineConfig({
 ユーザがホバーしたときにだけ `m-2` を適用することが実現できます。
 :::
 
-### エクストラクタ
+### 🥤 エクストラクタ
 
 ソースコード中のユーティリティを抽出するためにエクストラクタが使われます。
 
@@ -446,7 +446,7 @@ export default defineConfig({
 });
 ```
 
-### トランスフォーマー
+### 🤖 トランスフォーマー
 
 トランスフォーマーはソースコード変形のための統一されたインターフェースを提供します。
 
@@ -543,7 +543,7 @@ export const App = () => {
 
 のようにコンパイルされます。
 
-### プリフライト
+### ✈️ プリフライト
 
 生の CSS をプリフライトとして設定から注入することができます。
 これによりデフォルトスタイルの指定や CSS リセットを行うことができます。
@@ -566,7 +566,7 @@ export default defineConfig({
 });
 ```
 
-### レイヤー
+### 📚 レイヤー
 
 CSS の順序は優先順位に影響します。
 エンジンはルールの順序を保持しますが、ユーティリティをグループ化してその順序を明示的に制御したい場合もあります。
@@ -634,7 +634,7 @@ import "./my-custom.css";
 import "uno:utilities.css";
 ```
 
-#### CSS カスケードレイヤー
+#### 🍰 CSS カスケードレイヤー
 
 https://developer.mozilla.org/ja/docs/Web/CSS/@layer
 
@@ -668,7 +668,7 @@ export default defineConfig({
 });
 ```
 
-### オートコンプリート
+### ✅ オートコンプリート
 
 VS Code 拡張機能の自動補完をカスタマイズすることができます。
 (静的なルールでは何も設定しなくても自動補完が効きます。)
@@ -717,7 +717,7 @@ export default defineConfig({
 });
 ```
 
-## まとめ
+## 💭 まとめ
 
 UnoCSS は、**オンデマンド型**の Atomic CSS エンジンとして、スタイル定義を革新する強力なツールです。
 
@@ -732,7 +732,7 @@ UnoCSS は、**オンデマンド型**の Atomic CSS エンジンとして、ス
 
 様々な設定プロパティを活用することで、パフォーマンスを向上させるだけでなく、スタイル管理も大幅に楽になります。
 
-## 最後に
+## 💚 最後に
 
 この記事を通して、UnoCSS の設定の豊富さと柔軟性についてご理解いただけたでしょうか。
 UnoCSS を使うことでよりシンプルで効率的なスタイル定義が可能になります。
