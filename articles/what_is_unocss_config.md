@@ -432,6 +432,20 @@ export default defineConfig({
 
 デフォルトでは [extractorSplit](https://github.com/unocss/unocss/blob/main/packages/core/src/extractors/split.ts) が適用されています。
 
+```ts:uno.config.ts
+import { defineConfig } from "unocss";
+
+export default defineConfig({
+  extractors: [
+    // 独自のエクストラクタ
+  ],
+  // デフォルトのエクストラクタを無効
+  extractorDefault: false,
+  // デフォルトのエクストラクタを独自のものに上書き
+  extractorDefault: myExtractor,
+});
+```
+
 ### トランスフォーマー
 
 トランスフォーマーはソースコード変形のための統一されたインターフェースを提供します。
