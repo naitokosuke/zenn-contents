@@ -475,7 +475,7 @@ UnoCSS はさらに多くの機能やカスタマイズオプションを提供�
 
 ## 💚 最後に
 
-この記事の執筆にあたって [GANGAN さん](@gangan_nikki)にレビューしていただき、たくさんのアドバイスをもらいました。
+この記事の執筆にあたって [GANGAN さん](https://x.com/gangan_nikki)にレビューしていただき、たくさんのアドバイスをもらいました。
 本当にありがとうございます。
 
 https://github.com/shinGangan/comm_vue_nuxt/issues/54
