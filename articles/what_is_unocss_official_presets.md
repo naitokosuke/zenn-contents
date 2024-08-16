@@ -334,6 +334,10 @@ export default defineConfig({
 該当するアイコンセットを `devDependencies` にインストールする必要があります。
 (例: `@iconify-json/mdi`, `@iconify-json/tabler`)
 
+アイコンセットとパッケージ名は以下で確認できます。
+
+https://github.com/iconify/icon-sets/blob/master/collections.md
+
 :::message
 `@iconify-json` を一括でインストールすることもできます。(約 130 MB)
 
@@ -343,7 +347,9 @@ pnpm add -D @iconify/json
 
 :::
 
-利用可能な全てのコレクションは [Icônes](https://icones.js.org/) や [Iconify](https://iconify.design/) で参照することができます。
+利用可能な全てのコレクションは [Icônes](https://icones.js.org/) や [Iconify](https://icon-sets.iconify.design/) で参照することができます。
+まずはこちらでアイコンを見てみて、それから NPM パッケージ名を調べるのがよさそうです。
+([Icônes](https://icones.js.org/) や [Iconify](https://icon-sets.iconify.design/) では NPM パッケージ名を見つけられませんでした 🥲)
 
 #### ➕ 追加プロパティ
 
