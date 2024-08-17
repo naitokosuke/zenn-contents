@@ -2,7 +2,7 @@
 title: "もっとくわしく UnoCSS ～公式プリセット篇～"
 emoji: "🎴"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["UnoCSS", "CSS", "CSSinJS"]
+topics: ["UnoCSS", "CSS"]
 publication_name: "comm_vue_nuxt"
 published: false
 ---
