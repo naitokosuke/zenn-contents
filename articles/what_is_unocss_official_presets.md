@@ -14,13 +14,15 @@ published: false
 
 https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss
 
-こちらの記事では、UnoCSS の成り立ちや経緯を紹介し、UnoCSS の特徴について紹介しました。
+こちらの記事では、UnoCSS の成り立ちや特徴を紹介しました
 今回は UnoCSS の公式プリセットについて紹介したいと思います。
 
 公式プリセットを活用することで UnoCSS をパワーを最大限に生かすことができます。
 公式プリセット(UnoCSS の特徴)を知って、UnoCSS を好きになっていただきたいです。
 
 また、前回記事で作者の Anthony Fu さんからコメントをいただきました！！！(うれしすぎ)
+
+![antfu さんが前回記事にコメントをくださりました](/images/what_is_unocss_official_presets/image3.png)
 
 https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss#comment-ba63c20e23e285
 
