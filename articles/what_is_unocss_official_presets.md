@@ -128,9 +128,11 @@ https://unocss.dev/presets/#presets
 | [`@unocss/preset-typography`](https://unocss.dev/presets/typography)   | タイポグラフィプリセット                                                |
 | [`@unocss/preset-rem-to-px`](https://unocss.dev/presets/rem-to-px)     | `rem` を `px` に変換                                                    |
 
-<br />
+![公式 Playground で公式プリセットを利用したグリッドレイアウトのスクショ](/images/what_is_unocss_official_presets/image4.png)
 
 [公式プリセットを利用したグリッドレイアウト](https://unocss.dev/play/?version=0.62.1&html=DwEwlgbgUABDAOBaArLGBzATmEb0EMkAPRAFj0MQE9EAONAZwFsAuLHRAYwHsAbBxACY0TEG2wgufAQGY0vdOI49%2BZNAAtEAMwCuvXmk698DBgF4ARAG0AZAD5wEALosARt0wgApphi2HkC6Y3DoAdt6SCn72ji7sINEBziwAVjoMAC5gWjScXqEZPomxLGCFTAJ5BT4WUHZooJAwRibmFu6ePoiYXiAWdsAM8PihMIVEGWREvDBgXPiY7qGIvNzo3IjoZeo6rgMA9EMjB471cI0Qzcamlh3emIgeI%2Bhe-YPDo%2BOTpNOz84vcZardaICA6LwHI6hE6QM4wC5XVq3Dz3ahefTcADubyhYy8EymMzmGUxXiY3BScy0wXQkI%2BMIgcIRLRu7RRXSwXnyOI%2BeIJPyJiBJZIpc3wEG4nHwIG4dOOwH2pwajkRrLuXUx6jKrwGuK%2BhL%2BwO4AjCktMcuhCqV5xVLLa6oerl44J5Iz531%2Bc28EDAPGWoR0ExSDAtDKZtuu9vZDwAxAAGBNx2hx12ffEewXe32AxDqbhMLyuHqY0NW2HKpp25GdB7wHSYeC8HXvN36gWGtbG0Ha4OlxXlm2VyPV1HwMChADWqfdBrmRoEPoYOnwvEQmR04A2PG8faVZcZUCAA&config=JYWwDg9gTgLgBAbwFBzgEwKYDNgDsMDCEuOA5gDQpxhQYDOGMAgjDFMAEYCuMwWAnpVQ16jAJIBjYnSHVaDGAFVcESgF84WKBBBwA5FxUS6dPUiQYAHpFjpsAQy4AbeJhz4iJYKQAUyYfKMdABccADaVAGiSio%2BAJSyUQosbJw8fPzxiXLRktJ%2BkahwdBL2ThihAEwAdAAM2agSaLihegAWrGAhAPTd9CDVdG3detlqCVQAuupxSEA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4IgLgTghgdgzgMwPYQLYAkyoDYgFwJTZwCmAvkA)
+
+<br />
 
 公式プリセットを順番に見ていきましょう。
 
@@ -672,8 +674,6 @@ export default defineConfig({
 
 ### 🖌️ preset-typography
 
-[公式 Playground](https://unocss.dev/play/?version=0.62.1&html=DwEwlgbgBAxgNgQwM5ILwCIBmcCmAPKbfAWhgHs4oBzBAB2IE9iAmAVigCsBXJAFzExMYOAHa8cAJyhhxAWySlR4qbLAjiAC2JIYEnKPQA%2BAFBQooSLEQoMshBIDWIMgHcRR02fMaAjIcD9DIAlDIATDIDXDMAA9L4mXua0hoBjDIC1DICdDMHJacAIUBp6mBgAxEaAVwyAzwyA9QyRCImp6bWR8Z5mwPGAzQyAPwyAkwwAXObkIDiG5CJIFDgAdHBkVAAU6AASOHBTUADqZBJwIACE6ACUANyR-YMNMV4tVsho6CJkvMR2js5uRgAGd7xvUIBJDID%2B8oAxBkAFgyAQAZgCchmQRmNJtM5otlmQ1hstrtDscyANDOZiFAUkFQoAZBkAyvqAfQZAJEMgCsGQAiDIBAf7Onki4Ag5ws0Hg11s9icrhEUCePLcjCWUxcHliwGiQTCkWiTTiNTSGWCWRyeUKJQqVUVdUyEUaEraXV64Mxg2Go1wsNmCxFSPWmx2%2ByOEQh5n152atCuNlu90e3Je7kMH3u33%2BwLBEItMKmNoRKwdqOdGKxOLxBJJFJp9I9jIizJMTMgJiAA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmANHGFKgM6owCqWEZF1tAKgJ6RFQCGYACw5wAvnHRQIIOACIArowDGVKjIDcAKA2oAHpFgoMvOQBt4aTDnyFgRABQINccpRowqALjgBtJ85es9Ix2AJRkAPThcICj%2BoAQGX7OLG6c3HyCHA4J-jQmqIow0AByvCCoXjIgvFAA1sgQAO5YMmRa-v6RcMpUAKI6MKhYyHCA9gxwuADK43CA3QyANwyA9QyA-QyASQyAtQyAPwyAgAwTU4DF2oAAUYBrDIC3DIDDDPPLgCQKgBYMgOoMgGYMgIDGgCYMgFUMh4AdDIDlDPOAEwxZzi6vX6gy8jjabRkiggaBkYIBEOhJmg5QAxAAOABCAFZcAAxABszQRzhEJBJsl4HgEEAAbqgoHDEBTARBkVA0XiACwAZjx2O6xIh-jJFJkVNpwCowH6yCZ4OF-iRKNkqIAjFzMeiAIJE8mK0T6iGitoiMJ%2BAC65LNaiAA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4XyA)
-
 `@unocss/preset-typography` プリセットにより、標準の HTML 要素にタイポグラフィスタイルを簡単に適用するための 「散文("prose")」クラスが提供されています。
 これらの「散文」を使用することで、例えば段落や見出し、リスト、リンクなどの要素に対して、統一されたタイポグラフィのスタイルを適用できます。
 
@@ -705,6 +705,12 @@ export default defineConfig({
 <br />
 
 マークダウンの例
+
+[公式 Playground](https://unocss.dev/play/?version=0.62.1&html=DwEwlgbgBAxgNgQwM5ILwCIBmcCmAPKbfAWhgHs4oBzBAB2IE9iAmAVigCsBXJAFzExMYOAHa8cAJyhhxAWySlR4qbLAjiAC2JIYEnKPQA%2BAFBQooSLEQoMshBIDWIMgHcRR02fMaAjIcD9DIAlDIATDIDXDMAA9L4mXua0hoBjDIC1DICdDMHJacAIUBp6mBgAxEaAVwyAzwyA9QyRCImp6bWR8Z5mwPGAzQyAPwyAkwwAXObkIDiG5CJIFDgAdHBkVAAU6AASOHBTUADqZBJwIACE6ACUANyR-YMNMV4tVsho6CJkvMR2js5uRgAGd7xvUIBJDID%2B8oAxBkAFgyAQAZgCchmQRmNJtM5otlmQ1hstrtDscyANDOZiFAUkFQoAZBkAyvqAfQZAJEMgCsGQAiDIBAf7Onki4Ag5ws0Hg11s9icrhEUCePLcjCWUxcHliwGiQTCkWiTTiNTSGWCWRyeUKJQqVUVdUyEUaEraXV64Mxg2Go1wsNmCxFSPWmx2%2ByOEQh5n152atCuNlu90e3Je7kMH3u33%2BwLBEItMKmNoRKwdqOdGKxOLxBJJFJp9I9jIizJMTMgJiAA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmANHGFKgM6owCqWEZF1tAKgJ6RFQCGYACw5wAvnHRQIIOACIArowDGVKjIDcAKA2oAHpFgoMvOQBt4aTDnyFgRABQINccpRowqALjgBtJ85es9Ix2AJRkAPThcICj%2BoAQGX7OLG6c3HyCHA4J-jQmqIow0AByvCCoXjIgvFAA1sgQAO5YMmRa-v6RcMpUAKI6MKhYyHCA9gxwuADK43CA3QyANwyA9QyA-QyASQyAtQyAPwyAgAwTU4DF2oAAUYBrDIC3DIDDDPPLgCQKgBYMgOoMgGYMgIDGgCYMgFUMh4AdDIDlDPOAEwxZzi6vX6gy8jjabRkiggaBkYIBEOhJmg5QAxAAOABCAFZcAAxABszQRzhEJBJsl4HgEEAAbqgoHDEBTARBkVA0XiACwAZjx2O6xIh-jJFJkVNpwCowH6yCZ4OF-iRKNkqIAjFzMeiAIJE8mK0T6iGitoiMJ%2BAC65LNaiAA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4XyA)
+
+![公式 Playground で preset-typography を使用したスクショ](/images/what_is_unocss_official_presets/image5.png)
+
+<br />
 
 ```ts:uno.config.ts
 import { defineConfig, presetUno, presetTypography } from "unocss";
