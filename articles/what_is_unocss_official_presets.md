@@ -833,6 +833,8 @@ Tailwind CSS の魅力をそのままに、軽量でシンプルな使い勝手�
 
 https://github.com/shinGangan/comm_vue_nuxt/issues/62
 
+<br />
+
 今回の記事が UnoCSS を利用する際の参考になれば幸いです。
 UnoCSS の魅力をもっと知りたい方は公式サイトやコミュニティリソースを活用して、積極的に情報を収集してみてください。
 
