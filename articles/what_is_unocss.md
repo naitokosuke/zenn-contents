@@ -496,6 +496,13 @@ UnoCSS はまだ日本国内では広く知られていないかもしれませ�
   Tailwind CSS や Windi CSS などの他の CSS フレームワークとの比較記事
 
 これらの記事もぜひご期待ください。
+
+**2024.08.18 追記**
+公式プリセットについての紹介記事を公開しました。
+https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss_official_presets
+
+<br />
+
 UnoCSS の魅力をもっと知りたい方は公式サイトやコミュニティリソースを活用して、積極的に情報を収集してみてください。
 
 今後 UnoCSS ユーザがもっと増えて、日本語情報が増えることを強く願っています。
