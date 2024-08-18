@@ -20,11 +20,11 @@ https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss
 公式プリセットを活用することで UnoCSS をパワーを最大限に生かすことができます。
 公式プリセット(UnoCSS の特徴)を知って、UnoCSS を好きになっていただきたいです。
 
-また、前回記事で作者の Anthony Fu さんからコメントをいただきました！！！(うれしすぎ)
+また、前回記事で作者の Anthony Fu さんからコメントをいただきました！！！
+
+[https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss#comment-ba63c20e23e285](https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss#comment-ba63c20e23e285)
 
 ![antfu さんが前回記事にコメントをくださりました](/images/what_is_unocss_official_presets/image3.png)
-
-https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss#comment-ba63c20e23e285
 
 質問があれば思い切って質問してみてはいかがでしょうか 💁
 
@@ -543,6 +543,8 @@ export default defineConfig({
 - クラス名と HTML 属性名の衝突
 - JSX での属性名の扱い
 
+<br />
+
 1. クラス名と HTML 属性名の衝突
 
 https://unocss.dev/presets/attributify#properties-conflicts
@@ -564,6 +566,8 @@ export default defineConfig({
   ],
 });
 ```
+
+<br />
 
 2. JSX での属性名の扱い
 
