@@ -362,6 +362,32 @@ pnpm add -D @iconify/json
 まずはこちらでアイコンを見てみて、それから NPM パッケージ名を調べるのがよさそうです。
 ([Icônes](https://icones.js.org/) や [Iconify](https://icon-sets.iconify.design/) では NPM パッケージ名を見つけられませんでした 🥲)
 
+<br />
+
+**2024.08.19 追記**
+
+コメントで `autoInstall` オプションについて教えていただきました。
+
+```ts:uno.config.ts
+import { defineConfig, presetIcons } from "unocss";
+
+export default defineConfig({
+  presets: [
+    presetIcons({
+      autoInstall: true,
+    }),
+  ],
+});
+```
+
+とすることで、必要なアイコンセットを UnoCSS が自動的にインストールしてくれます。
+手動でパッケージをインストールする必要がなくなり、開発がスムーズに進められるようになります。
+
+:::message alert
+このオプションは Node.js 環境でのみ動作します。
+ブラウザ環境ではこのオプションは無視されます。
+:::
+
 #### ➕ 追加プロパティ
 
 アイコンのデフォルトの動作を制御するために、追加の CSS プロパティを指定することができます。
