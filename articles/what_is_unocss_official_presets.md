@@ -359,8 +359,6 @@ pnpm add -D @iconify/json
 :::
 
 利用可能な全てのコレクションは [Icônes](https://icones.js.org/) や [Iconify](https://icon-sets.iconify.design/) で参照することができます。
-まずはこちらでアイコンを見てみて、それから NPM パッケージ名を調べるのがよさそうです。
-([Icônes](https://icones.js.org/) や [Iconify](https://icon-sets.iconify.design/) では NPM パッケージ名を見つけられませんでした 🥲)
 
 <br />
 
