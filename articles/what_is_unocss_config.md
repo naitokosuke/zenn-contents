@@ -19,6 +19,14 @@ https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss
 設定プロパティを知ることで、UnoCSS の特徴をより深く理解することができます。
 また、設定プロパティの豊富さから UnoCSS の**柔軟さ**を感じていただきたいです。
 
+また、前回記事で作者の Anthony Fu さんからコメントをいただきました！！！
+
+[https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss#comment-ba63c20e23e285](https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss#comment-ba63c20e23e285)
+
+![antfu さんが前回記事にコメントをくださりました](/images/what_is_unocss_official_presets/image3.png)
+
+質問があれば思い切って質問してみてはいかがでしょうか 💁
+
 ## 📗 ドキュメント
 
 :::message
@@ -38,7 +46,8 @@ https://unocss.dev/play/
 こちらを活用して、UnoCSS を体験してみてください。
 
 また、この記事内でサンプルコード付きの公式 Playground へのリンクを用意しています。
-ぜひ実際にコードを動かしながら記事を読んでください。
+(e.g. [公式 Playground](https://unocss.dev/play/?version=0.62.1&html=DwEwlgbgUABDAOBaArLGBzATmEb0EMkAPRAFj0MQE9EAONAZwFsAuLHRAYwHsAbBxACY0TEG2wgufAQGY0vdOI49%2BZNAAtEAMwCuvXmk698DBgF4ARAG0AZAD5wEALosARt0wgApphi2HkC6Y3DoAdt6SCn72ji7sINEBziwAVjoMAC5gWjScXqEZPomxLGCFTAJ5BT4WUHZooJAwRibmFu6ePoiYXiAWdsAM8PihMIVEGWREvDBgXPiY7qGIvNzo3IjoZeo6rgMA9EMjB471cI0Qzcamlh3emIgeI%2Bhe-YPDo%2BOTpNOz84vcZardaICA6LwHI6hE6QM4wC5XVq3Dz3ahefTcADubyhYy8EymMzmGUxXiY3BScy0wXQkI%2BMIgcIRLRu7RRXSwXnyOI%2BeIJPyJiBJZIpc3wEG4nHwIG4dOOwH2pwajkRrLuXUx6jKrwGuK%2BhL%2BwO4AjCktMcuhCqV5xVLLa6oerl44J5Iz531%2Bc28EDAPGWoR0ExSDAtDKZtuu9vZDwAxAAGBNx2hx12ffEewXe32AxDqbhMLyuHqY0NW2HKpp25GdB7wHSYeC8HXvN36gWGtbG0Ha4OlxXlm2VyPV1HwMChADWqfdBrmRoEPoYOnwvEQmR04A2PG8faVZcZUCAA&config=JYWwDg9gTgLgBAbwFBzgEwKYDNgDsMDCEuOA5gDQpxhQYDOGMAgjDFMAEYCuMwWAnpVQ16jAJIBjYnSHVaDGAFVcESgF84WKBBBwA5FxUS6dPUiQYAHpFjpsAQy4AbeJhz4iJYKQAUyYfKMdABccADaVAGiSio%2BAJSyUQosbJw8fPzxiXLRktJ%2BkahwdBL2ThihAEwAdAAM2agSaLihegAWrGAhAPTd9CDVdG3detlqCVQAuupxSEA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4IgLgTghgdgzgMwPYQLYAkyoDYgFwJTZwCmAvkA) 👈)
+ぜひ実際にコードを動かして UnoCSS を体験しながら記事を読んでください 👍
 
 ## 1️⃣ UnoCSS とは
 
