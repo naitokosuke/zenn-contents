@@ -757,6 +757,13 @@ UnoCSS は、**オンデマンド型**の Atomic CSS エンジンとして、ス
 
 ## 💚 最後に
 
+この記事の執筆にあたって [GANGAN さん](https://x.com/gangan_nikki)にレビューしていただき、たくさんのアドバイスをもらいました。
+本当にありがとうございます。
+
+https://github.com/shinGangan/comm_vue_nuxt/issues/62
+
+<br />
+
 この記事を通して、UnoCSS の設定の豊富さと柔軟性についてご理解いただけたでしょうか。
 UnoCSS を使うことでよりシンプルで効率的なスタイル定義が可能になります。
 この記事が UnoCSS を使いこなす手助けになれば幸いです。
