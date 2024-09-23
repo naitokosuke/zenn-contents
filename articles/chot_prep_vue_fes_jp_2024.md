@@ -3,7 +3,7 @@ title: "【非公式】Vue Fes Japan 2024 前にﾁｮｯﾄ予習"
 emoji: "💚"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vue"]
-published: false
+published: true
 ---
 
 ## はじめに
