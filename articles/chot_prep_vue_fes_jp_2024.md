@@ -2,7 +2,7 @@
 title: "【非公式】Vue Fes Japan 2024 前にﾁｮｯﾄ予習"
 emoji: "💚"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["vue", "vue"]
+topics: ["vue"]
 published: false
 ---
 
@@ -10,7 +10,7 @@ published: false
 
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
 
-今年も Vue Fes Japan の季節がやってきました！！
+今年も Vue Fes Japan がやってきます！！
 
 https://vuefes.jp/2024/
 
