@@ -215,6 +215,19 @@ Hello World! の例からも Vue と似ている印象を受けます。
 
 https://svelte.dev/blog/virtual-dom-is-pure-overhead
 
+### Vapor モード
+
+Vue の新しいコンパイル戦略。
+ざっくり言うと脱仮想 DOM を目指すもの。
+
+以下の Zenn 記事が オススメです。
+
+https://zenn.dev/comm_vue_nuxt/articles/3b264a4bf70662
+
+より深く詳しく知りたい方は、以下がオススメです。
+
+https://ubugeeei.github.io/reading-vuejs-core-vapor/
+
 ### Biome
 
 > Web 開発のためのたった 1 つのツールチェーン
