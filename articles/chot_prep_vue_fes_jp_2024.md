@@ -212,7 +212,7 @@ https://svelte.jp/
 ```
 
 Hello World! の例からも Vue と似ている印象を受けます。
-書き方は似ていますが Svelte では仮装 DOM を使用していないという点で大きく異なっています。
+書き方は似ていますが Svelte では仮想 DOM を使用していないという点で大きく異なっています。
 
 https://svelte.dev/blog/virtual-dom-is-pure-overhead
 
