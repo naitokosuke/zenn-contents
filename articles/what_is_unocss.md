@@ -106,7 +106,7 @@ Atomic CSS とは、**視覚的な機能に基づいて命名された単一の�
 
 ### 🌅 UnoCSS 誕生の経緯と背景
 
-作者である Anthony Fu 氏は Vite の作者であり、主に Vite を利用して開発を行なっています。
+作者である Anthony Fu 氏は Vite のコアチームメンバーであり、主に Vite を利用して開発を行なっています。
 Atomic CSS を活用したスピーディな開発を好んでおり、Vite のスターターテンプレート [Vitesse](https://github.com/antfu-collective/vitesse) 開発の UI フレームワークとして、Tailwind CSS を採用していました。
 
 Vite が Webpack などに比べて爆速であるのに対し、Tailwind CSS は数 MB のユーティリティ CSS を生成するため、起動時や Vite の HMR で遅くなってしまっていました。
@@ -155,7 +155,7 @@ Tailwind CSS, Windi CSS にどのような課題があり、それを解決す�
 | **Fully Customizable** | **コアユーティリティなし**、全ての機能はプリセットで提供                       |
 | **Instant**            | パース、AST、スキャンなし。Windi CSS や Tailwind CSS JIT より 5 倍以上**高速** |
 | **Lightweight**        | 依存関係ゼロでブラウザフレンドリー、約 6KB（最小化＋ brotli 圧縮）             |
-| **Rich Integrations**  | Vite, Webpack, PostCSS, CLI, VS Code, EsLint などのファーストクラスサポート    |
+| **Rich Integrations**  | Vite, Webpack, PostCSS, CLI, VS Code, ESLint などのファーストクラスサポート    |
 | **Shortcuts**          | ユーティリティの動的グループ化とエイリアス                                     |
 | **Attributify Mode**   | 属性内のグループユーティリティ                                                 |
 | **Pure CSS Icons**     | アイコンを単なるクラスとして使用                                               |
@@ -328,7 +328,7 @@ export default defineConfig({
 
 ## 🛠️ プリセット
 
-いくつかのルールをプリセットとしてし抜き出して共有できます。
+いくつかのルールをプリセットとして抜き出して共有できます。
 
 ```ts:my-preset.ts
 import type { Preset } from "unocss";
