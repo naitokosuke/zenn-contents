@@ -5,7 +5,7 @@
 ## 記事の新規作成
 
 ```
-npx zenn new:article --slug {記事のスラッグ} --title {記事のタイトル} --type {tech or tech} --emoji {絵文字}
+$ npx zenn new:article --slug {記事のスラッグ} --title {記事のタイトル} --type {tech or tech} --emoji {絵文字}
 ```
 
 - slug
@@ -27,3 +27,9 @@ npx zenn new:article --slug {記事のスラッグ} --title {記事のタイト�
 
   - アイキャッチとして使われる絵文字
   - Mac ショートカット `control + command + space`
+
+## 記事のプレビュー
+
+```
+$ npx zenn preview
+```
