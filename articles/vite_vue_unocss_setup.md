@@ -342,6 +342,178 @@ export default defineConfig({
 
 ```
 
+Vue らしく、コンポーネントに分割して、ナビゲーションバーにダークモード切り替えボタンも配置します。
+
+```vue:src/App.vue
+<script setup lang="ts">
+import { ref } from "vue";
+
+import GridLayout from "./components/GridLayout.vue";
+import GridIcon from "./components/GridIcon.vue";
+import NavBar from "./components/NavBar.vue";
+
+const isDark = ref(false);
+
+const toggleDarkMode = () => (isDark.value = !isDark.value);
+
+type Item = {
+  borderColor: string;
+  icon: string;
+};
+
+const items: Item[] = [
+  { borderColor: "border-red", icon: "i-carbon-logo-github" },
+  { borderColor: "border-orange", icon: "i-carbon-logo-vue" },
+  { borderColor: "border-yellow", icon: "i-twemoji-frog" },
+  { borderColor: "border-green", icon: "i-twemoji-avocado" },
+  { borderColor: "border-gray", icon: "i-logos-unocss" },
+  { borderColor: "border-blue", icon: "i-devicon-nuxtjs" },
+  { borderColor: "border-#000080", icon: "i-devicon-homebrew" },
+  { borderColor: "border-purple", icon: "i-logos-vitejs" },
+  { borderColor: "border-pink", icon: "i-logos-visual-studio-code" },
+];
+</script>
+
+<template>
+  <div :class="{ 'bg-black': isDark }">
+    <NavBar :isDark @toggleDarkMode="toggleDarkMode"> </NavBar>
+    <GridLayout
+      :gap="'x-8 y-8'"
+      :columnsLg="'lg:grid-cols-4'"
+      :columnsMd="'md:grid-cols-3'"
+      :columnsSm="'sm:grid-cols-2'"
+      h-90vh
+    >
+      <GridIcon
+        v-for="(item, index) in items"
+        :key="`icon-${index}`"
+        :borderColor="item.borderColor"
+        :icon="item.icon"
+        :isDark
+      />
+    </GridLayout>
+  </div>
+</template>
+```
+
+:::details components/NavBar.vue
+
+```vue:src/components/NavBar.vue
+<script setup lang="ts">
+import { computed } from "vue";
+
+const props = defineProps<{
+  isDark: boolean;
+}>();
+
+const emit = defineEmits<{
+  toggleDarkMode: [];
+}>();
+
+const emitToggleDarkMode = () => {
+  emit("toggleDarkMode");
+};
+
+const iconClass = computed(() => {
+  return props.isDark ? "i-mi-moon text-white" : "i-mi-sun";
+});
+</script>
+
+<template>
+  <nav h-10vh w-full px-10 flex justify-end items-center>
+    <button @click="emitToggleDarkMode">
+      <span text-2xl flex content-center :class="iconClass"></span>
+    </button>
+  </nav>
+</template>
+
+```
+
+:::
+
+:::details components/GridIcon.vue
+
+```vue:src/components/GridIcon.vue
+<script setup lang="ts">
+import { computed } from "vue";
+
+const props = defineProps<{
+  borderColor?: string;
+  icon?: string;
+  isDark: boolean;
+}>();
+
+const borderClass = computed(() => {
+  return props.borderColor || "border-gray";
+});
+
+const iconClass = computed(() => {
+  return props.icon || "i-logos-vue";
+});
+</script>
+
+<template>
+  <div
+    grid
+    items-center
+    justify-center
+    border
+    rounded-lg
+    border-solid
+    :class="borderClass"
+    hover="bg-gray"
+  >
+    <span text-4xl :class="[iconClass, { 'text-white': isDark }]"> </span>
+  </div>
+</template>
+
+```
+
+:::
+
+:::details components/GridLayout.vue
+
+```vue:src/components/GridLayout.vue
+<script setup lang="ts">
+const props = defineProps<{
+  gap: string;
+  columnsLg: string;
+  columnsMd: string;
+  columnsSm: string;
+}>();
+</script>
+
+<template>
+  <div
+    grid
+    px-5
+    pb-5
+    :gap="props.gap"
+    :class="[columnsLg, columnsMd, columnsSm]"
+  >
+    <slot />
+  </div>
+</template>
+```
+
+:::
+
+https://github.com/kosuke222naito/try-vite-vue-unocss
+
+https://stackblitz.com/github/kosuke222naito/try-vite-vue-unocss?file=src%2FApp.vue
+
+@[stackblitz](https://stackblitz.com/github/kosuke222naito/try-vite-vue-unocss?embed=1&file=src%2FApp.vue)
+
 # 最後に
+
+UnoCSS を使った開発環境構築から、簡単なグリッドレイアウトの実装までをご紹介しました。
+UnoCSS はまだまだ勉強中ですが、Attributify モードやアイコンのプリセットが便利でとても気に入っています。
+
+作者の [antfu](https://twitter.com/antfu7) さんが実際に UnoCSS を用いて開発をしている様子(ライブコーディング)が YouTube で見れます！
+より詳しい、より実践的な使い方を知ることができるのでぜひチェックしてみてください！
+
+https://www.youtube.com/live/49WXr6kVBVI?si=2FSoL6X9F5jmI-fU
+
+[Let's build Nuxt playground! リスト](https://youtube.com/playlist?list=PL4ETc_mXFfxUGiY852jH3ctljnI2e9Rax&si=8azQcfWjdIp8cOR1)
 
 最後まで読んでいただきありがとうございました！
