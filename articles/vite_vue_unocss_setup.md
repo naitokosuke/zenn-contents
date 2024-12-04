@@ -2,7 +2,7 @@
 title: "【環境構築】Vite + Vue + UnoCSS で簡単なグリッドレイアウトを作ってみる"
 emoji: "🟩"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["CSS", "UnoCSS"]
+topics: ["CSS", "UnoCSS", "Vue", "Vite"]
 publication_name: "comm_vue_nuxt"
 published: true
 published_at: 2024-12-04 12:00
