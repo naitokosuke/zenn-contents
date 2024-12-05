@@ -8,6 +8,10 @@ published: true
 published_at: 2024-12-04 12:00
 ---
 
+[Vue Advent Calendar 2024](https://qiita.com/advent-calendar/2024/vue) 4 日目の記事です。
+
+https://qiita.com/advent-calendar/2024/vue
+
 # はじめに
 
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。

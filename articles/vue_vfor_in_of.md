@@ -7,6 +7,10 @@ publication_name: "comm_vue_nuxt"
 published: true
 ---
 
+[Vue Advent Calendar 2024](https://qiita.com/advent-calendar/2024/vue) 6 日目の記事です。
+
+https://qiita.com/advent-calendar/2024/vue
+
 ## はじめに
 
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
