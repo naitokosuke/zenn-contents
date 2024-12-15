@@ -55,7 +55,7 @@ Nuxt, UnJS メンバーの Alexander Lichter さんですが、Youtube もされ
 主に Vue, Nuxt に関する Tips や解説動画を投稿されています。
 現時点で、Alexander Lichter さんは VoidZero とは直接関係はないようです。
 [『All about VoidZero - The Interview with Evan You』](https://youtu.be/33ex2A04b7g?si=ERcpbXL6chiqzXYk)は、[Vue Fes Japan 2024](https://vuefes.jp/2024/) の当日に別の場所でインタビュー、撮影が行われていたようです。
-(ぼくは当日をスタッフを務めており、たしかにスタッフ無線でお二人がどこかで何かをされているようなことを聞いていました。)
+(ぼくは当日スタッフを務めておりましたが、スタッフ無線でお二人がどこかで何かをされているようなことを聞いていたので謎が解けました。)
 
 ## What is VoidZero?
 
@@ -79,6 +79,8 @@ https://twitter.com/youyuxi/status/1741101029784277413
 
 ## JavaScript における `void 0` とは
 
+そもそも `void 0` とはなんでしょうか。
+
 `void` 演算子は指定した式を評価し、その結果を無視して `undefined` を返します。
 HTML の a タグ の href 属性に `javascript:void(0)` を指定することで、リンクのデフォルトの画面遷移を防ぐことができました。
 これを利用してクリック時に独自の JavaScript 処理を実行することが可能です。
@@ -87,6 +89,8 @@ HTML の a タグ の href 属性に `javascript:void(0)` を指定すること�
 また、 "undefined" よりも "void 0" 方が文字数が短いなどの理由からミニファイにも利用されているようです。
 
 ## インタビュー内容
+
+このインタビュー動画では主に以下のような質問をされています。
 
 - VoidZero のアイデアを思いついたきっかけは？
 - VoidZero の資金調達の経緯は？
@@ -108,6 +112,8 @@ HTML の a タグ の href 属性に `javascript:void(0)` を指定すること�
 - Vite のライセンスが変更された理由は？
 - Vite と Rolldown の最初のバージョンはいつリリースされるのか？
 - VoidZero の採用計画は？
+
+それぞれ回答をまとめてみました。
 
 ## VoidZero のアイデアを思いついたきっかけは？
 
@@ -137,6 +143,8 @@ https://twitter.com/vitelabs
 ## VoidZero チームのメンバーは？
 
 VoidZero チームは、Vite、Vitest、Oxc、Rolldown といった各プロジェクトの主要なコントリビューターで構成されています。
+
+![VoidZero members](/images/alexander_interview_about_voidzero_with_evan/voidzero-members.png)
 
 - Oxc チーム:
 
@@ -183,8 +191,9 @@ VoidZero はランタイムに依存しない toolchain を目指しています
 一方、Bun や Deno は、ランタイムを中心とした開発体験を提供することで、Node.js からのユーザー獲得を目指しています。
 そのため、Bun の toolchain は Bun ランタイムと密接に結びついています。
 
-VoidZero は、個別のコンポーネントとして利用することも、toolchain 全体を統合することも可能です。
-OXC は Rust プロジェクトで利用できる クレートの完全なリスト であり、さらに、Node.js パッケージとしても提供されています。
+Oxc は Rust プロジェクトで利用できるクレートの完全なリストであり、Node.js パッケージとしても提供されています。
+特定のものを選択して利用することも、toolchain 全体を統合することも可能です。
+
 Bun が VoidZero の toolchain を活用する可能性は低いかもしれませんが、他のランタイムであれば連携の可能性は十分にあると考えているようです。
 
 ## VoidZero に近い既存のプロジェクトはあるか？
@@ -310,6 +319,10 @@ Alexander Lichter さんのインタビュー動画のおかげで VoidZero に�
 この動画は 1 時間と長いですが、他の動画は短くまとまっているのでぜひチェックしてみてください。
 ぼくもこれからも Alexander Lichter さんの動画で引き続き Vue, Nuxt をはじめ、フロントエンドの学習を続けていきたいです。
 
-最後までよんでいただきありがとうございました！
+最後まで読んでいただきありがとうございました！
+
+<br />
+<br />
+<br />
 
 https://twitter.com/engineer_naito/status/1847868262815846711
