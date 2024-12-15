@@ -1,5 +1,5 @@
 ---
-title: "動画『All about VoidZero - The Interview with Evan You』を見て"
+title: "動画『All about VoidZero - The Interview with Evan You』を見てわかったこと思ったこと"
 emoji: "📘"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: []
