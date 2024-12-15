@@ -4,7 +4,7 @@ emoji: "📼"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["VoidZero", "Vite", "Oxc", "Rolldown", "Vue"]
 publication_name: "comm_vue_nuxt"
-published: false
+published: 2024-12-19 12:00
 ---
 
 ## はじめに
