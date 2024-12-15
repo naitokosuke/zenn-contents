@@ -313,6 +313,8 @@ Evan You さんのビジョンとリーダーシップによって、これか�
 
 https://twitter.com/voidzerodev
 
+<br />
+
 Evan You さんが Python パッケージ、プロジェクトマネージャー [uv](https://docs.astral.sh/uv/) についても言及していたのが驚きでした。
 [uv](https://docs.astral.sh/uv/) は "Cargo for Python" を目指しています。
 こちらも今後が楽しみです。
