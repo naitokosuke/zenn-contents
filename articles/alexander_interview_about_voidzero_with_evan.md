@@ -1,8 +1,9 @@
 ---
 title: "『All about VoidZero - The Interview with Evan You』を見てわかったこと思ったこと"
-emoji: "📘"
+emoji: "📼"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: []
+topics: ["VoidZero", "Vite", "Oxc", "Rolldown", "Vue"]
+publication_name: "comm_vue_nuxt"
 published: false
 ---
 
