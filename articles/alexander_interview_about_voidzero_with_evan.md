@@ -65,6 +65,9 @@ https://voidzero.dev/
 > **The Mission**
 > We are building a unified high-performance toolchain for JavaScript: including parser, transformer, resolver, linter, formatter, minifier, bundler, test runner, and meta framework support. Our mission is to make the next generation of JavaScript developers more productive than ever before.
 
+プロジェクトとして Vite, Vitest, Rolldown, Oxc を手がけています。
+これらのプロジェクトを通じて、開発者の生産性向上とエコシステムの統一を目指しています。
+
 2024 年 10 月 1 日に 460 万ドル(約 7 億 800 万円 2024 年 12 月 15 日時点)の資金調達を行なったことが発表されました。
 
 https://twitter.com/voidzerodev/status/1841100762203492595
@@ -73,13 +76,22 @@ https://twitter.com/voidzerodev/status/1841100762203492595
 
 https://twitter.com/youyuxi/status/1741101029784277413
 
+## JavaScript における `void 0` とは
+
+`void` 演算子は指定した式を評価し、その結果を無視して `undefined` を返します。
+HTML の a タグ の href 属性に `javascript:void(0)` を指定することで、リンクのデフォルトの画面遷移を防ぐことができました。
+これを利用してクリック時に独自の JavaScript 処理を実行することが可能です。
+(最近では `event.preventDefault()` を利用することが一般的だと思われます。)
+
+また、 "undefined" よりも "void 0" 方が文字数が短いなどの理由からミニファイにも利用されているようです。
+
 ## インタビュー内容
 
 - VoidZero のアイデアを思いついたきっかけは？
 - VoidZero の資金調達の経緯は？
 - VoidZero という会社名の由来は？
 - VoidZero チームのメンバーは？
-- なぜ VC 企業からの資金調達を選んだのか？他の選択肢は？適切な投資家を見つけるには？
+- なぜ VC 企業からの資金調達を選んだのか？
 - 他の unified toolchain プロジェクトとの違いと教訓は？
 - Bun のようなランタイムとの互換性はあるのか？
 - VoidZero に近い既存のプロジェクトはあるか？
@@ -145,13 +157,13 @@ VoidZero チームは、Vite、Vitest、Oxc、Rolldown といった各プロジ�
 
 社外アドバイザーとして [NAPI-RS](https://napi.rs/) の作者である Broooooklyn さんがいます。
 
-## なぜ VC 企業からの資金調達を選んだのか？他の選択肢は？適切な投資家を見つけるには？
+## なぜ VC 企業からの資金調達を選んだのか？
 
 Evan You さんはオープンソースプロジェクトが VC 企業からの資金調達を受けることについて、白黒はっきりとした問題ではないと述べています。
 オープンソースでありながら VC 企業の資金を活用して成功した企業は存在します。
 資金調達の条件やパワーバランスは、企業によって大きく異なり、多くの失敗事例ではプロジェクトが PE ファンドに完全に支配されてしまっています。
 
-VoidZero は、シードステージではすべての投資家を合わせても株式の 18 % 未満しか支配しておらず、Evan You さんがコントロール権を維持しています。
+VoidZero は、シードステージではすべての投資家を合わせても株式の 18 % 未満しか保有しておらず、Evan You さんがコントロール権を維持しています。
 さらに、投資家は取締役会の議席を持っておらず、VoidZero はオープンソースの取り組みのビジョンを完全にコントロールしています。
 VoidZero の長期的なビジョンを理解し、そのペースと戦略を信頼してくれる投資家のみと提携しているとのことです。
 
