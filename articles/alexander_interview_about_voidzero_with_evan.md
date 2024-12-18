@@ -30,8 +30,6 @@ https://youtu.be/mWK3Y_1kmaM?si=s_79VtT0elDMZLA3
 
 https://voidzero.dev/posts/announcing-voidzero-inc
 
-https://x.com/voidzerodev/status/1841100762203492595
-
 ## 感じたこと & わかったこと
 
 - JavaScript 以外のオープンソース技術についても言及
@@ -53,10 +51,6 @@ https://x.com/voidzerodev/status/1841100762203492595
 - rolldown/vite のアルファ版またはベータ版 は 2024 年末か 2025 年早々を目指している
 
 ## Who is Alexander Lichter?
-
-https://www.lichter.io/
-
-https://github.com/TheAlexLichter
 
 https://www.youtube.com/@TheAlexLichter
 
@@ -175,7 +169,7 @@ VoidZero チームは、Vite、Vitest、Oxc、Rolldown といった各プロジ�
 - Hiroshi Ogawa さん([GitHub](https://github.com/hi-ogawa), [X](https://twitter.com/hiroshi_18181))
 - Shun Yokoyama さん([GitHub](https://github.com/sapphi-red), [X](https://twitter.com/sapphi_red))
 
-社外アドバイザーとして [NAPI-RS](https://napi.rs/) の作者である Broooooklyn([GitHub](https://github.com/Brooooooklyn), [X](https://twitter.com/Brooooook_lyn)) さんがいます。
+社外アドバイザーとして [NAPI-RS](https://napi.rs/) の作者である Broooooklyn さん([GitHub](https://github.com/Brooooooklyn), [X](https://twitter.com/Brooooook_lyn))がいます。
 
 ## なぜ VC 企業からの資金調達を選んだのか？
 
