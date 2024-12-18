@@ -5,7 +5,7 @@ type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["VoidZero", "Vite", "Oxc", "Rolldown", "Vue"]
 publication_name: "comm_vue_nuxt"
 published: true
-published_at: 2024-12-19 12:00
+published_at: 2024-12-19 00:00
 ---
 
 [Vue Advent Calendar 2024](https://qiita.com/advent-calendar/2024/vue) 19 日目の記事です。
