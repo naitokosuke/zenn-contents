@@ -4,7 +4,8 @@ emoji: "0️⃣"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["VoidZero", "Vite", "Oxc", "Rolldown", "Vue"]
 publication_name: "comm_vue_nuxt"
-published: 2024-12-19 12:00
+published: true
+published_at: 2024-12-19 12:00
 ---
 
 [Vue Advent Calendar 2024](https://qiita.com/advent-calendar/2024/vue) 19 日目の記事です。
@@ -23,22 +24,29 @@ https://youtu.be/33ex2A04b7g?si=ERcpbXL6chiqzXYk
 インタビューは英語で行われています。
 英語学習も兼ねて、この動画で学んだことを記事にします。
 
+VoidZero の公式ブログ、 ViteConf 2024 のキーノート、公式 X の投稿もぜひ確認してください。
+
+https://youtu.be/mWK3Y_1kmaM?si=s_79VtT0elDMZLA3
+
+https://voidzero.dev/posts/announcing-voidzero-inc
+
+https://x.com/voidzerodev/status/1841100762203492595
+
 ## 感じたこと & わかったこと
 
 - JavaScript 以外のオープンソース技術についても言及
-- 他の OSS 技術とは異なる点を言及
 - Rome との違いや Evan You さんが思う Rome の反省点も
 
-- VoidZero という名前の由来と命名の経緯
+- VoidZero という命名の経緯
 - VoidZero を設立した経緯
 - VoidZero のミッション
 - オープンソースと資金調達、収益化の両立方法
-- 採用するだけでなく、OSS コントリビューターに対して寄付、スポンサーしていく
+- 採用するだけでなく、OSS コントリビューターをスポンサーしていく
 
-- "cargo for JavaScript" を目指す！
+- "cargo for JavaScript" を目指す(？)
 - cargo ってどんだけすごいの？
 
-- Vue との直接的な関係はない(ビジネスの観点で)
+- Vue との直接的な関係はない
 - Vite がよくなれば当然 Vue にもよい影響
 - VoidZero が目指す unified toolchain の恩恵を Vue が最も受ける
 
@@ -48,7 +56,9 @@ https://youtu.be/33ex2A04b7g?si=ERcpbXL6chiqzXYk
 
 https://www.lichter.io/
 
-https://github.com/manniL/
+https://github.com/TheAlexLichter
+
+https://www.youtube.com/@TheAlexLichter
 
 Nuxt, UnJS メンバーの Alexander Lichter さんですが、Youtube もされています。
 
@@ -57,7 +67,7 @@ Nuxt, UnJS メンバーの Alexander Lichter さんですが、Youtube もされ
 主に Vue, Nuxt に関する Tips や解説動画を投稿されています。
 現時点で、Alexander Lichter さんは VoidZero とは直接関係はないようです。
 [『All about VoidZero - The Interview with Evan You』](https://youtu.be/33ex2A04b7g?si=ERcpbXL6chiqzXYk)は、[Vue Fes Japan 2024](https://vuefes.jp/2024/) の当日に別の場所でインタビュー、撮影が行われていたようです。
-(ぼくは当日スタッフを務めておりましたが、スタッフ無線でお二人がどこかで何かをされているようなことを聞いていたので謎が解けました。)
+(Vue Fes Japan 2024 当日に、スタッフ無線でお二人がどこかで何かをされているようなことを聞いていたので謎が解けました。)
 
 ## What is VoidZero?
 
@@ -88,7 +98,7 @@ HTML の a タグ の href 属性に `javascript:void(0)` を指定すること�
 これを利用してクリック時に独自の JavaScript 処理を実行することが可能です。
 (最近では `event.preventDefault()` を利用することが一般的だと思われます。)
 
-また、 "undefined" よりも "void(0)" 方が文字数が短いなどの理由からミニファイにも利用されているようです。
+"undefined" よりも "void(0)" の方が文字数が短いなどの理由からミニファイにも利用されているようです。
 
 ## インタビュー内容
 
@@ -151,19 +161,21 @@ VoidZero チームは、Vite、Vitest、Oxc、Rolldown といった各プロジ�
 
 ![VoidZero members](/images/alexander_interview_about_voidzero_with_evan/voidzero-members.png)
 
-- Boshen Chen さん
-- Overlook Motel さん
-- DENG Qing さん
+- Evan You さん([GitHub](https://github.com/yyx990803), [X](https://twitter.com/youyuxi))
 
-- HE Yunfei さん
-- HE Xiangjun さん
-- LI Kui さん
+- Boshen Chen さん([GitHub](https://github.com/boshen), [X](https://twitter.com/boshen_c))
+- DENG Qing さん([GitHub](https://github.com/dunqing), [X](https://twitter.com/dunqingg))
+- Overlook Motel さん([GitHub](https://github.com/overlookmotel), [X](https://twitter.com/overlook_motel))
 
-- Shun Yokoyama さん
-- Hiroshi Ogawa さん
-- Vladimir Sheremet さん
+- HE Yunfei さん([GitHub](https://github.com/hyf0), [X](https://twitter.com/_hyf0))
+- HE Xiangjun さん([GitHub](https://github.com/iwanabethatguy))
+- LI Kui さん([GitHub](https://github.com/underfin))
 
-社外アドバイザーとして [NAPI-RS](https://napi.rs/) の作者である Broooooklyn さんがいます。
+- Vladimir Sheremet さん([GitHub](https://github.com/sheremet-va))
+- Hiroshi Ogawa さん([GitHub](https://github.com/hi-ogawa), [X](https://twitter.com/hiroshi_18181))
+- Shun Yokoyama さん([GitHub](https://github.com/sapphi-red), [X](https://twitter.com/sapphi_red))
+
+社外アドバイザーとして [NAPI-RS](https://napi.rs/) の作者である Broooooklyn([GitHub](https://github.com/Brooooooklyn), [X](https://twitter.com/Brooooook_lyn)) さんがいます。
 
 ## なぜ VC 企業からの資金調達を選んだのか？
 
@@ -179,7 +191,7 @@ VoidZero の長期的なビジョンを理解し、そのペースと戦略を�
 ## 他の unified toolchain プロジェクトとの違いと教訓は？
 
 Evan You 氏は Rome の例を挙げ、unified toolchain というアイデア自体は間違っていないものの実行方法が重要であると指摘しています。
-(プロジェクトに携わった特定個人を非案するつもりはないという前置きを Evan You さんは述べています。)
+(プロジェクトに携わった特定の個人を批判するつもりはないという前置きを Evan You さんは述べています。)
 Rome は JavaScript で実装を開始しましたが、途中で Rust で書き直すことを決定しました。
 採用実績、実装済みの機能も 0 からのスタートです。
 結果として多くの時間と労力をかけて遠回りしてしまいました。
@@ -216,9 +228,9 @@ VoidZero は企業向けのサービスに焦点を当てて収益化を目指�
 具体的なサービス内容は競合や戦略上の理由からまだ明らかにされていませんが、オープンソースプロジェクトのライセンスを変更して課金することはないと明言しています。
 収益化モデルの例として、
 
-- Laravel - Laravel Cloud、
-- Nx - Nx Cloud
-- Bit - BitCloud
+- [Laravel](https://laravel.com/) - [Laravel Cloud](https://cloud.laravel.com/)
+- [Nx](https://nx.dev/) - [Nx Cloud](https://nx.dev/nx-cloud)
+- [Bit](https://bit.dev/) - [BitCloud](https://bit.cloud/)
 
 のような、オープンソースのフレームワーク/ツールと有料のクラウドサービスを組み合わせたビジネスモデルが挙げられます。
 VoidZero も JavaScript 開発のあらゆる側面をカバーする包括的な toolchain を構築することで、同様のサービスを提供する可能性があります。
@@ -249,10 +261,16 @@ UnJS はランタイムレベルのライブラリを提供することに重点
 一方、VoidZero はビルド、変換、インフラツールといった言語レベルのサポートを提供することに重点を置いています。
 直接的な関係はありませんが、将来的に [jiti](https://unjs.io/packages/jiti) が Oxc や Rolldown を活用する可能性はあるとのことです。
 
+:::details what is jiti?
+コマンドラインなどで TypeScript ファイルをそのまま実行できます。
+
+https://unjs.io/packages/jiti
+:::
+
 ## Pooya Parsa さんの `.config` ディレクトリ提案のサポートは？
 
 VoidZero がカバーするすべての設定は、単一のファイルで設定できるようになる予定です。
-`.config` ディレクトリは現時点で問題なく機能しており、VoidZero のスコープに含まれるかは定かではないとのことです。
+`.config` ディレクトリのサポートは VoidZero のスコープに含まれるか定かではないとのことです。
 
 [Pooya Parsa さん](https://twitter.com/_pi0_)は UnJS, Nitro の作者であり、Nuxt コアチームメンバーです。
 
@@ -260,9 +278,10 @@ https://github.com/pi0/config-dir
 
 ## SWC、esbuild などの他のツールからの移行パスはあるのか？
 
-Rolldown はスコープの点で esbuild に非常に似ており、API は Rollup をモデルにしていますが機能セットは esbuild に非常に近いです。
+Rolldown はスコープの点で esbuild に非常に似ています。
+API は Rollup をモデルにしていますが機能セットは esbuild に非常に近いです。
 esbuild から Rolldown への移行は容易であると Evan You さんは考えており、実際に移行を進めている例もあります。
-Oxc のトランスフォーマーは、Babel のトランスフォーマーをモデルにしているため、SWC から Oxc への移行も比較的容易とのことです。
+Oxc のトランスフォーマーは Babel のトランスフォーマーをモデルにしているため、SWC から Oxc への移行も比較的容易とのことです。
 また、SWC にはバンドラーがなく、Oxc のバンドラーである Rolldown を使用することもできるそうです。
 
 ## Next.js が Vite をサポートする可能性は？
@@ -307,12 +326,12 @@ VoidZero は現在、特定のポジションの募集は行っていません�
 
 ## 最後に
 
-Evan You さんが設立した VoidZero の取り組みを通じて、JavaScript エコシステム全体を一つの統合された toolchain で支えるという壮大なビジョンが見えました。
+JavaScript エコシステム全体を一つの統合された toolchain で支えるという壮大なビジョンが見えました。
 Vue.js については VoidZero と直接は関係なく、今後も Evan You さんを中心にコミュニティによって開発が進められると再確認できて安心しています。
 
 VoidZero がオープンソースの価値を大切にしながらも、現実的な資金調達と収益化モデルを取り入れていることも分かりました。
-Evan You さんのビジョンとリーダーシップによって、これからの JavaScript エコシステムがどのように進化していくのかとても楽しみです。
-まだ公表されていない情報や rolldown/vite のアルファ版、ベータ版も楽しみです。
+これからの JavaScript エコシステムがどのように進化していくのかとても楽しみです。
+まだ公表されていないサービスの情報や rolldown/vite のアルファ版、ベータ版も楽しみです。
 
 また、Evan You さんが Python ツール [uv](https://docs.astral.sh/uv/) についても言及していたのが驚きでした。
 [uv](https://docs.astral.sh/uv/) は "Cargo for Python" を目指しています。
