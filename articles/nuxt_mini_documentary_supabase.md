@@ -13,9 +13,13 @@ published_at: 2024-12-20 18:00
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
 
 最近 YouTube にハマっています。
-Supabase さんが Nuxt チームのドキュメンタリー動画をアップされました。
+Supabase さんが Nuxt チームのドキュメンタリー動画をアップしました。
 
 https://youtu.be/uvG11I-ftfo?si=vFK86CndmuMPOG01
+
+Sébastien Chopin さんのツイートはこのドキュメンタリー撮影のことだったんですね。
+
+https://twitter.com/Atinux/status/1862137276979196224
 
 この動画の内容や見て感じたことを記事にします。
 
@@ -30,24 +34,20 @@ https://supabase.com/
 > Supabase is an open source Firebase alternative.
 > Start your project with a Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, Storage, and Vector embeddings.
 
-Postgres データベースであったり認証機能であったり、Web アプリ開発をする上で必要な機能をいい感じに提供しています。
-ぼくもまだ Supabase の機能を網羅的に利用したことはないのですがめちゃ便利です。
+Postgres データベースや認証機能など Web アプリ開発をする上で必要な機能をいい感じに提供しています。
+ぼくもまだ Supabase の機能を網羅的に利用したことはないのですがとても便利で素晴らしいサービスです。
 
 Supabase のいいところのひとつに広報活動がとても盛んであるということがあります。
-YouTube で Supabase を使ったアプリ開発動画をたくさんアップされています。
+YouTube で Supabase を使ったアプリ開発動画もたくさんアップされています。
 
 Twitter(現: X)でも勢力的に活動されています。
 
 https://twitter.com/dshukertjrjp/status/1691736796554834172
 
-タイラーさんを見たことがある人がほとんどではないでしょうか。
+タイラーさんを見たことがある人も多いのではないでしょうか。
 (「スーパベース」、たしかにこの発音が一番しっくり来ます。)
 
 Supabase さんの YouTube ではあまり Nuxt のコンテンツの印象はありませんでしたが、今回のこのドキュメンタリーは一体、、、？
-
-Sébastien Chopin さんのツイートはこのドキュメンタリー撮影のことだったんですね。
-
-https://twitter.com/Atinux/status/1862137276979196224
 
 ## まずはこの動画を見てほしい
 
@@ -120,7 +120,7 @@ Nuxt は現在 200 万以上の Web サイトで用いられているようで�
 (Sébastien Chopin さんが according to ~ と言っているのですが聞き取れませんでした、、、)
 
 多くの利用者が誰でも機能を追加できるようなプラグインシステム Nuxt Modules を作りました。
-現在、250 のモジュールが存在し、200 人以上のメンテなー、1600 人以上のコントリビューターがいます。
+現在、250 のモジュールが存在し、200 人以上のメンテナー、1600 人以上のコントリビューターがいます。
 
 https://nuxt.com/modules
 
@@ -134,11 +134,11 @@ Sébastien Chopin さんがいつ Supabase と出会ったかは覚えていな�
 
 https://twitter.com/Atinux/status/1349436471737004038
 
-このツイートで他にもいくつかの Open Source Firebase alternatives を挙げていますが、Supabase が一番 "sexy" と感じたようです。
+他にもいくつかの Open Source Firebase alternatives を挙げていますが、Supabase が一番 "sexy" と感じたようです。
 これにより Sébastien Chopin さんの周りにも Supabase が浸透していきます。
 
 Supabase の素晴らしさを伝えた人のうちの一人が Baptiste Leproux さんです。
-ちょうどその頃にお二人で腕立て伏せ対決を行なっていました(？)
+ちょうどその頃、お二人で腕立て伏せ対決を行なっていました(？)
 そこで腕立て伏せのカウントアプリを Baptiste Leproux さんが作ります。
 Supabase を利用した Nuxt アプリです。
 
@@ -150,11 +150,11 @@ https://pushupers.app/
 
 https://twitter.com/_larbish/status/1687044609522778112
 
-この経験から 3 年半経ちましたが、お二人は継続して腕立て伏せを継続しているようです。
+3 年半経った今でもお二人は腕立て伏せを継続しているようです。
 
 ## Supabase は Nuxt アプリの 理想のバックエンドかもしれない
 
-Nuxt がフロントエンドのを担当し、バックエンドは Supabase が担う。
+Nuxt がフロントエンドを担当し、バックエンドは Supabase が担う。
 確かに素晴らしい相性だと思います。
 Supabase はバックエンド開発の複雑なあれこれを簡単にしてくれます。
 
@@ -185,7 +185,7 @@ UnJS エコシステムについても楽しみにしていて、Pooya Parsa さ
 腕立て伏せのエピソードは知らない人がほとんどだったのではないでしょうか。
 
 素晴らしい方たちです。
-コアチームメンバーの方の人となりを知って、ますます感謝の思いとぼくも頑張らなければいけないという気持ちになりました。
+コアチームメンバーの方の人となりを知って、感謝の気持ちだけでなくぼくも頑張らなければいけないという気持ちになりました。
 素敵なドキュメンタリーを作ってくれた Supabase さんと、3 人に感謝の気持ちです。
 
 最後まで読んでいただきありがとうございました！
