@@ -1,5 +1,5 @@
 ---
-title: "【ありがとう】『Behind The Code: Nuxt.js mini-documentary』を見て"
+title: "『Behind The Code: Nuxt.js mini-documentary』を見て"
 emoji: "🎬"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["Nuxt", "Supabase"]
