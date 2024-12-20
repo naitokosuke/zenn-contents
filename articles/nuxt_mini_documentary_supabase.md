@@ -17,7 +17,7 @@ Supabase さんが Nuxt チームのドキュメンタリー動画をアップ�
 
 https://youtu.be/uvG11I-ftfo?si=vFK86CndmuMPOG01
 
-例によってこの動画を見て学んだことを記事にします。
+この動画の内容や見て感じたことを記事にします。
 
 ## what is Supabase?
 
@@ -25,7 +25,7 @@ https://youtu.be/uvG11I-ftfo?si=vFK86CndmuMPOG01
 
 https://supabase.com/
 
-![Supabase Top Page Hero Area](/images/nuxt_mini_documentary_supabase/supabase_top_page.png)
+![Supabase Top Page Hero Area](/images/nuxt_mini_documentary_supabase/_supabase_top_page.png)
 
 > Supabase is an open source Firebase alternative.
 > Start your project with a Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, Storage, and Vector embeddings.
@@ -36,9 +36,7 @@ Postgres データベースであったり認証機能であったり、Web ア�
 Supabase のいいところのひとつに広報活動がとても盛んであるということがあります。
 YouTube で Supabase を使ったアプリ開発動画をたくさんアップされています。
 
-Twitter(現: X)でも精力的に活動されています。
-
-https://twitter.com/dshukertjrjp/media
+Twitter(現: X)でも勢力的に活動されています。
 
 https://twitter.com/dshukertjrjp/status/1691736796554834172
 
@@ -53,7 +51,7 @@ Supabase さんの YouTube ではあまり Nuxt のコンテンツの印象は�
 とにかくおしゃれです。
 [NuxtLabs](https://nuxtlabs.com/) 本社？のオフィス内もとてもおしゃれですが、なんといってもフランス、ボルドーの街並みに Nuxt のロゴ、かっこよすぎる、、、
 
-![NuxtLabs HQ sign in Bordeaux's cityscape](/images/nuxt_mini_documentary_supabase/nuxtlabs_hq_in_bordeaux.png)
+![NuxtLabs HQ sign in Bordeaux's cityscape](/images/nuxt_mini_documentary_supabase/_nuxtlabs_hq_in_bordeaux.png)
 
 そして Nuxt の作者の腕立て伏せをしている姿を見ることができます。
 
