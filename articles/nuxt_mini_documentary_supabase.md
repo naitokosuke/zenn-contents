@@ -47,8 +47,9 @@ Supabase さんの YouTube ではあまり Nuxt のコンテンツの印象は�
 
 ## まずはこの動画を見てほしい
 
-英語に興味なくても一回は動画を見てもらいたいです。
+まずはとにかく一回は動画を見てもらいたいです。
 とにかくおしゃれです。
+見ていてテンションが上がります。
 [NuxtLabs](https://nuxtlabs.com/) 本社？のオフィス内もとてもおしゃれですが、なんといってもフランス、ボルドーの街並みに Nuxt のロゴ、かっこよすぎる、、、
 
 ![NuxtLabs HQ sign in Bordeaux's cityscape](/images/nuxt_mini_documentary_supabase/_nuxtlabs_hq_in_bordeaux.png)
