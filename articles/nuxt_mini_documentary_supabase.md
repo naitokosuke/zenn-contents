@@ -3,7 +3,7 @@ title: "『Behind The Code: Nuxt.js mini-documentary』を見て"
 emoji: "🎬"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["Nuxt", "Supabase"]
-publication: "comm_vue_nuxt"
+publication_name: "comm_vue_nuxt"
 published: true
 published_at: 2024-12-20 18:00
 ---
