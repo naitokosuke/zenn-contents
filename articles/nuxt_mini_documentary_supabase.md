@@ -8,6 +8,12 @@ published: true
 published_at: 2024-12-20 18:00
 ---
 
+[Nuxt / UnJS Advent Calendar 2024](https://qiita.com/advent-calendar/2024/nuxt-and-unjs) 6 日目の記事です。
+
+:::message
+2024/12/20 に登録しました。
+:::
+
 ## はじめに
 
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
