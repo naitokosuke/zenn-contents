@@ -1,0 +1,16 @@
+{
+  "initTemplate": {
+    "prefix": "#ar",
+    "scope": "markdown",
+    "body": [
+      "## はじめに",
+      "",
+      "ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。",
+      "",
+      "## 最後に",
+      "",
+      "最後まで読んでいただきありがとうございました！"
+    ],
+    "description": "記事の導入と締めのテンプレート"
+  }
+}
