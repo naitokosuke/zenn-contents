@@ -1,16 +1,15 @@
 ---
-title: "【ひとくち記事】Vue Composition API script setup のおまじないをスニペットにする【VS Code】"
+title: "Vue Composition API script setup のお約束をスニペットにする【VS Code】"
 emoji: "🫒"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vue", "vscode"]
+publication_name: "comm_vue_nuxt"
 published: true
 ---
 
 ## はじめに
 
 ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
-
-Vue を書いているときに、
 
 ```vue
 <script setup lang="ts">
@@ -34,7 +33,7 @@ VS Code のスニペットとして登録してしまおうと思います。
 1. `.vscode/` に `vue.code-snippets` を作成
 2. スニペットを登録
 
-```vue.code-snippets
+```json:vue.code-snippets
 {
   "Vue3 Component": {
     "prefix": "vue",
