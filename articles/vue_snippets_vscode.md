@@ -3,7 +3,7 @@ title: "【ひとくち記事】Vue Composition API script setup のおまじな
 emoji: "🫒"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vue", "vscode"]
-published: false
+published: true
 ---
 
 ## はじめに
