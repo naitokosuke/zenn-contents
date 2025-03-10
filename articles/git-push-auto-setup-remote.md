@@ -43,7 +43,12 @@ upstream, see 'push.autoSetupRemote' in 'git help config'.
 > To have this happen automatically for branches without a tracking
 > upstream, see 'push.autoSetupRemote' in 'git help config'.
 
-Git 2.37.0 以降では、`push.autoSetupRemote` という設定を有効にすることで、新しいブランチをプッシュするときに `--set-upstream` を自動的に設定できます。
+`push.autoSetupRemote` という設定を有効にすることで、新しいブランチをプッシュするときに `--set-upstream` を自動的に設定できます。
+
+https://github.com/git/git/blob/master/Documentation/config/push.adoc
+
+> push.autoSetupRemote
+> If set to "true" assume --set-upstream on default push when no upstream tracking exists for the current branch; this option takes effect with push.default options 'simple', 'upstream', and 'current'. It is useful if by default you want new branches to be pushed to the default remote (like the behavior of 'push.default=current') and you also want the upstream tracking to be set. Workflows most likely to benefit from this option are 'simple' central workflows where all branches are expected to have the same name on the remote.
 
 ## `push.autoSetupRemote` を有効にする
 
@@ -60,9 +65,7 @@ $ git switch -c feature/new-feature
 $ git push
 ```
 
-Git 2.37.0 以降を使っている場合は、この設定を有効にすると便利です。
-
-これでより快適に Git を使えるようになります。
+この設定を有効にするとより快適に Git を使えるようになります。
 
 ## 最後に
 
