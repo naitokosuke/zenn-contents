@@ -3,7 +3,7 @@ title: "「ブランチ作ってプッシュするたびに --set-upstream 打�
 emoji: "😎"
 type: "tech"
 topics: ["git"]
-published: false
+published: true
 ---
 
 ## はじめに
