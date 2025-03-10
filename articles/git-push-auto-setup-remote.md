@@ -1,6 +1,6 @@
 ---
 title: "「ブランチ作ってプッシュするたびに --set-upstream 打つのが面倒だな」と感じているなら"
-emoji: "😎"
+emoji: "🫑"
 type: "tech"
 topics: ["git"]
 published: true
