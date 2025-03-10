@@ -50,6 +50,9 @@ https://github.com/git/git/blob/master/Documentation/config/push.adoc
 > push.autoSetupRemote
 > If set to "true" assume --set-upstream on default push when no upstream tracking exists for the current branch; this option takes effect with push.default options 'simple', 'upstream', and 'current'. It is useful if by default you want new branches to be pushed to the default remote (like the behavior of 'push.default=current') and you also want the upstream tracking to be set. Workflows most likely to benefit from this option are 'simple' central workflows where all branches are expected to have the same name on the remote.
 
+> push.autoSetupRemote
+> `true` に設定すると、現在のブランチにアップストリームの追跡が存在しない場合、デフォルトの `push` に `--set-upstream` を自動的に適用します。このオプションは、`push.default` の設定が `simple`、`upstream`、または `current` の場合に有効になります。このオプションは、デフォルトで新しいブランチを既定のリモートにプッシュし（`push.default=current` の動作に類似）、さらにアップストリームの追跡設定も行いたい場合に便利です。特に、すべてのブランチがリモートで同じ名前を持つことを前提とした「シンプルな」中央集約型のワークフローにおいて、このオプションの恩恵を受けやすくなります。
+
 ## `push.autoSetupRemote` を有効にする
 
 以下のコマンドを実行するだけで設定できます(グローバル設定する場合)。
