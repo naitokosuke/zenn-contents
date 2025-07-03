@@ -3,7 +3,7 @@ title: "Claude Code がインストールしていないツールを使いこな
 emoji: "❔"
 type: "tech"
 topics: ["claudecode", "ripgrep", "AI"]
-published: false
+published: true
 ---
 
 ## はじめに
