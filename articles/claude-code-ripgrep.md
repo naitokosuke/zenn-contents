@@ -1,5 +1,5 @@
 ---
-title: "Claude Code がインストールしていない ripgrep を使いこなしている！？"
+title: "Claude Code がインストールしていないツールを使いこなしている！？"
 emoji: "❔"
 type: "tech"
 topics: ["claudecode", "ripgrep", "AI"]
