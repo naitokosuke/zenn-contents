@@ -4,7 +4,7 @@ emoji: "💎"
 type: "tech"
 topics: ["vue", "vue3", "vscode"]
 publication_name: "comm_vue_nuxt"
-published: false
+published: true
 ---
 
 ## はじめに
