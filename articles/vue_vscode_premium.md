@@ -62,7 +62,7 @@ https://github.com/sponsors/johnsoncodehk
 
 ![Reactivity Highlight](/images/vue_vscode_premium/reactivity-highlight.gif)
 
-## カスタマイズ性
+## 特に不要であれば OFF にできる
 
 上記の Premium Features はいずれも ON/OFF を切り替えることができます。
 not for me な機能は無効にできるので気軽に試すことができます。
