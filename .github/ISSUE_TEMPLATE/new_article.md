@@ -3,8 +3,8 @@ name: Writing an Article
 about: Propose and manage a new article for Zenn
 title: "[Article] "
 labels: write
-assignees: 
-  - engineer-naito
+assignees:
+  - naitokosuke
 ---
 
 ## Tentative Article Title
