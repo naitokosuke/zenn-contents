@@ -1,5 +1,5 @@
 ---
-title: "Vue.js 公式 VS Code 拡張機能の Premium Features のご紹介"
+title: "Vue.js 公式 VS Code 拡張機能の Premium Features のご紹介【有料(要スポンサー)】"
 emoji: "💎"
 type: "tech"
 topics: ["vue", "vue3", "vscode"]
