@@ -3,6 +3,7 @@ title: "Vue.js 公式 VS Code 拡張機能の Premium Features のご紹介"
 emoji: "💎"
 type: "tech"
 topics: ["vue", "vue3", "vscode"]
+publication_name: "comm_vue_nuxt"
 published: false
 ---
 
