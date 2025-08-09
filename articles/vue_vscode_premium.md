@@ -14,6 +14,8 @@ published: false
 [Alexander Lichter さんの YouTube 動画](https://youtu.be/OjMkGenTerM)を見ている時に、見慣れない VS Code の表示に気づきました。
 `<script>`や`<template>`タグが透明になっていたのです。
 
+https://youtu.be/OjMkGenTerM
+
 [Natsuki (@natch_engr)](https://twitter.com/natch_engr) さんに [Vue の公式 VS Code 拡張機能](<(https://marketplace.visualstudio.com/items?itemName=Vue.volar)>)の Premium Features の一つである Focus Mode によるものだと教えてもらいました。
 ありがとうございました！！
 
