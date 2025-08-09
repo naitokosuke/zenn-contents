@@ -9,7 +9,7 @@ published: true
 
 ## 🫡 はじめに
 
-ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
+ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 今回は ~~CSS フレームワーク~~ **Atomic CSS エンジン**である UnoCSS について紹介したいと思います。
 
 https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss

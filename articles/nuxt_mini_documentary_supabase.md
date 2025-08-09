@@ -16,7 +16,7 @@ published_at: 2024-12-20 18:00
 
 ## はじめに
 
-ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
+ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
 最近 YouTube にハマっています。
 Supabase さんが Nuxt チームのドキュメンタリー動画をアップしました。

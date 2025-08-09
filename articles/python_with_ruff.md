@@ -8,7 +8,7 @@ published: true
 
 # はじめに
 
-ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
+ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
 最近 ChatGPT に頼りっぱなしです。
 手でコードが書けないことに気づきました。

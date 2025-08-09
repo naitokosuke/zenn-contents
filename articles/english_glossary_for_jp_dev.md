@@ -8,7 +8,7 @@ published: true
 
 ## はじめに
 
-ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
+ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
 最近英語の技術記事を読んだり、海外の方の書かれたブログを読む機会が増えてきました。
 「ｲﾁｼﾞｼﾞｮｳﾎｳ, ｲﾁｼﾞｼﾞｮｳﾎｳ...」としていると、どうしても英語を読むことを迫られることがあります。

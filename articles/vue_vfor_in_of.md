@@ -13,7 +13,7 @@ https://qiita.com/advent-calendar/2024/vue
 
 ## はじめに
 
-ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
+ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
 前から気になっていた `v-for` ディレクティブの区切り文字 `in`, `of` について今日は調べていきます。
 

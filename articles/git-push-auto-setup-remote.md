@@ -8,7 +8,7 @@ published: true
 
 ## はじめに
 
-ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
+ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
 Git で新しいブランチを作成してプッシュするときに、 `git push --set-upstream origin ブランチ名` を打つのが面倒だと感じたことはありませんか？
 

@@ -14,7 +14,7 @@ https://qiita.com/advent-calendar/2024/vue
 
 # はじめに
 
-ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
+ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
 **Vite**、**Vue**、**UnoCSS** を組み合わせて開発環境を構築する手順を詳しく解説します。
 構築した環境で簡単なレスポンシブなグリッドレイアウトの画面を作成します。

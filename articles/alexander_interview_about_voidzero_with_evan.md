@@ -12,7 +12,7 @@ published_at: 2024-12-19 00:00
 
 ## はじめに
 
-ナイトウ([@engineer_naito](https://twitter.com/engineer_naito))と申します。
+ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
 [Alexander Lichter](https://twitter.com/TheAlexLichter) さんの YouTube [『All about VoidZero - The Interview with Evan You』](https://youtu.be/33ex2A04b7g?si=ERcpbXL6chiqzXYk)を見ました。
 
@@ -341,4 +341,4 @@ Alexander Lichter さんのインタビュー動画のおかげで VoidZero に�
 <br />
 <br />
 
-https://twitter.com/engineer_naito/status/1847868262815846711
+https://twitter.com/naitokosuke/status/1847868262815846711
