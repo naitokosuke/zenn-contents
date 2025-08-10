@@ -48,7 +48,7 @@ https://voidzero.dev/posts/announcing-voidzero-inc
 - Vite がよくなれば当然 Vue にもよい影響
 - VoidZero が目指す unified toolchain の恩恵を Vue が最も受ける
 
-- rolldown/vite のアルファ版またはベータ版 は 2024 年末か 2025 年早々を目指している
+- rolldown/vite のアルファ版またはベータ版は 2024 年末か 2025 年早々を目指している
 
 ## Who is Alexander Lichter?
 
@@ -88,7 +88,7 @@ https://twitter.com/youyuxi/status/1741101029784277413
 そもそも `void(0)` とはなんでしょうか。
 
 `void` 演算子は指定した式を評価し、その結果を無視して `undefined` を返します。
-HTML の a タグ の href 属性に `javascript:void(0)` を指定することで、リンクのデフォルトの画面遷移を防ぐことができました。
+HTML の a タグの href 属性に `javascript:void(0)` を指定することで、リンクのデフォルトの画面遷移を防ぐことができました。
 これを利用してクリック時に独自の JavaScript 処理を実行することが可能です。
 (最近では `event.preventDefault()` を利用することが一般的だと思われます。)
 
@@ -320,7 +320,7 @@ VoidZero は現在、特定のポジションの募集は行っていません�
 
 ## 最後に
 
-JavaScript エコシステム全体を一つの統合された toolchain で支えるという壮大なビジョンが見えました。
+JavaScript エコシステム全体を 1 つの統合された toolchain で支えるという壮大なビジョンが見えました。
 Vue.js については VoidZero と直接は関係なく、今後も Evan You さんを中心にコミュニティによって開発が進められると再確認できて安心しています。
 
 VoidZero がオープンソースの価値を大切にしながらも、現実的な資金調達と収益化モデルを取り入れていることも分かりました。
@@ -331,7 +331,7 @@ VoidZero がオープンソースの価値を大切にしながらも、現実�
 [uv](https://docs.astral.sh/uv/) は "Cargo for Python" を目指しています。
 こちらも今後が楽しみです。
 
-Alexander Lichter さんのインタビュー動画のおかげで VoidZero についてキャッチアップすることができました。
+Alexander Lichter さんのインタビュー動画のおかげで VoidZero についてキャッチアップできました。
 この動画は 1 時間と長いですが、字幕もありますのでぜひチェックしてみてください。
 ぼくもこれからも Alexander Lichter さんの動画で引き続き Vue, Nuxt をはじめ、フロントエンドの学習を続けていきたいです。
 

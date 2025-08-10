@@ -16,7 +16,7 @@ https://zenn.dev/comm_vue_nuxt/articles/what_is_unocss
 
 こちらの記事では、UnoCSS の成り立ちや経緯を紹介し、UnoCSS の特徴について紹介しました。
 今回は UnoCSS の設定について紹介したいと思います。
-設定プロパティを知ることで、UnoCSS の特徴をより深く理解することができます。
+設定プロパティを知ることで、UnoCSS の特徴をより深く理解できます。
 また、設定プロパティの豊富さから UnoCSS の**柔軟さ**を感じていただきたいです。
 
 また、前回記事で作者の Anthony Fu さんからコメントをいただきました！！！
@@ -90,11 +90,11 @@ export default defineConfig({
 
 ## ✨ UnoCSS の特徴(Configuration)
 
-UnoCSS の大きな特徴の一つは、必要な機能やスタイルを設定ファイルによって**柔軟**に選択できる点です。
+UnoCSS の大きな特徴の 1 つは、必要な機能やスタイルを設定ファイルによって**柔軟**に選択できる点です。
 (**不要な機能を使わない**ということでもあります。)
 
 プロジェクトごとに最適なスタイルやユーティリティを選択でき、不要な CSS が生成されることを防ぎます。
-必要なプリセットやプラグインを指定することで、プロジェクトに合わせたカスタム CSS 環境を簡単に構築することができます。
+必要なプリセットやプラグインを指定することで、プロジェクトに合わせたカスタム CSS 環境を簡単に構築できます。
 
 設定ファイルは専用のファイル `uno.config.ts` を用いることが推奨されています。
 
@@ -150,7 +150,7 @@ export default defineConfig({
 
 #### 🗣️ 動的ルール
 
-正規表現と関数を用いて動的にユーティリティを定義することができます。
+正規表現と関数を用いて動的にユーティリティを定義できます。
 
 [公式 Playground](https://uno.antfu.me/play/?version=0.62.0&html=DwEwlgbgBAxgNgQwM5ILwCIC2BaAjABn3QD4AoKKYAIwFcAXOgewDtZEUMAHbAZhIFkAnlABC9Js2AB6WgxZlp4CMSA&config=JYWwDg9gTgLgBAbzgEwKYDNgDtUGEJaYDmcAvnOlBCHAEQCuWEAxgM6u0DcAUN6gB6RYKDAEN6AG3hpMOfIWBEAFAm5w4USalYAuOAG016gwHoAeiAC0SgDrIA1AEoAJCYA0cJfo-IAuo7gAXgA%2BTyQQUSgibD0AA2cEZDgTOAAWUihUEFiyR183I3V9czBrOydXDwiYZgALINCVODBRZGRsIjiE6rr9AEZfZLSMrJzSPIL1fO5xziA&css=PQKgBA6gTglgLgUzAYwK4Gc4HsC2YDCAyoWABYJQIA0YAhgHYAmYcUD6AZllDhWOqgAOg7nAB0YAGLcwCAB60cggDYIAXGBDAAUKDBi0mXGADe2sGC704AWgDuCGAHNScDQFYADJ4Dc5sAACtMLKAJ5gggCMLPK2ABR2pPBIcsoAlH4WAEa0yADWTlBYqEw2yFjK3Bpw5LxxAOTllVDoYpSMYgAs3vUZ2gC%2BmsBAA&options=N4IgLgTghgdgzgMwPYQLYAkyoDYgFwJTZwCmAvkA)
 
@@ -242,7 +242,7 @@ UnoCSS では生成される CSS のサイズを小さくするために、CSS �
 ### 🛠️ プリセット
 
 UnoCSS は Atomic CSS エンジンであり、コアユーティリティを提供していません。
-上記の例のように、自らルールを設定することができます。
+上記の例のように、自らルールを設定できます。
 
 そして、複数のルールをプリセットとして切り出すことができます。
 これが UnoCSS の一番の特徴です。
@@ -408,7 +408,7 @@ export default defineConfig({
 
 ### 🫚 バリアント
 
-バリアントを用いることで既存のルールにバリエーションを適用することができます。
+バリアントを用いることで既存のルールにバリエーションを適用できます。
 (Tailwind CSS の `hover:` バリアントのように)
 
 ```ts
@@ -568,7 +568,7 @@ export const App = () => {
 
 ### ✈️ プリフライト
 
-生の CSS をプリフライトとして設定から注入することができます。
+生の CSS をプリフライトとして設定から注入できます。
 これによりデフォルトスタイルの指定や CSS リセットを行うことができます。
 
 ```ts:uno.config.ts
@@ -595,7 +595,7 @@ CSS の順序は優先順位に影響します。
 エンジンはルールの順序を保持しますが、ユーティリティをグループ化してその順序を明示的に制御したい場合もあります。
 
 Tailwind CSS は 3 つの固定レイヤー(`base`, `components`, `utilities`)を持っています。
-それに対して UnoCSS では、自由 にレイヤーを定義することができます。
+それに対して UnoCSS では、自由にレイヤーを定義できます。
 
 レイヤーを定義したい場合はルールの 3 番目の要素としてメタデータを指定できます。
 省略すれば `default` となります。
@@ -625,7 +625,7 @@ export default defineConfig({
 }
 ```
 
-レイヤーの順序も制御することができます。
+レイヤーの順序も制御できます。
 (順序を指定しない場合はレイヤー名の辞書順になります。)
 
 ```ts:uno.config.ts
@@ -669,7 +669,7 @@ export default defineConfig({
 });
 ```
 
-とすることで、CSS カスケードレイヤー付きの CSS を生成することができます。
+とすることで、CSS カスケードレイヤー付きの CSS を生成できます。
 
 レイヤー名を変更することもできます。
 
@@ -693,7 +693,7 @@ export default defineConfig({
 
 ### ✅ オートコンプリート
 
-VS Code 拡張機能の自動補完をカスタマイズすることができます。
+VS Code 拡張機能の自動補完をカスタマイズできます。
 (静的なルールでは何も設定しなくても自動補完が効きます。)
 
 ```ts:uno.config.ts

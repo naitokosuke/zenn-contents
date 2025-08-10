@@ -16,7 +16,7 @@ published: true
 
 https://youtu.be/OjMkGenTerM
 
-[Natsuki (@natch_engr)](https://twitter.com/natch_engr) さんに [Vue の公式 VS Code 拡張機能](<(https://marketplace.visualstudio.com/items?itemName=Vue.volar)>)の Premium Features の一つである Focus Mode によるものだと教えてもらいました。
+[Natsuki (@natch_engr)](https://twitter.com/natch_engr) さんに [Vue の公式 VS Code 拡張機能](<(https://marketplace.visualstudio.com/items?itemName=Vue.volar)>)の Premium Features の 1 つである Focus Mode によるものだと教えてもらいました。
 ありがとうございました！！
 
 :::message
@@ -83,7 +83,7 @@ Vue.js 公式の VS Code 拡張機能の Premium Features について紹介し�
 - [Template Interpolation Highlight](#template-interpolation-highlight)
 - [Reactivity Visualization](#reactivity-visualization)
 
-[Johnson Chu](https://github.com/johnsoncodehk) さんをスポンサーすることで利用することができます。
+[Johnson Chu](https://github.com/johnsoncodehk) さんをスポンサーすることで利用できます。
 
 最低 $3 からなのでぜひ試していただきたいです。
 Vue の未来のためにもなるはずです！
