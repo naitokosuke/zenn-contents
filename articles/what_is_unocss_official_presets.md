@@ -277,7 +277,7 @@ Tailwind CSS や Windi CSS のおなじみのユーティリティをベース�
 }
 ```
 
-またはプリセットオプションで設定することができます。
+またはプリセットオプションで設定できます。
 
 ```ts:uno.config.ts
 import { defineConfig, presetMini } from "unocss";
@@ -358,7 +358,7 @@ pnpm add -D @iconify/json
 
 :::
 
-利用可能な全てのコレクションは [Icônes](https://icones.js.org/) や [Iconify](https://icon-sets.iconify.design/) で参照することができます。
+利用可能な全てのコレクションは [Icônes](https://icones.js.org/) や [Iconify](https://icon-sets.iconify.design/) で参照できます。
 
 <br />
 
@@ -388,7 +388,7 @@ export default defineConfig({
 
 #### ➕ 追加プロパティ
 
-アイコンのデフォルトの動作を制御するために、追加の CSS プロパティを指定することができます。
+アイコンのデフォルトの動作を制御するために、追加の CSS プロパティを指定できます。
 
 ```ts:uno.config.ts
 import { defineConfig, presetIcons } from "unocss";
@@ -542,7 +542,7 @@ export default defineConfig({
 ```
 
 と、属性に分割できます。
-`text-sm` と `text-white` のように重複したプレフィックスを除いてグループ化(`text="sm white"`)することができます。
+`text-sm` と `text-white` のように重複したプレフィックスを除いてグループ化(`text="sm white"`)できます。
 
 また、`flex`, `grid`, `border` のようにプレフィックスと全く同じ名前のユーティリティについては `~` が使えます。
 
@@ -699,7 +699,7 @@ export default defineConfig({
 
 ### 🖌️ preset-typography
 
-`@unocss/preset-typography` プリセットにより、標準の HTML 要素にタイポグラフィスタイルを簡単に適用するための 「散文("prose")」クラスが提供されています。
+`@unocss/preset-typography` プリセットにより、標準の HTML 要素にタイポグラフィスタイルを簡単に適用するための「散文("prose")」クラスが提供されています。
 これらの「散文」を使用することで、例えば段落や見出し、リスト、リンクなどの要素に対して、統一されたタイポグラフィのスタイルを適用できます。
 
 ```ts:uno.config.ts
@@ -788,7 +788,7 @@ export default defineConfig({
 
 ### 💇 preset-rem-to-px
 
-`@unocss/preset-rem-to-px` プリセットを用いることで `rem` を `px` へ変換することができます。
+`@unocss/preset-rem-to-px` プリセットを用いることで `rem` を `px` へ変換できます。
 (デフォルトでは `1rem = 16px`)
 
 ```ts:uno.config.ts

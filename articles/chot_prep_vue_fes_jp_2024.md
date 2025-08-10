@@ -19,7 +19,7 @@ https://vuefes.jp/2024/
 ぼくは今年もボランティアとして Vue Fes Japan に参加します！
 スタッフ作業に奔走する予定ですが、「どうせ参加するなら予習しよう！」と思ってセッション内容のキーワードについて調べました。
 
-全く知らない -> ﾁｮｯﾄ知ってる
+全く知らない -> チョット知ってる
 という状態で Vue Fes Japan 2024 に参加しましょう！！
 
 :::message alert
@@ -68,8 +68,8 @@ https://vuefes.jp/2024/#speakers
 著名 OSS コントリビューターの方の発表を聞けるとても貴重な機会です。
 Vue そのものだけでなく Vite, UnJS など周辺エコシステムなどの最新動向も感じることができます。
 
-- ビジュアルアーティストの田中 陽さん
-- Svelte コアチームの山下 裕一朗さん
+- ビジュアルアーティストの田中陽さん
+- Svelte コアチームの山下裕一朗さん
 
 Vue コミュニティ外でも活躍されている方たちの発表もとても楽しみです。
 
@@ -89,7 +89,7 @@ https://vuetifyjs.com/ja/
 ### Quarsar
 
 Vue.js をベースとしたフレームワーク。
-モバイル、デスクトップ、ウェブアプリケーションを一つのコードベースで開発できることが特徴です。
+モバイル、デスクトップ、ウェブアプリケーションを 1 つのコードベースで開発できることが特徴です。
 
 https://quasar.dev/
 
@@ -180,7 +180,7 @@ https://unjs.io/
 
 https://unjs.io/packages
 
-また、先に紹介した Nitro も UnJS のパッケージの一つです。
+また、先に紹介した Nitro も UnJS のパッケージの 1 つです。
 UnJS ライブラリ、ツールもその他の UnJS ツールに依存しており、また依存されています。
 
 https://unjs.io/relations?u%5B%5D=nitropack&showDependencies=true
@@ -221,7 +221,7 @@ https://svelte.dev/blog/virtual-dom-is-pure-overhead
 Vue の新しいコンパイル戦略。
 ざっくり言うと脱仮想 DOM を目指すもの。
 
-以下の Zenn 記事が オススメです。
+以下の Zenn 記事がオススメです。
 
 https://zenn.dev/comm_vue_nuxt/articles/3b264a4bf70662
 
@@ -256,7 +256,7 @@ https://rolldown.rs/
 
 ### Rust 製 JavaScript / TypeScript ツールなど
 
-以下の Zenn 記事が オススメです。
+以下の Zenn 記事がオススメです。
 
 https://zenn.dev/nakaakist/articles/86457bf2908379
 
@@ -265,7 +265,7 @@ https://zenn.dev/nakaakist/articles/86457bf2908379
 #### Turbo
 
 - Rust 製 JavaScript ビルドシステム: Turborepo
-- Rust 製 バンドラー: Turbopack
+- Rust 製バンドラー: Turbopack
 
 https://turbo.build/
 

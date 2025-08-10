@@ -151,7 +151,7 @@ export default defineConfig({
 
 ```
 
-`rules` にはカスタムのユーティリティクラスを定義することができます。
+`rules` にはカスタムのユーティリティクラスを定義できます。
 
 https://unocss.dev/config/rules
 
@@ -210,7 +210,7 @@ UnoCSS の魅力的な機能のひとつに Attributify モードがあります
 </button>
 ```
 
-は Attributify モードで以下のように記述することができます。
+は Attributify モードで以下のように記述できます。
 
 ```html
 <button

@@ -116,7 +116,7 @@ https://github.com/vuejs/core/blob/11f76741fb6a14c8ee6a4b68e2ef1641ffc15a23/pack
 
 https://eslint.vuejs.org/
 
-[Vue.js 公式 ESLint プラグイン](https://eslint.vuejs.org/)では `v-for` の 区切り文字(in or of)を統一させるような ESLint ルールが提供されています。
+[Vue.js 公式 ESLint プラグイン](https://eslint.vuejs.org/)では `v-for` の区切り文字(in or of)を統一させるような ESLint ルールが提供されています。
 
 https://eslint.vuejs.org/rules/v-for-delimiter-style.html#vue-v-for-delimiter-style
 

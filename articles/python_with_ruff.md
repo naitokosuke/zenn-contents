@@ -83,7 +83,7 @@ line-length = 79
 extend-select = ["E501"]
 ```
 
-Python の公式ガイドラインである PEP8 では 1 行あたりの文字数を 80 文字以内にすることを推奨していますが、これも `pyproject.toml` や、`ruff.toml` で設定することができます。
+Python の公式ガイドラインである PEP8 では 1 行あたりの文字数を 80 文字以内にすることを推奨していますが、これも `pyproject.toml` や、`ruff.toml` で設定できます。
 
 その他にも設定できる事項は多く存在しており、柔軟に対応できます。
 https://docs.astral.sh/ruff/configuration/
