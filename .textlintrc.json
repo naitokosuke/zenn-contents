@@ -1,0 +1,37 @@
+{
+  "filters": {
+    "node-types": {
+      "nodeTypes": ["BlockQuote"]
+    }
+  },
+  "rules": {
+    "preset-ai-writing": true,
+    "preset-ja-technical-writing": {
+      "sentence-length": {
+        "max": 120
+      },
+      "max-comma": {
+        "max": 4
+      },
+      "max-ten": {
+        "max": 3
+      },
+      "max-kanji-continuous-len": {
+        "max": 6
+      },
+      "no-exclamation-question-mark": false,
+      "ja-no-mixed-period": {
+        "periodMark": "。"
+      },
+      "no-doubled-joshi": {
+        "strict": false
+      }
+    },
+    "preset-ja-spacing": {
+      "ja-space-between-half-and-full-width": {
+        "space": "always"
+      }
+    },
+    "no-dropping-the-ra": true
+  }
+}

@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "textlint articles/*.md",
+    "lint:fix": "textlint --fix articles/*.md"
   },
   "keywords": [],
   "author": "",
@@ -11,5 +13,13 @@
   "description": "",
   "dependencies": {
     "zenn-cli": "^0.2.1"
+  },
+  "devDependencies": {
+    "textlint": "^15.2.1",
+    "textlint-filter-rule-node-types": "^1.1.0",
+    "textlint-rule-no-dropping-the-ra": "^3.0.0",
+    "textlint-rule-preset-ai-writing": "^1.1.0",
+    "textlint-rule-preset-ja-spacing": "^2.4.3",
+    "textlint-rule-preset-ja-technical-writing": "^12.0.2"
   }
 }
