@@ -68,7 +68,99 @@ rstore はローカルファーストアプローチで設計されており、�
 
 ## 基本的な使い方
 
-<!-- セットアップや導入手順を調べて整理する -->
+### インストール
+
+```bash
+pnpm i @rstore/vue
+```
+
+### モデルの作成
+
+```ts:src/rstore/model.ts
+import type { ModelList } from "@rstore/vue";
+import { defineItemType } from "@rstore/vue";
+
+// Item type
+export interface Todo {
+  id: string;
+  text: string;
+  completed: boolean;
+  createdAt: Date;
+  updatedAt?: Date;
+}
+
+// Model
+const todoModel = defineItemType<Todo>().model({
+  name: "todos",
+});
+
+export const models = [todoModel] satisfies ModelList;
+```
+
+### API と連携するプラグインの作成
+
+```ts:src/rstore/plugin.js
+import { definePlugin } from "@rstore/vue";
+
+export default definePlugin({
+  name: "my-rstore-plugin",
+
+  setup({ hook }) {
+    // Register rstore hooks here
+  },
+});
+```
+
+### ストアの作成 & 公開
+
+```ts:src/rstore/index.ts
+import type { App, InjectionKey } from "vue";
+import { inject } from "vue";
+
+import type { VueStore } from "@rstore/vue";
+import { createStore } from "@rstore/vue";
+
+import { models } from "./model";
+import myPlugin from "./plugin";
+
+const injectionRstoreKey = Symbol("rstore") as InjectionKey<VueStore<typeof models>>;
+
+export async function rstore(app: App) {
+  const store = await createStore({
+    models,
+    plugins: [ myPlugin ],
+  });
+
+  app.provide(injectionRstoreKey, store);
+}
+
+export function useStore() {
+  const store = inject(injectionRstoreKey, null);
+  if (store == null ) {
+    throw new Error("No store found");
+  }
+  return store;
+}
+```
+
+### アプリへストアを追加
+
+```ts:src/main.ts
+import { rstore } from "./rstore";
+
+const app = createApp(App);
+await rstore(app);
+```
+
+### コンポーネント(コンポーザブル)でストアを使用
+
+```ts
+import { useStore } from "@/rstore";
+
+const store = useStore();
+
+const { data: todos } = store.todos.queryMany();
+```
 
 ## 誕生の経緯
 
