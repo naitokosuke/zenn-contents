@@ -1,5 +1,5 @@
 ---
-title: "Vue.js 公式 VS Code 拡張機能の Premium Features のご紹介【※有料】"
+title: "Vue.js 公式 VS Code 拡張機能の Premium Features のご紹介【㊗️無料化🎉】"
 emoji: "💎"
 type: "tech"
 topics: ["vue", "vue3", "vscode"]
@@ -95,3 +95,12 @@ Focus Mode は個人的には結構好きです。
 Premium Features に限らず、ぜひ自分の開発スタイルに合うかいろいろ試してみてください。
 
 最後まで読んでいただきありがとうございました！
+
+## 追記(2025.09.20)
+
+以前にこちらの記事で有料機能と紹介しましたが、v3.0.7 から無料で利用できるようになりました！
+気づかずにすでに利用されている方もいらっしゃるかもしれませんね。
+
+https://x.com/johnsoncodehk/status/1966413863391473681
+
+https://github.com/vuejs/language-tools/releases/tag/v3.0.7
