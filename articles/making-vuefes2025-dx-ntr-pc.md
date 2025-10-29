@@ -79,7 +79,7 @@ https://zenn.dev/cybozu_frontend/articles/a735baacc09c6a
 
 https://sli.dev/
 
-これまでにも Slidev を使用してスライドを作っていましたが、Slidev の魅力を伝えきれていない気もしていたので今回は Slidev でスライドを作るにあたって 2 つやりたいこと(目標)を決めました。
+これまでにも Slidev を使用してスライドを作っていましたが、今回は Slidev でスライドを作るにあたって 2 つやりたいこと(目標)を決めました。
 
 - monaco editor で Nuxt Typed Router の型を体験できるようにする
 - piña colada をイメージとしたビーチの夕暮れを再現
