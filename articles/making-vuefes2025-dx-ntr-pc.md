@@ -64,7 +64,7 @@ CfP 提出から 3 週間後くらいに採択の旨のメールが来ました�
 
 https://pinia-colada.esm.dev/why.html#Comparison-to-other-solutions
 
-ここに [rstore](https://rstore.dev/guide/learn-more.html#pinia-colada), [swrv](https://github.com/Kong/swrv), [TanStack Query](https://tanstack.com/query/latest/docs/framework/vue/overview) との比較もあったので、7 月〜 8 月にはこれらのライブラリについても勉強しました。
+ここに [rstore](https://rstore.dev), [swrv](https://github.com/Kong/swrv), [TanStack Query](https://tanstack.com/query/latest/docs/framework/vue/overview) との比較もあったので、7 月〜 8 月にはこれらのライブラリについても勉強しました。
 
 TanStack Query と SWR ということで、React, Next.js での情報が非常にたくさんあったのでそちらも参考にさせていただきました。
 特に以下の記事が参考になりました。
@@ -72,6 +72,11 @@ TanStack Query と SWR ということで、React, Next.js での情報が非常
 https://zenn.dev/cybozu_frontend/articles/a735baacc09c6a
 
 8 月の後半には Next.js で typed routes が stable feature になったので、人生初 Next.js もしました。
+
+[rstore](https://rstore.dev) については発表前に Zenn の記事にするつもりでしたが、ちょうど？破壊的変更をたくさん含んでいるらしいリリースが入り断念しました。
+アドカレの時期になるので書きたいですね。
+
+https://x.com/Akryum/status/1966602960512663743
 
 ## スライド作成〜
 
@@ -99,8 +104,8 @@ https://sli.dev/
 
 https://x.com/naitokosuke/status/1957029491055698143
 
-全然うまくいかないので、スライドのリポジトリに `___research___/` と言うディレクトリを作成して、そこに markdown 形式で調べた内容やスライドの構成についてをまとめました。
-このディレクトリ下を参照させることによって Claude Code にコンテキストを与えたのですが、全然うまくいきませんでした。
+全然うまくいかないので、スライドのリポジトリに `___research___/` というディレクトリを作成して、そこに markdown 形式で調べた内容やスライドの構成についてをまとめました。
+このディレクトリを参照させることによって Claude Code にコンテキストを与えたのですが、全然うまくいきませんでした。
 
 ## vibe sliding が全然うまくいかなかった
 
