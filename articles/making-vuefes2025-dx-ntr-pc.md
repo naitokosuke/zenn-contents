@@ -16,6 +16,8 @@ Vue Fes Japan 2025 にて『最高の DX - Nuxt Typed Router と Pinia Colada �
 
 <!-- textlint-enable ai-writing/no-ai-hype-expressions -->
 
+https://naitokosuke.github.io/vue-fes-japan-2025-slide/
+
 いい加減な発表にはしたくないと思い、自分なりに色々考えて発表に臨みました。
 そのことについて書きます。
 
