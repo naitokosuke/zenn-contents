@@ -225,4 +225,12 @@ posva さんはこれをページファイル名から型を当てることが�
 
 ## 最後に
 
+<!-- textlint-disable ai-writing/no-ai-hype-expressions -->
+
+Vue Fes Japan 2025 全体を通して最高の経験をさせてもらいました。
+
+<!-- textlint-enable ai-writing/no-ai-hype-expressions -->
+
+スタッフや参加者の方に改めて感謝申し上げます。
+
 最後まで読んでいただきありがとうございました！
