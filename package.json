@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "textlint articles/*.md",
-    "lint:fix": "textlint --fix articles/*.md"
+    "lint:fix": "textlint --fix articles/*.md",
+    "dev": "nlx zenn preview"
   },
   "keywords": [],
   "author": "",
