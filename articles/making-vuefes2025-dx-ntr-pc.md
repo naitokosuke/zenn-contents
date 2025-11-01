@@ -149,7 +149,7 @@ Vue Fes Japan 自体が 2 度の中止を乗り越えて、今も続いている
 
 ### 極力字をデカく
 
-なるべく後ろの方まで見えるように極力字をを大きくしました。
+なるべく後ろの方まで見えるように極力字を大きくしました。
 
 ![](/images/making-vuefes2025-dx-ntr-pc/big-moji.png)
 ![](/images/making-vuefes2025-dx-ntr-pc/big-moji2.png)
