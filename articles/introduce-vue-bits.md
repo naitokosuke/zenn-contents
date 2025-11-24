@@ -10,7 +10,8 @@ published: false
 
 ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
-Web サイトをより印象的で魅力的にしたいと思ったことはありませんか？今回は、Vue.js 向けの美しいアニメーション付き UI コンポーネントライブラリ「**Vue Bits**」をご紹介します。
+Web サイトをより印象的で魅力的にしたいと思ったことはありませんか？
+今回は、Vue.js 向けの美しいアニメーション付き UI コンポーネントライブラリ [**Vue Bits**](https://vue-bits.dev/) をご紹介します。
 
 ## Vue Bits とは？
 
