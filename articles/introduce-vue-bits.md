@@ -28,13 +28,18 @@ https://github.com/DavidHDev/vue-bits
 > Highly customizable animated components that make your Vue projects truly stand out
 
 Vue Bits は、高品質でアニメーション付きのインタラクティブな Vue コンポーネントを集めたオープンソースライブラリです。
-React Bits の公式 Vue 移植版として開発されています。
 
-https://reactbits.dev/
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
+:::message
+[React Bits](https://reactbits.dev/) の公式 Vue 移植版として開発されています。
+:::
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
 ### 主な特徴
 
-- 90 種類以上のコンポーネントを提供している
+- 90 種類以上のコンポーネント
   - テキストアニメーション
   - UI アニメーション
   - インタラクティブコンポーネント
