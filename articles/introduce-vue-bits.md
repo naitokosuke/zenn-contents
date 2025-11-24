@@ -6,21 +6,31 @@ topics: ["vuejs"]
 published: false
 ---
 
+[Vue Advent Calendar 2025](https://qiita.com/advent-calendar/2025/vue) 1 日目の記事です。
+
+https://qiita.com/advent-calendar/2025/vue
+
 ## はじめに
 
 ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
-Web サイトをより印象的で魅力的にしたいと思ったことはありませんか？
 今回は、Vue.js 向けの美しいアニメーション付き UI コンポーネントライブラリ [**Vue Bits**](https://vue-bits.dev/) をご紹介します。
+面白いプロジェクトだと思って、皆さんにも知ってもらいたいと思っています。
 
 ## Vue Bits とは？
-
-Vue Bits は、高品質でアニメーション付きのインタラクティブな Vue コンポーネントを集めたオープンソースライブラリです。
-React Bits の公式 Vue 移植版として開発されており、印象的なユーザーインターフェースを簡単に構築できます。
 
 https://vue-bits.dev/
 
 https://github.com/DavidHDev/vue-bits
+
+> **Vue Components For Creative Developers**
+>
+> Highly customizable animated components that make your Vue projects truly stand out
+
+Vue Bits は、高品質でアニメーション付きのインタラクティブな Vue コンポーネントを集めたオープンソースライブラリです。
+React Bits の公式 Vue 移植版として開発されています。
+
+https://reactbits.dev/
 
 ### 主な特徴
 
