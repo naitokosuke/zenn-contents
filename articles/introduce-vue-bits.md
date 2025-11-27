@@ -15,7 +15,15 @@ https://qiita.com/advent-calendar/2025/vue
 ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
 今回は、Vue.js 向けの美しいアニメーション付き UI コンポーネントライブラリ [**Vue Bits**](https://vue-bits.dev/) をご紹介します。
-面白いプロジェクトだと思って、皆さんにも知ってもらいたいと思っています。
+公式ドキュメントで一覧を見ているだけでワクワクします。
+
+<!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->
+
+実際の業務で使用できるものは多くないかもしれませんが、ソースコードを眺めるて「ふーん」ってするのも良さそうです。
+
+<!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->
+
+ぜひ見てみてください！
 
 ## Vue Bits とは？
 
@@ -60,6 +68,151 @@ https://jsrepo.dev/
 npm パッケージとしてインストールするのではなく必要なコンポーネントのソースコードをプロジェクトにコピーします。
 
 コンポーネントを自分のものとして扱うことができて自由にカスタマイズできます。
+
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
+:::message alert
+2025 年 11 月 27 日時点で、Vue Bits は jsrepo v2.x 系のみ対応しています。
+v3 には対応していません。
+:::
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
+
+### 前提条件
+
+Vue Bits のコンポーネントは Tailwind CSS を使用しています。
+コンポーネントをインストールする前に、プロジェクトに Tailwind CSS をセットアップしてください。
+
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
+:::details Tailwind CSS のセットアップ手順
+
+```bash
+ni -D tailwindcss @tailwindcss/vite
+```
+
+`vite.config.ts` に Tailwind プラグインを追加します。
+
+```ts: vite.config.ts
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [tailwindcss()],
+});
+```
+
+CSS ファイルに Tailwind をインポートします。
+
+```css: src/styles.css
+@import "tailwindcss";
+```
+
+:::
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
+
+### コマンド形式
+
+```bash
+npx jsrepo@2.5.2 add https://vue-bits.dev/ui/<Category>/<ComponentName>
+```
+
+カテゴリは以下の 4 つです。
+
+- TextAnimations
+- Animations
+- Components
+- Backgrounds
+
+### 初回インストール時の手順
+
+SpotlightCard コンポーネントをインストールする例です。
+
+```bash
+npx jsrepo@2.5.2 add https://vue-bits.dev/ui/Components/SpotlightCard
+```
+
+初回実行時は jsrepo の初期化を確認されるので、Yes を選択します。
+
+```
+◇  You don't have jsrepo initialized in your project. Do you want to continue?
+│  Yes
+```
+
+インストール先のディレクトリを指定します(e.g.`./src/components`)。
+
+```
+◆  Where would you like to add Components?
+```
+
+インストールが完了すると、指定したディレクトリにコンポーネントファイルが作成されます。
+
+```
+src/
+└── components/
+    └── Components/
+        └── SpotlightCard/
+            └── SpotlightCard.vue
+```
+
+jsrepo はカテゴリとコンポーネント名でディレクトリをネストして作成します。
+
+### 依存関係のあるコンポーネント
+
+一部のコンポーネントは外部ライブラリを必要とします。インストール時に依存関係のインストールを確認されるので、Yes を選択してください。
+
+```
+◆  Would you like to install dependencies?
+│  ● Yes / ○ No
+```
+
+Yes を選択すると、必要なパッケージが自動的にインストールされます。
+
+例えば、以下のコンポーネントは外部ライブラリに依存しています。
+
+- `Animations/GhostCursor` → Three.js
+- `Animations/AnimatedContent` → GSAP
+- `Backgrounds/Iridescence` → OGL
+
+### Full CLI Setup(推奨)
+
+上記の手順では、コンポーネントをインストールするたびに初期化確認が表示されます。
+
+プロジェクト全体で jsrepo を設定しておくと、この確認を省略できます。
+
+```bash
+npx jsrepo@2.5.2 init https://vue-bits.dev/ui
+```
+
+コマンドを実行すると、デフォルトのインストールパスやフォーマッターの設定を確認されます。
+
+```
+◆  Please enter a default path to install the blocks
+│  ./src/components
+```
+
+設定が完了すると `jsrepo.json` が作成されます。
+
+以降は、コンポーネント名を直接指定してインストールできます。
+
+```bash
+npx jsrepo@2.5.2 add TextAnimations/ShinyText
+```
+
+また、コマンドを引数なしで実行すると、利用可能なコンポーネントの一覧から選択できます。
+
+```bash
+npx jsrepo@2.5.2 add
+```
+
+```
+◆  Select which blocks to add.
+│  ◻ Animations/AnimatedContent
+│  ◻ Animations/BlobCursor
+│  ◻ Animations/ClickSpark
+│  ◻ Animations/CountUp
+...
+```
 
 ## コンポーネントカテゴリ
 
