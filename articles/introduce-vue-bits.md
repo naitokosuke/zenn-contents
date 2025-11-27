@@ -126,7 +126,9 @@ npx jsrepo@2.5.2 add https://vue-bits.dev/ui/<Category>/<ComponentName>
 
 ### 初回インストール時の手順
 
-SpotlightCard コンポーネントをインストールする例です。
+[Components/SpotlightCard](https://vue-bits.dev/components/spotlight-card) をインストールする例です。
+
+![Vue Bits Spotlight Card](/images/introduce-vue-bits/spotlight-card.gif)
 
 ```bash
 npx jsrepo@2.5.2 add https://vue-bits.dev/ui/Components/SpotlightCard
@@ -155,11 +157,10 @@ src/
             └── SpotlightCard.vue
 ```
 
-jsrepo はカテゴリとコンポーネント名でディレクトリをネストして作成します。
-
 ### 依存関係のあるコンポーネント
 
-一部のコンポーネントは外部ライブラリを必要とします。インストール時に依存関係のインストールを確認されるので、Yes を選択してください。
+一部のコンポーネントは外部ライブラリを必要とします。
+インストール時に依存関係のインストールを確認されるので、Yes を選択します。
 
 ```
 ◆  Would you like to install dependencies?
@@ -167,17 +168,15 @@ jsrepo はカテゴリとコンポーネント名でディレクトリをネス�
 ```
 
 Yes を選択すると、必要なパッケージが自動的にインストールされます。
-
 例えば、以下のコンポーネントは外部ライブラリに依存しています。
 
-- `Animations/GhostCursor` → Three.js
-- `Animations/AnimatedContent` → GSAP
-- `Backgrounds/Iridescence` → OGL
+- [Animations/GhostCursor](https://vue-bits.dev/animations/ghost-cursor) -> [Three.js](https://threejs.org/)
+- [Animations/AnimatedContent](https://vue-bits.dev/animations/animated-content) -> [GSAP](https://gsap.com/)
+- [Backgrounds/Iridescence](https://vue-bits.dev/backgrounds/iridescence) -> [OGL](https://oframe.github.io/ogl/)
 
-### Full CLI Setup(推奨)
+### Full CLI Setup
 
 上記の手順では、コンポーネントをインストールするたびに初期化確認が表示されます。
-
 プロジェクト全体で jsrepo を設定しておくと、この確認を省略できます。
 
 ```bash
@@ -213,15 +212,6 @@ npx jsrepo@2.5.2 add
 │  ◻ Animations/CountUp
 ...
 ```
-
-## コンポーネントカテゴリ
-
-[Vue Bits](https://vue-bits.dev/) は以下のカテゴリに分類されたコンポーネントを提供しています。
-
-- Text Animations
-- Animations
-- Components
-- Backgrounds
 
 ## まとめ
 
