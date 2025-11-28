@@ -41,6 +41,10 @@ https://github.com/DavidHDev/vue-bits
 
 Vue Bits は、高品質でアニメーション付きのインタラクティブな Vue コンポーネントを集めたオープンソースライブラリです。
 
+![Star History](/images/introduce-vue-bits/star-history.png)
+
+https://githubtracker.com/DavidHDev/vue-bits
+
 <!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
 
 :::message
