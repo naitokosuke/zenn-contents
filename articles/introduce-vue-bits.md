@@ -1,5 +1,5 @@
 ---
-title: "Vue Bits を知る頃"
+title: "Vue Bits って知ってる？"
 emoji: "🆒"
 type: "tech"
 topics: ["vuejs", "ui"]
