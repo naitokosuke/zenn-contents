@@ -13,9 +13,6 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "dependencies": {
-    "zenn-cli": "^0.2.1"
-  },
   "devDependencies": {
     "textlint": "^15.2.1",
     "textlint-filter-rule-comments": "^1.2.2",
