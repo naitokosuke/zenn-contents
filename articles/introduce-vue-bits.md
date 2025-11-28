@@ -242,15 +242,16 @@ npx jsrepo@2.5.2 add
 
 ## まとめ
 
-[Vue Bits](https://vue-bits.dev/) は、Vue プロジェクトに簡単に美しいアニメーションを追加できる強力なライブラリです。
+[Vue Bits](https://vue-bits.dev/) を紹介しました。
 
-- 90 種類以上の豊富なコンポーネント
-- 軽量で最小限の依存関係
-- 高いカスタマイズ性
-- TypeScript と Tailwind CSS のサポート
-- アクティブな開発とコミュニティ
+jsrepo v3 未対応だったり TypeScript + Tailwind CSS のみだったりと、まだまだ良くなる部分はたくさんありそうです。
 
-Web サイトをより魅力的にしたい方は、ぜひ [Vue Bits](https://vue-bits.dev/) を試してみてください。
+<!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->
+
+業務で使う機会は少ないかもしれませんが、「こういう表現ってどうやって実装するんだろう？」とソースコードを覗いてみるのも良いと思います。
+個人サイトやポートフォリオサイトで活用できたり、面白いものを作るためのヒントを得られるでしょう。
+
+<!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->
 
 ## 参考リンク
 
