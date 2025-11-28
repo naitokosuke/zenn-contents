@@ -52,7 +52,8 @@ https://githubtracker.com/DavidHDev/vue-bits
 
 > This is the official Vue port of React Bits!
 > https://github.com/DavidHDev/vue-bits
-> :::
+
+:::
 
 <!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
