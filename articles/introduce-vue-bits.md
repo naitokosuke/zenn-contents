@@ -19,7 +19,7 @@ https://qiita.com/advent-calendar/2025/vue
 
 <!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->
 
-実際の業務で使用できるものは多くないかもしれませんが、ソースコードを眺めるて「ふーん」ってするのも良さそうです。
+実際の業務で使用できるものは多くないかもしれませんが、ソースコードを眺めて「ふーん」ってするのも良さそうです。
 
 <!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->
 
