@@ -107,7 +107,7 @@ jsrepo v3 では設定ファイルが `jsrepo.json` から `jsrepo.config.ts` �
 
 ### 前提条件
 
-Vue Bits のコンポーネントは Tailwind CSS を使用しています。
+Vue Bits は 2025 年 11 月 27 日現在、Tailwind CSS に依存しています。
 コンポーネントをインストールする前に、プロジェクトに Tailwind CSS をセットアップしてください。
 
 <!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
