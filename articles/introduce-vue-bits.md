@@ -3,7 +3,8 @@ title: "Vue Bits を知る頃"
 emoji: "🆒"
 type: "tech"
 topics: ["vuejs", "ui"]
-published: false
+published: true
+published: 2025-12-01 00:00
 ---
 
 [Vue Advent Calendar 2025](https://qiita.com/advent-calendar/2025/vue) 1 日目の記事です。
