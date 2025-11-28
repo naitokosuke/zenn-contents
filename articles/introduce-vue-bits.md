@@ -48,14 +48,16 @@ Vue Bits は、高品質でアニメーション付きのインタラクティ�
 
 > This is the official Vue port of React Bits!
 > https://github.com/DavidHDev/vue-bits
-:::
+> :::
 
 <!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
 ### 主な特徴
 
-- 90 種類以上のコンポーネント
-- 各コンポーネントは軽量で最小限の依存関係に抑えられており、プロジェクトへの影響を最小限にできる
+まずはとにかく公式ドキュメントで Vue Bits の雰囲気？を見てもらいたいのですが、主な特徴としては以下があります。
+
+- 90 種類以上のコンポーネント(毎週増えていく！？)
+- 各コンポーネントは軽量で最小限の依存関係に抑えられている
 - props を通じて細かくカスタマイズ可能
 - Vue 3、TypeScript、Tailwind CSS で構築されたモダンな技術スタック
 
