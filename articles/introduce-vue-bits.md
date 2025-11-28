@@ -25,6 +25,10 @@ https://qiita.com/advent-calendar/2025/vue
 
 ぜひ見てみてください！
 
+公式ドキュメントを見てほしいですが、一応デモリポジトリも貼っておきます。
+
+https://github.com/naitokosuke/try-vue-bits
+
 ## Vue Bits とは？
 
 https://vue-bits.dev/
@@ -41,6 +45,9 @@ Vue Bits は、高品質でアニメーション付きのインタラクティ�
 
 :::message
 [React Bits](https://reactbits.dev/) の公式 Vue 移植版として開発されています。
+
+> This is the official Vue port of React Bits!
+> https://github.com/DavidHDev/vue-bits
 :::
 
 <!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
