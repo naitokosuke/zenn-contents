@@ -66,6 +66,17 @@ https://githubtracker.com/DavidHDev/vue-bits
 - props を通じて細かくカスタマイズ可能
 - Vue 3、TypeScript、Tailwind CSS で構築されたモダンな技術スタック
 
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+<!-- textlint-disable ja-technical-writing/sentence-length-->
+
+:::message
+本家 [React Bits](https://reactbits.dev/) では JavaScript / TypeScript、Tailwind CSS / Vanilla CSS の切り替えに対応していますが、Vue Bits は TypeScript + Tailwind CSS のみの提供となっています。
+[issue](https://github.com/DavidHDev/vue-bits/issues/100) がありますが、作者は「必要であれば AI などで変換できる」というスタンスのようで Close されています 🫠
+:::
+
+<!-- textlint-enable ja-technical-writing/sentence-length-->
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
+
 ## インストール方法
 
 [Vue Bits](https://vue-bits.dev/) は jsrepo という CLI ツールを使用してコンポーネントをインストールします。
@@ -88,7 +99,8 @@ npm パッケージとしてインストールするのではなく必要なコ�
 
 :::message alert
 2025 年 11 月 27 日時点で、Vue Bits は jsrepo v2.x 系のみ対応しています。
-v3 には対応していません。
+jsrepo v3 では設定ファイルが `jsrepo.json` から `jsrepo.config.ts` へ変更されるなどの[破壊的変更](https://jsrepo.dev/docs/migrate)があり、Vue Bits はまだ対応していません。
+コマンド実行時は `npx jsrepo@2.5.2` のようにバージョンを明示的に指定してください。
 :::
 
 <!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
