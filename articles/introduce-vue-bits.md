@@ -1,8 +1,8 @@
 ---
 title: "Vue Bits を知る頃"
-emoji: "✨"
+emoji: "🆒"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["vuejs"]
+topics: ["vuejs", "ui"]
 published: false
 ---
 
