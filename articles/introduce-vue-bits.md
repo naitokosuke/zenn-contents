@@ -1,6 +1,6 @@
 ---
 title: "Vue Bits って知ってる？"
-emoji: "🆒"
+emoji: "🦍"
 type: "tech"
 topics: ["vuejs", "ui"]
 published: true
