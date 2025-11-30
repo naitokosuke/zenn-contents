@@ -70,7 +70,7 @@ https://githubtracker.com/DavidHDev/vue-bits
 <!-- textlint-disable ja-technical-writing/sentence-length-->
 
 :::message
-本家 [React Bits](https://reactbits.dev/) では JavaScript / TypeScript、Tailwind CSS / Vanilla CSS の切り替えに対応していますが、Vue Bits は TypeScript + Tailwind CSS のみの提供となっています。
+本家 [React Bits](https://reactbits.dev/) では JavaScript / TypeScript、Tailwind CSS / Vanilla CSS の切り替えに対応していますが、Vue Bits は切り替えには対応しておらずどちらかでのみ実装されています。
 [issue](https://github.com/DavidHDev/vue-bits/issues/100) がありますが、作者は「必要であれば AI などで変換できる」というスタンスのようで Close されています 🫠
 :::
 
