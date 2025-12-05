@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "【習作】Vue でラジオボタンを実装してみる"
 emoji: "🕌"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vue"]
