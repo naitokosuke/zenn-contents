@@ -3,6 +3,7 @@ title: "Vue Bits って知ってる？"
 emoji: "🦍"
 type: "tech"
 topics: ["vuejs", "ui"]
+publication_name: "comm_vue_nuxt"
 published: true
 ---
 
