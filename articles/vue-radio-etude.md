@@ -58,6 +58,58 @@ https://developer.mozilla.org/ja/docs/Web/HTML/Element/input/radio
 
 ラジオボタンがおさらいできたところで、Vue でコンポーネントとして実装していきます。
 
+## まずは素朴(naive)なコンポーネントを作ってみる
+
+まずは動くものを作ります。
+
+```vue:Radio.vue
+<script setup lang="ts">
+const model = defineModel<string>({ required: true });
+</script>
+
+<template>
+  <fieldset>
+    <legend>Fruits</legend>
+
+    <input type="radio" id="apple" name="fruit" value="apple" v-model="model" />
+    <label for="apple">apple</label>
+
+    <input type="radio" id="orange" name="fruit" value="orange" v-model="model" />
+    <label for="orange">orange</label>
+
+    <input type="radio" id="grape" name="fruit" value="grape" v-model="model" />
+    <label for="grape">grape</label>
+  </fieldset>
+</template>
+```
+
+```vue:App.vue
+<script setup lang="ts">
+import { ref } from "vue";
+import Radio from "./Radio.vue";
+
+const selected = ref("apple");
+</script>
+
+<template>
+  <Radio v-model="selected" />
+  <p>Selected: {{ selected }}</p>
+</template>
+```
+
+ポイントは `defineModel` を使用していることです。
+`defineModel` は Vue 3.4 で導入されたマクロで、親コンポーネントとの `v-model` による双方向バインディングを簡潔に書けます。
+`{ required: true }` を指定することで親が `v-model` を渡さなかった場合に警告が出流ようになります。
+
+https://ja.vuejs.org/api/sfc-script-setup#definemodel
+
+見てわかる通りこのコンポーネントは使いにくいですよね。
+
+- ハードコード
+- ボイラープレート
+
+これらを Vue らしく解決してきます。
+
 ## 最後に
 
 最後まで読んでいただきありがとうございました！
