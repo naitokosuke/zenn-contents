@@ -110,6 +110,111 @@ https://ja.vuejs.org/api/sfc-script-setup#definemodel
 
 これらを Vue らしく解決してきます。
 
+## 使いやすくするために `v-for` と `props` を使用する
+
+### `v-for` を使用してボイラープレートをなくす
+
+同じ構造の繰り返しは `v-for` で解消できます。
+
+```vue:Radio.vue
+<script setup lang="ts">
+const model = defineModel<string>({ required: true });
+
+const options = ["apple", "orange", "grape"];
+</script>
+
+<template>
+  <fieldset>
+    <legend>Fruits</legend>
+
+    <template v-for="option in options" :key="option">
+      <input
+        type="radio"
+        :id="option"
+        name="fruit"
+        :value="option"
+        v-model="model"
+      />
+      <label :for="option">{{ option }}</label>
+    </template>
+  </fieldset>
+</template>
+```
+
+:::details App.vue(変更なし)
+
+```vue:App.vue
+<script setup lang="ts">
+import { ref } from "vue";
+import Radio from "./Radio.vue";
+
+const selected = ref("apple");
+</script>
+
+<template>
+  <Radio v-model="selected" />
+  <p>Selected: {{ selected }}</p>
+</template>
+```
+
+:::
+
+ボイラープレートはなくなりましたが、選択肢がまだコンポーネント内にハードコードされています。
+
+### `props` を活用して汎用的なコンポーネントにする
+
+選択肢、`name`、`legend` を `props` で外から渡すようにします。
+
+```vue:Radio.vue
+<script setup lang="ts">
+const model = defineModel<string>({ required: true });
+
+const props = defineProps<{
+  options: string[];
+  name: string;
+  legend?: string;
+}>();
+</script>
+
+<template>
+  <fieldset>
+    <legend v-if="props.legend">{{ props.legend }}</legend>
+
+    <template v-for="option in props.options" :key="option">
+      <input
+        type="radio"
+        :id="option"
+        :name="props.name"
+        :value="option"
+        v-model="model"
+      />
+      <label :for="option">{{ option }}</label>
+    </template>
+  </fieldset>
+</template>
+```
+
+```vue:App.vue
+<script setup lang="ts">
+import { ref } from "vue";
+import Radio from "./Radio.vue";
+
+const selected = ref("apple");
+</script>
+
+<template>
+  <Radio
+    v-model="selected"
+    :options="['apple', 'orange', 'grape']"
+    name="fruit"
+    legend="Fruits"
+  />
+  <p>Selected: {{ selected }}</p>
+</template>
+```
+
+これで汎用的なコンポーネントになりました。
+
 ## 最後に
 
 最後まで読んでいただきありがとうございました！
