@@ -64,7 +64,7 @@ https://developer.mozilla.org/ja/docs/Web/HTML/Element/input/radio
 
 ```vue:Radio.vue
 <script setup lang="ts">
-const model = defineModel<string>({ required: true });
+const model = defineModel<string | undefined>({ required: true });
 </script>
 
 <template>
@@ -88,12 +88,12 @@ const model = defineModel<string>({ required: true });
 import { ref } from "vue";
 import Radio from "./Radio.vue";
 
-const selected = ref("apple");
+const selected = ref<string>();
 </script>
 
 <template>
   <Radio v-model="selected" />
-  <p>Selected: {{ selected }}</p>
+  <p>Selected: {{ selected ?? "NONE" }}</p>
 </template>
 ```
 
@@ -118,7 +118,7 @@ https://ja.vuejs.org/api/sfc-script-setup#definemodel
 
 ```vue:Radio.vue
 <script setup lang="ts">
-const model = defineModel<string>({ required: true });
+const model = defineModel<string | undefined>({ required: true });
 
 const options = ["apple", "orange", "grape"];
 </script>
@@ -148,12 +148,12 @@ const options = ["apple", "orange", "grape"];
 import { ref } from "vue";
 import Radio from "./Radio.vue";
 
-const selected = ref("apple");
+const selected = ref<string>();
 </script>
 
 <template>
   <Radio v-model="selected" />
-  <p>Selected: {{ selected }}</p>
+  <p>Selected: {{ selected ?? "NONE" }}</p>
 </template>
 ```
 
@@ -167,7 +167,7 @@ const selected = ref("apple");
 
 ```vue:Radio.vue
 <script setup lang="ts">
-const model = defineModel<string>({ required: true });
+const model = defineModel<string | undefined>({ required: true });
 
 const props = defineProps<{
   options: string[];
@@ -199,7 +199,7 @@ const props = defineProps<{
 import { ref } from "vue";
 import Radio from "./Radio.vue";
 
-const selected = ref("apple");
+const selected = ref<string>();
 </script>
 
 <template>
@@ -209,7 +209,7 @@ const selected = ref("apple");
     name="fruit"
     legend="Fruits"
   />
-  <p>Selected: {{ selected }}</p>
+  <p>Selected: {{ selected ?? "NONE" }}</p>
 </template>
 ```
 
@@ -224,8 +224,8 @@ const selected = ref("apple");
 import { ref } from "vue";
 import Radio from "./Radio.vue";
 
-const selectedFruit = ref("apple");
-const selectedColor = ref("red");
+const selectedFruit = ref<string>();
+const selectedColor = ref<string>();
 </script>
 
 <template>
@@ -255,7 +255,7 @@ https://ja.vuejs.org/api/composition-api-helpers#useid
 <script setup lang="ts">
 import { useId } from "vue";
 
-const model = defineModel<string>({ required: true });
+const model = defineModel<string | undefined>({ required: true });
 
 const props = defineProps<{
   options: string[];
@@ -286,6 +286,106 @@ const idPrefix = useId();
 
 `useId` はコンポーネントごとに一意な ID を生成してくれます。
 これを `option` と組み合わせることで、ページ内で ID が重複することはなくなります。
+
+## `useRadio` コンポーザブルを作る
+
+今の使い方を見てみましょう。
+
+```vue
+<script setup lang="ts">
+const selected = ref<string>();
+</script>
+
+<template>
+  <Radio
+    v-model="selected"
+    :options="['apple', 'orange', 'grape']"
+    name="fruit"
+    legend="Fruits"
+  />
+</template>
+```
+
+`options` と `selected` を別々に定義しています。
+凝集度を高めるために `options`、`name`、`legend`、`selected` をセットで管理するコンポーザブルを作ってみます。
+
+`options` の型は `[string, string, ...string[]]` としています。
+これは「少なくとも 2 つ以上の `string` 型要素を持つ配列」を表すタプル型です。
+ラジオボタンは複数の選択肢から 1 つを選ぶものなので、選択肢が 1 つだけでは意味がありません。
+
+```ts:useRadio.ts
+import { ref } from "vue";
+
+type UseRadioOptions = {
+  options: [string, string, ...string[]];
+  name: string;
+  legend?: string;
+  initial?: string;
+};
+
+export function useRadio({ options, name, legend, initial }: UseRadioOptions) {
+  return { options, name, legend, selected: ref(initial) };
+}
+```
+
+```vue:Radio.vue
+<script setup lang="ts">
+import { useId } from "vue";
+
+const model = defineModel<string | undefined>({ required: true });
+
+const props = defineProps<{
+  options: [string, string, ...string[]];
+  name: string;
+  legend?: string;
+}>();
+
+const idPrefix = useId();
+</script>
+
+<template>
+  <fieldset>
+    <legend v-if="props.legend">{{ props.legend }}</legend>
+
+    <template v-for="option in props.options" :key="option">
+      <input
+        type="radio"
+        :id="`${idPrefix}-${option}`"
+        :name="props.name"
+        :value="option"
+        v-model="model"
+      />
+      <label :for="`${idPrefix}-${option}`">{{ option }}</label>
+    </template>
+  </fieldset>
+</template>
+```
+
+```vue:App.vue
+<script setup lang="ts">
+import Radio from "./Radio.vue";
+import { useRadio } from "./useRadio";
+
+const { options, name, legend, selected } = useRadio({
+  options: ["apple", "orange", "grape"],
+  name: "fruit",
+  legend: "Fruits",
+});
+</script>
+
+<template>
+  <Radio v-model="selected" :options :name :legend />
+  <p>Selected: {{ selected ?? "NONE" }}</p>
+</template>
+```
+
+`:options` は `:options="options"` の省略記法です。
+Vue 3.4 で導入された Same-name Shorthand を使用しています。
+
+https://ja.vuejs.org/guide/essentials/template-syntax#same-name-shorthand
+
+`useRadio` は `options` と `selected` をセットで返します。
+`initial` を省略すると未選択状態になります。
 
 ## 最後に
 
