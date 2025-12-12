@@ -64,7 +64,7 @@ https://developer.mozilla.org/ja/docs/Web/HTML/Element/input/radio
 
 ```vue:Radio.vue
 <script setup lang="ts">
-const model = defineModel<string | undefined>({ required: true, default: undefined });
+const model = defineModel<string | undefined>({ required: true });
 </script>
 
 <template>
@@ -102,6 +102,8 @@ const selected = ref<string>();
 
 https://ja.vuejs.org/api/sfc-script-setup#definemodel
 
+`{ required: true }` を指定することで親が `v-model` を渡さなかった場合に警告が出るようになります。
+
 見てわかる通りこのコンポーネントは使いにくいですよね。
 
 - ハードコード
@@ -117,7 +119,7 @@ https://ja.vuejs.org/api/sfc-script-setup#definemodel
 
 ```vue:Radio.vue
 <script setup lang="ts">
-const model = defineModel<string | undefined>({ required: true, default: undefined });
+const model = defineModel<string | undefined>({ required: true });
 
 const options = ["apple", "orange", "grape"];
 </script>
@@ -166,7 +168,7 @@ const selected = ref<string>();
 
 ```vue:Radio.vue
 <script setup lang="ts">
-const model = defineModel<string | undefined>({ required: true, default: undefined });
+const model = defineModel<string | undefined>({ required: true });
 
 const props = defineProps<{
   options: string[];
@@ -254,7 +256,7 @@ https://ja.vuejs.org/api/composition-api-helpers#useid
 <script setup lang="ts">
 import { useId } from "vue";
 
-const model = defineModel<string | undefined>({ required: true, default: undefined });
+const model = defineModel<string | undefined>({ required: true });
 
 const props = defineProps<{
   options: string[];
@@ -329,7 +331,7 @@ export function useRadio({ options, name, legend, initial }: {
 <script setup lang="ts">
 import { useId } from "vue";
 
-const model = defineModel<string | undefined>({ required: true, default: undefined });
+const model = defineModel<string | undefined>({ required: true });
 
 const props = defineProps<{
   options: [string, string, ...string[]];
