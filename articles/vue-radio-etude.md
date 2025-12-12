@@ -403,16 +403,18 @@ TypeScript の Generics を使って、`options` の要素型から `initial` �
 ```ts:useRadio.ts
 import { ref } from "vue";
 
-export function useRadio<const Option extends string>({
+export function useRadio<
+  const Options extends readonly [string, string, ...string[]],
+>({
   options,
   name,
   legend,
   initial,
 }: {
-  options: readonly [Option, Option, ...Option[]];
+  options: Options;
   name: string;
   legend?: string;
-  initial?: Option;
+  initial?: Options[number];
 }) {
   return { options, name, legend, selected: ref(initial) };
 }
