@@ -383,9 +383,6 @@ Vue 3.4 で導入された Same-name Shorthand を使用しています。
 
 https://ja.vuejs.org/guide/essentials/template-syntax#same-name-shorthand
 
-`useRadio` は `options` と `selected` をセットで返します。
-`initial` を省略すると未選択状態になります。
-
 ## 最後に
 
 最後まで読んでいただきありがとうございました！
