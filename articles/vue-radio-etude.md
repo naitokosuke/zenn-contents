@@ -215,6 +215,78 @@ const selected = ref("apple");
 
 これで汎用的なコンポーネントになりました。
 
+## `useId` で `id` の重複を防ぐ
+
+汎用的になったので同じページ内で複数のラジオボタンを使うのも簡単です。
+
+```vue:App.vue
+<script setup lang="ts">
+import { ref } from "vue";
+import Radio from "./Radio.vue";
+
+const selectedFruit = ref("apple");
+const selectedColor = ref("red");
+</script>
+
+<template>
+  <Radio
+    v-model="selectedFruit"
+    :options="['apple', 'orange', 'grape']"
+    name="fruit"
+    legend="Fruits"
+  />
+  <Radio
+    v-model="selectedColor"
+    :options="['red', 'blue', 'green']"
+    name="color"
+    legend="Colors"
+  />
+</template>
+```
+
+しかし、今の実装には問題があります。
+`id` に `option` の値をそのまま使っているため、異なるラジオボタングループで同じ値があると `id` が重複してしまいます。
+
+Vue 3.5 で導入された `useId` を使って一意な ID を生成しましょう。
+
+https://ja.vuejs.org/api/composition-api-helpers#useid
+
+```vue:Radio.vue
+<script setup lang="ts">
+import { useId } from "vue";
+
+const model = defineModel<string>({ required: true });
+
+const props = defineProps<{
+  options: string[];
+  name: string;
+  legend?: string;
+}>();
+
+const idPrefix = useId();
+</script>
+
+<template>
+  <fieldset>
+    <legend v-if="props.legend">{{ props.legend }}</legend>
+
+    <template v-for="option in props.options" :key="option">
+      <input
+        type="radio"
+        :id="`${idPrefix}-${option}`"
+        :name="props.name"
+        :value="option"
+        v-model="model"
+      />
+      <label :for="`${idPrefix}-${option}`">{{ option }}</label>
+    </template>
+  </fieldset>
+</template>
+```
+
+`useId` はコンポーネントごとに一意な ID を生成してくれます。
+これを `option` と組み合わせることで、ページ内で ID が重複することはなくなります。
+
 ## 最後に
 
 最後まで読んでいただきありがとうございました！
