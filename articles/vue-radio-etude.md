@@ -383,6 +383,119 @@ Vue 3.4 で導入された Same-name Shorthand を使用しています。
 
 https://ja.vuejs.org/guide/essentials/template-syntax#same-name-shorthand
 
+## Generics で型安全性を高める
+
+今の `useRadio` には型安全性の問題があります。
+
+```ts
+const { selected } = useRadio({
+  options: ["apple", "orange", "grape"],
+  name: "fruit",
+  initial: "banana", // コンパイルエラーにならない！
+});
+```
+
+`options` に含まれていない `"banana"` を `initial` に渡してもエラーになりません。
+`selected` の型も `Ref<string | undefined>` であり、`options` の要素に限定されていません。
+
+TypeScript の Generics を使って、`options` の要素型から `initial` と `selected` の型を導出しましょう。
+
+```ts:useRadio.ts
+import { ref } from "vue";
+
+export function useRadio<const Option extends string>({
+  options,
+  name,
+  legend,
+  initial,
+}: {
+  options: readonly [Option, Option, ...Option[]];
+  name: string;
+  legend?: string;
+  initial?: Option;
+}) {
+  return { options, name, legend, selected: ref(initial) };
+}
+```
+
+```vue:Radio.vue
+<script setup lang="ts" generic="Option extends string">
+import { useId } from "vue";
+
+const model = defineModel<Option | undefined>({ required: true });
+
+const props = defineProps<{
+  options: readonly [Option, Option, ...Option[]];
+  name: string;
+  legend?: string;
+}>();
+
+const idPrefix = useId();
+</script>
+
+<template>
+  <fieldset>
+    <legend v-if="props.legend">{{ props.legend }}</legend>
+
+    <template v-for="option in props.options" :key="option">
+      <input
+        type="radio"
+        :id="`${idPrefix}-${option}`"
+        :name="props.name"
+        :value="option"
+        v-model="model"
+      />
+      <label :for="`${idPrefix}-${option}`">{{ option }}</label>
+    </template>
+  </fieldset>
+</template>
+```
+
+`<script setup>` に `generic="Option extends string"` を追加しています。
+これは Vue 3.3 で導入された Generic Components の機能です。
+
+https://ja.vuejs.org/api/sfc-script-setup#generics
+
+:::details App.vue(変更なし)
+
+```vue:App.vue
+<script setup lang="ts">
+import Radio from "./Radio.vue";
+import { useRadio } from "./useRadio";
+
+const { options, name, legend, selected } = useRadio({
+  options: ["apple", "orange", "grape"],
+  name: "fruit",
+  legend: "Fruits",
+});
+</script>
+
+<template>
+  <Radio v-model="selected" :options :name :legend />
+  <p>Selected: {{ selected ?? "NONE" }}</p>
+</template>
+```
+
+:::
+
+ポイントは `const Option extends string` です。
+`const` 型パラメータは TypeScript 5.0 で導入された機能で、渡された配列をリテラル型として推論してくれます。
+
+https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#const-type-parameters
+
+これにより `options: ["apple", "orange", "grape"]` を渡すと、`Option` は `"apple" | "orange" | "grape"` になります。
+
+```ts
+const { selected } = useRadio({
+  options: ["apple", "orange", "grape"],
+  name: "fruit",
+  initial: "banana", // 型エラー！
+});
+```
+
+`initial` は `"apple" | "orange" | "grape" | undefined` のみ許容されるようになりました。
+`selected` の型も `Ref<"apple" | "orange" | "grape" | undefined>` に限定されます。
+
 ## 最後に
 
 最後まで読んでいただきありがとうございました！
