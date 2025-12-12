@@ -498,6 +498,8 @@ const { selected } = useRadio({
 `initial` は `"apple" | "orange" | "grape" | undefined` のみ許容されるようになりました。
 `selected` の型も `Ref<"apple" | "orange" | "grape" | undefined>` に限定されます。
 
+![デモ](/images/vue-radio-etude/dx.gif)
+
 ## 最後に
 
 最後まで読んでいただきありがとうございました！
