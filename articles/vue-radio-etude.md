@@ -64,7 +64,7 @@ https://developer.mozilla.org/ja/docs/Web/HTML/Element/input/radio
 
 ```vue:Radio.vue
 <script setup lang="ts">
-const model = defineModel<string | undefined>({ required: true });
+const model = defineModel<string | undefined>();
 </script>
 
 <template>
@@ -99,7 +99,6 @@ const selected = ref<string>();
 
 ポイントは `defineModel` を使用していることです。
 `defineModel` は Vue 3.4 で導入されたマクロで、親コンポーネントとの `v-model` による双方向バインディングを簡潔に書けます。
-`{ required: true }` を指定することで親が `v-model` を渡さなかった場合に警告が出流ようになります。
 
 https://ja.vuejs.org/api/sfc-script-setup#definemodel
 
@@ -118,7 +117,7 @@ https://ja.vuejs.org/api/sfc-script-setup#definemodel
 
 ```vue:Radio.vue
 <script setup lang="ts">
-const model = defineModel<string | undefined>({ required: true });
+const model = defineModel<string | undefined>();
 
 const options = ["apple", "orange", "grape"];
 </script>
@@ -167,7 +166,7 @@ const selected = ref<string>();
 
 ```vue:Radio.vue
 <script setup lang="ts">
-const model = defineModel<string | undefined>({ required: true });
+const model = defineModel<string | undefined>();
 
 const props = defineProps<{
   options: string[];
@@ -255,7 +254,7 @@ https://ja.vuejs.org/api/composition-api-helpers#useid
 <script setup lang="ts">
 import { useId } from "vue";
 
-const model = defineModel<string | undefined>({ required: true });
+const model = defineModel<string | undefined>();
 
 const props = defineProps<{
   options: string[];
@@ -332,7 +331,7 @@ export function useRadio({ options, name, legend, initial }: UseRadioOptions) {
 <script setup lang="ts">
 import { useId } from "vue";
 
-const model = defineModel<string | undefined>({ required: true });
+const model = defineModel<string | undefined>();
 
 const props = defineProps<{
   options: [string, string, ...string[]];
