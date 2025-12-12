@@ -64,7 +64,7 @@ https://developer.mozilla.org/ja/docs/Web/HTML/Element/input/radio
 
 ```vue:Radio.vue
 <script setup lang="ts">
-const model = defineModel<string | undefined>();
+const model = defineModel<string | undefined>({ required: true, default: undefined });
 </script>
 
 <template>
@@ -117,7 +117,7 @@ https://ja.vuejs.org/api/sfc-script-setup#definemodel
 
 ```vue:Radio.vue
 <script setup lang="ts">
-const model = defineModel<string | undefined>();
+const model = defineModel<string | undefined>({ required: true, default: undefined });
 
 const options = ["apple", "orange", "grape"];
 </script>
@@ -166,7 +166,7 @@ const selected = ref<string>();
 
 ```vue:Radio.vue
 <script setup lang="ts">
-const model = defineModel<string | undefined>();
+const model = defineModel<string | undefined>({ required: true, default: undefined });
 
 const props = defineProps<{
   options: string[];
@@ -254,7 +254,7 @@ https://ja.vuejs.org/api/composition-api-helpers#useid
 <script setup lang="ts">
 import { useId } from "vue";
 
-const model = defineModel<string | undefined>();
+const model = defineModel<string | undefined>({ required: true, default: undefined });
 
 const props = defineProps<{
   options: string[];
@@ -315,14 +315,12 @@ const selected = ref<string>();
 ```ts:useRadio.ts
 import { ref } from "vue";
 
-type UseRadioOptions = {
+export function useRadio({ options, name, legend, initial }: {
   options: [string, string, ...string[]];
   name: string;
   legend?: string;
   initial?: string;
-};
-
-export function useRadio({ options, name, legend, initial }: UseRadioOptions) {
+}) {
   return { options, name, legend, selected: ref(initial) };
 }
 ```
@@ -331,7 +329,7 @@ export function useRadio({ options, name, legend, initial }: UseRadioOptions) {
 <script setup lang="ts">
 import { useId } from "vue";
 
-const model = defineModel<string | undefined>();
+const model = defineModel<string | undefined>({ required: true, default: undefined });
 
 const props = defineProps<{
   options: [string, string, ...string[]];
