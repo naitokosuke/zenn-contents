@@ -224,28 +224,28 @@ const selected = ref<string>();
 import { ref } from "vue";
 import Radio from "./Radio.vue";
 
-const selectedFruit = ref<string>();
-const selectedColor = ref<string>();
+const selectedFruit1 = ref<string>();
+const selectedFruit2 = ref<string>();
 </script>
 
 <template>
   <Radio
-    v-model="selectedFruit"
+    v-model="selectedFruit1"
     :options="['apple', 'orange', 'grape']"
-    name="fruit"
-    legend="Fruits"
+    name="fruit1"
+    legend="Fruits 1"
   />
   <Radio
-    v-model="selectedColor"
-    :options="['red', 'blue', 'green']"
-    name="color"
-    legend="Colors"
+    v-model="selectedFruit2"
+    :options="['apple', 'orange', 'grape']"
+    name="fruit2"
+    legend="Fruits 2"
   />
 </template>
 ```
 
 しかし、今の実装には問題があります。
-`id` に `option` の値をそのまま使っているため、異なるラジオボタングループで同じ値があると `id` が重複してしまいます。
+`id` に `option` の値をそのまま使っているため、異なるラジオボタングループで同じ選択肢があると `id` が重複してしまいます。
 
 Vue 3.5 で導入された `useId` を使って一意な ID を生成しましょう。
 
