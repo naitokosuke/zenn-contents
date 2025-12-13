@@ -500,6 +500,104 @@ const { selected } = useRadio({
 
 ![デモ](/images/vue-radio-etude/dx.gif)
 
+## SFC に `useRadio` を同居させる
+
+現在のファイル構成を見てみましょう。
+
+```
+├── Radio.vue
+├── useRadio.ts
+└── App.vue
+```
+
+`useRadio` は `Radio.vue` と強く結びついています。
+このくらいの規模であれば、別ファイルにするよりも同じファイルに置いた方が凝集度も高く保守しやすそうです。
+
+実は SFC では `<script setup>` とは別に通常の `<script>` ブロックを追加できて export ができます。
+
+https://ja.vuejs.org/api/sfc-script-setup#usage-alongside-normal-script
+
+このパターンは [Unplugin Vue Router の Data Loaders](https://uvr.esm.is/data-loaders/) でも使用されています。
+マイナーですが強力なテクニックです。
+
+```vue:Radio.vue
+<script lang="ts">
+import { ref } from "vue";
+
+export function useRadio<
+  const Options extends readonly [string, string, ...string[]],
+>({
+  options,
+  name,
+  legend,
+  initial,
+}: {
+  options: Options;
+  name: string;
+  legend?: string;
+  initial?: Options[number];
+}) {
+  return { options, name, legend, selected: ref(initial) };
+}
+</script>
+
+<script setup lang="ts" generic="Option extends string">
+import { useId } from "vue";
+
+const model = defineModel<Option | undefined>({ required: true });
+
+const props = defineProps<{
+  options: readonly [Option, Option, ...Option[]];
+  name: string;
+  legend?: string;
+}>();
+
+const idPrefix = useId();
+</script>
+
+<template>
+  <fieldset>
+    <legend v-if="props.legend">{{ props.legend }}</legend>
+
+    <template v-for="option in props.options" :key="option">
+      <input
+        type="radio"
+        :id="`${idPrefix}-${option}`"
+        :name="props.name"
+        :value="option"
+        v-model="model"
+      />
+      <label :for="`${idPrefix}-${option}`">{{ option }}</label>
+    </template>
+  </fieldset>
+</template>
+```
+
+```vue:App.vue
+<script setup lang="ts">
+import Radio, { useRadio } from "./Radio.vue";
+
+const { options, name, legend, selected } = useRadio({
+  options: ["apple", "orange", "grape"],
+  name: "fruit",
+  legend: "Fruits",
+});
+</script>
+
+<template>
+  <Radio v-model="selected" :options :name :legend />
+  <p>Selected: {{ selected ?? "NONE" }}</p>
+</template>
+```
+
+`useRadio.ts` が不要になり、import も `Radio.vue` からまとめて行えるようになりました。
+
+```ts
+import Radio, { useRadio } from "./Radio.vue";
+```
+
+特定のコンポーネントと密結合なコンポーザブルは、このように同じファイルにまとめることで管理しやすくなります。
+
 ## 最後に
 
 最後まで読んでいただきありがとうございました！
