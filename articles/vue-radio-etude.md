@@ -28,6 +28,8 @@ https://qiita.com/advent-calendar/2025/vue
 (`<form>` 要素との連携(バリデーションやサブミット処理など)はこの記事では扱っていません。)
 
 コンポーネントを段階的に改善していく過程で Vue の考え方や TIPS を紹介することを目的としています。
+そのため incremental な実装となっており冗長な部分もあります。
+ご自身のレベル感に応じて適宜読み飛ばしてください。
 :::
 
 <!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
