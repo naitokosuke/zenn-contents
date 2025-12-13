@@ -1,6 +1,6 @@
 ---
 title: "【習作】Vue でラジオボタンを実装してみる"
-emoji: "🕌"
+emoji: "📻"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vue"]
 publication_name: "comm_vue_nuxt"
