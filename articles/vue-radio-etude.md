@@ -5,6 +5,7 @@ type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vue"]
 publication_name: "comm_vue_nuxt"
 published: false
+published_at: 2025-12-17
 ---
 
 [Vue Advent Calendar 2025](https://qiita.com/advent-calendar/2025/vue) 17 日目の記事です。
