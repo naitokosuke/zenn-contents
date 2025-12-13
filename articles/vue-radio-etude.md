@@ -93,7 +93,8 @@ const selected = ref<string>();
 
 <template>
   <Radio v-model="selected" />
-  <p>Selected: {{ selected ?? "NONE" }}</p>
+  <p v-if="selected">Selected: {{ selected }}</p>
+  <p v-else>Nothing selected</p>
 </template>
 ```
 
@@ -154,7 +155,8 @@ const selected = ref<string>();
 
 <template>
   <Radio v-model="selected" />
-  <p>Selected: {{ selected ?? "NONE" }}</p>
+  <p v-if="selected">Selected: {{ selected }}</p>
+  <p v-else>Nothing selected</p>
 </template>
 ```
 
@@ -210,7 +212,8 @@ const selected = ref<string>();
     name="fruit"
     legend="Fruits"
   />
-  <p>Selected: {{ selected ?? "NONE" }}</p>
+  <p v-if="selected">Selected: {{ selected }}</p>
+  <p v-else>Nothing selected</p>
 </template>
 ```
 
@@ -374,7 +377,8 @@ const { options, name, legend, selected } = useRadio({
 
 <template>
   <Radio v-model="selected" :options :name :legend />
-  <p>Selected: {{ selected ?? "NONE" }}</p>
+  <p v-if="selected">Selected: {{ selected }}</p>
+  <p v-else>Nothing selected</p>
 </template>
 ```
 
@@ -405,12 +409,7 @@ import { ref } from "vue";
 
 export function useRadio<
   const Options extends readonly [string, string, ...string[]],
->({
-  options,
-  name,
-  legend,
-  initial,
-}: {
+>({ options, name, legend, initial }: {
   options: Options;
   name: string;
   legend?: string;
@@ -474,7 +473,8 @@ const { options, name, legend, selected } = useRadio({
 
 <template>
   <Radio v-model="selected" :options :name :legend />
-  <p>Selected: {{ selected ?? "NONE" }}</p>
+  <p v-if="selected">Selected: {{ selected }}</p>
+  <p v-else>Nothing selected</p>
 </template>
 ```
 
@@ -526,12 +526,7 @@ import { ref } from "vue";
 
 export function useRadio<
   const Options extends readonly [string, string, ...string[]],
->({
-  options,
-  name,
-  legend,
-  initial,
-}: {
+>({ options, name, legend, initial }: {
   options: Options;
   name: string;
   legend?: string;
@@ -586,7 +581,8 @@ const { options, name, legend, selected } = useRadio({
 
 <template>
   <Radio v-model="selected" :options :name :legend />
-  <p>Selected: {{ selected ?? "NONE" }}</p>
+  <p v-if="selected">Selected: {{ selected }}</p>
+  <p v-else>Nothing selected</p>
 </template>
 ```
 
