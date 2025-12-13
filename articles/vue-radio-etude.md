@@ -19,6 +19,19 @@ https://qiita.com/advent-calendar/2025/vue
 急にラジオボタンコンポーネントを Vue で実装したくなったので実装してみます。
 よろしくお願いします。
 
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
+:::message
+この記事は Vue 初級者〜中級者の方を対象としています。
+
+そのままプロダクトにコピペして使えるコンポーネントを提供することを目的としていません。
+(`<form>` 要素との連携(バリデーションやサブミット処理など)はこの記事では扱っていません。)
+
+コンポーネントを段階的に改善していく過程で Vue の考え方や TIPS を紹介することを目的としています。
+:::
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
+
 ## まずラジオボタンのおさらい
 
 ラジオボタンは複数の選択肢から 1 つだけ選ぶための入力要素です。
