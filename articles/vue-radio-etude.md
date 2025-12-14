@@ -496,12 +496,17 @@ const { options, name, legend, selected } = useRadio({
 
 :::
 
-ポイントは `const Option extends string` です。
-`const` 型パラメータは TypeScript 5.0 で導入された機能で、渡された配列をリテラル型として推論してくれます。
+ポイントは `const Options extends readonly [string, string, ...string[]]` です。
+`const` 型パラメータは TypeScript 5.0 で導入された機能で、渡された配列をリテラル型(タプル型)として推論してくれます。
 
 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#const-type-parameters
 
-これにより `options: ["apple", "orange", "grape"]` を渡すと、`Option` は `"apple" | "orange" | "grape"` になります。
+これにより `options: ["apple", "orange", "grape"]` を渡すと、`Options` は `readonly ["apple", "orange", "grape"]` として推論されます。
+
+ここで重要なのは型制約を `readonly [...]` にしている点です。
+`const` 型パラメータで推論されるタプル型は `readonly` になります。
+そのため、型制約が `[string, string, ...string[]]`(mutable なタプル)だと、`readonly` なタプルを代入できず型エラーとなります。
+`const` 型パラメータを使う場合は型制約も `readonly` にする必要があります。
 
 ```ts
 const { selected } = useRadio({
