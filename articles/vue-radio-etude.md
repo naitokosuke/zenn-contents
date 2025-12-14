@@ -4,7 +4,7 @@ emoji: "📻"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vue"]
 publication_name: "comm_vue_nuxt"
-published: false
+published: true
 published_at: 2025-12-17
 ---
 
