@@ -130,7 +130,7 @@ https://ja.vuejs.org/api/sfc-script-setup#definemodel
 
 ## 使いやすくするために `v-for` と `props` を使用する
 
-### `v-for` を使用してボイラープレートをなくす
+### `v-for` で繰り返しを解消する
 
 同じ構造の繰り返しは `v-for` で解消できます。
 
@@ -180,9 +180,9 @@ const selected = ref<string>();
 
 ボイラープレートはなくなりましたが、選択肢がまだコンポーネント内にハードコードされています。
 
-### `props` を活用して汎用的なコンポーネントにする
+### props で外部から値を受け取る
 
-選択肢、`name`、`legend` を `props` で外から渡すようにします。
+options、name、legend を props で外から渡すようにします。
 
 ```vue:Radio.vue
 <script setup lang="ts">
