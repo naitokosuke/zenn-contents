@@ -98,7 +98,7 @@ const hello = "world";
 :::
 
 :::message alert
-警告メッセージ（黄色）
+警告メッセージ
 :::
 ```
 
