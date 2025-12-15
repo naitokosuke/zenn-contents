@@ -130,7 +130,7 @@ https://ja.vuejs.org/api/sfc-script-setup#definemodel
 
 これらを Vue らしく解決してきます。
 
-## 使いやすくするために `v-for` と `props` を使用する
+## 再利用可能にするために `v-for` と `props` を使用する
 
 ### `v-for` で繰り返しを解消する
 
@@ -526,7 +526,7 @@ const { selected } = useRadio({
 `initial` は `"apple" | "orange" | "grape" | undefined` のみ許容されるようになりました。
 `selected` の型も `Ref<"apple" | "orange" | "grape" | undefined>` に限定されます。
 
-![デモ](/images/vue-radio-etude/dx.gif)
+![型安全性により initial に不正な値を渡すとエラーになるデモ](/images/vue-radio-etude/dx.gif)
 
 ## SFC に `useRadio` を同居させる
 
