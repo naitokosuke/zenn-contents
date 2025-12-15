@@ -183,7 +183,7 @@ const selected = ref<string>();
 
 ### props で外部から値を受け取る
 
-options、name、legend を props で外から渡すようにします。
+options, name, legend を props で外から渡すようにします。
 
 ```vue:Radio.vue
 <script setup lang="ts">
