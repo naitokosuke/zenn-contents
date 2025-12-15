@@ -26,7 +26,8 @@ https://qiita.com/advent-calendar/2025/vue
 
 そのままプロダクトにコピペして使えるコンポーネントを提供することを目的としていません。
 (`<form>` 要素との連携(バリデーションやサブミット処理など)はこの記事では扱っていません。)
-(また、スタイリング(見た目)についても一切考慮していません。)
+(アクセシビリティ(`aria-*` 属性の追加)についても考慮していません。)
+(スタイリング(見た目)についても一切考慮していません。)
 
 コンポーネントを段階的に改善していく過程で Vue の考え方や TIPS を紹介することを目的としています。
 そのため incremental な実装となっており冗長な部分もあります。
@@ -621,6 +622,102 @@ import Radio, { useRadio } from "./Radio.vue";
 ```
 
 特定のコンポーネントと密結合なコンポーザブルは、このように同じファイルにまとめることで管理しやすくなります。
+
+## さらにやりたいこと
+
+ここまででラジオボタンコンポーネントの基本的な実装は完成です。
+
+さらに改善できる点として以下が考えられます。
+
+- `options` の重複を型レベルで禁止する
+- `<form>` 要素との連携(バリデーションやサブミット処理)
+- アクセシビリティの向上(`aria-*` 属性の追加)
+- スタイリング(見た目)
+
+この記事ではこれ以上は扱いませんが、興味のある方向けに「`options` の重複を型レベルで禁止する」実装例を折りたたみ内で載せておきます。
+
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
+:::details options の重複を型レベルで禁止する
+
+```vue:Radio.vue
+<script lang="ts">
+import { ref } from "vue";
+
+type FilterTarget<
+  T extends string,
+  Array extends readonly string[]
+> = Array extends readonly [infer U, ...infer V extends readonly string[]]
+  ? U extends T
+    ? [U, ...FilterTarget<T, V>]
+    : FilterTarget<T, V>
+  : [];
+
+type EnsureUniqueStrArr<T extends readonly string[]> = {
+  [K in keyof T]: FilterTarget<T[K] & string, T>["length"] extends 1 ? T[K] : never;
+};
+
+type UniqueOptions<T extends readonly [string, string, ...string[]]> =
+  T & EnsureUniqueStrArr<T>;
+
+export function useRadio<
+  const Options extends readonly [string, string, ...string[]],
+>({ options, name, legend, initial }: {
+  options: UniqueOptions<Options>;
+  name: string;
+  legend?: string;
+  initial?: Options[number];
+}) {
+  return { options, name, legend, selected: ref(initial) };
+}
+</script>
+
+<script setup lang="ts" generic="Option extends string">
+import { useId } from "vue";
+
+const model = defineModel<Option | undefined>({ required: true });
+
+defineProps<{
+  options: readonly [Option, Option, ...Option[]];
+  name: string;
+  legend?: string;
+}>();
+
+const idPrefix = useId();
+</script>
+
+<template>
+  <fieldset>
+    <legend v-if="legend">{{ legend }}</legend>
+
+    <template v-for="option in options" :key="option">
+      <input
+        type="radio"
+        :id="`${idPrefix}-${option}`"
+        :name
+        :value="option"
+        v-model="model"
+      />
+      <label :for="`${idPrefix}-${option}`">{{ option }}</label>
+    </template>
+  </fieldset>
+</template>
+```
+
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
+:::message alert
+この実装は以下の記事の内容を活用して、AI(Claude Code)に生成させたものです。
+ぼくはまだこの記事の内容および生成されたコードを理解できていません。
+:::
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
+
+https://zenn.dev/yossuli/articles/eb3e471d954c15
+
+:::
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
 ## 最後に
 
