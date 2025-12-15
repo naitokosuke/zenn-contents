@@ -341,7 +341,7 @@ const selected = ref<string>();
 ```
 
 `options` と `selected` を別々に定義しています。
-凝集度を高めるために `options`、`name`、`legend`、`selected` をセットで管理するコンポーザブルを作ってみます。
+凝集度を高めるために `options`, `name`, `legend`, `selected` をセットで管理するコンポーザブルを作ってみます。
 
 `options` の型は `[string, string, ...string[]]` としています。
 これは「少なくとも 2 つ以上の `string` 型要素を持つ配列」を表すタプル型です。
