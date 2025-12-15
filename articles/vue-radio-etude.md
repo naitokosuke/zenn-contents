@@ -496,7 +496,8 @@ const { options, name, legend, selected } = useRadio({
 :::
 
 ポイントは `const Options extends readonly [string, string, ...string[]]` です。
-`const` 型パラメータは TypeScript 5.0 で導入された機能で、渡された配列をリテラル型(タプル型)として推論してくれます。
+これは const Type Parameters と呼ばれるもので、 TypeScript 5.0 で導入された機能です。
+渡された配列をリテラル型(タプル型)として推論してくれます。
 
 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#const-type-parameters
 
