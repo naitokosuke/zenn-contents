@@ -503,10 +503,8 @@ https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#c
 
 これにより `options: ["apple", "orange", "grape"]` を渡すと、`Options` は `readonly ["apple", "orange", "grape"]` として推論されます。
 
-ここで重要なのは型制約を `readonly [...]` にしている点です。
-`const` 型パラメータで推論されるタプル型は `readonly` になります。
-そのため、型制約が `[string, string, ...string[]]`(mutable なタプル)だと、`readonly` なタプルを代入できず型エラーとなります。
-`const` 型パラメータを使う場合は型制約も `readonly` にする必要があります。
+型制約を `readonly` にしているのは、呼び出し側で `as const` を書く手間を省くためです。
+`readonly` を外しても要素のリテラル型は保持されるためコンパイルエラーで誤りを検出できますが手間なので `readonly` にしています。
 
 ```ts
 const { selected } = useRadio({
