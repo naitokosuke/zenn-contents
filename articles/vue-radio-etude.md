@@ -526,7 +526,7 @@ const { selected } = useRadio({
 `initial` は `"apple" | "orange" | "grape" | undefined` のみ許容されるようになりました。
 `selected` の型も `Ref<"apple" | "orange" | "grape" | undefined>` に限定されます。
 
-![型安全性により initial に不正な値を渡すとエラーになるデモ](/images/vue-radio-etude/dx.gif)
+![デモ](/images/vue-radio-etude/dx.gif)
 
 ## SFC に `useRadio` を同居させる
 
@@ -721,6 +721,8 @@ const idPrefix = useId();
 </template>
 ```
 
+:::
+
 <!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
 
 :::message alert
@@ -731,8 +733,6 @@ const idPrefix = useId();
 <!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
 https://zenn.dev/yossuli/articles/eb3e471d954c15
-
-:::
 
 <!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
