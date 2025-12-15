@@ -189,7 +189,7 @@ options、name、legend を props で外から渡すようにします。
 <script setup lang="ts">
 const model = defineModel<string | undefined>({ required: true });
 
-const props = defineProps<{
+defineProps<{
   options: string[];
   name: string;
   legend?: string;
@@ -198,13 +198,13 @@ const props = defineProps<{
 
 <template>
   <fieldset>
-    <legend v-if="props.legend">{{ props.legend }}</legend>
+    <legend v-if="legend">{{ legend }}</legend>
 
-    <template v-for="option in props.options" :key="option">
+    <template v-for="option in options" :key="option">
       <input
         type="radio"
         :id="option"
-        :name="props.name"
+        :name
         :value="option"
         v-model="model"
       />
@@ -235,77 +235,6 @@ const selected = ref<string>();
 ```
 
 これで汎用的なコンポーネントになりました。
-
-### Props の分割代入でテンプレートを簡潔にする
-
-props を変数 `props` として受けるメリットもあります。
-`props.` プレフィックスがあることで「これは親から渡された値だ」と明示できます。
-コンポーネントが大きくなると、ローカルの変数なのか props なのかを区別しやすくなります。
-
-しかし、この規模であればわざわざ `props` で受けなくても良さそうですよね。
-`props.legend`、`props.options`、`props.name` と毎回 `props.` を書くのは少し冗長です。
-
-Vue 3.5 からは props の分割代入がリアクティビティを保持したままサポートされるようになりました。
-
-https://ja.vuejs.org/guide/components/props#reactive-props-destructure
-
-また、Vue 3.4 で導入された Same-name Shorthand も活用しましょう。だいぶスッキリします。
-`:options="options"` のように属性名と変数名が同じ場合、`:options` と省略できます。
-
-https://ja.vuejs.org/guide/essentials/template-syntax#same-name-shorthand
-
-```vue:Radio.vue
-<script setup lang="ts">
-const model = defineModel<string | undefined>({ required: true });
-
-const { options, name, legend } = defineProps<{
-  options: string[];
-  name: string;
-  legend?: string;
-}>();
-</script>
-
-<template>
-  <fieldset>
-    <legend v-if="legend">{{ legend }}</legend>
-
-    <template v-for="option in options" :key="option">
-      <input
-        type="radio"
-        :id="option"
-        :name
-        :value="option"
-        v-model="model"
-      />
-      <label :for="option">{{ option }}</label>
-    </template>
-  </fieldset>
-</template>
-```
-
-:::details App.vue(変更なし)
-
-```vue:App.vue
-<script setup lang="ts">
-import { ref } from "vue";
-import Radio from "./Radio.vue";
-
-const selected = ref<string>();
-</script>
-
-<template>
-  <Radio
-    v-model="selected"
-    :options="['apple', 'orange', 'grape']"
-    name="fruit"
-    legend="Fruits"
-  />
-  <p v-if="selected">Selected: {{ selected }}</p>
-  <p v-else>Nothing selected</p>
-</template>
-```
-
-:::
 
 ## `useId` で `id` の重複を防ぐ
 
@@ -349,7 +278,7 @@ import { useId } from "vue";
 
 const model = defineModel<string | undefined>({ required: true });
 
-const { options, name, legend } = defineProps<{
+defineProps<{
   options: string[];
   name: string;
   legend?: string;
@@ -425,7 +354,7 @@ import { useId } from "vue";
 
 const model = defineModel<string | undefined>({ required: true });
 
-const { options, name, legend } = defineProps<{
+defineProps<{
   options: [string, string, ...string[]];
   name: string;
   legend?: string;
@@ -511,7 +440,7 @@ import { useId } from "vue";
 
 const model = defineModel<Option | undefined>({ required: true });
 
-const { options, name, legend } = defineProps<{
+defineProps<{
   options: readonly [Option, Option, ...Option[]];
   name: string;
   legend?: string;
@@ -626,7 +555,7 @@ import { useId } from "vue";
 
 const model = defineModel<Option | undefined>({ required: true });
 
-const { options, name, legend } = defineProps<{
+defineProps<{
   options: readonly [Option, Option, ...Option[]];
   name: string;
   legend?: string;
