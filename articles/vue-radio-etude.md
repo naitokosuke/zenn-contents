@@ -236,6 +236,48 @@ const selected = ref<string>();
 
 これで汎用的なコンポーネントになりました。
 
+### Props の分割代入でテンプレートを簡潔にする
+
+props を変数 `props` として受けるメリットもあります。
+`props.` プレフィックスがあることで「これは親から渡された値だ」と明示できます。
+コンポーネントが大きくなると、ローカルの変数なのか props なのかを区別しやすくなります。
+
+しかし、この規模であればわざわざ `props` で受けなくても良さそうですよね。
+`props.legend`、`props.options`、`props.name` と毎回 `props.` を書くのは少し冗長です。
+
+Vue 3.5 からは props の分割代入がリアクティビティを保持したままサポートされるようになりました。
+
+https://ja.vuejs.org/guide/components/props#reactive-props-destructure
+
+```vue:Radio.vue
+<script setup lang="ts">
+const model = defineModel<string | undefined>({ required: true });
+
+const { options, name, legend } = defineProps<{
+  options: string[];
+  name: string;
+  legend?: string;
+}>();
+</script>
+
+<template>
+  <fieldset>
+    <legend v-if="legend">{{ legend }}</legend>
+
+    <template v-for="option in options" :key="option">
+      <input
+        type="radio"
+        :id="option"
+        :name="name"
+        :value="option"
+        v-model="model"
+      />
+      <label :for="option">{{ option }}</label>
+    </template>
+  </fieldset>
+</template>
+```
+
 ## `useId` で `id` の重複を防ぐ
 
 汎用的になったので同じページ内で複数のラジオボタンを使うのも簡単です。
