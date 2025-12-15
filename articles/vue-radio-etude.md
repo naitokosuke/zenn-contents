@@ -249,6 +249,11 @@ Vue 3.5 からは props の分割代入がリアクティビティを保持し�
 
 https://ja.vuejs.org/guide/components/props#reactive-props-destructure
 
+また、Vue 3.4 で導入された Same-name Shorthand も活用しましょう。だいぶスッキリします。
+`:options="options"` のように属性名と変数名が同じ場合、`:options` と省略できます。
+
+https://ja.vuejs.org/guide/essentials/template-syntax#same-name-shorthand
+
 ```vue:Radio.vue
 <script setup lang="ts">
 const model = defineModel<string | undefined>({ required: true });
@@ -268,7 +273,7 @@ const { options, name, legend } = defineProps<{
       <input
         type="radio"
         :id="option"
-        :name="name"
+        :name
         :value="option"
         v-model="model"
       />
@@ -361,7 +366,7 @@ const idPrefix = useId();
       <input
         type="radio"
         :id="`${idPrefix}-${option}`"
-        :name="name"
+        :name
         :value="option"
         v-model="model"
       />
@@ -437,7 +442,7 @@ const idPrefix = useId();
       <input
         type="radio"
         :id="`${idPrefix}-${option}`"
-        :name="name"
+        :name
         :value="option"
         v-model="model"
       />
@@ -465,11 +470,6 @@ const { options, name, legend, selected } = useRadio({
   <p v-else>Nothing selected</p>
 </template>
 ```
-
-`:options` は `:options="options"` の省略記法です。
-Vue 3.4 で導入された Same-name Shorthand を使用しています。
-
-https://ja.vuejs.org/guide/essentials/template-syntax#same-name-shorthand
 
 ## Generics で型安全性を高める
 
@@ -528,7 +528,7 @@ const idPrefix = useId();
       <input
         type="radio"
         :id="`${idPrefix}-${option}`"
-        :name="name"
+        :name
         :value="option"
         v-model="model"
       />
@@ -643,7 +643,7 @@ const idPrefix = useId();
       <input
         type="radio"
         :id="`${idPrefix}-${option}`"
-        :name="name"
+        :name
         :value="option"
         v-model="model"
       />
