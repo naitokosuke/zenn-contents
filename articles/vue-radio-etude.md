@@ -420,7 +420,9 @@ const { selected } = useRadio({
 `options` に含まれていない `"banana"` を `initial` に渡してもエラーになりません。
 `selected` の型も `Ref<string | undefined>` であり、`options` の要素に限定されていません。
 
-TypeScript の Generics を使って、`options` の要素型から `initial` と `selected` の型を導出しましょう。
+TypeScript の Generics と Vue 3.3 の Generic Components を使って型安全性を高めましょう。
+
+https://ja.vuejs.org/api/sfc-script-setup#generics
 
 ```ts:useRadio.ts
 import { ref } from "vue";
@@ -469,11 +471,6 @@ const idPrefix = useId();
   </fieldset>
 </template>
 ```
-
-`<script setup>` に `generic="Option extends string"` を追加しています。
-これは Vue 3.3 で導入された Generic Components の機能です。
-
-https://ja.vuejs.org/api/sfc-script-setup#generics
 
 :::details App.vue(変更なし)
 
