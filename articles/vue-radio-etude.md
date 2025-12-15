@@ -413,7 +413,7 @@ https://ja.vuejs.org/guide/essentials/template-syntax#same-name-shorthand
 const { selected } = useRadio({
   options: ["apple", "orange", "grape"],
   name: "fruit",
-  initial: "banana", // コンパイルエラーにならない！
+  initial: "banana", // エラーにならない！
 });
 ```
 
@@ -510,7 +510,7 @@ https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#c
 const { selected } = useRadio({
   options: ["apple", "orange", "grape"],
   name: "fruit",
-  initial: "banana", // 型エラー！
+  initial: "banana", // エラー！
 });
 ```
 
