@@ -278,6 +278,30 @@ const { options, name, legend } = defineProps<{
 </template>
 ```
 
+:::details App.vue(変更なし)
+
+```vue:App.vue
+<script setup lang="ts">
+import { ref } from "vue";
+import Radio from "./Radio.vue";
+
+const selected = ref<string>();
+</script>
+
+<template>
+  <Radio
+    v-model="selected"
+    :options="['apple', 'orange', 'grape']"
+    name="fruit"
+    legend="Fruits"
+  />
+  <p v-if="selected">Selected: {{ selected }}</p>
+  <p v-else>Nothing selected</p>
+</template>
+```
+
+:::
+
 ## `useId` で `id` の重複を防ぐ
 
 汎用的になったので同じページ内で複数のラジオボタンを使うのも簡単です。
@@ -320,7 +344,7 @@ import { useId } from "vue";
 
 const model = defineModel<string | undefined>({ required: true });
 
-const props = defineProps<{
+const { options, name, legend } = defineProps<{
   options: string[];
   name: string;
   legend?: string;
@@ -331,13 +355,13 @@ const idPrefix = useId();
 
 <template>
   <fieldset>
-    <legend v-if="props.legend">{{ props.legend }}</legend>
+    <legend v-if="legend">{{ legend }}</legend>
 
-    <template v-for="option in props.options" :key="option">
+    <template v-for="option in options" :key="option">
       <input
         type="radio"
         :id="`${idPrefix}-${option}`"
-        :name="props.name"
+        :name="name"
         :value="option"
         v-model="model"
       />
@@ -396,7 +420,7 @@ import { useId } from "vue";
 
 const model = defineModel<string | undefined>({ required: true });
 
-const props = defineProps<{
+const { options, name, legend } = defineProps<{
   options: [string, string, ...string[]];
   name: string;
   legend?: string;
@@ -407,13 +431,13 @@ const idPrefix = useId();
 
 <template>
   <fieldset>
-    <legend v-if="props.legend">{{ props.legend }}</legend>
+    <legend v-if="legend">{{ legend }}</legend>
 
-    <template v-for="option in props.options" :key="option">
+    <template v-for="option in options" :key="option">
       <input
         type="radio"
         :id="`${idPrefix}-${option}`"
-        :name="props.name"
+        :name="name"
         :value="option"
         v-model="model"
       />
@@ -487,7 +511,7 @@ import { useId } from "vue";
 
 const model = defineModel<Option | undefined>({ required: true });
 
-const props = defineProps<{
+const { options, name, legend } = defineProps<{
   options: readonly [Option, Option, ...Option[]];
   name: string;
   legend?: string;
@@ -498,13 +522,13 @@ const idPrefix = useId();
 
 <template>
   <fieldset>
-    <legend v-if="props.legend">{{ props.legend }}</legend>
+    <legend v-if="legend">{{ legend }}</legend>
 
-    <template v-for="option in props.options" :key="option">
+    <template v-for="option in options" :key="option">
       <input
         type="radio"
         :id="`${idPrefix}-${option}`"
-        :name="props.name"
+        :name="name"
         :value="option"
         v-model="model"
       />
@@ -602,7 +626,7 @@ import { useId } from "vue";
 
 const model = defineModel<Option | undefined>({ required: true });
 
-const props = defineProps<{
+const { options, name, legend } = defineProps<{
   options: readonly [Option, Option, ...Option[]];
   name: string;
   legend?: string;
@@ -613,13 +637,13 @@ const idPrefix = useId();
 
 <template>
   <fieldset>
-    <legend v-if="props.legend">{{ props.legend }}</legend>
+    <legend v-if="legend">{{ legend }}</legend>
 
-    <template v-for="option in props.options" :key="option">
+    <template v-for="option in options" :key="option">
       <input
         type="radio"
         :id="`${idPrefix}-${option}`"
-        :name="props.name"
+        :name="name"
         :value="option"
         v-model="model"
       />
