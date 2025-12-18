@@ -58,62 +58,31 @@ server/api/
 {
   "workbench.editor.customLabels.enabled": true,
   "workbench.editor.customLabels.patterns": {
-    // pages
-    "**/index.vue": "${dirname}/index.vue .../${dirname(1)}",
-    "**/[id].vue": "${dirname}/[id].vue .../${dirname(1)}",
-    "**/[slug].vue": "${dirname}/[slug].vue .../${dirname(1)}",
-    "**/[[slug]].vue": "${dirname}/[[slug]].vue .../${dirname(1)}",
-    "**/[...slug].vue": "${dirname}/[...slug].vue .../${dirname(1)}",
-    // server
-    "**/index.{get,head,post,put,patch,delete,connect,options,trace}.ts": "${dirname}/${filename} .../${dirname(1)}",
-    "**/[id].{get,head,post,put,patch,delete,connect,options,trace}.ts": "${dirname}/${filename} .../${dirname(1)}",
-    "**/[slug].{get,head,post,put,patch,delete,connect,options,trace}.ts": "${dirname}/${filename} .../${dirname(1)}",
-    "**/[...slug].{get,head,post,put,patch,delete,connect,options,trace}.ts": "${dirname}/${filename} .../${dirname(1)}"
+    // index.vue, index.ts, index.get.ts など
+    "**/index.*": "${dirname}/${filename} .../${dirname(1)}",
+    // [id].vue, [id].get.ts など（Dynamic Routes）
+    "**/[id].*": "${dirname}/${filename} .../${dirname(1)}",
+    // [slug].vue, [slug].get.ts など（Dynamic Routes）
+    "**/[slug].*": "${dirname}/${filename} .../${dirname(1)}",
+    // [[slug]].vue など（Optional Route）
+    "**/[[slug]].*": "${dirname}/${filename} .../${dirname(1)}",
+    // [...slug].vue, [...slug].get.ts など（Catch-all Route）
+    "**/[...slug].*": "${dirname}/${filename} .../${dirname(1)}"
   }
 }
 ```
 
-### pages
-
-| パターン        | 説明                             |
-| --------------- | -------------------------------- |
-| `[id].vue`      | Dynamic Routes（単一パラメータ） |
-| `[slug].vue`    | Dynamic Routes（単一パラメータ） |
-| `[[slug]].vue`  | Dynamic Routes（optional）       |
-| `[...slug].vue` | Catch-all Route                  |
-
-https://nuxt.com/docs/guide/directory-structure/pages#dynamic-routes
-
-### server/api
-
-| パターン           | 説明                              |
-| ------------------ | --------------------------------- |
-| `index.get.ts`     | GET リクエストのハンドラー        |
-| `index.post.ts`    | POST リクエストのハンドラー       |
-| `[id].get.ts`      | 動的ルートの GET ハンドラー       |
-| `[...slug].get.ts` | Catch-all ルートの GET ハンドラー |
-
-https://nuxt.com/docs/guide/directory-structure/server#server-routes
-
-## 設定の解説
-
-- `${dirname}` : ファイルの親ディレクトリ名
-- `${dirname(1)}` : 親の親ディレクトリ名
-
-`pages/users/[id].vue` の場合、以下のようになります。
-
-- `${dirname}` → `users`
-- `${dirname(1)}` → `pages`
-
-タブには `users/[id].vue .../pages` と表示され、どのディレクトリのファイルか一目でわかります。
+> glob パターンで、対象のファイル名と拡張子を指定します。
+>
+> 工夫しているポイントとしては、`.../${dirname(1)}` の部分です。`${dirname(N)}` 表記で、N 階層上のディレクトリ名を取得できるのでそれを利用し、VS Code のもとの設定に寄せた表示ができるようにしています。
+>
+> また、`index.*` については特別なファイルのため、そのディレクトリ名を表示するようにしています。
+>
+> ― [【index.ts】その VSCode タブ名、わかりづらくない？【page.tsx】](https://zenn.dev/bmth/articles/vscode-tab-display-name-alias)
 
 ## 最後に
 
-VS Code のタブ表示名をカスタマイズする設定を Nuxt 向けに紹介しました。
-
 同名ファイルが多くて困っている方は、ぜひ試してみてください。
-
-最後まで読んでいただきありがとうございました！
 
 ## 参考
 
