@@ -46,19 +46,11 @@ server/api/
 
 これらのファイルを同時に開くと、タブには以下のように表示されます。
 
-```
-index.vue | index.vue | [id].vue | [id].vue | index.get.ts | index.get.ts
-```
+![タブが分かりにくい状態](/images/vscode-tab-vue/tab-chaos.png)
 
 どのディレクトリのファイルなのか、一目では判別できません。
 
 ## 解決策：`workbench.editor.customLabels.patterns` を使う
-
-VS Code 1.88 から追加された `workbench.editor.customLabels.patterns` を使うことで、タブの表示名をカスタマイズできます。
-
-https://code.visualstudio.com/updates/v1_88#_custom-labels-for-open-editors
-
-## 設定
 
 `settings.json` に以下を追加します。
 
