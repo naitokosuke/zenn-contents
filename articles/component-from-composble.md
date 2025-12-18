@@ -13,3 +13,9 @@ published: false
 ## 最後に
 
 最後まで読んでいただきありがとうございました！
+
+## 参考資料
+
+https://engineering.linecorp.com/ja/blog/line-securities-frontend-3
+
+https://zenn.dev/heavenosk/scraps/767a0e2fbafa67
