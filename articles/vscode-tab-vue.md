@@ -18,33 +18,11 @@ https://qiita.com/advent-calendar/2025/vue
 
 https://zenn.dev/bmth/articles/vscode-tab-display-name-alias
 
-元記事では Next.js App Router 向けの設定が紹介されていますが、Nuxt でも同様の問題があります。素晴らしい記事をありがとうございます！
+元記事は React, Next.js ですが、Vue, Nuxt でもいかせる素晴らしい内容です。
+Vue, Nuxt の方にも引っかかってほしいと思い、ミラー記事を書かせていただきます。
+素晴らしい記事をありがとうございます！
 
 ## 問題：同名ファイルが多くてタブが分かりにくい
-
-Nuxt のファイルベースルーティングでは、以下のようなディレクトリ構造になることが多いです。
-
-```
-pages/
-├── users/
-│   ├── index.vue
-│   └── [id].vue
-├── posts/
-│   ├── index.vue
-│   └── [id].vue
-└── categories/
-    └── [...slug].vue
-
-server/api/
-├── users/
-│   ├── index.get.ts
-│   └── [id].get.ts
-└── posts/
-    ├── index.get.ts
-    └── [id].get.ts
-```
-
-これらのファイルを同時に開くと、タブには以下のように表示されます。
 
 ![タブが分かりにくい状態](/images/vscode-tab-vue/tab-chaos.png)
 
@@ -82,12 +60,4 @@ server/api/
 
 ## 最後に
 
-同名ファイルが多くて困っている方は、ぜひ試してみてください。
-
-## 参考
-
-https://zenn.dev/bmth/articles/vscode-tab-display-name-alias
-
-https://code.visualstudio.com/updates/v1_88#_custom-labels-for-open-editors
-
-https://nuxt.com/docs/guide/directory-structure/pages
+最後まで読んでいただきありがとうございました！
