@@ -22,15 +22,18 @@ https://zenn.dev/bmth/articles/vscode-tab-display-name-alias
 Vue, Nuxt の方にも引っかかってほしいと思い、ミラー記事を書かせていただきます。
 素晴らしい記事をありがとうございます！
 
-## 問題：同名ファイルが多くてタブが分かりにくい
+この記事は[【index.ts】その VSCode タブ名、わかりづらくない？【page.tsx】](https://zenn.dev/bmth/articles/vscode-tab-display-name-alias)』の紹介のために書いたものです。
+ぜひ[【index.ts】その VSCode タブ名、わかりづらくない？【page.tsx】](https://zenn.dev/bmth/articles/vscode-tab-display-name-alias)』をお読みください。
+
+## 同名ファイルが多くてタブが分かりにくい
 
 ![タブが分かりにくい状態](/images/vscode-tab-vue/tab-chaos.png)
 
 どのディレクトリのファイルなのか、一目では判別できません。
 
-## 解決策：`workbench.editor.customLabels.patterns` を使う
+## 解決策
 
-`settings.json` に以下を追加します。
+`.vscode/settings.json` に以下を追加します。
 
 ```json
 {
