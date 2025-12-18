@@ -58,6 +58,10 @@ Vue, Nuxt の方にも引っかかってほしいと思い、ミラー記事を�
 >
 > ― [【index.ts】その VSCode タブ名、わかりづらくない？【page.tsx】](https://zenn.dev/bmth/articles/vscode-tab-display-name-alias)
 
+設定適用後はこのようになります。
+
+![設定適用後のタブ](/images/vscode-tab-vue/tab-cosmos.png)
+
 ## 最後に
 
 最後まで読んでいただきありがとうございました！
