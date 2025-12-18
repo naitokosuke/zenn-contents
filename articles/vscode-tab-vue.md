@@ -14,7 +14,7 @@ https://qiita.com/advent-calendar/2025/vue
 
 ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
-この記事は以下記事『【index.ts】その VSCode タブ名、わかりづらくない？【page.tsx】』の Vue / Nuxt 版です。
+この記事は以下記事『[【index.ts】その VSCode タブ名、わかりづらくない？【page.tsx】](https://zenn.dev/bmth/articles/vscode-tab-display-name-alias)』の Vue / Nuxt 版です。
 
 https://zenn.dev/bmth/articles/vscode-tab-display-name-alias
 
