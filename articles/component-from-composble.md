@@ -11,6 +11,11 @@ published: false
 ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
 この記事は以前書いた「【習作】Vue でラジオボタンを実装してみる」の続編です。
+よろしくお願いします。
+
+:::message
+前回の記事を読んでいなくても問題ありませんが、読んでいるとより理解しやすいです。
+:::
 
 https://zenn.dev/naitokosuke/articles/vue-radio-etude
 
