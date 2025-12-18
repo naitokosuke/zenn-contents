@@ -3,7 +3,7 @@ title: "【index.vue】その VS Code タブ名、わかりづらくない？【
 emoji: "📁"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vscode", "vue", "nuxt"]
-published: false
+published: true
 ---
 
 [Vue Advent Calendar 2025](https://qiita.com/advent-calendar/2025/vue) 15 日目の記事です。
@@ -18,12 +18,12 @@ https://qiita.com/advent-calendar/2025/vue
 
 https://zenn.dev/bmth/articles/vscode-tab-display-name-alias
 
-元記事は React, Next.js ですが、Vue, Nuxt でもいかせる素晴らしい内容です。
-Vue, Nuxt の方にも引っかかってほしいと思い、ミラー記事を書かせていただきます。
+と言っても同じ設定方法です。特に違う点はありません。
+紹介する記事は React, Next.js ですが、Vue, Nuxt でも適用できる素晴らしい方法を紹介しています。
+Vue, Nuxt 使いの方にも知ってもらいたいと思ったのでミラーさせていただきます。
 素晴らしい記事をありがとうございます！
 
-この記事は[【index.ts】その VSCode タブ名、わかりづらくない？【page.tsx】](https://zenn.dev/bmth/articles/vscode-tab-display-name-alias)』の紹介のために書いたものです。
-ぜひ[【index.ts】その VSCode タブ名、わかりづらくない？【page.tsx】](https://zenn.dev/bmth/articles/vscode-tab-display-name-alias)』をお読みください。
+ぜひ『[【index.ts】その VSCode タブ名、わかりづらくない？【page.tsx】](https://zenn.dev/bmth/articles/vscode-tab-display-name-alias)』をお読みください。
 
 ## 同名ファイルが多くてタブが分かりにくい
 
