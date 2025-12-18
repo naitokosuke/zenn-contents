@@ -34,15 +34,23 @@ pages/
 │   └── [id].vue
 └── categories/
     └── [...slug].vue
+
+server/api/
+├── users/
+│   ├── index.get.ts
+│   └── [id].get.ts
+└── posts/
+    ├── index.get.ts
+    └── [id].get.ts
 ```
 
 これらのファイルを同時に開くと、タブには以下のように表示されます。
 
 ```
-index.vue | index.vue | [id].vue | [id].vue | [...slug].vue
+index.vue | index.vue | [id].vue | [id].vue | index.get.ts | index.get.ts
 ```
 
-どのディレクトリの `index.vue` なのか、どの `[id].vue` なのか、一目では判別できません。
+どのディレクトリのファイルなのか、一目では判別できません。
 
 ## 解決策：`workbench.editor.customLabels.patterns` を使う
 
@@ -58,17 +66,22 @@ https://code.visualstudio.com/updates/v1_88#_custom-labels-for-open-editors
 {
   "workbench.editor.customLabels.enabled": true,
   "workbench.editor.customLabels.patterns": {
+    // pages
     "**/index.vue": "${dirname}/index.vue .../${dirname(1)}",
-    "**/index.ts": "${dirname}/index.ts .../${dirname(1)}",
     "**/[id].vue": "${dirname}/[id].vue .../${dirname(1)}",
     "**/[slug].vue": "${dirname}/[slug].vue .../${dirname(1)}",
     "**/[[slug]].vue": "${dirname}/[[slug]].vue .../${dirname(1)}",
-    "**/[...slug].vue": "${dirname}/[...slug].vue .../${dirname(1)}"
+    "**/[...slug].vue": "${dirname}/[...slug].vue .../${dirname(1)}",
+    // server
+    "**/index.{get,head,post,put,patch,delete,connect,options,trace}.ts": "${dirname}/${filename} .../${dirname(1)}",
+    "**/[id].{get,head,post,put,patch,delete,connect,options,trace}.ts": "${dirname}/${filename} .../${dirname(1)}",
+    "**/[slug].{get,head,post,put,patch,delete,connect,options,trace}.ts": "${dirname}/${filename} .../${dirname(1)}",
+    "**/[...slug].{get,head,post,put,patch,delete,connect,options,trace}.ts": "${dirname}/${filename} .../${dirname(1)}"
   }
 }
 ```
 
-各パターンは Nuxt の公式ドキュメントで使われている命名規則に対応しています。
+### pages
 
 | パターン        | 説明                             |
 | --------------- | -------------------------------- |
@@ -78,6 +91,17 @@ https://code.visualstudio.com/updates/v1_88#_custom-labels-for-open-editors
 | `[...slug].vue` | Catch-all Route                  |
 
 https://nuxt.com/docs/guide/directory-structure/pages#dynamic-routes
+
+### server/api
+
+| パターン           | 説明                              |
+| ------------------ | --------------------------------- |
+| `index.get.ts`     | GET リクエストのハンドラー        |
+| `index.post.ts`    | POST リクエストのハンドラー       |
+| `[id].get.ts`      | 動的ルートの GET ハンドラー       |
+| `[...slug].get.ts` | Catch-all ルートの GET ハンドラー |
+
+https://nuxt.com/docs/guide/directory-structure/server#server-routes
 
 ## 設定の解説
 
