@@ -19,8 +19,7 @@ https://qiita.com/advent-calendar/2025/vue
 https://zenn.dev/bmth/articles/vscode-tab-display-name-alias
 
 元記事では Next.js 向けの設定が紹介されていますが、Vue / Nuxt プロジェクトでも同様の問題があるため、Vue / Nuxt 向けの設定を紹介します。
-
-bmth さん、素晴らしい記事をありがとうございます！
+素晴らしい記事をありがとうございます！
 
 ## 問題：同名ファイルが多くてタブが分かりにくい
 
