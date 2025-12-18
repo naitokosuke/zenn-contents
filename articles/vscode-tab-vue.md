@@ -1,5 +1,5 @@
 ---
-title: "【index.ts】その VS Code タブ名、わかりづらくない？【index.vue】"
+title: "【index.vue】その VS Code タブ名、わかりづらくない？【[id].vue】"
 emoji: "📁"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vscode", "vue", "nuxt"]
@@ -14,75 +14,86 @@ https://qiita.com/advent-calendar/2025/vue
 
 ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
-この記事は以下記事『[【index.ts】その VSCode タブ名、わかりづらくない？【page.tsx】](https://zenn.dev/bmth/articles/vscode-tab-display-name-alias)』の Vue / Nuxt 版です。
+この記事は『[【index.ts】その VSCode タブ名、わかりづらくない？【page.tsx】](https://zenn.dev/bmth/articles/vscode-tab-display-name-alias)』の Vue / Nuxt 版です。
 
 https://zenn.dev/bmth/articles/vscode-tab-display-name-alias
 
-元記事では Next.js 向けの設定が紹介されていますが、Vue / Nuxt プロジェクトでも同様の問題があるため、Vue / Nuxt 向けの設定を紹介します。
-素晴らしい記事をありがとうございます！
+元記事では Next.js App Router 向けの設定が紹介されていますが、Nuxt でも同様の問題があります。素晴らしい記事をありがとうございます！
 
 ## 問題：同名ファイルが多くてタブが分かりにくい
 
-<!--
-ここに以下の内容を書く：
-- Vue / Nuxt プロジェクトで同名ファイルが多くなる問題を説明
-- 例：index.vue, index.ts, page.vue など
-- Nuxt のディレクトリ構造では特に顕著
-- タブに表示されるディレクトリ名が薄くて見づらい問題
-- スクリーンショットがあると良い
--->
+Nuxt のファイルベースルーティングでは、以下のようなディレクトリ構造になることが多いです。
+
+```
+pages/
+├── users/
+│   ├── index.vue
+│   └── [id].vue
+├── posts/
+│   ├── index.vue
+│   └── [id].vue
+└── categories/
+    └── [...slug].vue
+```
+
+これらのファイルを同時に開くと、タブには以下のように表示されます。
+
+```
+index.vue | index.vue | [id].vue | [id].vue | [...slug].vue
+```
+
+どのディレクトリの `index.vue` なのか、どの `[id].vue` なのか、一目では判別できません。
 
 ## 解決策：`workbench.editor.customLabels.patterns` を使う
 
-<!--
-ここに以下の内容を書く：
-- VS Code 1.88 から追加された機能であることを説明
-- settings.json に設定を追加することで解決できる
--->
+VS Code 1.88 から追加された `workbench.editor.customLabels.patterns` を使うことで、タブの表示名をカスタマイズできます。
 
-## Vue / Nuxt 向けの設定例
+https://code.visualstudio.com/updates/v1_88#_custom-labels-for-open-editors
 
-<!--
-ここに以下の内容を書く：
-- index.vue, index.ts などの設定
-- Nuxt の pages/ 配下のファイル向け設定 (例: page.vue, [...slug].vue など)
-- Nuxt の layouts/ や components/ 向けの設定
-- コード例を記載
+## 設定
 
-例：
+`settings.json` に以下を追加します。
+
 ```json
 {
+  "workbench.editor.customLabels.enabled": true,
   "workbench.editor.customLabels.patterns": {
-    "**/index.vue": "${dirname}/index.vue",
-    "**/index.ts": "${dirname}/index.ts",
-    // Nuxt pages
-    "**/pages/**/page.vue": "${dirname} ...page.vue",
-    // など
+    "**/index.vue": "${dirname}/index.vue .../${dirname(1)}",
+    "**/index.ts": "${dirname}/index.ts .../${dirname(1)}",
+    "**/[id].vue": "${dirname}/[id].vue .../${dirname(1)}",
+    "**/[slug].vue": "${dirname}/[slug].vue .../${dirname(1)}",
+    "**/[[slug]].vue": "${dirname}/[[slug]].vue .../${dirname(1)}",
+    "**/[...slug].vue": "${dirname}/[...slug].vue .../${dirname(1)}"
   }
 }
 ```
--->
+
+各パターンは Nuxt の公式ドキュメントで使われている命名規則に対応しています。
+
+| パターン        | 説明                             |
+| --------------- | -------------------------------- |
+| `[id].vue`      | Dynamic Routes（単一パラメータ） |
+| `[slug].vue`    | Dynamic Routes（単一パラメータ） |
+| `[[slug]].vue`  | Dynamic Routes（optional）       |
+| `[...slug].vue` | Catch-all Route                  |
+
+https://nuxt.com/docs/guide/directory-structure/pages#dynamic-routes
 
 ## 設定の解説
 
-<!--
-ここに以下の内容を書く：
-- ${dirname} や ${dirname(N)} の使い方
-- パターンマッチングの書き方
-- 自分のプロジェクトに合わせてカスタマイズする方法
--->
+- `${dirname}` : ファイルの親ディレクトリ名
+- `${dirname(1)}` : 親の親ディレクトリ名
 
-## 設定後の見た目
+`pages/users/[id].vue` の場合、以下のようになります。
 
-<!--
-ここに以下の内容を書く：
-- Before / After のスクリーンショット
-- どのように見やすくなったかを説明
--->
+- `${dirname}` → `users`
+- `${dirname(1)}` → `pages`
+
+タブには `users/[id].vue .../pages` と表示され、どのディレクトリのファイルか一目でわかります。
 
 ## 最後に
 
-VS Code のタブ表示名をカスタマイズする設定を Vue / Nuxt 向けに紹介しました。
+VS Code のタブ表示名をカスタマイズする設定を Nuxt 向けに紹介しました。
 
 同名ファイルが多くて困っている方は、ぜひ試してみてください。
 
@@ -93,3 +104,5 @@ VS Code のタブ表示名をカスタマイズする設定を Vue / Nuxt 向け
 https://zenn.dev/bmth/articles/vscode-tab-display-name-alias
 
 https://code.visualstudio.com/updates/v1_88#_custom-labels-for-open-editors
+
+https://nuxt.com/docs/guide/directory-structure/pages
