@@ -10,16 +10,9 @@ published: false
 
 ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
-この記事は以前書いた「【習作】Vue でラジオボタンを実装してみる」の続編です。
-よろしくお願いします。
-
-<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
-
-:::message
-前回の記事を読んでいなくても問題ありませんが、読んでいるとより理解しやすいです。
-:::
-
-<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
+『[【習作】Vue でラジオボタンを実装してみる](https://zenn.dev/naitokosuke/articles/vue-radio-etude)』を公開したところ [chibivue land Discord サーバー](https://discord.gg/aVHvmbmSRy)にて、[miyaoka](https://x.com/miyaoka)さんから、「コンポーザブルからコンポーネントを返すようにするのもあるよ」と教えていただきました。
+「そんなことできるの！？」と驚きましたがたしかにできました。
+この記事では、Vue のコンポーザブルからコンポーネントを返すパターンについてやっていきます。
 
 https://zenn.dev/naitokosuke/articles/vue-radio-etude
 
@@ -43,7 +36,7 @@ const { options, name, legend, selected } = useRadio({
 
 悪くはないのですが、呼び出し側はまだ `v-model` や props を意識しています。
 
-今回は **「コンポーザブルからコンポーネント自体を返す」** パターンを試してみます。
+今回は **コンポーザブルからコンポーネント自体を返す** パターンを試してみます。
 こうなります。
 
 ```vue:App.vue
