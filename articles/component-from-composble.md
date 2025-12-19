@@ -13,9 +13,13 @@ published: false
 この記事は以前書いた「【習作】Vue でラジオボタンを実装してみる」の続編です。
 よろしくお願いします。
 
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
 :::message
 前回の記事を読んでいなくても問題ありませんが、読んでいるとより理解しやすいです。
 :::
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
 https://zenn.dev/naitokosuke/articles/vue-radio-etude
 
