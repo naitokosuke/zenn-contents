@@ -223,7 +223,7 @@ export function useRadio<
 
 `setup` 関数が render 関数を返す形になるので簡潔に書くことができます。
 
-## SFC を分離して composable でラップする
+## SFC を分離してコンポーザブルでラップする
 
 コンポーザブルからコンポーネントを返すパターンについて実装できました。
 でも `h()` だけで書くのはやはりつらいです。
@@ -267,19 +267,14 @@ const idPrefix = useId();
 </template>
 ```
 
-```ts:Radio.ts
+```ts:useRadio.ts
 import type { Ref } from "vue";
 import { ref, h, defineComponent } from "vue";
 import RadioVue from "./Radio.vue";
 
 export function useRadio<
   const Options extends readonly [string, string, ...string[]],
->({
-  options,
-  name,
-  legend,
-  initial,
-}: {
+>({ options, name, legend, initial }: {
   options: Options;
   name: string;
   legend?: string;
