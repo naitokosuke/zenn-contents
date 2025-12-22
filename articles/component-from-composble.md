@@ -419,8 +419,7 @@ export function useRadio<
             id={`${idPrefix}-${option}`}
             name={name}
             value={option}
-            checked={selected.value === option}
-            onChange={() => { selected.value = option; }}
+            v-model={selected}
           />
           <label for={`${idPrefix}-${option}`}>{option}</label>
         </>
