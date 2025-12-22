@@ -365,7 +365,7 @@ https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx
 
 <!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
 
-:::details vite.config.ts の設定
+:::details vite.config.ts
 
 ```ts:vite.config.ts
 import vue from "@vitejs/plugin-vue";
