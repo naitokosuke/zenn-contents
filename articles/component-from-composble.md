@@ -128,6 +128,8 @@ export function useRadio<
 
 Vue 3.3 以降では、`defineComponent` に関数を渡す構文が使えます。
 
+https://vuejs.org/api/general#function-signature
+
 ```ts
 const RadioComponent = defineComponent(() => () =>
   h("fieldset", {}, [...]),
@@ -153,56 +155,8 @@ h("div", { class: "foo" }, "Hello");
 
 ### クロージャによる状態共有
 
-`useRadio` 内で定義した `selected` は、`RadioComponent` の `render` 関数からクロージャ経由で参照されます。
+`useRadio` 内で定義した `selected` は、`RadioComponent` の render 関数からクロージャ経由で参照されます。
 これにより、外部から `selected.value` を読み取れるだけでなく、`RadioComponent` 内での変更も反映されます。
-
-## `defineComponent` の関数構文
-
-Vue 3.3 以降では、`defineComponent` に関数を渡す構文が使えます。
-
-https://vuejs.org/api/general#function-signature
-
-第 1 引数が `setup` 関数で、render 関数を返します。第 2 引数で `props` や `emits` などのオプションを定義できます。
-
-今回の `useRadio` を関数構文で書くと以下のようになります。
-
-```ts:useRadio.ts
-import { ref, h, useId, defineComponent, type Ref } from "vue";
-
-export function useRadio<
-  const Options extends readonly [string, string, ...string[]],
->({ options, name, legend, initial }: {
-  options: Options;
-  name: string;
-  legend?: string;
-  initial?: Options[number];
-}) {
-  const selected = ref<Options[number] | undefined>(initial);
-  const idPrefix = useId();
-
-  const RadioComponent = defineComponent(() => () =>
-    h("fieldset", {}, [
-      ...(legend ? [h("legend", {}, legend)] : []),
-      ...options.flatMap((option) => [
-        h("input", {
-          type: "radio",
-          id: `${idPrefix}-${option}`,
-          name,
-          value: option,
-          checked: selected.value === option,
-          onChange: () => { selected.value = option; },
-        }),
-        h("label", { for: `${idPrefix}-${option}` }, option),
-      ]),
-    ]),
-    { name: "Radio" }
-  );
-
-  return { selected, RadioComponent };
-}
-```
-
-`setup` 関数が render 関数を返す形になるので簡潔に書くことができます。
 
 ## SFC を分離してコンポーザブルでラップする
 
