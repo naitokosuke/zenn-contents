@@ -100,6 +100,85 @@ export function useRadio<
   const selected = ref<Options[number] | undefined>(initial);
   const idPrefix = useId();
 
+  const RadioComponent = defineComponent({
+    name: "Radio",
+    render() {
+      return h("fieldset", {}, [
+        ...(legend ? [h("legend", {}, legend)] : []),
+        ...options.flatMap((option) => [
+          h("input", {
+            type: "radio",
+            id: `${idPrefix}-${option}`,
+            name,
+            value: option,
+            checked: selected.value === option,
+            onChange: () => { selected.value = option; },
+          }),
+          h("label", { for: `${idPrefix}-${option}` }, option),
+        ]),
+      ]);
+    },
+  });
+
+  return { selected, RadioComponent };
+}
+```
+
+ポイントを解説します。
+
+### `defineComponent` と `render()`
+
+`defineComponent` を使って `render` メソッドを持つコンポーネントを定義します。
+
+```ts
+const RadioComponent = defineComponent({
+  name: "Radio",
+  render() {
+    return h("fieldset", {}, [...]);
+  },
+});
+```
+
+`defineComponent` を使うことで型推論が効き、Vue DevTools での表示名も正しく設定されます。
+
+### `h()` 関数
+
+`h()` は Vue の render 関数で、仮想 DOM ノードを生成します。
+
+https://ja.vuejs.org/api/render-function#h
+
+```ts
+h("div", { class: "foo" }, "Hello");
+// => <div class="foo">Hello</div>
+```
+
+第 1 引数がタグ名、第 2 引数が属性、第 3 引数が子要素です。
+
+### クロージャによる状態共有
+
+`useRadio` 内で定義した `selected` は、`RadioComponent` の render 関数からクロージャ経由で参照されます。
+これにより、外部から `selected.value` を読み取れるだけでなく、`RadioComponent` 内での変更も反映されます。
+
+### `defineComponent` の関数構文
+
+Vue 3.3 以降では、`defineComponent` に関数を渡す構文が使えます。
+
+https://vuejs.org/api/general#function-signature
+
+```ts:useRadio.ts
+import { ref, h, useId, defineComponent, type Ref } from "vue";
+
+export function useRadio<
+  const Options extends readonly [string, string, ...string[]],
+>({ options, name, legend, initial }: {
+  options: Options;
+  name: string;
+  legend?: string;
+  initial?: Options[number];
+}) {
+  const selected = ref<Options[number] | undefined>(initial);
+  const idPrefix = useId();
+
   const RadioComponent = defineComponent(() => () =>
     h("fieldset", {}, [
       ...(legend ? [h("legend", {}, legend)] : []),
@@ -122,41 +201,8 @@ export function useRadio<
 }
 ```
 
-ポイントを解説します。
-
-### `defineComponent` の関数構文
-
-Vue 3.3 以降では、`defineComponent` に関数を渡す構文が使えます。
-
-https://vuejs.org/api/general#function-signature
-
-```ts
-const RadioComponent = defineComponent(() => () =>
-  h("fieldset", {}, [...]),
-  { name: "Radio" }
-);
-```
-
 第 1 引数が setup 関数で、render 関数を返します。第 2 引数で `name` などのオプションを定義できます。
-`defineComponent` を使うことで型推論が効き、Vue DevTools での表示名も正しく設定されます。
-
-### `h()` 関数
-
-`h()` は Vue の render 関数で、仮想 DOM ノードを生成します。
-
-https://ja.vuejs.org/api/render-function#h
-
-```ts
-h("div", { class: "foo" }, "Hello");
-// => <div class="foo">Hello</div>
-```
-
-第 1 引数がタグ名、第 2 引数が属性、第 3 引数が子要素です。
-
-### クロージャによる状態共有
-
-`useRadio` 内で定義した `selected` は、`RadioComponent` の render 関数からクロージャ経由で参照されます。
-これにより、外部から `selected.value` を読み取れるだけでなく、`RadioComponent` 内での変更も反映されます。
+オプション構文より簡潔に書けるため、以降はこちらの関数構文を使用します。
 
 ## SFC を分離してコンポーザブルでラップする
 
