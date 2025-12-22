@@ -268,7 +268,6 @@ const idPrefix = useId();
 ```
 
 ```ts:useRadio.ts
-import type { Ref } from "vue";
 import { ref, h, defineComponent } from "vue";
 import Radio from "./Radio.vue";
 
@@ -282,10 +281,9 @@ export function useRadio<
 }) {
   const selected = ref<string | undefined>(initial);
 
-  const RadioComponent = defineComponent({
-    name: "Radio",
-    render() {
-      return h(Radio, {
+  const RadioComponent = defineComponent(
+    () => () =>
+      h(Radio, {
         options,
         name,
         legend,
@@ -293,9 +291,9 @@ export function useRadio<
         "onUpdate:modelValue": (value: string | undefined) => {
           selected.value = value;
         },
-      });
-    },
-  });
+      }),
+    { name: "Radio" }
+  );
 
   return { selected, RadioComponent };
 }
@@ -311,19 +309,6 @@ h(RadioVue, { ...props });
 
 `v-model` は `modelValue` props と `onUpdate:modelValue` イベントに展開されます。
 composable 内で `selected` との双方向バインディングを設定することで、呼び出し側は `<Radio />` と書くだけで済みます。
-
-### メリット・デメリット
-
-**メリット:**
-
-- SFC のテンプレート構文が使える
-- IDE のサポート(補完、エラー表示)が効く
-- プレゼンテーション層とロジック層の分離
-
-**デメリット:**
-
-- ファイルが 2 つに分かれる
-- composable と SFC の間で型を揃える必要がある
 
 ## JSX を使用する
 
