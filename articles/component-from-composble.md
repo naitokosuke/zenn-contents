@@ -470,8 +470,7 @@ export default defineConfig({
 <!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
 ```tsx:Radio.tsx
-import { ref, useId, type Ref } from "vue";
-import { defineStyle } from "vue-jsx-vapor/macros";
+import { defineVaporComponent, ref, useId } from "vue";
 
 export function useRadio<
   const Options extends readonly [string, string, ...string[]],
@@ -484,7 +483,7 @@ export function useRadio<
   const selected = ref<Options[number] | undefined>(initial);
   const idPrefix = useId();
 
-  const RadioComponent = () => {
+  const RadioComponent = defineVaporComponent(() => {
     // 関数内で defineStyle を呼ぶとデフォルトで scoped になる
     defineStyle(`
       .radio-group {
@@ -516,12 +515,9 @@ export function useRadio<
         ))}
       </fieldset>
     );
-  };
+  });
 
-  return {
-    selected: selected as Ref<Options[number] | undefined>,
-    RadioComponent,
-  };
+  return { selected, RadioComponent };
 }
 ```
 
