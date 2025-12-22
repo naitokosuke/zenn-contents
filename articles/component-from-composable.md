@@ -430,7 +430,45 @@ export function useRadio<
 }
 ```
 
-JSX は `h()` のシンタックスシュガーなので基本的な動作は同じです。
+JSX は `h()` のシンタックスシュガーです。
+JSX で書いたコードはコンパイル時、`h()` 関数呼び出しへ変換されるため基本的な動作は同じです。
+
+[Vue 公式ドキュメント](https://vuejs.org/guide/extras/render-function.html#jsx-tsx)では、以下のように `h()` と JSX の対応が示されています。
+
+```jsx
+// JSX
+<div>{ok.value ? <div>yes</div> : <span>no</span>}</div>;
+
+// h() 関数
+h("div", [ok.value ? h("div", "yes") : h("span", "no")]);
+```
+
+```jsx
+// JSX
+<ul>
+  {items.value.map(({ id, text }) => {
+    return <li key={id}>{text}</li>;
+  })}
+</ul>;
+
+// h() 関数
+h(
+  "ul",
+  items.value.map(({ id, text }) => {
+    return h("li", { key: id }, text);
+  })
+);
+```
+
+JSX は HTML に近い構文で記述できるため、`h()` 関数のネストよりも視覚的に理解しやすいというメリットがあります。
+どちらも JavaScript の完全な力(条件分岐、ループなど)をそのまま使える点は共通しています。
+
+なお、Vue の JSX 変換は React の JSX 変換とは異なります。
+[公式ドキュメント](https://ja.vuejs.org/guide/extras/render-function.html#jsx-tsx)では以下のように説明されています。
+
+> Vue JSX 変換は React の JSX 変換とは異なるので、Vue アプリケーションで React の JSX 変換を使用することはできません。
+
+Vue では `class` や `for` といった HTML 属性をそのまま使用できます(React のように `className` や `htmlFor` に書き換える必要がありません)。
 
 この記事の本筋とは特に関係ありませんが、ついでに JSX で scoped CSS を使う方法も紹介しておきます。
 
