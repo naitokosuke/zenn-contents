@@ -112,9 +112,7 @@ export function useRadio<
             name,
             value: option,
             checked: selected.value === option,
-            onChange: () => {
-              selected.value = option;
-            },
+            onChange: () => { selected.value = option; },
           }),
           h("label", { for: `${idPrefix}-${option}` }, option),
         ]),
@@ -174,15 +172,67 @@ h("div", { class: "foo" }, "Hello");
 - `h()` のネストが深くなると可読性が下がる
 - IDE のテンプレート補完が効かない
 
+## `defineComponent` の関数構文
+
+Vue 3.3 以降では、`defineComponent` に関数を渡す構文が使えます。
+
+https://vuejs.org/api/general#function-signature
+
+第 1 引数が `setup` 関数で、render 関数を返します。第 2 引数で `props` や `emits` などのオプションを定義できます。
+
+今回の `useRadio` を関数構文で書くと以下のようになります。
+
+```ts:useRadio.ts
+import { ref, h, useId, defineComponent, type Ref } from "vue";
+
+export function useRadio<
+  const Options extends readonly [string, string, ...string[]],
+>({ options, name, legend, initial }: {
+  options: Options;
+  name: string;
+  legend?: string;
+  initial?: Options[number];
+}) {
+  const selected = ref<Options[number] | undefined>(initial);
+  const idPrefix = useId();
+
+  const RadioComponent = defineComponent(
+    () => {
+      return () =>
+        h("fieldset", {}, [
+          ...(legend ? [h("legend", {}, legend)] : []),
+          ...options.flatMap((option) => [
+            h("input", {
+              type: "radio",
+              id: `${idPrefix}-${option}`,
+              name,
+              value: option,
+              checked: selected.value === option,
+              onChange: () => { selected.value = option; },
+            }),
+            h("label", { for: `${idPrefix}-${option}` }, option),
+          ]),
+        ]);
+    },
+    { name: "Radio" }
+  );
+
+  return { selected, RadioComponent };
+}
+```
+
+`setup` 関数が render 関数を返す形になるので簡潔に書くことができます。
+
 ## SFC を分離して composable でラップする
 
-`h()` だけで書くのは少し辛いですよね。
-次は SFC(テンプレート構文)を活用しつつ、composable からコンポーネントを返すパターンを試してみます。
+コンポーザブルからコンポーネントを返すパターンについて実装できました。
+でも `h()` だけで書くのはやはりつらいです。
 
-```
-├── Radio.ts   # composable(ロジック層)
-└── Radio.vue  # SFC(プレゼンテーション層)
-```
+<!-- textlint-disable ja-technical-writing/no-doubled-joshi -->
+
+1 つのファイルにまとめることにこだわらずに SFC を活用しつつコンポーザブルからコンポーネントを返すパターンを実装してみます。
+
+<!-- textlint-enable ja-technical-writing/no-doubled-joshi -->
 
 ```vue:Radio.vue
 <script setup lang="ts" generic="Option extends string">
