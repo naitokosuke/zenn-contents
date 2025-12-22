@@ -83,8 +83,7 @@ React の言葉で言うと、「カスタムフックから JSX 式を返す設
 
 ## コンポーザブルのファイルで完結させる(`render()`, `h()`)
 
-[前回の記事](https://zenn.dev/naitokosuke/articles/vue-radio-etude)では最終的に Radio.vue ファイルにコンポーザブルもまとめました。
-今回もまずは 1 ファイルにまとめることを考えます。
+コンポーザブル内でコンポーネントを記述しましょう。
 
 ```ts:useRadio.ts
 import { ref, h, useId, defineComponent, type Ref } from "vue";
@@ -139,8 +138,6 @@ const RadioComponent = defineComponent({
 });
 ```
 
-`defineComponent` を使うことで型推論が効き、Vue DevTools での表示名も正しく設定されます。
-
 ### `h()` 関数
 
 `h()` は Vue の render 関数で、仮想 DOM ノードを生成します。
@@ -153,11 +150,6 @@ h("div", { class: "foo" }, "Hello");
 ```
 
 第 1 引数がタグ名、第 2 引数が属性、第 3 引数が子要素です。
-
-### クロージャによる状態共有
-
-`useRadio` 内で定義した `selected` は、`RadioComponent` の render 関数からクロージャ経由で参照されます。
-これにより、外部から `selected.value` を読み取れるだけでなく、`RadioComponent` 内での変更も反映されます。
 
 ### `defineComponent` の関数構文
 
