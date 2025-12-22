@@ -444,7 +444,13 @@ JSX の弱点として「scoped CSS が使えない」がありますが、`vue-
 
 https://github.com/vuejs/vue-jsx-vapor
 
-`vue-jsx-vapor` は Vue JSX の Vapor Mode 実装で、`defineStyle` マクロを使うと JSX でも scoped CSS が書けます。
+https://jsx-vapor.netlify.app/
+
+`vue-jsx-vapor` は Vue JSX の Vapor Mode 実装で、`defineStyle()` マクロを使うと JSX でも scoped CSS が書けます。
+
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
+:::details vite.config.ts
 
 ```ts:vite.config.ts
 import vueJsxVapor from "vue-jsx-vapor/vite";
@@ -458,6 +464,10 @@ export default defineConfig({
   ],
 });
 ```
+
+:::
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
 ```tsx:Radio.tsx
 import { ref, useId, type Ref } from "vue";
@@ -514,49 +524,6 @@ export function useRadio<
   };
 }
 ```
-
-### defineStyle の特徴
-
-`defineStyle` は定義する場所によって scoped のデフォルト値が変わります。
-
-- ファイルトップレベルで定義すると `scoped: false`(グローバル)
-- 関数内で定義すると `scoped: true`(スコープ付き)
-
-また、JavaScript 変数をスタイルにバインドできます。
-
-```tsx
-function Comp({ color = "red" }) {
-  defineStyle(`
-    .foo {
-      color: ${color};
-    }
-  `);
-  return <div class="foo">content</div>;
-}
-```
-
-CSS Modules として使うこともできます。
-
-```tsx
-const styles = defineStyle(`
-  .foo { color: blue; }
-`);
-return <div class={styles.foo} />;
-```
-
-### メリット・デメリット
-
-#### メリット
-
-- JSX で scoped CSS が使える
-- CSS 変数と JS 変数のバインディング
-- CSS Modules のサポート
-- SCSS, Less, Stylus などのプリプロセッサ対応
-
-#### デメリット
-
-- Vapor Mode 前提の実験的な機能
-- 追加のビルド設定が必要
 
 ## まとめ
 
