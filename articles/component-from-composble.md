@@ -297,10 +297,7 @@ export function useRadio<
     },
   });
 
-  return {
-    selected: selected as Ref<Options[number] | undefined>,
-    RadioComponent,
-  };
+  return { selected, RadioComponent };
 }
 ```
 
