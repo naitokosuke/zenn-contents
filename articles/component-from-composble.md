@@ -87,7 +87,7 @@ React の言葉で言うと、「カスタムフックから JSX 式を返す設
 今回もまずは 1 ファイルにまとめることを考えます。
 
 ```ts:useRadio.ts
-import { ref, h, useId, type Ref } from "vue";
+import { ref, h, useId, defineComponent, type Ref } from "vue";
 
 export function useRadio<
   const Options extends readonly [string, string, ...string[]],
@@ -100,7 +100,7 @@ export function useRadio<
   const selected = ref<Options[number] | undefined>(initial);
   const idPrefix = useId();
 
-  const RadioComponent = {
+  const RadioComponent = defineComponent({
     name: "Radio",
     render() {
       return h("fieldset", {}, [
@@ -120,13 +120,28 @@ export function useRadio<
         ]),
       ]);
     },
-  };
+  });
 
   return { selected, RadioComponent };
 }
 ```
 
 ポイントを解説します。
+
+### `defineComponent`
+
+`defineComponent` を使って `render` メソッドを持つコンポーネントを定義します。
+
+```ts
+const RadioComponent = defineComponent({
+  name: "Radio",
+  render() {
+    return h("fieldset", {}, [...]);
+  },
+});
+```
+
+`defineComponent` を使うことで型推論が効き、Vue DevTools での表示名も正しく設定されます。
 
 ### `h()` 関数
 
@@ -140,21 +155,6 @@ h("div", { class: "foo" }, "Hello");
 ```
 
 第 1 引数がタグ名、第 2 引数が属性、第 3 引数が子要素です。
-
-### コンポーネントオブジェクト
-
-Vue では `render` メソッドを持つオブジェクトをコンポーネントとして扱えます。
-
-```ts
-const RadioComponent = {
-  name: "Radio",
-  render() {
-    return h("fieldset", {}, [...]);
-  },
-};
-```
-
-`defineComponent` を使うと型推論が効きますが、このくらいシンプルな場合はなくても動きます。
 
 ### クロージャによる状態共有
 
