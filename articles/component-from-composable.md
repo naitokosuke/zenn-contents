@@ -95,7 +95,7 @@ React の言葉で言うと、「カスタムフックから JSX 式を返す設
 コンポーザブル内でコンポーネントを記述しましょう。
 
 ```ts:useRadio.ts
-import { ref, h, useId, defineComponent, type Ref } from "vue";
+import { ref, h, useId, defineComponent } from "vue";
 
 export function useRadio<
   const Options extends readonly [string, string, ...string[]],
@@ -149,7 +149,7 @@ Vue 3.3 以降では、`defineComponent` に関数を渡す構文が使えます
 https://vuejs.org/api/general#function-signature
 
 ```ts:useRadio.ts
-import { ref, h, useId, defineComponent, type Ref } from "vue";
+import { ref, h, useId, defineComponent } from "vue";
 
 export function useRadio<
   const Options extends readonly [string, string, ...string[]],
@@ -381,7 +381,7 @@ Vue 3.4 以降で JSX の型推論を有効にするには、tsconfig.json に�
 :::
 
 ```tsx:Radio.tsx
-import { defineComponent, ref, useId, type Ref } from "vue";
+import { defineComponent, ref, useId } from "vue";
 
 export function useRadio<
   const Options extends readonly [string, string, ...string[]],
