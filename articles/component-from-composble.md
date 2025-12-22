@@ -396,7 +396,7 @@ Vue 3.4 以降で JSX の型推論を有効にするには、tsconfig.json に�
 :::
 
 ```tsx:Radio.tsx
-import { ref, useId, type Ref } from "vue";
+import { defineComponent, ref, useId, type Ref } from "vue";
 
 export function useRadio<
   const Options extends readonly [string, string, ...string[]],
@@ -409,7 +409,7 @@ export function useRadio<
   const selected = ref<Options[number] | undefined>(initial);
   const idPrefix = useId();
 
-  const RadioComponent = () => (
+  const RadioComponent = defineComponent(() => () => (
     <fieldset>
       {legend && <legend>{legend}</legend>}
       {options.map((option) => (
@@ -425,7 +425,7 @@ export function useRadio<
         </>
       ))}
     </fieldset>
-  );
+  ));
 
   return { selected, RadioComponent };
 }
