@@ -353,8 +353,13 @@ const idPrefix = useId();
 
 ## JSX を使用する
 
-「`h()` 関数を書きたくないけどファイルもまとめたい」というのであれば JSX の出番です。
-Vue でも JSX を使用できます。Vue で JSX を使うには `@vitejs/plugin-vue-jsx` を導入します。
+ここまで Vue らしいアプローチで実装してきましたが、Vue でも JSX を使用できます。
+
+https://ja.vuejs.org/guide/extras/render-function#jsx-tsx
+
+JSX を使って、React の render hooks パターンに近い形で書いてみましょう。
+
+Vue で JSX を使うには `@vitejs/plugin-vue-jsx` を導入します。
 
 https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx
 
@@ -367,6 +372,20 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
 });
 ```
+
+:::details tsconfig.json の設定(型推論)
+Vue 3.4 以降で JSX の型推論を有効にするには、tsconfig.json に以下を追加します。
+
+```json:tsconfig.json
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "vue"
+  }
+}
+```
+
+:::
 
 ```tsx:Radio.tsx
 import { ref, useId, type Ref } from "vue";
