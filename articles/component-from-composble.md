@@ -81,21 +81,17 @@ https://engineering.linecorp.com/ja/blog/line-securities-frontend-3
 React の言葉で言うと、「カスタムフックから JSX 式を返す設計パターンのこと」ですが、Vue では「**コンポーザブルからコンポーネントを返す設計パターン**」になります。
 今回はこの設計パターンとその実装方法について書きます。
 
-## render hooks パターン(h() と render)
+## コンポーザブルのファイルで完結させる(`render()`, `h()`)
 
-まずは最もシンプルな方法として、`.ts` ファイルのみで完結させる方法を紹介します。
+[前回の記事](https://zenn.dev/naitokosuke/articles/vue-radio-etude)では最終的に Radio.vue ファイルにコンポーザブルもまとめました。
+今回もまずは 1 ファイルにまとめることを考えます。
 
-```ts:Radio.ts
+```ts:useRadio.ts
 import { ref, h, useId, type Ref } from "vue";
 
 export function useRadio<
   const Options extends readonly [string, string, ...string[]],
->({
-  options,
-  name,
-  legend,
-  initial,
-}: {
+>({ options, name, legend, initial }: {
   options: Options;
   name: string;
   legend?: string;
@@ -126,10 +122,7 @@ export function useRadio<
     },
   };
 
-  return {
-    selected: selected as Ref<Options[number] | undefined>,
-    RadioComponent,
-  };
+  return { selected, RadioComponent };
 }
 ```
 
