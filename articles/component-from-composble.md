@@ -465,12 +465,7 @@ import { defineStyle } from "vue-jsx-vapor/macros";
 
 export function useRadio<
   const Options extends readonly [string, string, ...string[]],
->({
-  options,
-  name,
-  legend,
-  initial,
-}: {
+>({ options, name, legend, initial }: {
   options: Options;
   name: string;
   legend?: string;
