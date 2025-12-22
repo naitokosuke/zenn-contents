@@ -100,25 +100,23 @@ export function useRadio<
   const selected = ref<Options[number] | undefined>(initial);
   const idPrefix = useId();
 
-  const RadioComponent = defineComponent({
-    name: "Radio",
-    render() {
-      return h("fieldset", {}, [
-        ...(legend ? [h("legend", {}, legend)] : []),
-        ...options.flatMap((option) => [
-          h("input", {
-            type: "radio",
-            id: `${idPrefix}-${option}`,
-            name,
-            value: option,
-            checked: selected.value === option,
-            onChange: () => { selected.value = option; },
-          }),
-          h("label", { for: `${idPrefix}-${option}` }, option),
-        ]),
-      ]);
-    },
-  });
+  const RadioComponent = defineComponent(() => () =>
+    h("fieldset", {}, [
+      ...(legend ? [h("legend", {}, legend)] : []),
+      ...options.flatMap((option) => [
+        h("input", {
+          type: "radio",
+          id: `${idPrefix}-${option}`,
+          name,
+          value: option,
+          checked: selected.value === option,
+          onChange: () => { selected.value = option; },
+        }),
+        h("label", { for: `${idPrefix}-${option}` }, option),
+      ]),
+    ]),
+    { name: "Radio" }
+  );
 
   return { selected, RadioComponent };
 }
@@ -126,19 +124,18 @@ export function useRadio<
 
 ポイントを解説します。
 
-### `defineComponent`
+### `defineComponent` の関数構文
 
-`defineComponent` を使って `render` メソッドを持つコンポーネントを定義します。
+Vue 3.3 以降では、`defineComponent` に関数を渡す構文が使えます。
 
 ```ts
-const RadioComponent = defineComponent({
-  name: "Radio",
-  render() {
-    return h("fieldset", {}, [...]);
-  },
-});
+const RadioComponent = defineComponent(() => () =>
+  h("fieldset", {}, [...]),
+  { name: "Radio" }
+);
 ```
 
+第 1 引数が setup 関数で、render 関数を返します。第 2 引数で `name` などのオプションを定義できます。
 `defineComponent` を使うことで型推論が効き、Vue DevTools での表示名も正しく設定されます。
 
 ### `h()` 関数
@@ -183,24 +180,21 @@ export function useRadio<
   const selected = ref<Options[number] | undefined>(initial);
   const idPrefix = useId();
 
-  const RadioComponent = defineComponent(
-    () => {
-      return () =>
-        h("fieldset", {}, [
-          ...(legend ? [h("legend", {}, legend)] : []),
-          ...options.flatMap((option) => [
-            h("input", {
-              type: "radio",
-              id: `${idPrefix}-${option}`,
-              name,
-              value: option,
-              checked: selected.value === option,
-              onChange: () => { selected.value = option; },
-            }),
-            h("label", { for: `${idPrefix}-${option}` }, option),
-          ]),
-        ]);
-    },
+  const RadioComponent = defineComponent(() => () =>
+    h("fieldset", {}, [
+      ...(legend ? [h("legend", {}, legend)] : []),
+      ...options.flatMap((option) => [
+        h("input", {
+          type: "radio",
+          id: `${idPrefix}-${option}`,
+          name,
+          value: option,
+          checked: selected.value === option,
+          onChange: () => { selected.value = option; },
+        }),
+        h("label", { for: `${idPrefix}-${option}` }, option),
+      ]),
+    ]),
     { name: "Radio" }
   );
 
@@ -268,17 +262,16 @@ export function useRadio<
 }) {
   const selected = ref<string | undefined>(initial);
 
-  const RadioComponent = defineComponent(
-    () => () =>
-      h(Radio, {
-        options,
-        name,
-        legend,
-        modelValue: selected.value,
-        "onUpdate:modelValue": (value: string | undefined) => {
-          selected.value = value;
-        },
-      }),
+  const RadioComponent = defineComponent(() => () =>
+    h(Radio, {
+      options,
+      name,
+      legend,
+      modelValue: selected.value,
+      "onUpdate:modelValue": (value: string | undefined) => {
+        selected.value = value;
+      },
+    }),
     { name: "Radio" }
   );
 
@@ -296,6 +289,75 @@ h(RadioVue, { ...props });
 
 `v-model` は `modelValue` props と `onUpdate:modelValue` イベントに展開されます。
 composable 内で `selected` との双方向バインディングを設定することで、呼び出し側は `<Radio />` と書くだけで済みます。
+
+### SFC 1 ファイルにまとめる
+
+[前回の記事](https://zenn.dev/naitokosuke/articles/vue-radio-etude)と同様に、`<script>` と `<script setup>` を併用して 1 ファイルにまとめることもできます。
+SFC 内で自分自身を import することで、composable から SFC をラップしたコンポーネントを返せます。
+
+```vue:Radio.vue
+<script lang="ts">
+import { ref, h, defineComponent } from "vue";
+import Radio from "./Radio.vue"; // 自分自身を import
+
+export function useRadio<
+  const Options extends readonly [string, string, ...string[]],
+>({ options, name, legend, initial }: {
+  options: Options;
+  name: string;
+  legend?: string;
+  initial?: Options[number];
+}) {
+  const selected = ref<Options[number] | undefined>(initial);
+
+  const RadioComponent = defineComponent(() => () =>
+    h(Radio, {
+      options,
+      name,
+      legend,
+      modelValue: selected.value,
+      "onUpdate:modelValue": (value: Options[number] | undefined) => {
+        selected.value = value;
+      },
+    }),
+    { name: "Radio" }
+  );
+
+  return { selected, RadioComponent };
+}
+</script>
+
+<script setup lang="ts" generic="Option extends string">
+import { useId } from "vue";
+
+const model = defineModel<Option | undefined>({ required: true });
+
+defineProps<{
+  options: readonly [Option, Option, ...Option[]];
+  name: string;
+  legend?: string;
+}>();
+
+const idPrefix = useId();
+</script>
+
+<template>
+  <fieldset>
+    <legend v-if="legend">{{ legend }}</legend>
+
+    <template v-for="option in options" :key="option">
+      <input
+        type="radio"
+        :id="`${idPrefix}-${option}`"
+        :name
+        :value="option"
+        v-model="model"
+      />
+      <label :for="`${idPrefix}-${option}`">{{ option }}</label>
+    </template>
+  </fieldset>
+</template>
+```
 
 ## JSX を使用する
 
