@@ -351,11 +351,12 @@ const idPrefix = useId();
 
 ## JSX を使用する
 
-ここまで Vue らしいアプローチで実装してきましたが、Vue でも JSX を使用できます。
+ここまで Vue らしいアプローチで実装してきました。
+
+Vue でも JSX を使用できます。
+JSX を使って React の render hooks パターンにより近い形で書いてみることにしましょう。
 
 https://ja.vuejs.org/guide/extras/render-function#jsx-tsx
-
-JSX を使って、React の render hooks パターンに近い形で書いてみましょう。
 
 Vue で JSX を使うには `@vitejs/plugin-vue-jsx` を導入します。
 
