@@ -363,6 +363,10 @@ Vue で JSX を使うには `@vitejs/plugin-vue-jsx` を導入します。
 
 https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx
 
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
+:::details vite.config.ts の設定
+
 ```ts:vite.config.ts
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
@@ -372,6 +376,10 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
 });
 ```
+
+:::
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
 :::details tsconfig.json の設定(型推論)
 Vue 3.4 以降で JSX の型推論を有効にするには、tsconfig.json に以下を追加します。
