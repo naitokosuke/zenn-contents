@@ -282,7 +282,7 @@ h(RadioVue, { ...props });
 `v-model` は `modelValue` props と `onUpdate:modelValue` イベントに展開されます。
 composable 内で `selected` との双方向バインディングを設定することで、呼び出し側は `<Radio />` と書くだけで済みます。
 
-### やっぱり 1 ファイルにまとめる(`<script>` と `<script setup>` の組み合わせ)
+## やっぱり 1 ファイルにまとめる(`<script>` と `<script setup>` の組み合わせ)
 
 [前回の記事](https://zenn.dev/naitokosuke/articles/vue-radio-etude)と同様に、`<script>` と `<script setup>` を併用して 1 ファイルにまとめることもできます。
 SFC 内で自分自身を import することで、コンポーザブルからラップしたコンポーネントを返せます。
