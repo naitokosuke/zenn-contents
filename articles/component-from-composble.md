@@ -434,10 +434,9 @@ export function useRadio<
 JSX は `h()` のシンタックスシュガーなので基本的な動作は同じです。
 `h()` を使用するよりは可読性が高いです。
 
-## vue-jsx-vapor で scoped CSS を使う
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
 
-ここまで、コンポーザブルからコンポーネントを返すパターンを様々な方法で実装してきました。
-`h()` と `render()` で 1 ファイルに完結させる方法から始まり、SFC を活用する方法、そして JSX で React の render hooks パターンに近づける方法を紹介しました。
+:::details vue-jsx-vapor で scoped CSS を使う
 
 JSX の弱点として「scoped CSS が使えない」がありますが、`vue-jsx-vapor` を使うと解決できます。
 
@@ -447,9 +446,7 @@ https://jsx-vapor.netlify.app/
 
 `vue-jsx-vapor` は Vue JSX の Vapor Mode 実装で、`defineStyle()` マクロを使うと JSX でも scoped CSS が書けます。
 
-<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
-
-:::details vite.config.ts
+vite.config.ts
 
 ```ts:vite.config.ts
 import vueJsxVapor from "vue-jsx-vapor/vite";
@@ -463,10 +460,6 @@ export default defineConfig({
   ],
 });
 ```
-
-:::
-
-<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
 ```tsx:Radio.tsx
 import { defineVaporComponent, ref, useId } from "vue";
@@ -517,6 +510,10 @@ export function useRadio<
 }
 
 ```
+
+:::
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
 ## まとめ
 
