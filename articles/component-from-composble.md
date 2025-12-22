@@ -486,14 +486,13 @@ export function useRadio<
   const RadioComponent = defineVaporComponent(() => {
     // 関数内で defineStyle を呼ぶとデフォルトで scoped になる
     defineStyle(`
-      .radio-group {
-        border: 1px solid #ccc;
-        padding: 1rem;
-      }
-      .radio-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
+      fieldset {
+        display: grid;
+
+        div {
+          display: grid;
+          grid-template-columns: auto 1fr;
+        }
       }
     `);
 
