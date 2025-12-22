@@ -270,7 +270,7 @@ const idPrefix = useId();
 ```ts:useRadio.ts
 import type { Ref } from "vue";
 import { ref, h, defineComponent } from "vue";
-import RadioVue from "./Radio.vue";
+import Radio from "./Radio.vue";
 
 export function useRadio<
   const Options extends readonly [string, string, ...string[]],
@@ -285,7 +285,7 @@ export function useRadio<
   const RadioComponent = defineComponent({
     name: "Radio",
     render() {
-      return h(RadioVue, {
+      return h(Radio, {
         options,
         name,
         legend,
