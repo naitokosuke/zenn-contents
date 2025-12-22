@@ -433,7 +433,7 @@ export function useRadio<
 JSX は `h()` のシンタックスシュガーです。
 JSX で書いたコードはコンパイル時、`h()` 関数呼び出しへ変換されるため基本的な動作は同じです。
 
-[Vue 公式ドキュメント](https://vuejs.org/guide/extras/render-function.html#jsx-tsx)では、以下のように `h()` と JSX の対応が示されています。
+[Vue 公式ドキュメント](https://ja.vuejs.org/guide/extras/render-function.html#jsx-tsx)では、以下のように `h()` と JSX の対応が示されています。
 
 ```jsx
 // JSX
