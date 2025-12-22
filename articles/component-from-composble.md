@@ -484,7 +484,6 @@ export function useRadio<
   const idPrefix = useId();
 
   const RadioComponent = defineVaporComponent(() => {
-    // 関数内で defineStyle を呼ぶとデフォルトで scoped になる
     defineStyle(`
       fieldset {
         display: grid;
@@ -497,17 +496,16 @@ export function useRadio<
     `);
 
     return (
-      <fieldset class="radio-group">
+      <fieldset>
         {legend && <legend>{legend}</legend>}
         {options.map((option) => (
-          <div class="radio-item">
+          <div>
             <input
               type="radio"
               id={`${idPrefix}-${option}`}
               name={name}
               value={option}
-              checked={selected.value === option}
-              onChange={() => { selected.value = option; }}
+              v-model={selected}
             />
             <label for={`${idPrefix}-${option}`}>{option}</label>
           </div>
@@ -518,6 +516,7 @@ export function useRadio<
 
   return { selected, RadioComponent };
 }
+
 ```
 
 ## まとめ
