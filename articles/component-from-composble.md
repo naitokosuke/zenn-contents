@@ -410,6 +410,8 @@ export function useRadio<
 JSX は `h()` のシンタックスシュガーなので基本的な動作は同じです。
 `h()` を使用するよりは可読性が高いです。
 
+この記事の本筋とは特に関係ありませんが、ついでに JSX で scoped CSS を使う方法も紹介しておきます。
+
 <!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
 
 :::details vue-jsx-vapor で scoped CSS を使う
@@ -419,6 +421,8 @@ JSX の弱点として「scoped CSS が使えない」がありますが、`vue-
 https://github.com/vuejs/vue-jsx-vapor
 
 https://jsx-vapor.netlify.app/
+
+`vue-jsx-vapor` は Vue 3.6 以上が必要です。
 
 `vue-jsx-vapor` は Vue JSX の Vapor Mode 実装で、`defineStyle()` マクロを使うと JSX でも scoped CSS が書けます。
 
@@ -499,7 +503,7 @@ export function useRadio<
 - SFC + composable で Vue らしく render hooks を実現
 - `<script>` と `<script setup>` の併用で Vue らしさを保ちながら 1 ファイルで render hooks パターンを実現
 - JSX は React の render hooks パターンに近い形で記述
-- vue-jsx-vapor は JSX の書き味に加えて scoped CSS も使える
+- (vue-jsx-vapor は JSX の書き味に加えて scoped CSS も使える)
 
 どの方法もコンポーザブルからコンポーネントを返すという目的は同じです。
 プロジェクトの技術スタックやチームの好みに合わせて選択してください。
