@@ -64,7 +64,7 @@ const { selected, RadioComponent: Radio } = useRadio({
 `<Radio />` と書くだけで済むようになりました。
 状態のバインディングは composable 内部で完結しています。
 
-このパターンは React の世界では "render hooks"と呼ばれているようです。
+このパターンは React の世界では "render hooks" と呼ばれているようです。
 
 https://qiita.com/uhyo/items/cb6983f52ac37e59f37e
 
