@@ -437,6 +437,9 @@ JSX は `h()` のシンタックスシュガーなので基本的な動作は同
 
 ## vue-jsx-vapor で scoped CSS を使う
 
+ここまで、コンポーザブルからコンポーネントを返すパターンを様々な方法で実装してきました。
+`h()` と `render()` で 1 ファイルに完結させる方法から始まり、SFC を活用する方法、そして JSX で React の render hooks パターンに近づける方法を紹介しました。
+
 JSX の弱点として「scoped CSS が使えない」がありますが、`vue-jsx-vapor` を使うと解決できます。
 
 https://github.com/vuejs/vue-jsx-vapor
@@ -501,9 +504,7 @@ export function useRadio<
               name={name}
               value={option}
               checked={selected.value === option}
-              onChange={() => {
-                selected.value = option;
-              }}
+              onChange={() => { selected.value = option; }}
             />
             <label for={`${idPrefix}-${option}`}>{option}</label>
           </div>
