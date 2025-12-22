@@ -123,23 +123,7 @@ export function useRadio<
 }
 ```
 
-ポイントを解説します。
-
-### `defineComponent` と `render()`
-
-`defineComponent` を使って `render` メソッドを持つコンポーネントを定義します。
-
-```ts
-const RadioComponent = defineComponent({
-  name: "Radio",
-  render() {
-    return h("fieldset", {}, [...]);
-  },
-});
-```
-
-### `h()` 関数
-
+`defineComponent` を使って `render` メソッドを持つコンポーネントを定義しています。
 `h()` は Vue の render 関数で、仮想 DOM ノードを生成します。
 
 https://ja.vuejs.org/api/render-function#h
@@ -150,8 +134,6 @@ h("div", { class: "foo" }, "Hello");
 ```
 
 第 1 引数がタグ名、第 2 引数が属性、第 3 引数が子要素です。
-
-### `defineComponent` の関数構文
 
 Vue 3.3 以降では、`defineComponent` に関数を渡す構文が使えます。
 
@@ -193,7 +175,8 @@ export function useRadio<
 }
 ```
 
-第 1 引数が setup 関数(render 関数を返す関数)です。第 2 引数で `name` などのオプションを定義できます。
+第 1 引数が setup 関数(render 関数を返す関数)です。
+第 2 引数で `name` などのオプションを定義できます。
 オプション構文より簡潔に書けるため、以降はこちらの関数構文を使用します。
 
 ## SFC を分離してコンポーザブルでラップする
@@ -271,14 +254,7 @@ export function useRadio<
 }
 ```
 
-### ポイント
-
 `h()` の第 1 引数には、タグ名だけでなくコンポーネントも渡せます。
-
-```ts
-h(RadioVue, { ...props });
-```
-
 `v-model` は `modelValue` props と `onUpdate:modelValue` イベントに展開されます。
 composable 内で `selected` との双方向バインディングを設定することで、呼び出し側は `<Radio />` と書くだけで済みます。
 
