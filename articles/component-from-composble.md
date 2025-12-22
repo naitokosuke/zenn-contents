@@ -159,19 +159,6 @@ h("div", { class: "foo" }, "Hello");
 `useRadio` 内で定義した `selected` は、`RadioComponent` の `render` 関数からクロージャ経由で参照されます。
 これにより、外部から `selected.value` を読み取れるだけでなく、`RadioComponent` 内での変更も反映されます。
 
-### メリット・デメリット
-
-#### メリット
-
-- `.ts` ファイルのみで完結
-- SFC のビルド設定が不要
-
-#### デメリット
-
-- テンプレート構文が使えない
-- `h()` のネストが深くなると可読性が下がる
-- IDE のテンプレート補完が効かない
-
 ## `defineComponent` の関数構文
 
 Vue 3.3 以降では、`defineComponent` に関数を渡す構文が使えます。
@@ -312,9 +299,8 @@ composable 内で `selected` との双方向バインディングを設定する
 
 ## JSX を使用する
 
-`h()` のネストは可読性が下がりますが、かといって SFC を分離するのも面倒...という場合は JSX が選択肢になります。
-
-Vue で JSX を使うには `@vitejs/plugin-vue-jsx` を導入します。
+「`h()` 関数を書きたくないけどファイルもまとめたい」というのであれば JSX の出番です。
+Vue でも JSX を使用できます。Vue で JSX を使うには `@vitejs/plugin-vue-jsx` を導入します。
 
 https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx
 
@@ -333,12 +319,7 @@ import { ref, useId, type Ref } from "vue";
 
 export function useRadio<
   const Options extends readonly [string, string, ...string[]],
->({
-  options,
-  name,
-  legend,
-  initial,
-}: {
+>({ options, name, legend, initial }: {
   options: Options;
   name: string;
   legend?: string;
@@ -358,9 +339,7 @@ export function useRadio<
             name={name}
             value={option}
             checked={selected.value === option}
-            onChange={() => {
-              selected.value = option;
-            }}
+            onChange={() => { selected.value = option; }}
           />
           <label for={`${idPrefix}-${option}`}>{option}</label>
         </>
@@ -368,29 +347,12 @@ export function useRadio<
     </fieldset>
   );
 
-  return {
-    selected: selected as Ref<Options[number] | undefined>,
-    RadioComponent,
-  };
+  return { selected, RadioComponent };
 }
 ```
 
 JSX は `h()` のシンタックスシュガーなので、基本的な動作は同じです。
 HTML ライクな構文で書けるため、`h()` のネストよりも可読性が高くなります。
-
-### メリット・デメリット
-
-#### メリット
-
-- `h()` より可読性が高い
-- `.tsx` ファイルのみで完結
-- React 経験者には馴染みやすい
-
-#### デメリット
-
-- JSX のビルド設定が必要
-- Vue の `v-if`, `v-for` などのディレクティブが使えない(JavaScript の `&&`, `map()` で代替)
-- scoped CSS が使えない
 
 ## vue-jsx-vapor で scoped CSS を使う
 
