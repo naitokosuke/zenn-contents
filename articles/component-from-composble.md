@@ -527,23 +527,16 @@ export function useRadio<
 
 ## まとめ
 
-この記事では「コンポーザブルからコンポーネントを返す」パターンを 4 つの方法で実装しました。
+この記事では「コンポーザブルからコンポーネントを返す」パターンを様々な方法で実装しました。
 
-| 方法             | ファイル       | scoped CSS | 可読性 |
-| ---------------- | -------------- | ---------- | ------ |
-| h() と render    | `.ts` のみ     | ❌         | △      |
-| SFC + composable | `.vue` + `.ts` | ✅         | ◎      |
-| JSX              | `.tsx` のみ    | ❌         | ○      |
-| vue-jsx-vapor    | `.tsx` のみ    | ✅         | ○      |
+- `h()` と `render()` でコンポーザブルから props セット済みのコンポーネントを返す
+- SFC + composable で Vue らしく render hooks を実現
+- `<script>` と `<script setup>` の併用で Vue らしさを保ちながら 1 ファイルで render hooks パターンを実現
+- JSX は React の render hooks パターンに近い形で記述
+- vue-jsx-vapor は JSX の書き味に加えて scoped CSS も使える
 
-どの方法を選ぶかはプロジェクトの要件や好みによります。
-
-- SFC のテンプレート構文が好きなら「SFC + composable」
-- ファイルを分けたくないなら「JSX」または「vue-jsx-vapor」
-- scoped CSS が必要なら「SFC + composable」または「vue-jsx-vapor」
-
-個人的には「SFC + composable」のバランスが最も良いと感じています。
-Vue の強みであるテンプレート構文と scoped CSS を活かしつつ、render hooks パターンの恩恵も受けられます。
+どの方法もコンポーザブルからコンポーネントを返すという目的は同じです。
+プロジェクトの技術スタックやチームの好みに合わせて選択してください。
 
 ## 最後に
 
