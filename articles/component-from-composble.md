@@ -285,7 +285,7 @@ composable 内で `selected` との双方向バインディングを設定する
 ### やっぱり 1 ファイルにまとめる(`<script>` と `<script setup>` の組み合わせ)
 
 [前回の記事](https://zenn.dev/naitokosuke/articles/vue-radio-etude)と同様に、`<script>` と `<script setup>` を併用して 1 ファイルにまとめることもできます。
-SFC 内で自分自身を import することで、composable から SFC をラップしたコンポーネントを返せます。
+SFC 内で自分自身を import することで、コンポーザブルからラップしたコンポーネントを返せます。
 
 ```vue:Radio.vue
 <script lang="ts">
