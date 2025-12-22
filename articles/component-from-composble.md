@@ -10,7 +10,7 @@ published: false
 
 ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
-『[【習作】Vue でラジオボタンを実装してみる](https://zenn.dev/naitokosuke/articles/vue-radio-etude)』を公開したところ [chibivue land Discord サーバー](https://discord.gg/aVHvmbmSRy)にて、[miyaoka](https://x.com/miyaoka)さんから、「コンポーザブルからコンポーネントを返すようにするのもあるよ」と教えていただきました。
+『[【習作】Vue でラジオボタンを実装してみる](https://zenn.dev/naitokosuke/articles/vue-radio-etude)』を公開したところ [chibivue land Discord サーバー](https://discord.gg/aVHvmbmSRy)にて、[miyaoka](https://x.com/miyaoka) さんから、コンポーザブルからコンポーネントを返すようにできると教えていただきました。
 「そんなことできるの！？」と驚きましたがたしかにできました。
 この記事では、Vue のコンポーザブルからコンポーネントを返すパターンについてやっていきます。
 
@@ -31,13 +31,15 @@ const { options, name, legend, selected } = useRadio({
 
 <template>
   <Radio v-model="selected" :options :name :legend />
+  <p v-if="selected">Selected: {{ selected }}</p>
+  <p v-else>Nothing selected</p>
 </template>
 ```
 
-悪くはないのですが、呼び出し側はまだ `v-model` や props を意識しています。
+凝集度が高く、`useRadio()` 時にコンポーネントにセットするための props も初期化できてとても良さそうです。
+しかし、まだコンポーネントの使う側がどの props をセットすればよいのか知る必要がありますしそもそもセットすることも手間のように感じられます。
 
-今回は **コンポーザブルからコンポーネント自体を返す** パターンを試してみます。
-こうなります。
+「`use()` した時に props がセットされたコンポーネントも返ってきたらな〜、こうやって ⬇️ 書けたらな〜」
 
 ```vue:App.vue
 <script setup lang="ts">
@@ -52,17 +54,32 @@ const { selected, RadioComponent: Radio } = useRadio({
 
 <template>
   <Radio />
-  <p>Selected: {{ selected ?? "NONE" }}</p>
+  <p v-if="selected">Selected: {{ selected }}</p>
+  <p v-else>Nothing selected</p>
 </template>
 ```
+
+これが Vue 3 Composition API だとできちゃいます。
 
 `<Radio />` と書くだけで済むようになりました。
 状態のバインディングは composable 内部で完結しています。
 
-このパターンは React の世界では「render hooks」と呼ばれています。
-参考資料の LINE 証券の記事でも紹介されているパターンです。
+このパターンは React の世界では "render hooks"と呼ばれているようです。
 
-この記事ではこのパターンを Vue でいくつかの方法で実装してみます。
+https://qiita.com/uhyo/items/cb6983f52ac37e59f37e
+
+https://engineering.linecorp.com/ja/blog/line-securities-frontend-3
+
+:::message
+
+> ずっとこのパターンを推奨しているのですが、あまり流行る気配がありません。
+
+とあるように React の世界でも誰しもが知っているような一般的なパターンではないようです。
+
+:::
+
+React の言葉で言うと、「カスタムフックから JSX 式を返す設計パターンのこと」ですが、Vue では「**コンポーザブルからコンポーネントを返す設計パターン**」になります。
+今回はこの設計パターンとその実装方法について書きます。
 
 ## render hooks パターン(h() と render)
 
