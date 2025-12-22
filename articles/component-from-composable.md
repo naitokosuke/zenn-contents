@@ -278,7 +278,6 @@ export function useRadio<
 ```
 
 `h()` の第 1 引数には、タグ名だけでなくコンポーネントも渡せます。
-`v-model` は `modelValue` props と `onUpdate:modelValue` イベントに展開されます。
 composable 内で `selected` との双方向バインディングを設定することで、呼び出し側は `<Radio />` と書くだけで済みます。
 
 ## やっぱり 1 ファイルにまとめる(`<script>` と `<script setup>` の組み合わせ)
