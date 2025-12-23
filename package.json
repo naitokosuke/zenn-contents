@@ -6,7 +6,7 @@
     "lint": "textlint",
     "lint:all": "textlint articles/*.md",
     "fmt": "textlint --fix",
-    "fmt:all": "textlint --fix articles/*.md",
+    "fmt:all": "textlint --fix articles/*.md || true",
     "new": "zenn new:article",
     "dev": "zenn preview"
   },
