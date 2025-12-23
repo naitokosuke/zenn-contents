@@ -1,6 +1,6 @@
 ---
 title: "コンポーザブルからコンポーネントを返してみる【Vue】"
-emoji: "🌝"
+emoji: "🪝"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vue", "jsx"]
 published: false
