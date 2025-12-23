@@ -2,12 +2,13 @@
   "name": "articles",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "lint": "textlint",
     "lint:all": "textlint articles/*.md",
     "fmt": "textlint --fix",
     "fmt:all": "textlint --fix articles/*.md || true",
-    "new": "slug=$1 && zenn new:article --slug $slug && mkdir -p images/$slug && touch images/$slug/.gitkeep",
+    "new": "node scripts/new.js",
     "dev": "zenn preview"
   },
   "keywords": [],
