@@ -261,7 +261,7 @@ export function useRadio<
   legend?: string;
   initial?: Options[number];
 }) {
-  const selected = ref<string | undefined>(initial);
+  const selected = ref<Options[number] | undefined>(initial);
 
   const RadioComponent = defineComponent(() => () =>
     h(Radio, {
@@ -269,7 +269,7 @@ export function useRadio<
       name,
       legend,
       modelValue: selected.value,
-      "onUpdate:modelValue": (value: string | undefined) => {
+      "onUpdate:modelValue": (value: Options[number] | undefined) => {
         selected.value = value;
       },
     }),
