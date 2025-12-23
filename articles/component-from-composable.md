@@ -3,7 +3,8 @@ title: "コンポーザブルからコンポーネントを返してみる【Vue
 emoji: "🎨"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vue", "jsx"]
-published: false
+published: true
+published_at: 2025-12-23 12:00
 ---
 
 ## はじめに
