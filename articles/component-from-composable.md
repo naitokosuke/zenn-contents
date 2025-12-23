@@ -578,7 +578,8 @@ render hooks パターンの是非や使いどころについてはまだわか�
 
 <!-- textlint-disable ja-technical-writing/no-doubled-joshi -->
 
-React では render hooks パターンに課題(返却されたコンポーネントが意図せずアンマウントされるためメモ化が必要になる？)があることが知られています。
+React では render hooks パターンに課題があることが知られています。
+(返却されたコンポーネントが意図せずアンマウントされるためメモ化が必要になる？)
 
 <!-- textlint-enable ja-technical-writing/no-doubled-joshi -->
 
