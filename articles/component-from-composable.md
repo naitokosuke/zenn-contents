@@ -10,7 +10,7 @@ published: false
 
 ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
 
-『[【習作】Vue でラジオボタンを実装してみる](https://zenn.dev/naitokosuke/articles/vue-radio-etude)』を公開したところ [chibivue land Discord サーバー](https://discord.gg/aVHvmbmSRy)にて、[miyaoka](https://x.com/miyaoka) さんから、コンポーザブルからコンポーネントを返すようにできると教えていただきました。
+『[【習作】Vue でラジオボタンを実装してみる](https://zenn.dev/naitokosuke/articles/vue-radio-etude)』を公開したところ [chibivue land Discord サーバー](https://discord.gg/aVHvmbmSRy)にて、[miyaoka](https://x.com/miyaoka) さんから、コンポーザブルからコンポーネントを返すようにできると教えていただきました。ありがとうございます。
 「そんなことできるの！？」と驚きましたがたしかにできました。
 この記事では、Vue のコンポーザブルからコンポーネントを返すパターンについてやっていきます。
 
