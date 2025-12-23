@@ -345,7 +345,7 @@ const idPrefix = useId();
 
 ここまで Vue らしいアプローチで実装してきました。
 
-Vue でも JSX を使用できます。
+実は(？) Vue でも JSX を使用できます。
 
 https://ja.vuejs.org/guide/extras/render-function#jsx-tsx
 
