@@ -7,6 +7,10 @@ published: true
 published_at: 2025-12-23 12:00
 ---
 
+[Vue Advent Calendar 2025](https://qiita.com/advent-calendar/2025/vue) 13 日目の記事です。
+
+https://qiita.com/advent-calendar/2025/vue
+
 ## はじめに
 
 ナイトウ([@naitokosuke](https://twitter.com/naitokosuke))と申します。
