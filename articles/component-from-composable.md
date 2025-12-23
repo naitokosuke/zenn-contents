@@ -472,23 +472,20 @@ JSX は HTML に近い構文で記述できるため、`h()` 関数のネスト�
 
 Vue では `class` や `for` といった HTML 属性をそのまま使用できます(React のように `className` や `htmlFor` に書き換える必要がありません)。
 
-この記事の本筋とは特に関係ありませんが、ついでに JSX で scoped CSS を使う方法も紹介しておきます。
+ついでに `vue-jsx-vapor` も紹介しておきます。
 
 <!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
 
-:::details vue-jsx-vapor で scoped CSS を使う
+:::details vue-jsx-vapor
 
-JSX の弱点として「scoped CSS が使えない」がありますが、`vue-jsx-vapor` を使うと解決できます。
+`vue-jsx-vapor` は Vue JSX の Vapor Mode 実装です。
+`vue-jsx-vapor` では `defineStyle()` マクロを使うことで scoped CSS を書くことができます。
 
 https://github.com/vuejs/vue-jsx-vapor
 
 https://jsx-vapor.netlify.app/
 
-`vue-jsx-vapor` は Vue 3.6 以上が必要です。
-
-`vue-jsx-vapor` は Vue JSX の Vapor Mode 実装で、`defineStyle()` マクロを使うと JSX でも scoped CSS が書けます。
-
-vite.config.ts
+※`vue-jsx-vapor` は Vue 3.6 以上が必要です。
 
 ```ts:vite.config.ts
 import vueJsxVapor from "vue-jsx-vapor/vite";
