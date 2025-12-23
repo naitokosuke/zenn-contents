@@ -571,9 +571,7 @@ export function useRadio<
 - JSX は React の render hooks パターンに近い形で記述
 - (vue-jsx-vapor は JSX の書き味に加えて scoped CSS も使える)
 
-どの方法もコンポーザブルからコンポーネントを返すという目的は同じです。
-プロジェクトの技術スタックやチームの好みに合わせて選択してください。
-
+どの方法もコンポーザブルから(props をセットした)コンポーネントを返すという目的は同じです。
 render hooks パターンの是非や使いどころについてはまだわかっていません。
 
 <!-- textlint-disable ja-technical-writing/no-doubled-joshi -->
