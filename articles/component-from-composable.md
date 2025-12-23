@@ -442,22 +442,18 @@ JSX で書いたコードはコンパイル時、`h()` 関数呼び出しへ変�
 [Vue 公式ドキュメント](https://ja.vuejs.org/guide/extras/render-function.html#jsx-tsx)では、以下のように `h()` と JSX の対応が示されています。
 
 ```jsx
-// JSX
 <div>{ok.value ? <div>yes</div> : <span>no</span>}</div>;
 
-// h() 関数
 h("div", [ok.value ? h("div", "yes") : h("span", "no")]);
 ```
 
 ```jsx
-// JSX
 <ul>
   {items.value.map(({ id, text }) => {
     return <li key={id}>{text}</li>;
   })}
 </ul>;
 
-// h() 関数
 h(
   "ul",
   items.value.map(({ id, text }) => {
