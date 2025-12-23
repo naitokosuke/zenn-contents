@@ -587,14 +587,12 @@ https://zenn.dev/fizumi/articles/083db23e25106e
 
 Vue には `useMemo` や `useCallback` がないため、React での課題が Vue では発生しない可能性もあります。
 
-<!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->
-<!-- textlint-disable ja-technical-writing/ja-no-successive-word -->
+<!-- textlint-disable ja-technical-writing/ja-no-weak-phrase --><!-- textlint-disable ja-technical-writing/ja-no-successive-word -->
 
 もしかしたら逆に Vue は render hooks パターンが向いている、、、？
 (まだ何もわかっていないので間違っているかもしれません。)
 
-<!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->
-<!-- textlint-enable ja-technical-writing/ja-no-successive-word -->
+<!-- textlint-enable ja-technical-writing/ja-no-successive-word --><!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->
 
 ## 最後に
 
