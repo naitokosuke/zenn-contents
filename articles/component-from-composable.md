@@ -21,16 +21,8 @@ https://zenn.dev/naitokosuke/articles/vue-radio-etude
 前回の記事に引き続きラジオボタンを例にします。
 `Radio` コンポーネントと、それを初期化する `useRadio()` コンポーザブルがあります。
 
-`Radio` コンポーネントは以下の props を受け取ります。
-
-- `options`: 選択肢の配列(例: `["apple", "orange", "grape"]`)
-- `name`: ラジオボタンの name 属性
-- `legend`: fieldset の legend(任意)
-- `v-model`: 選択された値
-
-`useRadio()` コンポーザブルは、これらの props と選択状態(`selected`)をまとめて返します。
-
-前回の記事では、`useRadio()` コンポーザブルを作成し、`options`, `name`, `legend`, `selected` をまとめて返すところまで実装しました。
+`useRadio()` は `options`, `name`, `legend`, `initial` を引数に取ります。
+そしてコンポーネントの props と選択状態(`selected`)を返します。
 
 ```vue:App.vue
 <script setup lang="ts">
