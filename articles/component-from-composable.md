@@ -574,6 +574,27 @@ export function useRadio<
 どの方法もコンポーザブルからコンポーネントを返すという目的は同じです。
 プロジェクトの技術スタックやチームの好みに合わせて選択してください。
 
+render hooks パターンの是非や使いどころについてはまだわかっていません。
+
+<!-- textlint-disable ja-technical-writing/no-doubled-joshi -->
+
+React では render hooks パターンに課題(返却されたコンポーネントが意図せずアンマウントされるためメモ化が必要になる？)があることが知られています。
+
+<!-- textlint-enable ja-technical-writing/no-doubled-joshi -->
+
+https://zenn.dev/fizumi/articles/083db23e25106e
+
+Vue には `useMemo` や `useCallback` がないため、React での課題が Vue では発生しない可能性もあります。
+
+<!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->
+<!-- textlint-disable ja-technical-writing/ja-no-successive-word -->
+
+もしかしたら逆に Vue は render hooks パターンが向いている、、、？
+(まだ何もわかっていないので間違っているかもしれません。)
+
+<!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->
+<!-- textlint-enable ja-technical-writing/ja-no-successive-word -->
+
 ## 最後に
 
 最後まで読んでいただきありがとうございました！
