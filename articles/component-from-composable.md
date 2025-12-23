@@ -473,6 +473,51 @@ JSX は HTML に近い構文で記述できるため、`h()` 関数のネスト�
 
 Vue では `class` や `for` といった HTML 属性をそのまま使用できます(React のように `className` や `htmlFor` に書き換える必要がありません)。
 
+### SFC 内で JSX を使う
+
+`.tsx` ファイルではなく SFC(`.vue` ファイル)内で JSX を使うこともできます。
+その場合は `<script setup lang="tsx">` を指定します。
+
+```vue:Radio.vue
+<script setup lang="tsx">
+import { ref, useId, defineComponent } from "vue";
+
+const { options, name, legend, initial } = defineProps<{
+  options: readonly [string, string, ...string[]];
+  name: string;
+  legend?: string;
+  initial?: string;
+}>();
+
+const selected = ref<string | undefined>(initial);
+const idPrefix = useId();
+
+const RadioComponent = defineComponent(() => () => (
+  <fieldset>
+    {legend && <legend>{legend}</legend>}
+    {options.map((option) => (
+      <>
+        <input
+          type="radio"
+          id={`${idPrefix}-${option}`}
+          name={name}
+          value={option}
+          v-model={selected}
+        />
+        <label for={`${idPrefix}-${option}`}>{option}</label>
+      </>
+    ))}
+  </fieldset>
+));
+</script>
+
+<template>
+  <RadioComponent />
+</template>
+```
+
+この方法では SFC の構造を維持しながら、`<script setup>` 内で JSX を使ってコンポーネントを定義できます。
+
 ついでに `vue-jsx-vapor` も紹介しておきます。
 
 <!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
