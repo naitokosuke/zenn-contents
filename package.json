@@ -16,6 +16,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@gunshi/docs": "^0.27.4",
     "textlint": "^15.2.1",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-filter-rule-node-types": "^1.1.0",

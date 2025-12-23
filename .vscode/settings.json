@@ -1,7 +1,4 @@
 {
-  "files.exclude": {
-    "**/node_modules/": true
-  },
   "emmet.showSuggestionsAsSnippets": true,
   "editor.quickSuggestions": {
     "other": true,
