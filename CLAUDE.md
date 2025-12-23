@@ -11,11 +11,29 @@ This is a Zenn content repository for publishing technical articles. Zenn is a J
 ### Article Management
 
 ```bash
-# Create a new article
-npx zenn new:article --slug article-slug --title "Article Title" --type tech --emoji 📝
+# Create a new article (recommended - also creates images directory)
+npm run new <article-slug>
 
 # Preview articles locally (opens at http://localhost:8000)
+npm run dev
+
+# Alternatively, use zenn-cli directly
+npx zenn new:article --slug article-slug --title "Article Title" --type tech --emoji 📝
 npx zenn preview
+```
+
+### Linting
+
+```bash
+# Lint all articles
+npm run lint:all
+
+# Format all articles
+npm run fmt:all
+
+# Lint/format specific files
+npm run lint -- articles/specific-article.md
+npm run fmt -- articles/specific-article.md
 ```
 
 ### Article Types
@@ -28,6 +46,7 @@ npx zenn preview
 - `articles/`: Contains all published articles in Markdown format
 - `images/`: Article images organized by article slug (e.g., `images/article-slug/`)
 - `books/`: For book content (currently unused)
+- `scripts/`: Custom CLI scripts using gunshi
 
 ## Article Format
 

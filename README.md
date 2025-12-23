@@ -4,32 +4,55 @@
 
 ## 記事の新規作成
 
+### 推奨: npm scripts を使用
+
+```bash
+npm run new <slug>
 ```
-$ npx zenn new:article --slug {記事のスラッグ} --title {記事のタイトル} --type {tech or tech} --emoji {絵文字}
+
+記事と画像ディレクトリ (`images/<slug>/`) を同時に作成します。
+
+### zenn-cli を直接使用する場合
+
+```bash
+npx zenn new:article --slug {記事のスラッグ} --title {記事のタイトル} --type {tech or idea} --emoji {絵文字}
 ```
 
-- slug
+### オプション
 
-  - 記事のユニーク ID で、`slug` は記事の URL に含まれる(https://zenn.dev/ユーザー名/articles/{slug})
-  - `slug` は半角英小文字(a-z)、半角数字(0-9)、ハイフン(-)、アンダースコア(\_)の 12 ~ 50 字の組み合わせにする必要がある
-  - 一度記事を公開すると変更できない(`slug` を変更すると別記事扱いとなる)
-  - 多分指定しなくていい
+- **slug**
+  - 記事のユニーク ID で、`slug` は記事の URL に含まれる（https://zenn.dev/ユーザー名/articles/{slug}）
+  - 半角英小文字(a-z)、半角数字(0-9)、ハイフン(-)、アンダースコア(\_)の 12〜50 字の組み合わせ
+  - 一度記事を公開すると変更できない（`slug` を変更すると別記事扱いとなる）
 
-- title
-
+- **title**
   - 記事のタイトル
 
-- type
+- **type**
+  - `tech`（技術記事）または `idea`（アイデア記事）
 
-  - `tech` or `idea`
-
-- emoji
-
+- **emoji**
   - アイキャッチとして使われる絵文字
-  - Mac ショートカット `control + command + space`
+  - Mac ショートカット: `control + command + space`
 
 ## 記事のプレビュー
 
+```bash
+npm run dev
+# または
+npx zenn preview
 ```
-$ npx zenn preview
+
+## 文章のチェック（textlint）
+
+```bash
+# 全記事をチェック
+npm run lint:all
+
+# 全記事を自動修正
+npm run fmt:all
+
+# 特定のファイルをチェック/修正
+npm run lint -- articles/specific-article.md
+npm run fmt -- articles/specific-article.md
 ```
