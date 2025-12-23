@@ -9,6 +9,7 @@ This is a Zenn content repository for publishing technical articles. Zenn is a J
 ## Common Commands
 
 ### Article Management
+
 ```bash
 # Create a new article
 npx zenn new:article --slug article-slug --title "Article Title" --type tech --emoji 📝
@@ -18,6 +19,7 @@ npx zenn preview
 ```
 
 ### Article Types
+
 - `tech`: Technical articles
 - `idea`: Idea/opinion pieces
 
@@ -53,3 +55,7 @@ published: true # or false for drafts
 - Articles are automatically synced to zenn.dev when pushed to the main branch
 - The `published: false` frontmatter keeps articles as drafts
 - Zenn supports standard Markdown with some extensions (e.g., message blocks, link cards)
+
+## CLI Development
+
+When creating command-line interfaces, use the `use-gunshi-cli` skill.
