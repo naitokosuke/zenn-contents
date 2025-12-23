@@ -14,6 +14,16 @@ published: false
 「そんなことできるの！？」と驚きましたがたしかにできました。
 この記事では、Vue のコンポーザブルからコンポーネントを返すパターンについてやっていきます。
 
+⬇️ こうなったらちょっと嬉しい感じがしませんか？
+
+```vue
+<!-- Before -->
+<Radio v-model="selected" :options :name :legend />
+
+<!-- After -->
+<Radio />
+```
+
 ## 前回の記事のおさらい
 
 https://zenn.dev/naitokosuke/articles/vue-radio-etude
