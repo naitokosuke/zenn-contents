@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { cli } from 'gunshi'
 import { execSync } from 'node:child_process'
 import { mkdirSync, writeFileSync } from 'node:fs'
