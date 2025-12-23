@@ -14,11 +14,12 @@ published: false
 「そんなことできるの！？」と驚きましたがたしかにできました。
 この記事では、Vue のコンポーザブルからコンポーネントを返すパターンについてやっていきます。
 
-https://zenn.dev/naitokosuke/articles/vue-radio-etude
-
 ## 前回の記事のおさらい
 
+https://zenn.dev/naitokosuke/articles/vue-radio-etude
+
 前回の記事に引き続きラジオボタンを例にします。
+(前回の記事は読まなくても全く問題ありません。)
 `Radio` コンポーネントと、それを初期化する `useRadio()` コンポーザブルがあります。
 
 `useRadio()` は `options`, `name`, `legend`, `initial` を引数に取ります。
