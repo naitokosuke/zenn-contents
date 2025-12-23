@@ -592,6 +592,9 @@ Vue には `useMemo` や `useCallback` がないため、React での課題が V
 
 <!-- textlint-enable ja-technical-writing/ja-no-successive-word --><!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->
 
+render hooks パターンを知って、改めて Vue が好きになりました。
+引き続き勉強していきたいです。
+
 ## 最後に
 
 最後まで読んでいただきありがとうございました！
