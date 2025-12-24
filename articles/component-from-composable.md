@@ -430,7 +430,7 @@ export function useRadio<
             id={`${idPrefix}-${option}`}
             name={name}
             value={option}
-            v-model={selected.value}
+            v-model={selected}
           />
           <label for={`${idPrefix}-${option}`}>{option}</label>
         </>
@@ -587,7 +587,7 @@ export function useRadio<
               id={`${idPrefix}-${option}`}
               name={name}
               value={option}
-              v-model={selected.value}
+              v-model={selected}
             />
             <label for={`${idPrefix}-${option}`}>{option}</label>
           </div>
