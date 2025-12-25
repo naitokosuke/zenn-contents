@@ -14,10 +14,10 @@ const command = define({
   },
   examples: `
 # Create a new article
-npm run new my-article-slug
+bun run new my-article-slug
 
 # Create an article about Vue.js
-npm run new vue-tips-2024
+bun run new vue-tips-2024
 `.trim(),
   run: (ctx) => {
     const { slug } = ctx.values;
@@ -27,7 +27,7 @@ npm run new vue-tips-2024
     execSync(`zenn new:article --slug ${slug}`, { stdio: "inherit" });
 
     // Create images directory with .gitkeep
-    const imagesDir = join(process.cwd(), "images", slug);
+    const imagesDir = join(process.cwd(), "images", slug as string);
     mkdirSync(imagesDir, { recursive: true });
     writeFileSync(join(imagesDir, ".gitkeep"), "");
     console.log(`Created images directory: images/${slug}/`);

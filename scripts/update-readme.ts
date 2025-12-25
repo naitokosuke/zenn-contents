@@ -2,14 +2,25 @@ import { cli, define } from "gunshi";
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-/**
- * フロントマターをパースする
- */
-function parseFrontmatter(content) {
+interface Frontmatter {
+  title?: string;
+  published?: boolean;
+  publication_name?: string;
+  [key: string]: string | boolean | string[] | undefined;
+}
+
+interface Article {
+  slug: string;
+  title: string;
+  url: string;
+}
+
+/** フロントマターをパースする */
+function parseFrontmatter(content: string): Frontmatter | null {
   const match = content.match(/^---\n([\s\S]*?)\n---/);
   if (!match) return null;
 
-  const frontmatter = {};
+  const frontmatter: Frontmatter = {};
   const lines = match[1].split("\n");
 
   for (const line of lines) {
@@ -17,7 +28,7 @@ function parseFrontmatter(content) {
     if (colonIndex === -1) continue;
 
     const key = line.slice(0, colonIndex).trim();
-    let value = line.slice(colonIndex + 1).trim();
+    let value: string | boolean | string[] = line.slice(colonIndex + 1).trim();
 
     // 文字列のクォートを除去
     if (
@@ -46,18 +57,14 @@ function parseFrontmatter(content) {
   return frontmatter;
 }
 
-/**
- * 記事のURLを生成する
- */
-function generateUrl(slug, publicationName) {
+/** 記事のURLを生成する */
+function generateUrl(slug: string, publicationName?: string): string {
   const base = publicationName || "kosuke_naito";
   return `https://zenn.dev/${base}/articles/${slug}`;
 }
 
-/**
- * README.mdを生成する
- */
-function generateReadme(articles) {
+/** README.mdを生成する */
+function generateReadme(articles: Article[]): string {
   let content = `# Zenn Contents
 
 [![Zenn](https://img.shields.io/badge/Zenn-3EA8FF?logo=zenn&logoColor=fff)](https://zenn.dev/kosuke_naito)
@@ -82,7 +89,7 @@ const command = define({
     const articlesDir = join(process.cwd(), "articles");
     const files = readdirSync(articlesDir).filter((f) => f.endsWith(".md"));
 
-    const articles = [];
+    const articles: Article[] = [];
 
     for (const file of files) {
       const slug = file.replace(".md", "");
@@ -102,7 +109,7 @@ const command = define({
 
       articles.push({
         slug,
-        title: frontmatter.title,
+        title: frontmatter.title || slug,
         url: generateUrl(slug, frontmatter.publication_name),
       });
     }
