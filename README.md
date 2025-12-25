@@ -35,12 +35,22 @@
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- |
 | [『All about VoidZero - The Interview with Evan You』を見てわかったこと思ったこと](https://zenn.dev/comm_vue_nuxt/articles/alexander_interview_about_voidzero_with_evan) | VoidZero, Vite, Oxc, Rolldown |
 
+### カンファレンス
+
+| 記事                                                                                                           | トピック        |
+| -------------------------------------------------------------------------------------------------------------- | --------------- |
+| [【感謝】Vue Fes Japan 2025 登壇しました【初】](https://zenn.dev/and_and/articles/making-vuefes2025-dx-ntr-pc) | Vue Fes, Slidev |
+
+### Python
+
+| 記事                                                                                                                | トピック     |
+| ------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [【Python】Ruff を使って Python らしいコードを学ぼう【初心者】](https://zenn.dev/and_and/articles/python_with_ruff) | Python, Ruff |
+
 ### その他
 
 | 記事                                                                                                                                                 | トピック                 |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| [【感謝】Vue Fes Japan 2025 登壇しました【初】](https://zenn.dev/and_and/articles/making-vuefes2025-dx-ntr-pc)                                       | Vue Fes, Slidev          |
 | [Claude Code がインストールしていないツールを使いこなしている！？](https://zenn.dev/and_and/articles/claude-code-ripgrep)                            | Claude Code, ripgrep, AI |
 | [「ブランチ作ってプッシュするたびに --set-upstream 打つのが面倒だな」と感じているなら](https://zenn.dev/and_and/articles/git-push-auto-setup-remote) | Git                      |
-| [【Python】Ruff を使って Python らしいコードを学ぼう【初心者】](https://zenn.dev/and_and/articles/python_with_ruff)                                  | Python, Ruff             |
 | [英語ドキュメント、記事、ブログを読むための英単語帳](https://zenn.dev/and_and/articles/english_glossary_for_jp_dev)                                  | 英語                     |
