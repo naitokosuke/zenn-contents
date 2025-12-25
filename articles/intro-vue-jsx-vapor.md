@@ -45,13 +45,14 @@ https://qiita.com/advent-calendar/2025/vue
 
 #### Vue 3.6 beta
 
+- 2024 年 12 月 23 日に v3.6.0-beta.1 がリリース
 - Vapor Mode の機能が完成し、Virtual DOM モードの安定機能と同等の機能を持つ
 - まだ不安定な状態とみなされている
 - 推奨用途：既存アプリでのパフォーマンス重視のサブページ実装、または小規模な新規アプリ全体を Vapor で構築
 - `<script setup>` を使用した SFC のみで動作
 - `<script setup vapor>` で opt-in
 - `createVaporApp` で作成したアプリは Virtual DOM ランタイムコードを読み込まず、バンドルサイズを大幅削減
-- Alien Signals 1.0 の統合により、依存関係追跡のオーバーヘッド削減、メモリ使用量削減、リアクティブデータ追跡のパフォーマンス向上
+- Alien Signals の統合により、依存関係追跡のオーバーヘッド削減、メモリ使用量削減、リアクティブデータ追跡のパフォーマンス向上
 
 #### vue-jsx-vapor 3.1.0 リリース内容
 
