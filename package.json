@@ -8,9 +8,9 @@
     "lint:all": "textlint articles/*.md",
     "fmt": "textlint --fix",
     "fmt:all": "textlint --fix articles/*.md || true",
-    "new": "node scripts/new.js",
+    "new": "bun scripts/new.js",
     "dev": "zenn preview",
-    "update-readme": "node scripts/update-readme.js"
+    "update-readme": "bun scripts/update-readme.js"
   },
   "keywords": [],
   "author": "",
