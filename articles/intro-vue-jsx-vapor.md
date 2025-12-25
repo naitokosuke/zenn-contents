@@ -40,12 +40,14 @@ https://qiita.com/advent-calendar/2025/vue
 - Virtual DOM を使用しないレンダリングモード
 - Vue SFC の新しいコンパイルモード
 - Virtual DOM の生成と差分計算をスキップし、リアクティブ処理を高速化
-- Solid.js や Svelte 5 と同等のパフォーマンスをベンチマークで実証
+- Solid.js や Svelte 5 と同等のパフォーマンスをベンチマークで実証（[Vue 3.6.0-beta.1 Release Notes](https://github.com/vuejs/core/releases/tag/v3.6.0-beta.1)）
 - 100% オプトイン、既存の Vue API のサブセットをサポート
+- **ランタイムサイズ**: Virtual DOM モードと比較して **53% 削減**（[Vue School - Rizumu Ayaka's Talk](https://vueschool.io/articles/news/building-vues-high-performance-future-vapor-mode-insights-from-rizumu-ayakas-vue-js-nation-2025-talk/)）
+- **バンドルサイズ**: Vapor のみのアプリは約 6KB（Virtual DOM 版の約 50KB から **88% 削減**）（[Vue Mastery](https://www.vuemastery.com/blog/the-future-of-vue-vapor-mode/)）
 
 #### Vue 3.6 beta
 
-- 2024 年 12 月 23 日に v3.6.0-beta.1 がリリース
+- 2024 年 12 月 23 日に v3.6.0-beta.1 がリリース（[GitHub Release](https://github.com/vuejs/core/releases/tag/v3.6.0-beta.1)）
 - Vapor Mode の機能が完成し、Virtual DOM モードの安定機能と同等の機能を持つ
 - まだ不安定な状態とみなされている
 - 推奨用途：既存アプリでのパフォーマンス重視のサブページ実装、または小規模な新規アプリ全体を Vapor で構築
@@ -53,19 +55,63 @@ https://qiita.com/advent-calendar/2025/vue
 - `<script setup vapor>` で opt-in
 - `createVaporApp` で作成したアプリは Virtual DOM ランタイムコードを読み込まず、バンドルサイズを大幅削減
 - Alien Signals の統合により、依存関係追跡のオーバーヘッド削減、メモリ使用量削減、リアクティブデータ追跡のパフォーマンス向上
+- **Vapor と VDOM の相互運用**: `vaporInteropPlugin` を使用することで、Vapor コンポーネントと VDOM コンポーネントを相互にネストして使用可能（[Vue School](https://vueschool.io/articles/news/vn-talk-evan-you-preview-of-vue-3-6-vapor-mode/)）
+- **制限事項**: Suspense は Vapor のみモードでは未サポート（VDOM の Suspense 内で Vapor コンポーネントを使用することは可能）
+
+#### Alien Signals について
+
+Alien Signals は Vue 3.6 に統合された軽量なリアクティビティライブラリ（[GitHub](https://github.com/stackblitz/alien-signals)）
+
+**パフォーマンス改善（Vue 3.4 比）**（[PR #12349](https://github.com/vuejs/core/pull/12349)）:
+
+- **メモリ使用量**: 13% 削減（2.3MB → 2.0MB）
+- **computed 生成**: 1.28 倍高速
+- **1000 個の computed を持つ ref への書き込み**: 1.71 倍高速
+- **1000 個の ref を 1 つの computed で読み取り**: 3.41〜3.63 倍高速
+- **effect 生成（1 ref 追跡）**: 1.32 倍高速
+- **effect 生成（100 refs 追跡）**: 1.62 倍高速
+- **1000 refs を変更する単一 effect**: 3.47 倍高速
+
+**ベンチマーク比較**（[js-reactivity-benchmark](https://github.com/transitive-bullshit/js-reactivity-benchmark)）:
+| ライブラリ | スコア (ms) |
+|------------|-------------|
+| alien-signals | 1,692.89 |
+| @reactively | 2,269.09 |
+| Svelte v5 | 3,063.93 |
+| SolidJS | 4,281.22 |
+| @vue/reactivity (3.4) | 7,095.32 |
+
+**技術的特徴**:
+
+- Vue 3.4 のリアクティビティシステムをベースに研究目的で書き直し
+- Array/Set/Map を使用しない制約により、最小限のメモリ使用量を実現
+- Vue 3 の伝播アルゴリズム、Preact の双方向リンクリスト、Svelte の effect スケジューリング、Reactively のグラフカラーリングを統合
 
 #### vue-jsx-vapor について
 
-- Rust (Oxc) でコンパイラを実装、Babel 比で 20 倍の性能向上
+Vue の JSX を Vapor Mode でコンパイルするためのツール（[GitHub](https://github.com/vuejs/vue-jsx-vapor)、[公式ドキュメント](https://jsx-vapor.netlify.app)）
+
+**主な特徴**:
+
+- Rust (Oxc) でコンパイラを実装、**Babel 比で 20 倍の性能向上**（[Oxc Benchmarks](https://oxc.rs/docs/guide/benchmarks)では Oxc は Babel 比 20〜50 倍高速と報告）
 - 全ての Vue 組み込みディレクティブをサポート
 - Vue のほとんどのマクロをサポート（JSX フレンドリー）
-- Volar プラグインによる型安全性
+- Volar プラグインによる型安全性（[TS Macro VSCode 拡張](https://marketplace.visualstudio.com/items?itemName=pineappletv.ts-macro)経由）
 - ESLint プラグインによるディレクティブとマクロの自動フォーマット
+- **言語構成**: Rust 74.4%、TypeScript 21.4%、JavaScript 4.2%
+
+**対応ビルドツール**:
+
+- Vite
+- Rollup
+- Webpack
+- esbuild
 
 #### vue-jsx-vapor 3.1.0 リリース内容
 
-- 2025 年 12 月 25 日リリース
+- 2025 年 12 月 25 日リリース（[GitHub Releases](https://github.com/vuejs/vue-jsx-vapor/releases)）
 - Virtual DOM 生成機能の追加（Vapor 形式に加えて標準的な Virtual DOM ベースのアプローチも選択可能に）
+- v3.1.1 が同日にパッチリリース
 
 #### JSX とは
 
@@ -103,15 +149,41 @@ https://qiita.com/advent-calendar/2025/vue
 - Vapor は「関数コンポーネントを主推」する設計
 - `defineVaporComponent` は props 分割代入時のみ必須（省略可能）
 - macros 特性を有効にしなければ `defineComponent` と同様に利用可能
-- 将来的な PR (vuejs/core#13831) で古い書法との互換性向上予定
+- [PR #13831](https://github.com/vuejs/core/pull/13831) で型定義が改善（2025 年 12 月 8 日マージ済み）
+  - 関数コンポーネントのジェネリック props、slots、expose のサポート
+  - オプションスタイルコンポーネントの完全な型サポート
+  - `new (props?: P)` パターンによる JSX との相互運用性向上
+  - `VaporComponentInstance`、`FunctionalVaporComponent`、`ObjectVaporComponent` 型のエクスポート
 
 #### 参考リンク
 
-- https://vueschool.io/articles/news/vn-talk-evan-you-preview-of-vue-3-6-vapor-mode/
-- https://github.com/vuejs/core/releases/tag/v3.6.0-beta.1
-- https://www.vuemastery.com/blog/whats-next-for-vue-in-2025/
-- https://github.com/vuejs/vue-jsx-vapor
-- https://jsx-vapor.netlify.app (公式ドキュメント)
-- https://repl.zmjs.dev/vuejs/vue-jsx-vapor (Playground)
-- https://vuejs.org/guide/extras/render-function (Vue 公式 - Render Functions & JSX)
-- https://www.npmjs.com/package/@vitejs/plugin-vue-jsx
+**Vue 3.6 / Vapor Mode**:
+
+- [Vue 3.6.0-beta.1 Release Notes](https://github.com/vuejs/core/releases/tag/v3.6.0-beta.1)
+- [Vue School - Evan You's Vue.js Nation 2025 Talk](https://vueschool.io/articles/news/vn-talk-evan-you-preview-of-vue-3-6-vapor-mode/)
+- [Vue School - Rizumu Ayaka's Vue.js Nation 2025 Talk](https://vueschool.io/articles/news/building-vues-high-performance-future-vapor-mode-insights-from-rizumu-ayakas-vue-js-nation-2025-talk/)
+- [Vue Mastery - What's next for Vue in 2025?](https://www.vuemastery.com/blog/whats-next-for-vue-in-2025/)
+- [Vue Mastery - The Future of Vue: Vapor Mode](https://www.vuemastery.com/blog/the-future-of-vue-vapor-mode/)
+
+**Alien Signals**:
+
+- [GitHub - stackblitz/alien-signals](https://github.com/stackblitz/alien-signals)
+- [PR #12349 - alien-signals integration](https://github.com/vuejs/core/pull/12349)
+- [js-reactivity-benchmark](https://github.com/transitive-bullshit/js-reactivity-benchmark)
+
+**vue-jsx-vapor**:
+
+- [GitHub - vuejs/vue-jsx-vapor](https://github.com/vuejs/vue-jsx-vapor)
+- [公式ドキュメント](https://jsx-vapor.netlify.app)
+- [Playground](https://repl.zmjs.dev/vuejs/vue-jsx-vapor)
+- [PR #13831 - defineVaporComponent types](https://github.com/vuejs/core/pull/13831)
+
+**Vue JSX (Virtual DOM)**:
+
+- [Vue 公式 - Render Functions & JSX](https://vuejs.org/guide/extras/render-function)
+- [@vitejs/plugin-vue-jsx](https://www.npmjs.com/package/@vitejs/plugin-vue-jsx)
+
+**Oxc (コンパイラ)**:
+
+- [Oxc 公式サイト](https://oxc.rs/)
+- [Oxc Benchmarks](https://oxc.rs/docs/guide/benchmarks)
