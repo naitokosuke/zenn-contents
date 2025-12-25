@@ -19,7 +19,7 @@ https://qiita.com/advent-calendar/2025/vue
 
 https://github.com/vuejs/vue-jsx-vapor
 
-## Vue Vapor Mode とは
+## Vue Vapor Mode とは？
 
 Vue Vapor Mode は、Virtual DOM を使用しない新しいレンダリングモードです。
 2024 年 12 月 23 日に Vue 3.6.0-beta.1 がリリースされ、Vapor Mode が利用可能になりました。
@@ -64,7 +64,7 @@ Suspense は Vapor のみモードでは未サポートです（VDOM の Suspens
 
 <!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
-## Alien Signals
+## Alien Signals とは？
 
 Vue 3.6 には [Alien Signals](https://github.com/stackblitz/alien-signals) という軽量なリアクティビティライブラリが統合されています。
 
@@ -104,7 +104,7 @@ Alien Signals は Vue 3.4 のリアクティビティシステムをベースに
 Array/Set/Map を使用しない制約により、最小限のメモリ使用量を実現しています。
 Vue 3 の伝播アルゴリズム、Preact の双方向リンクリスト、Svelte の effect スケジューリング、Reactively のグラフカラーリングなど、複数のライブラリのアイデアを統合しています。
 
-## vue-jsx-vapor とは
+## vue-jsx-vapor とは？
 
 vue-jsx-vapor は、Vue の JSX を Vapor Mode でコンパイルするためのツールです。
 
@@ -119,6 +119,7 @@ https://jsx-vapor.netlify.app
 - Vue のほとんどのマクロをサポート（JSX フレンドリー）
 - Volar プラグインによる型安全性（[TS Macro VSCode 拡張](https://marketplace.visualstudio.com/items?itemName=pineappletv.ts-macro)経由）
 - ESLint プラグインによるディレクティブとマクロの自動フォーマット
+- 言語構成は Rust 74.4%、TypeScript 21.4%、JavaScript 4.2%
 
 ### 対応ビルドツール
 
@@ -133,31 +134,129 @@ https://jsx-vapor.netlify.app
 
 2025 年 12 月 25 日にリリースされた v3.1.0 では、Virtual DOM 生成機能が追加されました。
 Vapor 形式に加えて、標準的な Virtual DOM ベースのアプローチも選択できるようになりました。
+v3.1.1 が同日にパッチリリースされています。
 
-## JSX と Vue
+## vue-jsx-vapor のセットアップ
+
+Vite プロジェクトでの導入例を紹介します。
+
+### インストール
+
+```bash
+npm install -D vue-jsx-vapor
+```
+
+### Vite の設定
+
+`vite.config.ts` に設定を追加します。
+
+```ts:vite.config.ts
+import { defineConfig } from "vite";
+import vueJsxVapor from "vue-jsx-vapor/vite";
+
+export default defineConfig({
+  plugins: [vueJsxVapor()],
+});
+```
+
+### tsconfig.json の設定
+
+TypeScript を使用する場合は、`tsconfig.json` に JSX の設定を追加します。
+
+```json:tsconfig.json
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "vue"
+  }
+}
+```
+
+## vue-jsx-vapor の基本的な書き方
+
+vue-jsx-vapor を使うと、`.tsx` ファイルで Vapor コンポーネントを記述できます。
+
+### 基本的なコンポーネント
+
+```tsx:Counter.tsx
+import { ref } from "vue";
+
+export default function Counter() {
+  const count = ref(0);
+
+  return (
+    <button onClick={() => count.value++}>
+      Count: {count.value}
+    </button>
+  );
+}
+```
+
+関数コンポーネントとして定義し、Vue のリアクティブな値をそのまま使用できます。
+
+### props を受け取るコンポーネント
+
+props を分割代入する場合は `defineVaporComponent` を使用します。
+
+```tsx:Greeting.tsx
+import { defineVaporComponent } from "vue";
+
+interface Props {
+  name: string;
+  age?: number;
+}
+
+export default defineVaporComponent(({ name, age = 20 }: Props) => {
+  return (
+    <div>
+      <p>Hello, {name}!</p>
+      <p>Age: {age}</p>
+    </div>
+  );
+});
+```
+
+### ディレクティブの使用
+
+vue-jsx-vapor では全ての Vue 組み込みディレクティブをサポートしています。
+
+```tsx:DirectiveExample.tsx
+import { ref } from "vue";
+
+export default function DirectiveExample() {
+  const visible = ref(true);
+  const items = ref(["Apple", "Banana", "Cherry"]);
+
+  return (
+    <div>
+      {/* v-show */}
+      <p v-show={visible.value}>This is visible</p>
+
+      {/* v-model */}
+      <input v-model={visible.value} type="checkbox" />
+
+      {/* v-for（map を使用） */}
+      <ul>
+        {items.value.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+## JSX と Vue の関係
 
 JSX は JavaScript XML の略で、JavaScript の構文拡張です。
+JS ファイル内に HTML ライクなマークアップを書けます。
 元々は Facebook が React 用に作成しましたが、JSX と React は別物であり、独立して使用できます。
+また、JSX は埋め込み値をレンダリング前にエスケープするため、XSS 攻撃を防ぐ効果もあります。
 
 ### Vue での JSX の書き方
 
 Vue JSX と React JSX のトランスフォームは異なります。
 Vue では `class` や `for` などの HTML 属性をそのまま使用でき、`className` や `htmlFor` は不要です。
-
-```jsx
-// v-show はそのまま使える
-<div v-show={visible}>表示</div>;
-
-// v-if は三項演算子で
-{
-  isVisible ? <p>表示</p> : null;
-}
-
-// v-for は map で
-{
-  items.map((item) => <li key={item.id}>{item.text}</li>);
-}
-```
 
 vue-jsx-vapor では全ての Vue 組み込みディレクティブをサポートしているため、SFC のテンプレートに近い書き方ができます。
 
@@ -171,6 +270,9 @@ vue-jsx-vapor は Rust（Oxc）で書き直され、Babel 比 20 倍高速です
 ## defineVaporComponent
 
 Vapor Mode でコンポーネントを定義するには `defineVaporComponent` を使用します。
+
+従来の `defineComponent` との構文が異なり、関数形式に変わっています。
+Vapor は「関数コンポーネントを主推」する設計になっており、移行時の認知負荷が高いという指摘もあります。
 
 <!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
 
@@ -197,19 +299,11 @@ vue-jsx-vapor を使えば、JSX で Vapor Mode の恩恵を受けられます�
 
 まだベータ版ですが、パフォーマンスが重要なアプリケーションでは試してみる価値があるでしょう。
 
-## 参考リンク
-
-- [Vue 3.6.0-beta.1 Release Notes](https://github.com/vuejs/core/releases/tag/v3.6.0-beta.1)
-- [vue-jsx-vapor GitHub](https://github.com/vuejs/vue-jsx-vapor)
-- [vue-jsx-vapor 公式ドキュメント](https://jsx-vapor.netlify.app)
-- [vue-jsx-vapor Playground](https://repl.zmjs.dev/vuejs/vue-jsx-vapor)
-- [Alien Signals GitHub](https://github.com/stackblitz/alien-signals)
-- [Vue 公式 - Render Functions & JSX](https://vuejs.org/guide/extras/render-function)
-
 ## 最後に
 
 最後まで読んでいただきありがとうございました！
 
+<!--
 ## ドラフトメモ
 
 ### ブレスト
@@ -384,3 +478,4 @@ Vue の JSX を Vapor Mode でコンパイルするためのツール（[GitHub]
 
 - [Oxc 公式サイト](https://oxc.rs/)
 - [Oxc Benchmarks](https://oxc.rs/docs/guide/benchmarks)
+-->
