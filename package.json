@@ -9,7 +9,8 @@
     "fmt": "textlint --fix",
     "fmt:all": "textlint --fix articles/*.md || true",
     "new": "node scripts/new.js",
-    "dev": "zenn preview"
+    "dev": "zenn preview",
+    "update-readme": "node scripts/update-readme.js"
   },
   "keywords": [],
   "author": "",
