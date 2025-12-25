@@ -72,14 +72,16 @@ Vue 3.4 比でのパフォーマンス改善（[PR #12349](https://github.com/vu
 - effect 生成（100 refs 追跡）が 1.62 倍高速
 - 1000 refs を変更する単一 effect が 3.47 倍高速
 
-**ベンチマーク比較**（[js-reactivity-benchmark](https://github.com/transitive-bullshit/js-reactivity-benchmark)）:
+**ベンチマーク比較**（[js-reactivity-benchmark](https://github.com/transitive-bullshit/js-reactivity-benchmark)、2025年1月10日、M3 MacBook Pro、Node.js v22.10.0）:
 | ライブラリ | スコア (ms) |
 |------------|-------------|
-| alien-signals | 1,692.89 |
-| @reactively | 2,269.09 |
-| Svelte v5 | 3,063.93 |
-| SolidJS | 4,281.22 |
-| @vue/reactivity (3.4) | 7,095.32 |
+| alien-signals | 約 70 |
+| @reactively | 約 90 |
+| Svelte v5 | 約 90 |
+| SolidJS | 約 200 |
+| @vue/reactivity | 約 300 |
+
+※ alien-signals は @vue/reactivity 比で約 4 倍高速
 
 **技術的特徴**:
 
