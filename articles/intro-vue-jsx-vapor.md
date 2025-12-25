@@ -43,7 +43,7 @@ https://qiita.com/advent-calendar/2025/vue
 - Solid.js や Svelte 5 と同等のパフォーマンスをベンチマークで実証（[Vue 3.6.0-beta.1 Release Notes](https://github.com/vuejs/core/releases/tag/v3.6.0-beta.1)）
 - 100% オプトイン、既存の Vue API のサブセットをサポート
 - ランタイムサイズは Virtual DOM モードと比較して 53% 削減（[Vue School - Rizumu Ayaka's Talk](https://vueschool.io/articles/news/building-vues-high-performance-future-vapor-mode-insights-from-rizumu-ayakas-vue-js-nation-2025-talk/)）
-- Vapor のみのアプリはバンドルサイズ約 6KB（Virtual DOM 版の約 50KB から 88% 削減）（[Vue Mastery](https://www.vuemastery.com/blog/the-future-of-vue-vapor-mode/)）
+- Vapor のみのアプリはバンドルサイズ約 6KB（Virtual DOM 版の約 50KB から 88% 削減）（[DEV Community](https://dev.to/icarusgk/all-we-know-about-vue-3-vapor-mode-3nfa)）
 
 #### Vue 3.6 beta
 
