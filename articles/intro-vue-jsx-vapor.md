@@ -54,15 +54,18 @@ https://qiita.com/advent-calendar/2025/vue
 - `createVaporApp` で作成したアプリは Virtual DOM ランタイムコードを読み込まず、バンドルサイズを大幅削減
 - Alien Signals の統合により、依存関係追跡のオーバーヘッド削減、メモリ使用量削減、リアクティブデータ追跡のパフォーマンス向上
 
-#### vue-jsx-vapor 3.1.0 リリース内容
+#### vue-jsx-vapor について
 
-- 2025 年 12 月 25 日リリース
-- Virtual DOM 生成機能の統合（Vapor 形式に加えて標準的な Virtual DOM ベースのアプローチも選択可能）
-- Rust でコンパイラを書き直し、Babel 比で 20 倍の性能向上
+- Rust (Oxc) でコンパイラを実装、Babel 比で 20 倍の性能向上
 - 全ての Vue 組み込みディレクティブをサポート
 - Vue のほとんどのマクロをサポート（JSX フレンドリー）
 - Volar プラグインによる型安全性
 - ESLint プラグインによるディレクティブとマクロの自動フォーマット
+
+#### vue-jsx-vapor 3.1.0 リリース内容
+
+- 2025 年 12 月 25 日リリース
+- Virtual DOM 生成機能の追加（Vapor 形式に加えて標準的な Virtual DOM ベースのアプローチも選択可能に）
 
 #### JSX とは
 
