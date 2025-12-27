@@ -123,9 +123,34 @@ export default function Counter() {
 
 関数コンポーネントとして定義し、Vue のリアクティブな値をそのまま使用できます。
 
-### props を受け取るコンポーネント
+Vapor ではない通常の Vue JSX では以下のように `defineComponent` でラップする必要がありました。
 
-props を分割代入する場合は `defineVaporComponent` を使用します。
+```tsx:Counter.tsx
+import { defineComponent, ref } from "vue";
+
+export default defineComponent(() => {
+  const count = ref(0);
+
+  return () => (
+    <button onClick={() => count.value++}>
+      Count: {count.value}
+    </button>
+  );
+});
+```
+
+`defineComponent` のラップが必須であるだけでなく、JSX を返す関数を return する二重構造のような記法となっていました。
+
+Vapor Mode では `defineVaporComponent` を使わずにコンポーネントを記述できます。
+JSX を直接 return するだけでよく、React の関数コンポーネントに近い書き心地で開発できます。
+
+### `defineVaporComponent()`
+
+Vapor についても `defineVaporComponent()` という API が存在します。(Vue 3.6 から)
+
+https://jsx-vapor.netlify.app/introduction/migration.html
+
+公式ドキュメントのマイグレーションガイド(JSX -> JSX Vapor)にもありますが props destructure の際には注意が必要で、`defineVaporComponent()` を使うことになります。
 
 ```tsx:Greeting.tsx
 import { defineVaporComponent } from "vue";
