@@ -22,7 +22,7 @@ https://github.com/vuejs/vue-jsx-vapor
 ## Vue Vapor Mode とは？
 
 Vue Vapor Mode は、Virtual DOM を使用しない新しいレンダリングモードです。
-2024 年 12 月 23 日に Vue 3.6.0-beta.1 がリリースされ、Vapor Mode が利用可能になりました。
+2025 年 12 月 23 日に Vue 3.6.0-beta.1 がリリースされ、Vapor Mode が利用可能になりました。
 
 https://github.com/vuejs/core/releases/tag/v3.6.0-beta.1
 
@@ -333,7 +333,7 @@ vue-jsx-vapor を使えば、JSX で Vapor Mode の恩恵を受けられます�
 
 #### Vue 3.6 beta
 
-- 2024 年 12 月 23 日に v3.6.0-beta.1 がリリース（[GitHub Release](https://github.com/vuejs/core/releases/tag/v3.6.0-beta.1)）
+- 2025 年 12 月 23 日に v3.6.0-beta.1 がリリース（[GitHub Release](https://github.com/vuejs/core/releases/tag/v3.6.0-beta.1)）
 - Vapor Mode の機能が完成し、Virtual DOM モードの安定機能と同等の機能を持つ
 - まだ不安定な状態とみなされている
 - 推奨用途：既存アプリでのパフォーマンス重視のサブページ実装、または小規模な新規アプリ全体を Vapor で構築
