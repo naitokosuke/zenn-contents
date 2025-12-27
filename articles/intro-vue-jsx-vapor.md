@@ -150,7 +150,7 @@ Vapor についても `defineVaporComponent()` という API が存在します�
 
 https://jsx-vapor.netlify.app/introduction/migration.html
 
-公式ドキュメントのマイグレーションガイド(JSX -> JSX Vapor)にもありますが props destructure の際には注意が必要で、`defineVaporComponent()` を使うことになります。
+公式ドキュメントのマイグレーションガイドにもありますが props destructure の際には注意が必要で、`defineVaporComponent()` を使うことになります。
 
 ```tsx:Greeting.tsx
 import { defineVaporComponent } from "vue";
