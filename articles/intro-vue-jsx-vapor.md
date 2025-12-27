@@ -90,41 +90,16 @@ https://jsx-vapor.netlify.app
 2025 年 12 月 25 日にリリースされた v3.1.0 で仮想 DOM 生成機能が追加されました。
 https://x.com/zhiyuanzmj/status/2004109574841029117
 
-## vue-jsx-vapor のセットアップ
+## Getting Started
 
-Vite プロジェクトでの導入例を紹介します。
+https://jsx-vapor.netlify.app/introduction/getting-started.html
 
-### インストール
+公式ドキュメントを見れば問題なく vue-jsx-vapor を始められます。
+注意点としては以下です。
 
-```bash
-npm install -D vue-jsx-vapor
-```
-
-### Vite の設定
-
-`vite.config.ts` に設定を追加します。
-
-```ts:vite.config.ts
-import { defineConfig } from "vite";
-import vueJsxVapor from "vue-jsx-vapor/vite";
-
-export default defineConfig({
-  plugins: [vueJsxVapor()],
-});
-```
-
-### tsconfig.json の設定
-
-TypeScript を使用する場合は、`tsconfig.json` に JSX の設定を追加します。
-
-```json:tsconfig.json
-{
-  "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "vue"
-  }
-}
-```
+- Vue 3.6 以上であること
+- VS Code 拡張機能で [TS Macro](https://marketplace.visualstudio.com/items?itemName=zhiyuanzmj.vscode-ts-macro) を使用する
+- 型チェックでは @ts-macro/tsc(tsc ではなく)
 
 ## vue-jsx-vapor の基本的な書き方
 
