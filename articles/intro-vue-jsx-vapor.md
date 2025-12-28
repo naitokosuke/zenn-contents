@@ -122,36 +122,6 @@ export default defineComponent(() => {
 `defineComponent()` の使用だけでなく、JSX を返す関数を return する二重構造のような記法となっていました。
 vue-jsx-vapor では JSX を直接 return するだけでよく、React の関数コンポーネントに近い書き心地で開発できます。
 
-<!--
-defineStyle の配置候補:
-- 候補1: ここ（基本的な書き方の後）- コンポーネント → スタイルという流れ
-- 候補2: ディレクティブの後、Interop の後 - Vue の機能としてまとめる
-- 候補3: 独立した目玉機能セクションとして強調
--->
-
-### `defineStyle` マクロ
-
-JSX でスタイルを扱うのは煩雑になりがちですが、vue-jsx-vapor の `defineStyle` は Vue SFC の `<style scoped>` に近い体験を提供します。
-
-https://jsx-vapor.netlify.app/features/macros.html
-
-```tsx
-function Button({ color = "blue" }) {
-  defineStyle.scss(`
-    .btn {
-      background: ${color};
-      &:hover { opacity: 0.8; }
-    }
-  `);
-  return <button class="btn">Click</button>;
-}
-```
-
-- SCSS, Sass, Less, Stylus, PostCSS に対応
-- JS 変数を CSS 内にバインド可能
-- スコープ付き CSS（`:deep()` 等も使える）
-- CSS モジュールに対応
-
 ### `defineVaporComponent()`
 
 Vapor についても `defineVaporComponent()` という API が存在します。(Vue 3.6 から)
@@ -167,6 +137,28 @@ export default defineVaporComponent(({ name }: { name: string }) => {
   return <p>Hello, {name}!</p>;
 });
 ```
+
+### Interop(Vapor と Virtual DOM の相互運用)
+
+v3.1 で仮想 DOM 生成機能が追加され、Vapor と vDOM の相互運用が可能になりました。
+
+https://jsx-vapor.netlify.app/introduction/interop.html
+
+v3.1 より前の vue-jsx-vapor は Vapor DOM のみを生成していたため、vDOM 部分は `@vitejs/plugin-vue-jsx` など別のプラグインに委譲する必要がありました。
+v3.1 以降は vue-jsx-vapor 単体で Vapor と vDOM の両方を生成できます。
+
+`defineVaporComponent` 内の JSX は Vapor DOM として、それ以外の JSX は Virtual DOM としてコンパイルされます。
+
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
+:::message
+Interop 時は関数コンポーネントを使用するとエラーになる場合があります。`defineVaporComponent` と `defineComponent` を使い分けて明示的に区別することをおすすめします。
+:::
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
+
+Vapor コンポーネントと vDOM コンポーネントは相互に利用できます。
+既存の vDOM プロジェクトにパフォーマンスが重要な部分だけ Vapor を導入する、といった段階的な移行が可能です。
 
 ### Vue のディレクティブのサポート
 
@@ -208,35 +200,28 @@ export default function DirectiveExample() {
 }
 ```
 
-### Interop(Vapor と Virtual DOM の相互運用)
+### `defineStyle` マクロ
 
-v3.1 で仮想 DOM 生成機能が追加され、Vapor と vDOM の相互運用が可能になりました。
+JSX でスタイルを扱うのは煩雑になりがちですが、vue-jsx-vapor の `defineStyle` は Vue SFC の `<style scoped>` に近い体験を提供します。
 
-https://jsx-vapor.netlify.app/introduction/interop.html
-
-v3.1 より前の vue-jsx-vapor は Vapor DOM のみを生成していたため、vDOM 部分は `@vitejs/plugin-vue-jsx` など別のプラグインに委譲する必要がありました。
-v3.1 以降は vue-jsx-vapor 単体で Vapor と vDOM の両方を生成できます。
-
-`defineVaporComponent` でラップしたコンポーネントは Vapor DOM として、それ以外は Virtual DOM としてコンパイルされます。
+https://jsx-vapor.netlify.app/features/macros.html
 
 ```tsx
-import { defineVaporComponent } from "vue";
-
-// Vapor DOM としてコンパイルされる
-const VaporCounter = defineVaporComponent(() => {
-  const count = ref(0);
-  return <button onClick={() => count.value++}>{count.value}</button>;
-});
-
-// Virtual DOM としてコンパイルされる
-const VdomCounter = () => {
-  const count = ref(0);
-  return () => <button onClick={() => count.value++}>{count.value}</button>;
-};
+function Button({ color = "blue" }) {
+  defineStyle.scss(`
+    .btn {
+      background: ${color};
+      &:hover { opacity: 0.8; }
+    }
+  `);
+  return <button class="btn">Click</button>;
+}
 ```
 
-Vapor コンポーネントと vDOM コンポーネントは相互に利用できます。
-既存の vDOM プロジェクトにパフォーマンスが重要な部分だけ Vapor を導入する、といった段階的な移行が可能です。
+- SCSS, Sass, Less, Stylus, PostCSS に対応
+- JS 変数を CSS 内にバインド可能
+- スコープ付き CSS(`:deep()` 等も使える)
+- CSS モジュールに対応
 
 ## まとめ
 
