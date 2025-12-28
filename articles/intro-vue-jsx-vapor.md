@@ -147,6 +147,7 @@ Vapor についても `defineVaporComponent()` という API が存在します�
 
 https://jsx-vapor.netlify.app/introduction/migration.html
 
+関数コンポーネントで props を分割代入するとリアクティビティが失われます。
 props destructure をするためには `defineVaporComponent()` を使う必要があります。
 
 ```tsx
