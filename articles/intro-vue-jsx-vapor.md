@@ -314,7 +314,7 @@ import { ref } from "vue";
 
 export default () => {
   const count = ref(0);
-  // JSX を直接 return できる
+  // JSX を直接返すことが可能に！
   return <button onClick={() => count.value++}>{count.value}</button>;
 };
 ```
