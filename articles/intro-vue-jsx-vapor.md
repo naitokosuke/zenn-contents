@@ -107,7 +107,7 @@ export default function Counter() {
 ```
 
 関数コンポーネントとして定義し、Vue のリアクティブな値をそのまま使用できます。
-Vapor ではない通常の Vue JSX では以下のように `defineComponent` でラップする必要がありました。
+(Vapor ではない)以前の Vue JSX では以下のように `defineComponent` でラップする必要がありました。
 
 ```tsx
 import { defineComponent, ref } from "vue";
