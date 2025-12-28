@@ -150,7 +150,11 @@ export default defineVaporComponent(({ name }: { name: string }) => {
 
 vue-jsx-vapor では全ての Vue 組み込みディレクティブをサポートしています。
 
-```tsx:DirectiveExample.tsx
+https://jsx-vapor.netlify.app/features/directives.html
+
+(以下はディレクティブの一部です。)
+
+```tsx
 import { ref } from "vue";
 
 export default function DirectiveExample() {
@@ -159,13 +163,10 @@ export default function DirectiveExample() {
 
   return (
     <div>
-      {/* v-show */}
-      <p v-show={visible.value}>This is visible</p>
+      <p v-if={visible.value}>This is visible.</p>
 
-      {/* v-model */}
       <input v-model={visible.value} type="checkbox" />
 
-      {/* v-for(map を使用) */}
       <ul>
         {items.value.map((item, index) => (
           <li key={index}>{item}</li>
