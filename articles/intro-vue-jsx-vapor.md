@@ -65,7 +65,7 @@ https://rirfee.com/blog/2025/12/vapor-mode%e3%82%92%e3%81%a4%e3%81%be%e3%81%bf%e
 
 ## vue-jsx-vapor ？
 
-vue-jsx-vapor は Vue の JSX を Vapor Mode でコンパイルするためのツールです。
+vue-jsx-vapor は Vue の JSX を Vapor Mode でコンパイルするためのコンパイラ & ビルドツールプラグインです。
 
 https://github.com/vuejs/vue-jsx-vapor
 
