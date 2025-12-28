@@ -209,20 +209,28 @@ https://jsx-vapor.netlify.app/features/macros.html
 
 ```tsx
 function Button({ color = "blue" }) {
-  defineStyle.scss(`
-    .btn {
+  defineStyle(`
+    button {
       background: ${color};
-      &:hover { opacity: 0.8; }
+      &:hover {
+        opacity: 0.8;
+      }
     }
   `);
-  return <button class="btn">Click</button>;
+  return <button>Click</button>;
 }
 ```
 
-- SCSS, Sass, Less, Stylus, PostCSS に対応
-- JS 変数を CSS 内にバインド可能
-- スコープ付き CSS(`:deep()` 等も使える)
-- CSS モジュールに対応
+デフォルトでは関数内で定義した場合は scoped、ファイルのトップレベルで定義した場合は global になります。
+またはオプションで明示的に指定できます。
+
+```tsx
+// scoped を明示的に指定
+defineStyle(`button { color: red; }`, { scoped: true });
+
+// global を明示的に指定
+defineStyle(`button { color: red; }`, { scoped: false });
+```
 
 ## まとめ
 
