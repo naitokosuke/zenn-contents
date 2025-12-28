@@ -200,8 +200,8 @@ https://jsx-vapor.netlify.app/features/directives.html
 ```tsx
 import { ref } from "vue";
 
-export default function DirectiveExample() {
-  const visible = ref(true);
+export default () => {
+  const visible = ref(false);
   const items = ref(["Apple", "Banana", "Cherry"]);
 
   return (
@@ -217,7 +217,7 @@ export default function DirectiveExample() {
       </ul>
     </div>
   );
-}
+};
 ```
 
 ### `defineStyle` マクロ
