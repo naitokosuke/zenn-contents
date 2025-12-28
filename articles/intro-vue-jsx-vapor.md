@@ -92,7 +92,7 @@ https://jsx-vapor.netlify.app/introduction/getting-started.html
 
 - Vue 3.6 以上
 - VS Code 拡張機能 [TS Macro](https://marketplace.visualstudio.com/items?itemName=zhiyuanzmj.vscode-ts-macro)
-- 型チェックは @ts-macro/tsc(tsc ではなく)
+- 型チェックは @ts-macro/tsc(`tsc` ではなく `tsmc`)
 
 ## 基本的な書き方
 
