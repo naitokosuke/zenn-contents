@@ -80,9 +80,6 @@ https://jsx-vapor.netlify.app
 - Volar プラグインによる型安全性(VS Code 拡張機能 [TS Macro](https://marketplace.visualstudio.com/items?itemName=pineappletv.ts-macro))
 - ESLint プラグインによるディレクティブとマクロの自動フォーマット
 
-2025 年 12 月 25 日にリリースされた v3.1 で仮想 DOM 生成機能が追加されました。
-https://x.com/zhiyuanzmj/status/2004109574841029117
-
 ## Getting Started
 
 https://jsx-vapor.netlify.app/introduction/getting-started.html
@@ -143,6 +140,9 @@ export default defineVaporComponent(({ name }: { name: string }) => {
 SFC と同様に、vue-jsx-vapor でも Vapor と仮想 DOM を併用できます。
 
 https://jsx-vapor.netlify.app/introduction/interop.html
+
+2025 年 12 月 25 日にリリースされた v3.1 で仮想 DOM 生成機能が追加されました。
+https://x.com/zhiyuanzmj/status/2004109574841029117
 
 v3.1 より前の vue-jsx-vapor は Vapor DOM のみを生成していました。
 そのため仮想 DOM 部分は `@vitejs/plugin-vue-jsx`(`@vue/babel-plugin-jsx` を使用)など別のプラグインに委譲する必要がありました。
