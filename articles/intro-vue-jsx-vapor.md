@@ -26,7 +26,7 @@ import { ref } from "vue";
 export default () => {
   const count = ref(0);
 
-  return <button onClick={() => count.value++}>Count: {count.value}</button>;
+  return <button onClick={() => count.value++}>{count.value}</button>;
 };
 ```
 
@@ -102,7 +102,7 @@ import { ref } from "vue";
 export default function Counter() {
   const count = ref(0);
 
-  return <button onClick={() => count.value++}>Count: {count.value}</button>;
+  return <button onClick={() => count.value++}>{count.value}</button>;
 }
 ```
 
@@ -115,9 +115,7 @@ import { defineComponent, ref } from "vue";
 export default defineComponent(() => {
   const count = ref(0);
 
-  return () => (
-    <button onClick={() => count.value++}>Count: {count.value}</button>
-  );
+  return () => <button onClick={() => count.value++}>{count.value}</button>;
 });
 ```
 
