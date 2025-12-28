@@ -43,7 +43,7 @@ Vue ではこれまでも JSX を使用できましたが、 Vue で JSX を使�
 
 ## Vue Vapor Mode とは？
 
-Vue Vapor Mode は Virtual DOM を使用しない新しいレンダリングモードです。
+Vue Vapor Mode は仮想 DOM を使用しない新しいレンダリングモードです。
 
 SFC で Vapor Mode を有効にするには、`<script setup vapor>` と記述します。
 
@@ -138,16 +138,17 @@ export default defineVaporComponent(({ name }: { name: string }) => {
 });
 ```
 
-### Interop(Vapor と Virtual DOM の相互運用)
+### Interop(Vapor と仮想 DOM の相互運用)
 
-v3.1 で仮想 DOM 生成機能が追加され、Vapor と vDOM の相互運用が可能になりました。
+SFC と同様に、vue-jsx-vapor でも Vapor と仮想 DOM を併用できます。
 
 https://jsx-vapor.netlify.app/introduction/interop.html
 
-v3.1 より前の vue-jsx-vapor は Vapor DOM のみを生成していたため、vDOM 部分は `@vitejs/plugin-vue-jsx` など別のプラグインに委譲する必要がありました。
-v3.1 以降は vue-jsx-vapor 単体で Vapor と vDOM の両方を生成できます。
+v3.1 より前の vue-jsx-vapor は Vapor DOM のみを生成していました。
+そのため仮想 DOM 部分は `@vitejs/plugin-vue-jsx`(`@vue/babel-plugin-jsx` を使用)など別のプラグインに委譲する必要がありました。
+v3.1 以降は vue-jsx-vapor 単体で Vapor と仮想 DOM の両方を生成できます。
 
-`defineVaporComponent` 内の JSX は Vapor DOM として、それ以外の JSX は Virtual DOM としてコンパイルされます。
+`defineVaporComponent` 内の JSX は Vapor DOM として、それ以外の JSX は仮想 DOM としてコンパイルされます。
 
 <!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
 
@@ -157,8 +158,8 @@ Interop 時は関数コンポーネントを使用するとエラーになる場
 
 <!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
-Vapor コンポーネントと vDOM コンポーネントは相互に利用できます。
-既存の vDOM プロジェクトにパフォーマンスが重要な部分だけ Vapor を導入する、といった段階的な移行が可能です。
+Vapor コンポーネントと仮想 DOM コンポーネントは相互に利用できます。
+既存の仮想 DOM プロジェクトにパフォーマンスが重要な部分だけ Vapor を導入する、といった段階的な移行が可能です。
 
 ### Vue のディレクティブのサポート
 
