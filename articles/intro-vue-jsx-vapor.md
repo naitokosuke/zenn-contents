@@ -74,8 +74,9 @@ https://jsx-vapor.netlify.app
 ### キーマン
 
 vue-jsx-vapor は [zhiyuanzmj](https://github.com/zhiyuanzmj) さんが中心となって開発しています。
+(お名前の読み方が分からずこのアイコンで覚えさせていただいています。)
 
-zhiyuanzmj さんは Vue, Vue Macros, @vue/language-tools のチームメンバーです。
+![zhiyuanzmj さんの GitHub プロフィール](/images/intro-vue-jsx-vapor/zhiyuanzmj.png)
 
 ### 主な特徴
 
