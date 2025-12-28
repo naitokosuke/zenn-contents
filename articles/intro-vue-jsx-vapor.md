@@ -95,7 +95,7 @@ https://github.com/oxc-project/oxc/issues/15761
 - 仮想 DOM と Vapor DOM の両方の生成をサポート
 - 全ての Vue 組み込みディレクティブをサポート
 - Vue のほとんどのマクロをサポート(JSX フレンドリー)
-- Volar プラグインによる型安全性(VS Code 拡張機能 [TS Macro](https://marketplace.visualstudio.com/items?itemName=pineappletv.ts-macro))
+- Volar プラグインによる型安全性(VS Code 拡張機能 [TS Macro](https://marketplace.visualstudio.com/items?itemName=zhiyuanzmj.vscode-ts-macro))
 - ESLint プラグインによるディレクティブとマクロの自動フォーマット
 
 ## Getting Started
