@@ -160,6 +160,43 @@ v3.1 以降は vue-jsx-vapor 単体で Vapor と仮想 DOM の両方を生成で
 
 https://repl.zmjs.dev/vuejs/vapor-in-virtual-dom
 
+```ts:index.ts
+import { createApp, vaporInteropPlugin } from "vue";
+import App from "./App.tsx";
+createApp(App).use(vaporInteropPlugin).mount("#app");
+```
+
+```tsx:App.tsx
+import {
+  defineComponent,
+  defineVaporComponent,
+  computed,
+  ref,
+  shallowRef as useRef,
+} from "vue";
+
+const Comp = defineVaporComponent(({ count = 0 }) => {
+  defineExpose({
+    double: computed(() => count * 2),
+  });
+  return <span> x 2 = </span>;
+});
+
+export default defineComponent(() => {
+  const count = ref(1);
+
+  const compRef = useRef();
+  return () => (
+    <>
+      <input v-model={count.value} />
+      <Comp count={count.value} ref={compRef}></Comp>
+
+      <span v-if={compRef.value}>{compRef.value.double}</span>
+    </>
+  );
+});
+```
+
 <!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
 
 [仮想 DOM in Vapor playground](https://repl.zmjs.dev/vuejs/virtual-dom-in-vapor)
