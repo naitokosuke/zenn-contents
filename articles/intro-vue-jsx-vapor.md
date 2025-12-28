@@ -71,6 +71,12 @@ https://github.com/vuejs/vue-jsx-vapor
 
 https://jsx-vapor.netlify.app
 
+### キーマン
+
+vue-jsx-vapor は [zhiyuanzmj](https://github.com/zhiyuanzmj) さんが中心となって開発しています。
+
+zhiyuanzmj さんは Vue, Vue Macros, @vue/language-tools のチームメンバーです。
+
 ### 主な特徴
 
 - Rust(Oxc)でコンパイラを実装(Babel 比で 20 倍の性能向上)
