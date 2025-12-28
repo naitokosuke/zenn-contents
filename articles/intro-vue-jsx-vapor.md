@@ -177,50 +177,6 @@ export default function DirectiveExample() {
 }
 ```
 
-## JSX と Vue の関係
-
-JSX は JavaScript XML の略で、JavaScript の構文拡張です。
-JS ファイル内に HTML ライクなマークアップを書けます。
-元々は Facebook が React 用に作成しましたが、JSX と React は別物であり、独立して使用できます。
-また、JSX は埋め込み値をレンダリング前にエスケープするため、XSS 攻撃を防ぐ効果もあります。
-
-### Vue での JSX の書き方
-
-Vue JSX と React JSX のトランスフォームは異なります。
-Vue では `class` や `for` などの HTML 属性をそのまま使用でき、`className` や `htmlFor` は不要です。
-
-vue-jsx-vapor では全ての Vue 組み込みディレクティブをサポートしているため、SFC のテンプレートに近い書き方ができます。
-
-### Virtual DOM 版との違い
-
-従来の Vue JSX(@vitejs/plugin-vue-jsx)は @vue/babel-plugin-jsx のラッパーで、esbuild と Babel を使用しています。
-
-vue-jsx-vapor は Rust(Oxc)で書き直され、Babel 比 20 倍高速です。
-さらに Vapor Mode と Virtual DOM 両方の生成をサポートしています。
-
-## defineVaporComponent
-
-Vapor Mode でコンポーネントを定義するには `defineVaporComponent` を使用します。
-
-従来の `defineComponent` との構文が異なり、関数形式に変わっています。
-Vapor は「関数コンポーネントを主推」する設計になっており、移行時の認知負荷が高いという指摘もあります。
-
-<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
-
-:::message
-`defineVaporComponent` は props を分割代入する場合のみ必須です。
-macros 特性を有効にしなければ `defineComponent` と同様に利用できます。
-:::
-
-<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
-
-[PR #13831](https://github.com/vuejs/core/pull/13831) で型定義が改善され(2025 年 12 月 8 日マージ済み)、以下がサポートされました。
-
-- 関数コンポーネントのジェネリック props、slots、expose
-- オプションスタイルコンポーネントの完全な型サポート
-- `new (props?: P)` パターンで JSX との相互運用がしやすくなった
-- `VaporComponentInstance`、`FunctionalVaporComponent`、`ObjectVaporComponent` 型のエクスポート
-
 ## まとめ
 
 vue-jsx-vapor を紹介しました。
