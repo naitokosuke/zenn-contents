@@ -279,6 +279,14 @@ function Button({ color = "blue" }) {
 
 デフォルトでは関数内で定義した場合は scoped、ファイルのトップレベルで定義した場合は global になります。
 
+## `defineComponent()` から `defineVaporComponent()`(関数コンポーネント) への記法の変化
+
+vue-jsx-vapor による JSX のコードをいくつか見てきました。
+これまでに Vue で JSX を使用されてきた方は少し混乱されたかもしれません。
+その混乱についての issue があります。
+
+<!-- https://github.com/vuejs/vue-jsx-vapor/issues/18 からわかることについて -->
+
 ## まとめ
 
 vue-jsx-vapor を紹介しました。
