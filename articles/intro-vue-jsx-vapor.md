@@ -339,7 +339,6 @@ export default defineComponent(() => {
 コンパイル時にテンプレートや JSX が実 DOM を直接操作するコードに変換され、リアクティブな値が変わると該当する DOM ノードだけが更新されます。
 
 render 関数を繰り返し呼び出す必要がないため、setup と render を分離する二重構造も不要になりました。
-これが vue-jsx-vapor で React のような関数コンポーネントが書ける理由です。
 
 ## まとめ
 
