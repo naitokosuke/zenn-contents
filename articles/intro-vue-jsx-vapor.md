@@ -128,8 +128,7 @@ export default defineComponent(() => {
 ```
 
 `defineComponent` の使用だけでなく、JSX を返す関数を return する二重構造のような記法となっていました。
-
-Vapor Mode では JSX を直接 return するだけでよく、React の関数コンポーネントに近い書き心地で開発できます。
+vue-jsx-vapor では JSX を直接 return するだけでよく、React の関数コンポーネントに近い書き心地で開発できます。
 
 ### `defineVaporComponent()`
 
@@ -137,7 +136,7 @@ Vapor についても `defineVaporComponent()` という API が存在します�
 
 https://jsx-vapor.netlify.app/introduction/migration.html
 
-公式ドキュメントのマイグレーションガイドにもありますが props destructure の際には注意が必要で、`defineVaporComponent()` を使うことになります。
+公式ドキュメントのマイグレーションガイドにもありますが props destructure の際には `defineVaporComponent()` を使う必要があります。
 
 ```tsx:Greeting.tsx
 import { defineVaporComponent } from "vue";
