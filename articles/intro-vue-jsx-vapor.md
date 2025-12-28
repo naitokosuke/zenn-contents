@@ -150,10 +150,29 @@ v3.1 以降は vue-jsx-vapor 単体で Vapor と仮想 DOM の両方を生成で
 
 `defineVaporComponent` 内の JSX は Vapor DOM として、それ以外の JSX は仮想 DOM としてコンパイルされます。
 
+仮想 DOM 内で Vapor コンポーネントを使用したり、Vapor コンポーネントの中で仮想 DOM を使用できたりします。
+
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
+[Vapor in 仮想 DOM playground](https://repl.zmjs.dev/vuejs/vapor-in-virtual-dom)
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
+
+https://repl.zmjs.dev/vuejs/vapor-in-virtual-dom
+
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
+[仮想 DOM in Vapor playground](https://repl.zmjs.dev/vuejs/virtual-dom-in-vapor)
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
+
+https://repl.zmjs.dev/vuejs/virtual-dom-in-vapor
+
 <!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
 
 :::message
-Interop 時は関数コンポーネントを使用するとエラーになる場合があります。`defineVaporComponent` と `defineComponent` を使い分けて明示的に区別することをおすすめします。
+(2025 年 12 月 28 日時点)Interop しようとする際に `defineComponent()`, `defineVaporComponent()` を使わずに関数コンポーネントを使用するとエラーになりました。
+公式 playground 上のコードのように `defineVaporComponent` と `defineComponent` を明示的に使用することをおすすめします。
 :::
 
 <!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
