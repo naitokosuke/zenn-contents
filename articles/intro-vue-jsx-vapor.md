@@ -278,15 +278,6 @@ function Button({ color = "blue" }) {
 ```
 
 デフォルトでは関数内で定義した場合は scoped、ファイルのトップレベルで定義した場合は global になります。
-またはオプションで明示的に指定できます。
-
-```tsx
-// scoped を明示的に指定
-defineStyle(`button { color: red; }`, { scoped: true });
-
-// global を明示的に指定
-defineStyle(`button { color: red; }`, { scoped: false });
-```
 
 ## まとめ
 
