@@ -315,8 +315,6 @@ https://github.com/vuejs/vue-jsx-vapor/issues/18
 
 この issue で従来の `defineComponent` から Vapor Mode の関数コンポーネントへの移行について議論されています。
 
-### 従来の Vue JSX(仮想 DOM)
-
 ```tsx
 import { defineComponent, ref } from "vue";
 
@@ -328,37 +326,6 @@ export default defineComponent(() => {
 ```
 
 仮想 DOM では `defineComponent` 内で setup と render を区別するために、関数を返すという二重構造が必要でした。
-
-### Vapor Mode の関数コンポーネント
-
-```tsx
-import { ref } from "vue";
-
-export default () => {
-  const count = ref(0);
-  // JSX を直接返すことが可能に！
-  return <button onClick={() => count.value++}>{count.value}</button>;
-};
-```
-
-Vapor Mode では純粋な関数コンポーネントとして記述できます。`defineVaporComponent` は props の分割代入が必要な場合にのみ使用します。
-
-### `defineVaporComponent` が必要なケース
-
-```tsx
-import { defineVaporComponent } from "vue";
-
-// props を分割代入する場合は defineVaporComponent が必要
-export default defineVaporComponent(({ name, count = 0 }) => {
-  return (
-    <p>
-      Hello, {name}! Count: {count}
-    </p>
-  );
-});
-```
-
-`defineVaporComponent` は分割代入された props に対して自動的にリアクティビティを維持する「マジック」を適用します。
 
 ## まとめ
 
