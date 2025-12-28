@@ -37,7 +37,7 @@ export default () => {
 https://repl.zmjs.dev/vue-jsx-vapor
 
 これが vue-jsx-vapor のコードです。JSX ですよね。
-React など JSX を用いるライブラリ・フレームワークの方はしっくりくると思われます。
+React など JSX を用いるライブラリ・フレームワークをお使いの方はしっくりくるんじゃないかと。
 
 <!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->
 
