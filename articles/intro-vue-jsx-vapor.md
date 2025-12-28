@@ -20,7 +20,7 @@ https://github.com/vuejs/vue-jsx-vapor
 
 # まずはこれを見てほしい
 
-```jsx
+```tsx
 import { ref } from "vue";
 
 export default () => {
@@ -96,33 +96,27 @@ https://jsx-vapor.netlify.app/introduction/getting-started.html
 
 ## 基本的な書き方
 
-```tsx:Counter.tsx
+```tsx
 import { ref } from "vue";
 
 export default function Counter() {
   const count = ref(0);
 
-  return (
-    <button onClick={() => count.value++}>
-      Count: {count.value}
-    </button>
-  );
+  return <button onClick={() => count.value++}>Count: {count.value}</button>;
 }
 ```
 
 関数コンポーネントとして定義し、Vue のリアクティブな値をそのまま使用できます。
 Vapor ではない通常の Vue JSX では以下のように `defineComponent` でラップする必要がありました。
 
-```tsx:Counter.tsx
+```tsx
 import { defineComponent, ref } from "vue";
 
 export default defineComponent(() => {
   const count = ref(0);
 
   return () => (
-    <button onClick={() => count.value++}>
-      Count: {count.value}
-    </button>
+    <button onClick={() => count.value++}>Count: {count.value}</button>
   );
 });
 ```
@@ -138,7 +132,7 @@ https://jsx-vapor.netlify.app/introduction/migration.html
 
 props destructure をするためには `defineVaporComponent()` を使う必要があります。
 
-```tsx:Greeting.tsx
+```tsx
 import { defineVaporComponent } from "vue";
 
 export default defineVaporComponent(({ name }: { name: string }) => {
