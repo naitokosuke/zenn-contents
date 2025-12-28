@@ -1,8 +1,9 @@
 ---
-title: "vue-jsx-vapor を知る"
-emoji: "🚀"
+title: "Vapor Mode で大きく変わる Vue JSX 体験"
+emoji: "😶‍🌫️"
 type: "tech"
 topics: ["vuejs", "jsx"]
+publication_name: "comm_vue_nuxt"
 published: false
 ---
 
