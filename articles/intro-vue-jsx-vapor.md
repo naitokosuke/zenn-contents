@@ -207,9 +207,7 @@ export default () => {
   return (
     <div>
       <p v-if={visible.value}>This is visible.</p>
-
       <input v-model={visible.value} type="checkbox" />
-
       <ul>
         {items.value.map((item, index) => (
           <li key={index}>{item}</li>
