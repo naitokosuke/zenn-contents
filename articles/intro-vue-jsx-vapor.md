@@ -22,7 +22,7 @@ https://github.com/vuejs/vue-jsx-vapor
 
 https://x.com/lcMenci/status/1990680368488591411
 
-# まずはこれを見てほしい
+## まずはこれを見てほしい
 
 ```tsx
 import { ref } from "vue";
@@ -108,7 +108,7 @@ https://jsx-vapor.netlify.app/introduction/getting-started.html
 - VS Code 拡張機能 [TS Macro](https://marketplace.visualstudio.com/items?itemName=zhiyuanzmj.vscode-ts-macro)
 - 型チェックは @ts-macro/tsc(`tsc` ではなく `tsmc`)
 
-## 基本的な書き方
+## 次世代の Vue JSX の書き方
 
 ```tsx
 import { ref } from "vue";
