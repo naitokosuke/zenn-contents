@@ -276,7 +276,7 @@ export default () => {
 
 JSX でスタイルを扱うのは煩雑になりがちな印象ですが、vue-jsx-vapor の `defineStyle` は Vue SFC の `<style scoped>` に近い体験を提供します。
 
-そしてこの機能が普段 SFC で `<style scoped>` を使用している僕にとってはとても魅力的に思えます。
+この機能が普段 SFC で `<style scoped>` を使用している僕にとってはとても魅力的に思えます。
 
 https://jsx-vapor.netlify.app/features/macros.html
 
