@@ -2,7 +2,7 @@
 title: "vue-jsx-vapor を知る"
 emoji: "🚀"
 type: "tech"
-topics: ["vuejs", "jsx", "vapor"]
+topics: ["vuejs", "jsx"]
 published: false
 ---
 
@@ -24,16 +24,9 @@ https://github.com/vuejs/vue-jsx-vapor
 import { ref } from "vue";
 
 export default () => {
-  const count = ref(1);
+  const count = ref(0);
 
-  return (
-    <>
-      <button onClick={() => count.value++}>+</button>
-      <button onClick={() => count.value--}>-</button>
-
-      <div v-for={index in count.value}>{index}</div>
-    </>
-  );
+  return <button onClick={() => count.value++}>Count: {count.value}</button>;
 };
 ```
 
@@ -72,7 +65,7 @@ https://rirfee.com/blog/2025/12/vapor-mode%e3%82%92%e3%81%a4%e3%81%be%e3%81%bf%e
 
 ## vue-jsx-vapor とは？
 
-vue-jsx-vapor は、Vue の JSX を Vapor Mode でコンパイルするためのツールです。
+vue-jsx-vapor は Vue の JSX を Vapor Mode でコンパイルするためのツールです。
 
 https://github.com/vuejs/vue-jsx-vapor
 
@@ -80,11 +73,11 @@ https://jsx-vapor.netlify.app
 
 ### 主な特徴
 
-- Rust(Oxc)でコンパイラを実装し、Babel 比で 20 倍の性能向上
+- Rust(Oxc)でコンパイラを実装(Babel 比で 20 倍の性能向上)
 - 仮想 DOM と Vapor DOM の両方の生成をサポート
 - 全ての Vue 組み込みディレクティブをサポート
 - Vue のほとんどのマクロをサポート(JSX フレンドリー)
-- Volar プラグインによる型安全性([TS Macro VSCode 拡張](https://marketplace.visualstudio.com/items?itemName=pineappletv.ts-macro)経由)
+- Volar プラグインによる型安全性(VS Code 拡張機能 [TS Macro](https://marketplace.visualstudio.com/items?itemName=pineappletv.ts-macro)経由)
 - ESLint プラグインによるディレクティブとマクロの自動フォーマット
 
 2025 年 12 月 25 日にリリースされた v3.1.0 で仮想 DOM 生成機能が追加されました。
@@ -97,15 +90,11 @@ https://jsx-vapor.netlify.app/introduction/getting-started.html
 公式ドキュメントを見れば問題なく vue-jsx-vapor を始められます。
 注意点としては以下です。
 
-- Vue 3.6 以上であること
-- VS Code 拡張機能で [TS Macro](https://marketplace.visualstudio.com/items?itemName=zhiyuanzmj.vscode-ts-macro) を使用する
-- 型チェックでは @ts-macro/tsc(tsc ではなく)
+- Vue 3.6 以上
+- VS Code 拡張機能 [TS Macro](https://marketplace.visualstudio.com/items?itemName=zhiyuanzmj.vscode-ts-macro)
+- 型チェックは @ts-macro/tsc(tsc ではなく)
 
-## vue-jsx-vapor の基本的な書き方
-
-vue-jsx-vapor を使うと、`.tsx` ファイルで Vapor コンポーネントを記述できます。
-
-### 基本的なコンポーネント
+## 基本的な書き方
 
 ```tsx:Counter.tsx
 import { ref } from "vue";
@@ -122,7 +111,6 @@ export default function Counter() {
 ```
 
 関数コンポーネントとして定義し、Vue のリアクティブな値をそのまま使用できます。
-
 Vapor ではない通常の Vue JSX では以下のように `defineComponent` でラップする必要がありました。
 
 ```tsx:Counter.tsx
@@ -155,18 +143,8 @@ https://jsx-vapor.netlify.app/introduction/migration.html
 ```tsx:Greeting.tsx
 import { defineVaporComponent } from "vue";
 
-interface Props {
-  name: string;
-  age?: number;
-}
-
-export default defineVaporComponent(({ name, age = 20 }: Props) => {
-  return (
-    <div>
-      <p>Hello, {name}!</p>
-      <p>Age: {age}</p>
-    </div>
-  );
+export default defineVaporComponent(({ name }: { name: string }) => {
+  return <p>Hello, {name}!</p>;
 });
 ```
 
