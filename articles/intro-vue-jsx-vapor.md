@@ -108,7 +108,11 @@ https://jsx-vapor.netlify.app/introduction/getting-started.html
 - VS Code 拡張機能 [TS Macro](https://marketplace.visualstudio.com/items?itemName=zhiyuanzmj.vscode-ts-macro)
 - 型チェックは @ts-macro/tsc(`tsc` ではなく `tsmc`)
 
+<!-- textlint-disable ai-writing/no-ai-hype-expressions -->
+
 ## 次世代の Vue JSX の書き方
+
+<!-- textlint-enable ai-writing/no-ai-hype-expressions -->
 
 ```tsx
 import { ref } from "vue";
