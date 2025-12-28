@@ -208,24 +208,35 @@ export default function DirectiveExample() {
 }
 ```
 
-### Interop
+### Interop(Vapor と Virtual DOM の相互運用)
 
 v3.1 で仮想 DOM 生成機能が追加され、Vapor と vDOM の相互運用が可能になりました。
 
 https://jsx-vapor.netlify.app/introduction/interop.html
 
-**Before（v3.1 より前）：**
+v3.1 より前の vue-jsx-vapor は Vapor DOM のみを生成していたため、vDOM 部分は `@vitejs/plugin-vue-jsx` など別のプラグインに委譲する必要がありました。
+v3.1 以降は vue-jsx-vapor 単体で Vapor と vDOM の両方を生成できます。
 
-- vue-jsx-vapor は Vapor DOM のみ生成
-- vDOM 部分は @vitejs/plugin-vue-jsx など別のプラグインに委譲
+`defineVaporComponent` でラップしたコンポーネントは Vapor DOM として、それ以外は Virtual DOM としてコンパイルされます。
 
-**After（v3.1 以降）：**
+```tsx
+import { defineVaporComponent } from "vue";
 
-- vue-jsx-vapor 単体で Vapor と vDOM の両方を生成
-- `defineVaporComponent` 内 → Vapor DOM
-- `defineVaporComponent` 外 → Virtual DOM
+// Vapor DOM としてコンパイルされる
+const VaporCounter = defineVaporComponent(() => {
+  const count = ref(0);
+  return <button onClick={() => count.value++}>{count.value}</button>;
+});
 
-これにより、既存の vDOM プロジェクトに Vapor を段階的に導入できます。
+// Virtual DOM としてコンパイルされる
+const VdomCounter = () => {
+  const count = ref(0);
+  return () => <button onClick={() => count.value++}>{count.value}</button>;
+};
+```
+
+Vapor コンポーネントと vDOM コンポーネントは相互に利用できます。
+既存の vDOM プロジェクトにパフォーマンスが重要な部分だけ Vapor を導入する、といった段階的な移行が可能です。
 
 ## まとめ
 
