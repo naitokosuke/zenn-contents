@@ -41,7 +41,7 @@ Vue ではこれまでも JSX を使用できましたが、 Vue で JSX を使�
 
 <!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->
 
-## Vue Vapor Mode とは？
+## Vue Vapor Mode ？
 
 Vue Vapor Mode は仮想 DOM を使用しない新しいレンダリングモードです。
 
@@ -63,7 +63,7 @@ https://speakerdeck.com/hiranuma/alien-signals-noshi-jian-topahuomansuzui-shi-hu
 
 https://rirfee.com/blog/2025/12/vapor-mode%e3%82%92%e3%81%a4%e3%81%be%e3%81%bf%e3%81%90%e3%81%84%e3%81%97%e3%81%a6vue-3-6%e3%81%ab%e5%82%99%e3%81%88%e3%82%88%e3%81%86/
 
-## vue-jsx-vapor とは？
+## vue-jsx-vapor ？
 
 vue-jsx-vapor は Vue の JSX を Vapor Mode でコンパイルするためのツールです。
 
@@ -77,7 +77,7 @@ https://jsx-vapor.netlify.app
 - 仮想 DOM と Vapor DOM の両方の生成をサポート
 - 全ての Vue 組み込みディレクティブをサポート
 - Vue のほとんどのマクロをサポート(JSX フレンドリー)
-- Volar プラグインによる型安全性(VS Code 拡張機能 [TS Macro](https://marketplace.visualstudio.com/items?itemName=pineappletv.ts-macro)経由)
+- Volar プラグインによる型安全性(VS Code 拡張機能 [TS Macro](https://marketplace.visualstudio.com/items?itemName=pineappletv.ts-macro))
 - ESLint プラグインによるディレクティブとマクロの自動フォーマット
 
 2025 年 12 月 25 日にリリースされた v3.1 で仮想 DOM 生成機能が追加されました。
