@@ -127,7 +127,7 @@ export default defineComponent(() => {
 });
 ```
 
-`defineComponent` の使用だけでなく、JSX を返す関数を return する二重構造のような記法となっていました。
+`defineComponent()` の使用だけでなく、JSX を返す関数を return する二重構造のような記法となっていました。
 vue-jsx-vapor では JSX を直接 return するだけでよく、React の関数コンポーネントに近い書き心地で開発できます。
 
 ### `defineVaporComponent()`
