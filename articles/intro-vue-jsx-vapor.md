@@ -145,7 +145,7 @@ https://jsx-vapor.netlify.app/introduction/interop.html
 https://x.com/zhiyuanzmj/status/2004109574841029117
 
 v3.1 より前の vue-jsx-vapor は Vapor DOM のみを生成していました。
-そのため仮想 DOM 部分は `@vitejs/plugin-vue-jsx`(`@vue/babel-plugin-jsx` を使用)など別のプラグインに委譲する必要がありました。
+そのため仮想 DOM 部分は `@vitejs/plugin-vue-jsx`(さらに内部で `@vue/babel-plugin-jsx` を使用)など別のプラグインに委譲する必要がありました。
 v3.1 以降は vue-jsx-vapor 単体で Vapor と仮想 DOM の両方を生成できます。
 
 `defineVaporComponent` 内の JSX は Vapor DOM として、それ以外の JSX は仮想 DOM としてコンパイルされます。
