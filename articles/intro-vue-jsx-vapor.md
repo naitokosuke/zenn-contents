@@ -18,6 +18,10 @@ https://qiita.com/advent-calendar/2025/vue
 
 https://github.com/vuejs/vue-jsx-vapor
 
+こういう JSX がほしい！と思った方は要 check です！
+
+https://x.com/lcMenci/status/1990680368488591411
+
 # まずはこれを見てほしい
 
 ```tsx
@@ -74,9 +78,15 @@ https://jsx-vapor.netlify.app
 ### キーマン
 
 vue-jsx-vapor は [zhiyuanzmj](https://github.com/zhiyuanzmj) さんが中心となって開発しています。
-(お名前の読み方が分からずこのアイコンで覚えさせていただいています。)
+(お名前の読み方が分からないのでこのアイコンで覚えさせていただいています。)
 
 ![zhiyuanzmj さんの GitHub プロフィール](/images/intro-vue-jsx-vapor/zhiyuanzmj.png)
+
+また、zhiyuanzmj さんは Oxc の Vue サポート強化にも取り組んでいます。
+`eslint-plugin-vue` は独自のコンパイラを使用しているため Oxc との互換性に課題がありました。
+zhiyuanzmj さんは `vue-oxc-parser` を開発し、Vue ファイルを Oxc の解析に統合する実装を進めています。
+
+https://github.com/oxc-project/oxc/issues/15761
 
 ### 主な特徴
 
