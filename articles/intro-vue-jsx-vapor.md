@@ -80,7 +80,7 @@ https://jsx-vapor.netlify.app
 - Volar プラグインによる型安全性(VS Code 拡張機能 [TS Macro](https://marketplace.visualstudio.com/items?itemName=pineappletv.ts-macro)経由)
 - ESLint プラグインによるディレクティブとマクロの自動フォーマット
 
-2025 年 12 月 25 日にリリースされた v3.1.0 で仮想 DOM 生成機能が追加されました。
+2025 年 12 月 25 日にリリースされた v3.1 で仮想 DOM 生成機能が追加されました。
 https://x.com/zhiyuanzmj/status/2004109574841029117
 
 ## Getting Started
@@ -146,11 +146,20 @@ export default defineVaporComponent(({ name }: { name: string }) => {
 });
 ```
 
-### ディレクティブの使用
+### Vue のディレクティブのサポート
 
 vue-jsx-vapor では全ての Vue 組み込みディレクティブをサポートしています。
 
 https://jsx-vapor.netlify.app/features/directives.html
+
+| Directive               | Vue | Volar |
+| ----------------------- | --- | ----- |
+| v-if, v-else-if, v-else | ✅  | ✅    |
+| v-slot, v-slots         | ✅  | ✅    |
+| v-for                   | ✅  | ✅    |
+| v-model                 | ✅  | ✅    |
+| v-html, v-text          | ✅  | /     |
+| v-once                  | ✅  | /     |
 
 (以下はディレクティブの一部です。)
 
