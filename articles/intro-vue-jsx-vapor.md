@@ -100,7 +100,7 @@ vue-jsx-vapor は [zhiyuanzmj](https://github.com/zhiyuanzmj) さんが中心と
 
 ![zhiyuanzmj さんの GitHub プロフィール](/images/intro-vue-jsx-vapor/zhiyuanzmj.png)
 
-また、zhiyuanzmj さんは Oxc の Vue サポート強化にも取り組んでいます。
+zhiyuanzmj さんは Oxc の Vue サポート強化にも取り組んでいます。
 `eslint-plugin-vue` は独自のコンパイラを使用しているため Oxc との互換性に課題がありました。
 zhiyuanzmj さんは `vue-oxc-parser` を開発し、Vue ファイルを Oxc の解析に統合する実装を進めています。
 
