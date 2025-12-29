@@ -93,7 +93,7 @@ https://jsx-vapor.netlify.app
 
 <!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
-### キーマン
+### キーマンはこの方
 
 vue-jsx-vapor は [zhiyuanzmj](https://github.com/zhiyuanzmj) さんが中心となって開発しています。
 (お名前の読み方が分からないのでこのアイコンで覚えさせていただいています 😇)
