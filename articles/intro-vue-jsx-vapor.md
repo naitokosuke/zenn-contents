@@ -1,5 +1,5 @@
 ---
-title: "Vapor Mode で大きく変わる Vue JSX 体験"
+title: "Vapor Mode で変わる Vue JSX 体験"
 emoji: "😶‍🌫️"
 type: "tech"
 topics: ["vuejs", "jsx"]
