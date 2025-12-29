@@ -85,6 +85,14 @@ https://github.com/vuejs/vue-jsx-vapor
 
 https://jsx-vapor.netlify.app
 
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
+:::message
+まだベータ版のリリースしかされていない Vue 3.6 以上を要求していることからもわかるように、 vue-jsx-vapor についても本番環境での使用は慎重に検討してください。
+:::
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
+
 ### キーマン
 
 vue-jsx-vapor は [zhiyuanzmj](https://github.com/zhiyuanzmj) さんが中心となって開発しています。
