@@ -17,15 +17,13 @@ https://qiita.com/advent-calendar/2025/vue
 
 今回は [**vue-jsx-vapor**](https://github.com/vuejs/vue-jsx-vapor) を紹介します。
 
-Vue 3.6 が 2025 年 12 月 23 日にリリースされました。
-
 <!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->
 
+Vue 3.6 が 2025 年 12 月 23 日にリリースされました。
 Vapor Mode についてはおそらく一度は目にしたことがあるのではないかと思います。
+JSX と Vapor Mode についての情報はあまり目にしたことがないと思い今回調べてみました。
 
 <!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->
-
-JSX と Vapor Mode についての情報はあまり目にしたことがないと思い今回調べてみました。
 
 https://github.com/vuejs/vue-jsx-vapor
 
