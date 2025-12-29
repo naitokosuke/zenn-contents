@@ -100,6 +100,8 @@ https://github.com/oxc-project/oxc/issues/15761
 
 ### 主な特徴
 
+![Vue JSX Vapor 公式ドキュメントホームのスクショ](/images/intro-vue-jsx/vue-jsx-vapor.png)
+
 - Rust(Oxc)でコンパイラを実装(Babel 比で 20 倍の性能向上)
 - 仮想 DOM と Vapor DOM の両方の生成をサポート
 - 全ての Vue 組み込みディレクティブをサポート
