@@ -4,7 +4,7 @@ emoji: "😶‍🌫️"
 type: "tech"
 topics: ["vuejs", "jsx"]
 publication_name: "comm_vue_nuxt"
-published: false
+published: true
 ---
 
 [Vue Advent Calendar 2025](https://qiita.com/advent-calendar/2025/vue) 25 日目(シーズン 2)の記事です。
