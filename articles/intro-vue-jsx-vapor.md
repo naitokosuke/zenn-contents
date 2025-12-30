@@ -364,10 +364,15 @@ render 関数を繰り返し呼び出す必要がないため、setup と render
 
 vue-jsx-vapor を紹介しました。
 
-Vue 3.6 で導入された Vapor Mode と Alien Signals により、Vue のパフォーマンスは約 4 倍向上しています。
-vue-jsx-vapor を使えば、JSX で Vapor Mode の恩恵を受けられます。
+vue-jsx-vapor は Vue の JSX で Vapor Mode を利用するためのコンパイラ & ビルドツールプラグインです。
+Rust(Oxc)で実装されており、従来の Babel ベースと比較して 20 倍の性能向上を実現しています。
 
-まだベータ版ですが、パフォーマンスが重要なアプリケーションでは試してみる価値があるでしょう。
+従来の Vue JSX では `defineComponent()` 内で render 関数を返す二重構造が必要でしたが、Vapor Mode では仮想 DOM を使用しないため、JSX を直接返す関数コンポーネントとして記述できるようになりました。
+また、`defineStyle` マクロにより SFC の `<style scoped>` のような体験も得られます。
+
+v3.1 からは Vapor と仮想 DOM の両方を生成でき、既存プロジェクトへの段階的な導入も可能です。
+
+Vue 3.6 以上が必要でまだ実験的な段階ですが、JSX で Vue を書きたい方はぜひチェックしてみてください。
 
 ## 最後に
 
