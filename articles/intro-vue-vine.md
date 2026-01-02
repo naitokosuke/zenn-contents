@@ -27,13 +27,19 @@ https://vue-vine.dev/
 
 ## Vue Vine とは？
 
-<!-- TODO: Vue Vine の概要 -->
+> Another style to write Vue.
+
+Vue Vine は Vue コンポーネントを書くための新しいスタイルを提供するツールです。
+1 ファイルに複数のコンポーネントを関数として定義できます。
 
 https://github.com/vue-vine/vue-vine
 
 ### 作者
 
-<!-- TODO: ShenQingchuan さんの紹介 -->
+Vue Vine は [ShenQingchuan(沈青川)](https://github.com/ShenQingchuan) さんが開発しています。
+Vite や Rollup の中国語ドキュメントのメンテナンスにも携わっている方です。
+
+![ShenQingchuan さんの GitHub プロフィール](/images/intro-vue-vine/shenqingchuan.png)
 
 ## コード例
 
