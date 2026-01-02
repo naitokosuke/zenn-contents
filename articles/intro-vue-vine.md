@@ -430,7 +430,8 @@ SFC で小さなコンポーネントを別ファイルに切り出すのが面�
 
 ## 最後に
 
-<!-- Vue Vine のエコシステム周りについて -->
+Vue Vine は[エコシステム連携](https://vue-vine.dev/introduction/ecosystem.html)も充実しています。
+ESLint 設定や TypeScript チェッカー(`vue-vine-tsc`)、Slidev プラグインなどが提供されています。
 
 プラグインを使用して Slidev で Vue Vine を使用できることまでは試すことができました。
 今回の記事の Vine コンポーネントを実際にスライドで表示しています。
