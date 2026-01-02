@@ -175,7 +175,7 @@ function Activity({ activities }: { activities: { id: number; text: string; date
       <h3>Recent Activity</h3>
       <ul>
         <li v-for="activity in activities" :key="activity.id">
-          {{ activity.text }} - <time>{{ activity.date }}</time>
+          {{ activity.text }} - <time :datetime="activity.date">{{ activity.date }}</time>
         </li>
       </ul>
     </section>
@@ -289,7 +289,7 @@ function MyInput() {
   const model = vineModel<string>();
 
   return vine`
-    <input :value="model" @input="model = $event.target.value" />
+    <input v-model="model" />
   `;
 }
 ```
