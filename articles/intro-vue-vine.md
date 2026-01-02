@@ -91,9 +91,7 @@ defineEmits<{ click: [] }>();
 
 Vue Vine なら 1 ファイルにまとめられます。
 
-```ts
-// TodoList.vine.ts
-
+```ts:TodoList.vine.ts
 function TaskCheckbox() {
   const checked = vineProp<boolean>();
   const emit = vineEmits<{ toggle: [] }>();
