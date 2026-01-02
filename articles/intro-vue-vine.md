@@ -54,7 +54,7 @@ const { user, stats, activities } = useUser(userId);
 </script>
 
 <template>
-  <div>
+  <article>
     <header>
       <img :src="user.avatar" :alt="user.name" />
       <h2>{{ user.name }}</h2>
@@ -80,11 +80,11 @@ const { user, stats, activities } = useUser(userId);
       <h3>Recent Activity</h3>
       <ul>
         <li v-for="activity in activities" :key="activity.id">
-          {{ activity.text }} - <time>{{ activity.date }}</time>
+          {{ activity.text }} - <time :datetime="activity.date">{{ activity.date }}</time>
         </li>
       </ul>
     </section>
-  </div>
+  </article>
 </template>
 ```
 
