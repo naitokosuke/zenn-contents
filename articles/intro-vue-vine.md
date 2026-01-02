@@ -16,9 +16,13 @@ https://qiita.com/advent-calendar/2025/vue
 
 今回は [**Vue Vine**](https://vue-vine.dev/) を紹介します。
 
+<!-- textlint-disable ja-technical-writing/ja-no-successive-word -->
+
 SFC で小さなコンポーネントを書くときに面倒だなと思ったことはありませんか？
-親コンポーネントでしか使わないのにわざわざ別ファイルに切り出して props を定義して import して...。
+親コンポーネントでしか使わないのにわざわざ別ファイルに切り出して props を定義して import、、、
 ファイル間を行き来するのは地味にストレスです。
+
+<!-- textlint-enable ja-technical-writing/ja-no-successive-word -->
 
 「同じファイルにサッとコンポーネントを追加できたらな〜」と思ったことがある方もいるのではないでしょうか。
 Vue Vine は、1 ファイルに複数のコンポーネントを書けるようにする新しい選択肢です。
