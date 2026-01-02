@@ -43,48 +43,92 @@ Vite や Rollup の中国語ドキュメントのメンテナンスにも携わ�
 
 ## コード例
 
-Vue Vine では `vine` タグ付きテンプレートリテラルを使ってコンポーネントを定義します。
+TodoList を例に考えてみます。
+`TodoList` の中でしか使わない小さなコンポーネントがあるとします。
 
-```ts
-function MyComponent() {
-  const count = ref(0)
+SFC で書くとこうなります。
 
-  return vine`
-    <div>
-      <button @click="count++">{{ count }}</button>
-    </div>
-  `
-}
+```
+components/
+├── TodoList.vue
+├── TaskCheckbox.vue
+├── TaskEditButton.vue
+└── TaskDeleteButton.vue
 ```
 
-関数の中身は `<script setup>` と同じように書けます。
-`vine` タグ内がテンプレートです。
+```vue:TaskCheckbox.vue
+<script setup lang="ts">
+defineProps<{ checked: boolean }>();
+defineEmits<{ toggle: [] }>();
+</script>
 
-1 ファイルに複数のコンポーネントを書けるのが Vue Vine の特徴です。
-
-```ts
-// Button.vine.ts
-
-function PrimaryButton() {
-  return vine`
-    <button class="primary"><slot /></button>
-  `
-}
-
-function SecondaryButton() {
-  return vine`
-    <button class="secondary"><slot /></button>
-  `
-}
+<template>
+  <input type="checkbox" :checked @change="$emit('toggle')" />
+</template>
 ```
 
-SFC だと `PrimaryButton.vue`、`SecondaryButton.vue` のように分ける必要がありますが、Vue Vine なら 1 ファイルにまとめられます。
+```vue:TaskEditButton.vue
+<script setup lang="ts">
+defineEmits<{ click: [] }>();
+</script>
 
-## Getting Started
+<template>
+  <button @click="$emit('click')">編集</button>
+</template>
+```
 
-<!-- TODO: セットアップ手順 -->
+```vue:TaskDeleteButton.vue
+<script setup lang="ts">
+defineEmits<{ click: [] }>();
+</script>
 
-https://vue-vine.dev/introduction/quick-start.html
+<template>
+  <button @click="$emit('click')">削除</button>
+</template>
+```
+
+`TodoList` でしか使わないのに 4 ファイルに分かれています。
+
+Vue Vine なら 1 ファイルにまとめられます。
+
+```ts
+// TodoList.vine.ts
+
+function TaskCheckbox() {
+  const checked = vineProp<boolean>();
+  const emit = vineEmits<{ toggle: [] }>();
+
+  return vine`
+    <input type="checkbox" :checked @change="emit('toggle')" />
+  `;
+}
+
+function TaskEditButton() {
+  const emit = vineEmits<{ click: [] }>();
+
+  return vine`<button @click="emit('click')">編集</button>`;
+}
+
+function TaskDeleteButton() {
+  const emit = vineEmits<{ click: [] }>();
+
+  return vine`<button @click="emit('click')">削除</button>`;
+}
+
+export function TodoList() {
+  // TaskCheckbox, TaskEditButton, TaskDeleteButton を使う
+  return vine`
+    <ul>
+      <li>
+        <TaskCheckbox :checked="true" />
+        <span>タスク1</span>
+        <TaskEditButton />
+        <TaskDeleteButton />
+      </li>
+    </ul>
+  `;
+}
+```
 
 ## マクロ
 
@@ -103,3 +147,61 @@ https://vue-vine.dev/introduction/quick-start.html
 ## 最後に
 
 最後まで読んでいただきありがとうございました！
+
+---
+
+<!--
+## 執筆メモ（publish 時に削除）
+
+### 記事の流れ（読者に共感してもらうための構成）
+
+1. **はじめに** ✅
+   - 「親コンポーネントでしか使わないのにファイルが分散する」という共感ポイント
+
+2. **Vue Vine とは？** ✅
+   - 概要、作者紹介
+
+3. **コード例** → 要修正
+   - 現状: PrimaryButton/SecondaryButton は弱い（共感されない）
+   - 修正案: 「親コンポーネントでしか使わない子コンポーネント群」の例に差し替え
+   - 例: TodoItem の中で使う Checkbox、EditButton、DeleteButton
+   - または Slidev の Presentation.vine.ts を使う（Highlight、TextWithIcon、Card）
+
+4. **マクロ**
+   - 導入: 「実際のコンポーネントでは props を受け取ることが多い」
+   - vineProp の3パターン（必須、optional、withDefault）
+   - vineStyle.scoped() でスタイルを定義
+   - 注意点: マクロはコンポーネント関数内で使用する必要がある（公式ドキュメントに明記あり）
+   - tsconfig.json に vue-vine/macros を追加する必要がある
+
+5. **Slidev で使ってみる（新規追加）**
+   - どうして Slidev で活用したいと思ったか:
+     - Slidev はプレゼン用の小さなコンポーネントを多用する
+     - これらは「親コンポーネント（スライド）でしか使わない」コンポーネント
+     - → 「はじめに」で述べた問題の実例
+   - vue-vine/slidev プラグインの存在を紹介
+   - デモプロジェクト try-vue-vine-slidev の内容を紹介
+   - 詳細設定は省略、公式ドキュメントへ誘導
+
+6. **SFC との比較**
+   - Vue Vine が向いているケース: 親でしか使わない小さなコンポーネント群
+   - SFC が向いているケース: 再利用性の高いコンポーネント
+   - 共存できる（同じプロジェクトで両方使える）
+
+7. **まとめ**
+   - 内容の要約
+
+### TODO
+- [ ] コード例セクションをより共感できる例に差し替え
+- [ ] マクロセクションを書く
+- [ ] Slidev セクションを書く
+- [ ] SFC との比較セクションを書く
+- [ ] まとめを書く
+- [ ] try-vue-vine-slidev プロジェクトも必要に応じて修正
+
+### 参考リソース
+- try-vue-vine-slidev: /Users/naitokosuke/src/github.com/naitokosuke/try-vue-vine-slidev
+- Vue Vine エコシステム: https://vue-vine.dev/introduction/ecosystem.html
+- マクロの注意点: https://vue-vine.dev/specification/macros.html
+
+-->
