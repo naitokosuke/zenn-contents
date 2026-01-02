@@ -2,6 +2,16 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Important Rules
+
+### Script Execution
+
+**Before running any script, always check the `scripts` section in `package.json`.**
+
+- Verify available script names and how to pass arguments
+- Do not run non-existent scripts or use incorrect argument formats
+- Use `@antfu/ni` (`nr` for script execution)
+
 ## Repository Overview
 
 This is a Zenn content repository for publishing technical articles. Zenn is a Japanese technical writing platform similar to dev.to or Medium.
@@ -12,28 +22,24 @@ This is a Zenn content repository for publishing technical articles. Zenn is a J
 
 ```bash
 # Create a new article (recommended - also creates images directory)
-npm run new <article-slug>
+nr new <article-slug>
 
 # Preview articles locally (opens at http://localhost:8000)
-npm run dev
-
-# Alternatively, use zenn-cli directly
-npx zenn new:article --slug article-slug --title "Article Title" --type tech --emoji 📝
-npx zenn preview
+nr dev
 ```
 
 ### Linting
 
 ```bash
 # Lint all articles
-npm run lint:all
+nr lint:all
 
 # Format all articles
-npm run fmt:all
+nr fmt:all
 
 # Lint/format specific files
-npm run lint -- articles/specific-article.md
-npm run fmt -- articles/specific-article.md
+nr lint articles/specific-article.md
+nr fmt articles/specific-article.md
 ```
 
 ### Article Types
