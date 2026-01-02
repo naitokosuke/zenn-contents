@@ -132,6 +132,18 @@ user/
 Vue Vine を使えば、同じファイル内にコンポーネントを定義できます。
 
 ```ts:User.vine.ts
+export function User({ userId }: { userId: string }) {
+  const { profile, stats, activities } = useUser(userId);
+
+  return vine`
+    <div>
+      <Header :name="profile.name" :avatar="profile.avatar" :bio="profile.bio" />
+      <Stats :posts="stats.posts" :followers="stats.followers" :following="stats.following" />
+      <Activity :activities />
+    </div>
+  `;
+}
+
 function Header({ name, avatar, bio }: { name: string; avatar: string; bio: string }) {
   return vine`
     <header>
@@ -167,18 +179,6 @@ function Activity({ activities }: { activities: { id: number; text: string; date
         </li>
       </ul>
     </section>
-  `;
-}
-
-export function User({ userId }: { userId: string }) {
-  const { profile, stats, activities } = useUser(userId);
-
-  return vine`
-    <div>
-      <Header :name="profile.name" :avatar="profile.avatar" :bio="profile.bio" />
-      <Stats :posts="stats.posts" :followers="stats.followers" :following="stats.following" />
-      <Activity :activities />
-    </div>
   `;
 }
 ```
