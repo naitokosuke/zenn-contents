@@ -43,125 +43,154 @@ Vite や Rollup の中国語ドキュメントのメンテナンスにも携わ�
 
 ## コード例
 
-Todo リストを例に考えてみます。
-SFC で書くとこうなります。
+具体的なコードで見てみましょう。
+ユーザーのプロフィールページを作っているとします。
+最初はいつも通りに SFC で書いていきます。
 
-```vue:TodoList.vue
+```vue:ProfilePage.vue
 <script setup lang="ts">
-import { ref } from 'vue';
-
-const tasks = ref([
-  { id: 1, text: 'タスク1', done: false },
-  { id: 2, text: 'タスク2', done: true },
-]);
+const user = { name: 'John', avatar: '/avatar.png', bio: '...' };
+const stats = { posts: 42, followers: 128, following: 64 };
+const activities = [{ id: 1, text: '記事を投稿しました', date: '2025-01-01' }];
 </script>
 
 <template>
-  <ul>
-    <li v-for="task in tasks" :key="task.id">
-      <input type="checkbox" :checked="task.done" @change="task.done = !task.done" />
-      <span>{{ task.text }}</span>
-      <button @click="/* 編集処理 */">編集</button>
-      <button @click="/* 削除処理 */">削除</button>
-    </li>
-  </ul>
+  <div class="profile-page">
+    <div class="header">
+      <img :src="user.avatar" class="avatar" />
+      <h1>{{ user.name }}</h1>
+      <p>{{ user.bio }}</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat-item">
+        <span class="value">{{ stats.posts }}</span>
+        <span class="label">投稿</span>
+      </div>
+      <div class="stat-item">
+        <span class="value">{{ stats.followers }}</span>
+        <span class="label">フォロワー</span>
+      </div>
+      <div class="stat-item">
+        <span class="value">{{ stats.following }}</span>
+        <span class="label">フォロー中</span>
+      </div>
+    </div>
+
+    <div class="activities">
+      <h2>最近のアクティビティ</h2>
+      <ul>
+        <li v-for="activity in activities" :key="activity.id">
+          {{ activity.text }} - {{ activity.date }}
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 ```
 
-1 ファイルで完結しています。しかしコンポーネントが大きくなってくると見通しが悪くなります。
+テンプレートが長くなってきました。ヘッダー、統計、アクティビティと 3 つのセクションがあり、これからさらに機能を追加していくと見通しが悪くなりそうです。
 
-### コンポーネントに分割したい理由
+### コンポーネントに分割したい
 
-Vue Vine の公式ドキュメントでは、コンポーネント分割のモチベーションについて以下のように述べられています。
+こういうとき、セクションごとにコンポーネントに分割したくなります。Vue Vine の公式ドキュメントでも、このモチベーションについて述べられています。
 
 > Developers usually write a long component first and then split out the reusable parts from it.
 > (開発者は通常、長いコンポーネントを書いてから再利用可能な部分を切り出します。)
 
-テンプレートの一部をコンポーネントとして切り出すことで、コードの見通しが良くなり、テストもしやすくなります。
+分割すればテンプレートがすっきりします。
 
-しかし SFC では新しい `.vue` ファイルを作成し、`<script setup>` や `<template>` などのボイラープレートを書く必要があります。
+```vue
+<template>
+  <div class="profile-page">
+    <ProfileHeader :user="user" />
+    <ProfileStats :stats="stats" />
+    <ProfileActivity :activities="activities" />
+  </div>
+</template>
+```
+
+しかし SFC では別ファイルを作成する必要があります。
 
 ```
 components/
-├── TodoList.vue
-├── TaskCheckbox.vue
-├── TaskEditButton.vue
-└── TaskDeleteButton.vue
+├── ProfilePage.vue
+├── ProfileHeader.vue
+├── ProfileStats.vue
+└── ProfileActivity.vue
 ```
 
-```vue:TaskCheckbox.vue
-<script setup lang="ts">
-defineProps<{ checked: boolean }>();
-defineEmits<{ toggle: [] }>();
-</script>
-
-<template>
-  <input type="checkbox" :checked @change="$emit('toggle')" />
-</template>
-```
-
-```vue:TaskEditButton.vue
-<script setup lang="ts">
-defineEmits<{ click: [] }>();
-</script>
-
-<template>
-  <button @click="$emit('click')">編集</button>
-</template>
-```
-
-```vue:TaskDeleteButton.vue
-<script setup lang="ts">
-defineEmits<{ click: [] }>();
-</script>
-
-<template>
-  <button @click="$emit('click')">削除</button>
-</template>
-```
-
-`TodoList` でしか使わないのに 4 ファイルに分かれてしまいました。
+`ProfilePage` でしか使わないのに 4 ファイルに分かれてしまいます。
 
 ### Vue Vine なら 1 ファイルにまとめられる
 
-Vue Vine を使えば、これらを 1 ファイルに書けます。
+Vue Vine を使えば、同じファイル内にコンポーネントを定義できます。
 
-```ts:TodoList.vine.ts
-function TaskCheckbox() {
-  const checked = vineProp<boolean>();
-  const emit = vineEmits<{ toggle: [] }>();
+```ts:ProfilePage.vine.ts
+function ProfileHeader() {
+  const user = vineProp<{ name: string; avatar: string; bio: string }>();
 
   return vine`
-    <input type="checkbox" :checked @change="emit('toggle')" />
+    <div class="header">
+      <img :src="user.avatar" class="avatar" />
+      <h1>{{ user.name }}</h1>
+      <p>{{ user.bio }}</p>
+    </div>
   `;
 }
 
-function TaskEditButton() {
-  const emit = vineEmits<{ click: [] }>();
+function ProfileStats() {
+  const stats = vineProp<{ posts: number; followers: number; following: number }>();
 
-  return vine`<button @click="emit('click')">編集</button>`;
-}
-
-function TaskDeleteButton() {
-  const emit = vineEmits<{ click: [] }>();
-
-  return vine`<button @click="emit('click')">削除</button>`;
-}
-
-export function TodoList() {
-  // TaskCheckbox, TaskEditButton, TaskDeleteButton を使う
   return vine`
-    <ul>
-      <li>
-        <TaskCheckbox :checked="true" />
-        <span>タスク1</span>
-        <TaskEditButton />
-        <TaskDeleteButton />
-      </li>
-    </ul>
+    <div class="stats">
+      <div class="stat-item">
+        <span class="value">{{ stats.posts }}</span>
+        <span class="label">投稿</span>
+      </div>
+      <div class="stat-item">
+        <span class="value">{{ stats.followers }}</span>
+        <span class="label">フォロワー</span>
+      </div>
+      <div class="stat-item">
+        <span class="value">{{ stats.following }}</span>
+        <span class="label">フォロー中</span>
+      </div>
+    </div>
+  `;
+}
+
+function ProfileActivity() {
+  const activities = vineProp<{ id: number; text: string; date: string }[]>();
+
+  return vine`
+    <div class="activities">
+      <h2>最近のアクティビティ</h2>
+      <ul>
+        <li v-for="activity in activities" :key="activity.id">
+          {{ activity.text }} - {{ activity.date }}
+        </li>
+      </ul>
+    </div>
+  `;
+}
+
+export function ProfilePage() {
+  const user = { name: 'John', avatar: '/avatar.png', bio: '...' };
+  const stats = { posts: 42, followers: 128, following: 64 };
+  const activities = [{ id: 1, text: '記事を投稿しました', date: '2025-01-01' }];
+
+  return vine`
+    <div class="profile-page">
+      <ProfileHeader :user="user" />
+      <ProfileStats :stats="stats" />
+      <ProfileActivity :activities="activities" />
+    </div>
   `;
 }
 ```
+
+`ProfileHeader`、`ProfileStats`、`ProfileActivity` は `export` していないため、このファイル内でのみ使用できます。ファイルを分けることなく、テンプレートの見通しを改善できました。
 
 ## マクロ
 
