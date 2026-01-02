@@ -430,4 +430,17 @@ SFC で小さなコンポーネントを別ファイルに切り出すのが面�
 
 ## 最後に
 
+<!-- Vue Vine のエコシステム周りについて -->
+
+プラグインを使用して Slidev で Vue Vine を使用できることまでは試すことができました。
+今回の記事の Vine コンポーネントを実際にスライドで表示しています。
+
+https://github.com/naitokosuke/try-vue-vine-slidev
+
+<!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->
+
+ぼくは普段 [Slidev](https://sli.dev/) を使ってスライドを作っているので Vue Vine の [Slidev プラグイン](https://vue-vine.dev/introduction/ecosystem.html#slidev-plugin)を試してみようと思います。
+
+<!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->
+
 最後まで読んでいただきありがとうございました！
