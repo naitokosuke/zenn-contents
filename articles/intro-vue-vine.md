@@ -54,36 +54,36 @@ const { user, stats, activities } = useUser(userId);
 </script>
 
 <template>
-  <div class="user-profile">
-    <div class="header">
-      <img :src="user.avatar" class="avatar" />
-      <h1>{{ user.name }}</h1>
+  <div>
+    <header>
+      <img :src="user.avatar" :alt="user.name" />
+      <h2>{{ user.name }}</h2>
       <p>{{ user.bio }}</p>
-    </div>
+    </header>
 
-    <div class="stats">
-      <div class="stat-item">
-        <span class="value">{{ stats.posts }}</span>
-        <span class="label">Posts</span>
+    <dl>
+      <div class="posts">
+        <dt>Posts</dt>
+        <dd>{{ stats.posts }}</dd>
       </div>
-      <div class="stat-item">
-        <span class="value">{{ stats.followers }}</span>
-        <span class="label">Followers</span>
+      <div class="followers">
+        <dt>Followers</dt>
+        <dd>{{ stats.followers }}</dd>
       </div>
-      <div class="stat-item">
-        <span class="value">{{ stats.following }}</span>
-        <span class="label">Following</span>
+      <div class="following">
+        <dt>Following</dt>
+        <dd>{{ stats.following }}</dd>
       </div>
-    </div>
+    </dl>
 
-    <div class="activities">
-      <h2>Recent Activity</h2>
+    <section>
+      <h3>Recent Activity</h3>
       <ul>
         <li v-for="activity in activities" :key="activity.id">
-          {{ activity.text }} - {{ activity.date }}
+          {{ activity.text }} - <time>{{ activity.date }}</time>
         </li>
       </ul>
-    </div>
+    </section>
   </div>
 </template>
 ```
@@ -101,7 +101,7 @@ const { user, stats, activities } = useUser(userId);
 
 ```vue
 <template>
-  <div class="user-profile">
+  <div>
     <UserHeader :user="user" />
     <UserStats :stats="stats" />
     <UserActivity :activities="activities" />
@@ -130,11 +130,11 @@ function UserHeader() {
   const user = vineProp<{ name: string; avatar: string; bio: string }>();
 
   return vine`
-    <div class="header">
-      <img :src="user.avatar" class="avatar" />
-      <h1>{{ user.name }}</h1>
+    <header>
+      <img :src="user.avatar" :alt="user.name" />
+      <h2>{{ user.name }}</h2>
       <p>{{ user.bio }}</p>
-    </div>
+    </header>
   `;
 }
 
@@ -142,20 +142,20 @@ function UserStats() {
   const stats = vineProp<{ posts: number; followers: number; following: number }>();
 
   return vine`
-    <div class="stats">
-      <div class="stat-item">
-        <span class="value">{{ stats.posts }}</span>
-        <span class="label">Posts</span>
+    <dl>
+      <div class="posts">
+        <dt>Posts</dt>
+        <dd>{{ stats.posts }}</dd>
       </div>
-      <div class="stat-item">
-        <span class="value">{{ stats.followers }}</span>
-        <span class="label">Followers</span>
+      <div class="followers">
+        <dt>Followers</dt>
+        <dd>{{ stats.followers }}</dd>
       </div>
-      <div class="stat-item">
-        <span class="value">{{ stats.following }}</span>
-        <span class="label">Following</span>
+      <div class="following">
+        <dt>Following</dt>
+        <dd>{{ stats.following }}</dd>
       </div>
-    </div>
+    </dl>
   `;
 }
 
@@ -163,14 +163,14 @@ function UserActivity() {
   const activities = vineProp<{ id: number; text: string; date: string }[]>();
 
   return vine`
-    <div class="activities">
-      <h2>Recent Activity</h2>
+    <section>
+      <h3>Recent Activity</h3>
       <ul>
         <li v-for="activity in activities" :key="activity.id">
-          {{ activity.text }} - {{ activity.date }}
+          {{ activity.text }} - <time>{{ activity.date }}</time>
         </li>
       </ul>
-    </div>
+    </section>
   `;
 }
 
@@ -179,7 +179,7 @@ export function UserProfile() {
   const { user, stats, activities } = useUser(userId);
 
   return vine`
-    <div class="user-profile">
+    <div>
       <UserHeader :user="user" />
       <UserStats :stats="stats" />
       <UserActivity :activities="activities" />
