@@ -187,7 +187,7 @@ function Activity({ activities }: { activities: { id: number; text: string; date
 
 ## Props
 
-ここまでのコード例を見て props の渡し方に気づいた方もいるかもしれません。
+ここまでのコード例を見て props の渡し方に気づいた方もいるでしょう。
 
 ```ts
 function Header({
@@ -248,7 +248,7 @@ function MyComponent() {
 }
 ```
 
-バリデーターを追加することもできます。
+バリデーターも追加できます。
 
 ```ts
 const title = vineProp<string>((value) => value.startsWith("#"));
