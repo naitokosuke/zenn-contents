@@ -187,6 +187,8 @@ function Activity({ activities }: { activities: { id: number; text: string; date
 
 ## Props
 
+https://vue-vine.dev/specification/props.html
+
 ここまでのコード例を見て props の渡し方に気づいた方もいるでしょう。
 
 ```ts
@@ -248,14 +250,13 @@ function MyComponent() {
 }
 ```
 
-バリデーターも追加できます。
+validator も追加できます。
 
 ```ts
 const title = vineProp<string>((value) => value.startsWith("#"));
 ```
 
-分割代入と `vineProp`、どちらを使うかはチームの好みで選んでください。
-分割代入はシンプルで直感的、`vineProp` は個別の props に対してより細かい制御ができます。
+https://vue-vine.dev/specification/props.html#vineprop
 
 ## マクロ
 
