@@ -19,7 +19,7 @@ https://qiita.com/advent-calendar/2025/vue
 <!-- textlint-disable ja-technical-writing/ja-no-successive-word -->
 
 SFC で小さなコンポーネントを書くときに面倒だなと思ったことはありませんか？
-親コンポーネントでしか使わないのにわざわざ別ファイルに切り出して props を定義して import、、、
+親コンポーネントでしか使わないのにわざわざ別ファイルに切り出して props を定義して import して、、、
 ファイル間を行き来するのは地味にストレスです。
 
 <!-- textlint-enable ja-technical-writing/ja-no-successive-word -->
