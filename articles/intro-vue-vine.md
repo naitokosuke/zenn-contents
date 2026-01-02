@@ -314,11 +314,6 @@ function StyledButton() {
 ```
 
 `vineStyle.scoped()` でスコープ付きスタイル、`vineStyle()` でグローバルスタイルを定義できます。
-外部ファイルをスコープ付きでインポート可能です。
-
-```ts
-vineStyle.import.scoped("./button.css");
-```
 
 :::message
 公式ドキュメントでは次のように述べられています。
