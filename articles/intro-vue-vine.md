@@ -54,15 +54,15 @@ Vite や Rollup の中国語ドキュメントのメンテナンスにも携わ�
 ```vue:User.vue
 <script setup lang="ts">
 const { userId } = defineProps<{ userId: string }>();
-const { user, stats, activities } = useUser(userId);
+const { profile, stats, activities } = useUser(userId);
 </script>
 
 <template>
   <article>
     <header>
-      <img :src="user.avatar" :alt="user.name" />
-      <h2>{{ user.name }}</h2>
-      <p>{{ user.bio }}</p>
+      <img :src="profile.avatar" :alt="profile.name" />
+      <h2>{{ profile.name }}</h2>
+      <p>{{ profile.bio }}</p>
     </header>
 
     <dl>
@@ -167,11 +167,11 @@ function Activity({ activities }: { activities: { id: number; text: string; date
 }
 
 export function User({ userId }: { userId: string }) {
-  const { user, stats, activities } = useUser(userId);
+  const { profile, stats, activities } = useUser(userId);
 
   return vine`
     <div>
-      <Header :name="user.name" :avatar="user.avatar" :bio="user.bio" />
+      <Header :name="profile.name" :avatar="profile.avatar" :bio="profile.bio" />
       <Stats :posts="stats.posts" :followers="stats.followers" :following="stats.following" />
       <Activity :activities />
     </div>
