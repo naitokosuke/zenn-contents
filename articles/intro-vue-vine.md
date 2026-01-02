@@ -327,6 +327,102 @@ vineStyle.import("./button.css");
 なお、マクロは `.vine.ts` ファイル内のコンポーネント関数でのみ使用できます。
 別の `.ts` ファイルに切り出すことはできないので注意してください。
 
+## なぜ JSX ではなくテンプレートなのか
+
+<!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->
+
+ここまで Vue Vine のコードを見てきてこう思った方もいるかもしれません。
+「JSX でよくない？」
+
+<!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->
+
+<!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
+
+:::details vue-jsx-vapor での実装例
+
+https://github.com/vuejs/vue-jsx-vapor
+
+```tsx:User.tsx
+export const User = ({ userId }: { userId: string }) => {
+  const { profile, stats, activities } = useUser(userId);
+
+  return (
+    <div>
+      <Header name={profile.name} avatar={profile.avatar} bio={profile.bio} />
+      <Stats posts={stats.posts} followers={stats.followers} following={stats.following} />
+      <Activity activities={activities} />
+    </div>
+  );
+};
+
+const Header = ({ name, avatar, bio }: { name: string; avatar: string; bio: string }) => {
+  return (
+    <header>
+      <img src={avatar} alt={name} />
+      <h2>{name}</h2>
+      <p>{bio}</p>
+    </header>
+  );
+};
+
+const Stats = ({ posts, followers, following }: { posts: number; followers: number; following: number }) => {
+  return (
+    <dl>
+      <dt>Posts</dt>
+      <dd>{posts}</dd>
+      <dt>Followers</dt>
+      <dd>{followers}</dd>
+      <dt>Following</dt>
+      <dd>{following}</dd>
+    </dl>
+  );
+};
+
+const Activity = ({ activities }: { activities: { id: number; text: string; date: string }[] }) => {
+  return (
+    <section>
+      <h3>Recent Activity</h3>
+      <ul>
+        {activities.map((activity) => (
+          <li key={activity.id}>
+            {activity.text} - <time>{activity.date}</time>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+};
+```
+
+:::
+
+<!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
+
+1 ファイルに複数のコンポーネントを書くという目的は達成できています。
+では、なぜ Vue Vine はテンプレートを選んだのでしょうか？
+
+### コンパイル時最適化
+
+Vue Vine の公式ドキュメントでは次のように述べられています。
+
+> The main problem with JSX is that it's too flexible, and it's hard to provide enough compile-time information for Vue to optimize, and template is native supported by Vue with a lot of compile-time optimizations.
+> (JSX の主な問題は柔軟すぎることで、Vue が最適化するためのコンパイル時情報を提供することが難しい。一方、テンプレートは Vue にネイティブサポートされており、多くのコンパイル時最適化が施されている。)
+
+JSX は JavaScript の式なので、何でも書けます。
+その柔軟性ゆえに、コンパイラが「この部分は静的」「この部分は動的」と判断しにくくなります。
+
+一方、テンプレートは構文が制限されている分、コンパイラが最適化しやすい。
+Vue のテンプレートコンパイラは、静的な部分をホイスティングしたり、動的な部分だけを追跡したりといった最適化を行います。
+
+### Vue Vine の選択
+
+> In order to better fit Vue's design concept and ecology, we've chosen to use template as the main syntax for Vine.
+> (Vue の設計思想とエコシステムにより適合させるため、Vine ではテンプレートを主要な構文として選択しました。)
+
+Vue Vine は「React のような関数スタイルの柔軟性」と「Vue テンプレートのコンパイル時最適化」の両方を取り入れた設計です。
+JSX の柔軟性をすべて取り込むのではなく、Vue らしさを保ちながら開発体験を改善する。
+それが Vue Vine のアプローチです。
+
 ## まとめ
 
 Vue Vine を紹介しました。
