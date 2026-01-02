@@ -104,9 +104,13 @@ Vue Vine の公式ドキュメントでも、このモチベーションにつ�
 ```vue
 <template>
   <div>
-    <UserHeader :user />
-    <UserStats :stats />
-    <UserActivity :activities />
+    <Header :name="profile.name" :avatar="profile.avatar" :bio="profile.bio" />
+    <Stats
+      :posts="stats.posts"
+      :followers="stats.followers"
+      :following="stats.following"
+    />
+    <Activity :activities />
   </div>
 </template>
 ```
