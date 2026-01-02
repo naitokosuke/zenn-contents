@@ -89,7 +89,8 @@ const { user, stats, activities } = useUser(userId);
 
 ### コンポーネントに分割したい
 
-こういうとき、セクションごとにコンポーネントへ分割したくなります。Vue Vine の公式ドキュメントでも、このモチベーションについて述べられています。
+こういうとき、セクションごとにコンポーネントへ分割したくなります。
+Vue Vine の公式ドキュメントでも、このモチベーションについて述べられています。
 
 > Developers usually write a long component first and then split out the reusable parts from it.
 > (開発者は通常、長いコンポーネントを書いてから再利用可能な部分を切り出します。)
