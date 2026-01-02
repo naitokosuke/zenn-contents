@@ -263,7 +263,7 @@ https://vue-vine.dev/specification/props.html#vineprop
 Vue Vine には props 以外にもマクロが用意されています。
 ここでは特に使用頻度の高いものを紹介します。
 
-### vineEmits
+### `vineEmits()`
 
 イベントの発行を定義します。`defineEmits` に相当するマクロです。
 
@@ -280,7 +280,7 @@ function MyButton() {
 }
 ```
 
-### vineModel
+### `vineModel()`
 
 `v-model` を使った双方向バインディングを定義します。
 
@@ -294,7 +294,7 @@ function MyInput() {
 }
 ```
 
-### vineStyle
+### `vineStyle()`
 
 SFC の `<style>` ブロックに相当するマクロです。
 
