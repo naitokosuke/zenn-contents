@@ -44,10 +44,10 @@ Vite や Rollup の中国語ドキュメントのメンテナンスにも携わ�
 ## コード例
 
 具体的なコードで見てみましょう。
-ユーザーのプロフィールを表示するコンポーネントを作っているとします。
+ユーザー情報を表示するコンポーネントを作っているとします。
 最初はいつも通りに SFC で書いていきます。
 
-```vue:UserProfile.vue
+```vue:User.vue
 <script setup lang="ts">
 const { userId } = defineProps<{ userId: string }>();
 const { user, stats, activities } = useUser(userId);
@@ -84,7 +84,8 @@ const { user, stats, activities } = useUser(userId);
 </template>
 ```
 
-テンプレートが長くなってきました。ヘッダー、統計、アクティビティと 3 つのセクションがあり、これからさらに機能を追加していくと見通しが悪くなりそうです。
+テンプレートが長くなってきました。
+ヘッダー、スタッツ、アクティビティと 3 つのパーツがあり、これからさらに機能を追加していくと見通しが悪くなりそうです。
 
 ### コンポーネントに分割したい
 
@@ -109,19 +110,19 @@ const { user, stats, activities } = useUser(userId);
 
 ```
 components/
-├── UserProfile.vue
+├── User.vue
 ├── UserHeader.vue
 ├── UserStats.vue
 └── UserActivity.vue
 ```
 
-`UserProfile` でしか使わないのに 4 ファイルに分かれてしまいます。
+`User` でしか使わないのに 4 ファイルに分かれてしまいます。
 
 ### Vue Vine なら 1 ファイルにまとめられる
 
 Vue Vine を使えば、同じファイル内にコンポーネントを定義できます。
 
-```ts:UserProfile.vine.ts
+```ts:User.vine.ts
 function UserHeader() {
   const user = vineProp<{ name: string; avatar: string; bio: string }>();
 
@@ -166,7 +167,7 @@ function UserActivity() {
   `;
 }
 
-export function UserProfile() {
+export function User() {
   const { userId } = vineProp<{ userId: string }>();
   const { user, stats, activities } = useUser(userId);
 
