@@ -2,7 +2,7 @@
 title: "Vue Vine を知る"
 emoji: "🍇"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["vuejs"]
+topics: ["vue"]
 published: false
 ---
 
