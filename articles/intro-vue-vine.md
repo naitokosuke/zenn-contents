@@ -124,7 +124,7 @@ components/
 Vue Vine を使えば、同じファイル内にコンポーネントを定義できます。
 
 ```ts:User.vine.ts
-function UserHeader() {
+function Header() {
   const user = vineProp<{ name: string; avatar: string; bio: string }>();
 
   return vine`
@@ -136,7 +136,7 @@ function UserHeader() {
   `;
 }
 
-function UserStats() {
+function Stats() {
   const stats = vineProp<{ posts: number; followers: number; following: number }>();
 
   return vine`
@@ -153,7 +153,7 @@ function UserStats() {
   `;
 }
 
-function UserActivity() {
+function Activity() {
   const activities = vineProp<{ id: number; text: string; date: string }[]>();
 
   return vine`
@@ -174,9 +174,9 @@ export function User() {
 
   return vine`
     <div>
-      <UserHeader :user />
-      <UserStats :stats />
-      <UserActivity :activities />
+      <Header :user />
+      <Stats :stats />
+      <Activity :activities />
     </div>
   `;
 }
