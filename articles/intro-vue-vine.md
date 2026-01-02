@@ -62,18 +62,14 @@ const { user, stats, activities } = useUser(userId);
     </header>
 
     <dl>
-      <div class="posts">
-        <dt>Posts</dt>
-        <dd>{{ stats.posts }}</dd>
-      </div>
-      <div class="followers">
-        <dt>Followers</dt>
-        <dd>{{ stats.followers }}</dd>
-      </div>
-      <div class="following">
-        <dt>Following</dt>
-        <dd>{{ stats.following }}</dd>
-      </div>
+      <dt>Posts</dt>
+      <dd>{{ stats.posts }}</dd>
+
+      <dt>Followers</dt>
+      <dd>{{ stats.followers }}</dd>
+
+      <dt>Following</dt>
+      <dd>{{ stats.following }}</dd>
     </dl>
 
     <section>
@@ -143,18 +139,14 @@ function UserStats() {
 
   return vine`
     <dl>
-      <div class="posts">
-        <dt>Posts</dt>
-        <dd>{{ stats.posts }}</dd>
-      </div>
-      <div class="followers">
-        <dt>Followers</dt>
-        <dd>{{ stats.followers }}</dd>
-      </div>
-      <div class="following">
-        <dt>Following</dt>
-        <dd>{{ stats.following }}</dd>
-      </div>
+      <dt>Posts</dt>
+      <dd>{{ stats.posts }}</dd>
+
+      <dt>Followers</dt>
+      <dd>{{ stats.followers }}</dd>
+
+      <dt>Following</dt>
+      <dd>{{ stats.following }}</dd>
     </dl>
   `;
 }
