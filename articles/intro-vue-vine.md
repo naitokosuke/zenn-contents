@@ -440,7 +440,7 @@ https://github.com/naitokosuke/try-vue-vine-slidev
 
 <!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->
 
-ぼくは普段 [Slidev](https://sli.dev/) を使ってスライドを作っているので Vue Vine の [Slidev プラグイン](https://vue-vine.dev/introduction/ecosystem.html#slidev-plugin)を試してみようと思います。
+ぼくは普段 [Slidev](https://sli.dev/) を使ってスライドを作っているので Vue Vine の [Slidev プラグイン](https://vue-vine.dev/introduction/ecosystem.html#slidev-plugin)を使ってみようと思います。
 
 <!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->
 
