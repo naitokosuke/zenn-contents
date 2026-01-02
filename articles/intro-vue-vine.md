@@ -43,10 +43,43 @@ Vite や Rollup の中国語ドキュメントのメンテナンスにも携わ�
 
 ## コード例
 
-TodoList を例に考えてみます。
-`TodoList` の中でしか使わない小さなコンポーネントがあるとします。
-
+Todo リストを例に考えてみます。
 SFC で書くとこうなります。
+
+```vue:TodoList.vue
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const tasks = ref([
+  { id: 1, text: 'タスク1', done: false },
+  { id: 2, text: 'タスク2', done: true },
+]);
+</script>
+
+<template>
+  <ul>
+    <li v-for="task in tasks" :key="task.id">
+      <input type="checkbox" :checked="task.done" @change="task.done = !task.done" />
+      <span>{{ task.text }}</span>
+      <button @click="/* 編集処理 */">編集</button>
+      <button @click="/* 削除処理 */">削除</button>
+    </li>
+  </ul>
+</template>
+```
+
+1 ファイルで完結しています。しかしコンポーネントが大きくなってくると見通しが悪くなります。
+
+### コンポーネントに分割したい理由
+
+Vue Vine の公式ドキュメントでは、コンポーネント分割のモチベーションについて以下のように述べられています。
+
+> Developers usually write a long component first and then split out the reusable parts from it.
+> （開発者は通常、長いコンポーネントを書いてから再利用可能な部分を切り出します。）
+
+テンプレートの一部をコンポーネントとして切り出すことで、コードの見通しが良くなり、テストもしやすくなります。
+
+しかし SFC では新しい `.vue` ファイルを作成し、`<script setup>` や `<template>` などのボイラープレートを書く必要があります。
 
 ```
 components/
@@ -87,9 +120,11 @@ defineEmits<{ click: [] }>();
 </template>
 ```
 
-`TodoList` でしか使わないのに 4 ファイルに分かれています。
+`TodoList` でしか使わないのに 4 ファイルに分かれてしまいました。
 
-Vue Vine なら 1 ファイルにまとめられます。
+### Vue Vine なら 1 ファイルにまとめられる
+
+Vue Vine を使えば、これらを 1 ファイルに書けます。
 
 ```ts:TodoList.vine.ts
 function TaskCheckbox() {
