@@ -174,9 +174,9 @@ export function User() {
 
   return vine`
     <div>
-      <UserHeader :user="user" />
-      <UserStats :stats="stats" />
-      <UserActivity :activities="activities" />
+      <UserHeader :user />
+      <UserStats :stats />
+      <UserActivity :activities />
     </div>
   `;
 }
