@@ -398,10 +398,10 @@ const Activity = ({ activities }: { activities: { id: number; text: string; date
 
 <!-- textlint-enable ja-technical-writing/ja-no-mixed-period -->
 
-1 ファイルに複数のコンポーネントを書くという目的は達成できています。
-では、なぜ Vue Vine はテンプレートを選んだのでしょうか？
+1 ファイルに複数のコンポーネントを書くという目的は JSX で達成できます。
+ではなぜ Vue Vine が選択肢になるのでしょうか？
 
-### コンパイル時最適化
+### テンプレートのコンパイル時最適化
 
 Vue Vine の公式ドキュメントでは次のように述べられています。
 
@@ -414,14 +414,8 @@ JSX は JavaScript の式なので、何でも書けます。
 一方、テンプレートは構文が制限されている分、コンパイラが最適化しやすい。
 Vue のテンプレートコンパイラは、静的な部分をホイスティングしたり、動的な部分だけを追跡したりといった最適化を行います。
 
-### Vue Vine の選択
-
-> In order to better fit Vue's design concept and ecology, we've chosen to use template as the main syntax for Vine.
-> (Vue の設計思想とエコシステムにより適合させるため、Vine ではテンプレートを主要な構文として選択しました。)
-
-Vue Vine は「React のような関数スタイルの柔軟性」と「Vue テンプレートのコンパイル時最適化」の両方を取り入れた設計です。
-JSX の柔軟性をすべて取り込むのではなく、Vue らしさを保ちながら開発体験を改善する。
-それが Vue Vine のアプローチです。
+Vue Vine はテンプレートを使うので、これらの最適化の恩恵を受けられます。
+「関数スタイルで書きたいが、テンプレートの最適化も捨てたくない」という方には Vue Vine が選択肢になるでしょう。
 
 ## まとめ
 
