@@ -293,13 +293,6 @@ function MyInput() {
 }
 ```
 
-名前付きの `v-model` にも対応しています。
-
-```ts
-const count = vineModel<number>("count");
-// 親コンポーネントから v-model:count で使用
-```
-
 ### vineStyle
 
 SFC の `<style>` ブロックに相当するマクロです。
