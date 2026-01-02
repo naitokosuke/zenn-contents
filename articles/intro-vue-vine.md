@@ -43,13 +43,42 @@ Vite や Rollup の中国語ドキュメントのメンテナンスにも携わ�
 
 ## コード例
 
-<!-- TODO: Vue Vine の特徴が伝わるコード例 -->
-<!-- - 1ファイルに複数コンポーネントを定義する例 -->
-<!-- - vine タグ付きテンプレートリテラル -->
+Vue Vine では `vine` タグ付きテンプレートリテラルを使ってコンポーネントを定義します。
 
 ```ts
-// 例: Vue Vine のコード
+function MyComponent() {
+  const count = ref(0)
+
+  return vine`
+    <div>
+      <button @click="count++">{{ count }}</button>
+    </div>
+  `
+}
 ```
+
+関数の中身は `<script setup>` と同じように書けます。
+`vine` タグ内がテンプレートです。
+
+1 ファイルに複数のコンポーネントを書けるのが Vue Vine の特徴です。
+
+```ts
+// Button.vine.ts
+
+function PrimaryButton() {
+  return vine`
+    <button class="primary"><slot /></button>
+  `
+}
+
+function SecondaryButton() {
+  return vine`
+    <button class="secondary"><slot /></button>
+  `
+}
+```
+
+SFC だと `PrimaryButton.vue`、`SecondaryButton.vue` のように分ける必要がありますが、Vue Vine なら 1 ファイルにまとめられます。
 
 ## Getting Started
 
