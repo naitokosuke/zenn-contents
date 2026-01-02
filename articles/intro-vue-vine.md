@@ -324,7 +324,7 @@ vineStyle.import("./button.css");
 この他にも `vineExpose`、`vineSlots`、`vineOptions` などのマクロがあります。
 詳しくは[公式ドキュメント](https://vue-vine.dev/specification/macros.html)を参照してください。
 
-なお、マクロは `.vine.ts` ファイル内のコンポーネント関数でのみ使用できます。
+マクロは `.vine.ts` ファイル内のコンポーネント関数でのみ使用できます。
 別の `.ts` ファイルに切り出すことはできないので注意してください。
 
 ## なぜ JSX ではなくテンプレートなのか
@@ -408,14 +408,14 @@ Vue Vine の公式ドキュメントでは次のように述べられていま�
 > The main problem with JSX is that it's too flexible, and it's hard to provide enough compile-time information for Vue to optimize, and template is native supported by Vue with a lot of compile-time optimizations.
 > (JSX の主な問題は柔軟すぎることで、Vue が最適化するためのコンパイル時情報を提供することが難しい。一方、テンプレートは Vue にネイティブサポートされており、多くのコンパイル時最適化が施されている。)
 
-JSX は JavaScript の式なので、何でも書けます。
-その柔軟性ゆえに、コンパイラが「この部分は静的」「この部分は動的」と判断しにくくなります。
+JSX は JavaScript の式なので何でも書けます。
+その柔軟性ゆえにコンパイラが「この部分は静的」「この部分は動的」と判断しにくくなります。
 
-一方、テンプレートは構文が制限されている分、コンパイラが最適化しやすい。
-Vue のテンプレートコンパイラは、静的な部分をホイスティングしたり、動的な部分だけを追跡したりといった最適化を行います。
+一方テンプレートは構文が制限されている分コンパイラが最適化しやすい。
+Vue のテンプレートコンパイラは静的な部分をホイスティングしたり動的な部分だけを追跡したりといった最適化を行います。
 
-Vue Vine はテンプレートを使うので、これらの最適化の恩恵を受けられます。
-「関数スタイルで書きたいが、テンプレートの最適化も捨てたくない」という方には Vue Vine が選択肢になるでしょう。
+Vue Vine はテンプレートを使うのでこれらの最適化の恩恵を受けられます。
+「関数スタイルで書きたいがテンプレートの最適化も捨てたくない」という方には Vue Vine が選択肢になるでしょう。
 
 ## まとめ
 
