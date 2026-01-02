@@ -98,9 +98,9 @@ const { user, stats, activities } = useUser(userId);
 ```vue
 <template>
   <div>
-    <UserHeader :user="user" />
-    <UserStats :stats="stats" />
-    <UserActivity :activities="activities" />
+    <UserHeader :user />
+    <UserStats :stats />
+    <UserActivity :activities />
   </div>
 </template>
 ```
