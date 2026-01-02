@@ -128,27 +128,27 @@ user/
 Vue Vine を使えば、同じファイル内にコンポーネントを定義できます。
 
 ```ts:User.vine.ts
-function Header({ user }: { user: { name: string; avatar: string; bio: string } }) {
+function Header({ name, avatar, bio }: { name: string; avatar: string; bio: string }) {
   return vine`
     <header>
-      <img :src="user.avatar" :alt="user.name" />
-      <h2>{{ user.name }}</h2>
-      <p>{{ user.bio }}</p>
+      <img :src="avatar" :alt="name" />
+      <h2>{{ name }}</h2>
+      <p>{{ bio }}</p>
     </header>
   `;
 }
 
-function Stats({ stats }: { stats: { posts: number; followers: number; following: number } }) {
+function Stats({ posts, followers, following }: { posts: number; followers: number; following: number }) {
   return vine`
     <dl>
       <dt>Posts</dt>
-      <dd>{{ stats.posts }}</dd>
+      <dd>{{ posts }}</dd>
 
       <dt>Followers</dt>
-      <dd>{{ stats.followers }}</dd>
+      <dd>{{ followers }}</dd>
 
       <dt>Following</dt>
-      <dd>{{ stats.following }}</dd>
+      <dd>{{ following }}</dd>
     </dl>
   `;
 }
@@ -171,8 +171,8 @@ export function User({ userId }: { userId: string }) {
 
   return vine`
     <div>
-      <Header :user />
-      <Stats :stats />
+      <Header :name="user.name" :avatar="user.avatar" :bio="user.bio" />
+      <Stats :posts="stats.posts" :followers="stats.followers" :following="stats.following" />
       <Activity :activities />
     </div>
   `;
