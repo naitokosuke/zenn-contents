@@ -313,11 +313,19 @@ function StyledButton() {
 ```
 
 `vineStyle.scoped()` でスコープ付きスタイル、`vineStyle()` でグローバルスタイルを定義できます。
-外部ファイルをスコープ付きでインポートすることも可能です。
+外部ファイルをスコープ付きでインポート可能です。
 
 ```ts
 vineStyle.import.scoped("./button.css");
 ```
+
+:::message
+公式ドキュメントでは次のように述べられています。
+
+> Due to the fact that style code can be very long to write, we as library authors actually don't recommend using this macro, but recommend you to use atomic CSS solutions like UnoCSS, TailwindCSS, or import external stylesheets.
+> (スタイルのコードは長くなりがちなので、ライブラリ作者としてはこのマクロの使用は推奨しておらず、[UnoCSS](https://unocss.dev/) や [Tailwind CSS](https://tailwindcss.com/) などの Atomic CSS ソリューションか外部スタイルシートのインポートを推奨しています。)
+
+:::
 
 ### その他のマクロ
 
