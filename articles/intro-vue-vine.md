@@ -185,15 +185,223 @@ function Activity({ activities }: { activities: { id: number; text: string; date
 
 ファイルを分けることなくテンプレートの見通しを改善できました。
 
+## Props
+
+ここまでのコード例を見て props の渡し方に気づいた方もいるかもしれません。
+
+```ts
+function Header({
+  name,
+  avatar,
+  bio,
+}: {
+  name: string;
+  avatar: string;
+  bio: string;
+}) {
+  // ...
+}
+```
+
+Vue Vine では、関数の第一引数で props を受け取ります。
+Vue 3.5 で導入された [Reactive Props Destructure](https://ja.vuejs.org/guide/components/props#reactive-props-destructure) と同様に、分割代入でリアクティブな props を取得できます。
+
+### TypeScript ファーストな設計
+
+Vue Vine の特徴的な点は、**ランタイムの型チェックを廃止している**ことです。
+
+従来の Vue では `defineProps` で `String` や `Number` といった型コンストラクタを指定できました。
+しかし Vue Vine はこれをサポートしていません。
+
+> we're already all-in TypeScript
+> (私たちはすでに TypeScript に全面的に依存しています)
+
+公式ドキュメントではこのように述べられています。
+型チェックはランタイムではなく、TypeScript と IDE 側で行うべきという考え方です。
+
+実際、ランタイムの型チェックは警告を出すだけでプログラムを止めるわけではありません。
+TypeScript を使っているなら、開発時に型エラーを検出できます。
+Vue Vine はこの現実を受け入れ、よりシンプルな設計を選択しています。
+
+### `vineProp()` マクロ
+
+分割代入以外に、`vineProp` マクロを使って props を定義する方法もあります。
+
+```ts
+function MyComponent() {
+  // 必須の props
+  const title = vineProp<string>();
+
+  // オプションの props
+  const subtitle = vineProp.optional<string>();
+
+  // デフォルト値付きの props
+  const count = vineProp.withDefault(0);
+
+  return vine`
+    <div>
+      <h1>{{ title }}</h1>
+      <p v-if="subtitle">{{ subtitle }}</p>
+      <span>{{ count }}</span>
+    </div>
+  `;
+}
+```
+
+バリデーターを追加することもできます。
+
+```ts
+const title = vineProp<string>((value) => value.startsWith("#"));
+```
+
+分割代入と `vineProp`、どちらを使うかはチームの好みで選んでください。
+分割代入はシンプルで直感的、`vineProp` は個別の props に対してより細かい制御ができます。
+
 ## マクロ
 
-<!-- TODO: Vue Vine のマクロを紹介 -->
-<!-- vineProp, vineEmits, vineExpose, vineSlots, vineStyle, vineModel -->
+Vue Vine には props 以外にも便利なマクロが用意されています。
+Vue の Composition API に慣れている方なら、すぐに使い方がわかるはずです。
 
-## SFC との比較
+### vineEmits
 
-<!-- TODO: SFC との違い -->
-<!-- - ユースケース -->
+イベントの発行を定義します。
+
+```ts
+function MyButton() {
+  const emit = vineEmits<{
+    click: [event: MouseEvent];
+    change: [value: string];
+  }>();
+
+  return vine`
+    <button @click="emit('click', $event)">Click me</button>
+  `;
+}
+```
+
+配列形式でも定義できます。
+
+```ts
+const emit = vineEmits(["click", "change"]);
+```
+
+### vineExpose
+
+親コンポーネントに公開するプロパティを定義します。
+
+```ts
+function MyInput() {
+  const inputRef = ref<HTMLInputElement>();
+
+  vineExpose({
+    focus: () => inputRef.value?.focus(),
+  });
+
+  return vine`
+    <input ref="inputRef" />
+  `;
+}
+```
+
+### vineSlots
+
+スロットを定義します。スコープ付きスロットにも対応しています。
+
+```ts
+function MyCard() {
+  const slots = vineSlots<{
+    default(): void;
+    header(props: { title: string }): void;
+  }>();
+
+  return vine`
+    <div class="card">
+      <header>
+        <slot name="header" title="Card Title" />
+      </header>
+      <main>
+        <slot />
+      </main>
+    </div>
+  `;
+}
+```
+
+### vineModel
+
+`v-model` を使った双方向バインディングを定義します。
+
+```ts
+function MyInput() {
+  const model = vineModel<string>();
+
+  return vine`
+    <input :value="model" @input="model = $event.target.value" />
+  `;
+}
+```
+
+名前付きの `v-model` も定義できます。
+
+```ts
+const count = vineModel<number>("count");
+// 親から v-model:count で使用
+```
+
+### vineStyle
+
+コンポーネントにスタイルを追加します。
+
+```ts
+function StyledButton() {
+  vineStyle(`
+    .btn {
+      padding: 8px 16px;
+      border-radius: 4px;
+    }
+  `);
+
+  return vine`
+    <button class="btn">Styled</button>
+  `;
+}
+```
+
+スコープ付きスタイルは `vineStyle.scoped()` を使います。
+
+```ts
+vineStyle.scoped(`
+  .btn {
+    background: blue;
+  }
+`);
+```
+
+外部ファイルをインポートすることもできます。
+
+```ts
+vineStyle.import("./button.css");
+```
+
+### vineOptions
+
+コンポーネント名や `inheritAttrs` を設定できます。
+
+```ts
+function MyComponent() {
+  vineOptions({
+    name: "CustomName",
+    inheritAttrs: false,
+  });
+
+  return vine`<div>...</div>`;
+}
+```
+
+### 注意点
+
+マクロは `.vine.ts` ファイル内のコンポーネント関数でのみ使用できます。
+別の `.ts` ファイルに切り出すことはできないので注意してください。
 
 ## まとめ
 
