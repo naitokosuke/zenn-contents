@@ -44,18 +44,17 @@ Vite や Rollup の中国語ドキュメントのメンテナンスにも携わ�
 ## コード例
 
 具体的なコードで見てみましょう。
-ユーザーのプロフィールページを作っているとします。
+ユーザーのプロフィールを表示するコンポーネントを作っているとします。
 最初はいつも通りに SFC で書いていきます。
 
-```vue:ProfilePage.vue
+```vue:UserProfile.vue
 <script setup lang="ts">
-const user = { name: 'John', avatar: '/avatar.png', bio: '...' };
-const stats = { posts: 42, followers: 128, following: 64 };
-const activities = [{ id: 1, text: '記事を投稿しました', date: '2025-01-01' }];
+const { userId } = defineProps<{ userId: string }>();
+const { user, stats, activities } = useUser(userId);
 </script>
 
 <template>
-  <div class="profile-page">
+  <div class="user-profile">
     <div class="header">
       <img :src="user.avatar" class="avatar" />
       <h1>{{ user.name }}</h1>
@@ -65,20 +64,20 @@ const activities = [{ id: 1, text: '記事を投稿しました', date: '2025-01
     <div class="stats">
       <div class="stat-item">
         <span class="value">{{ stats.posts }}</span>
-        <span class="label">投稿</span>
+        <span class="label">Posts</span>
       </div>
       <div class="stat-item">
         <span class="value">{{ stats.followers }}</span>
-        <span class="label">フォロワー</span>
+        <span class="label">Followers</span>
       </div>
       <div class="stat-item">
         <span class="value">{{ stats.following }}</span>
-        <span class="label">フォロー中</span>
+        <span class="label">Following</span>
       </div>
     </div>
 
     <div class="activities">
-      <h2>最近のアクティビティ</h2>
+      <h2>Recent Activity</h2>
       <ul>
         <li v-for="activity in activities" :key="activity.id">
           {{ activity.text }} - {{ activity.date }}
@@ -93,7 +92,7 @@ const activities = [{ id: 1, text: '記事を投稿しました', date: '2025-01
 
 ### コンポーネントに分割したい
 
-こういうとき、セクションごとにコンポーネントに分割したくなります。Vue Vine の公式ドキュメントでも、このモチベーションについて述べられています。
+こういうとき、セクションごとにコンポーネントへ分割したくなります。Vue Vine の公式ドキュメントでも、このモチベーションについて述べられています。
 
 > Developers usually write a long component first and then split out the reusable parts from it.
 > (開発者は通常、長いコンポーネントを書いてから再利用可能な部分を切り出します。)
@@ -102,10 +101,10 @@ const activities = [{ id: 1, text: '記事を投稿しました', date: '2025-01
 
 ```vue
 <template>
-  <div class="profile-page">
-    <ProfileHeader :user="user" />
-    <ProfileStats :stats="stats" />
-    <ProfileActivity :activities="activities" />
+  <div class="user-profile">
+    <UserHeader :user="user" />
+    <UserStats :stats="stats" />
+    <UserActivity :activities="activities" />
   </div>
 </template>
 ```
@@ -114,20 +113,20 @@ const activities = [{ id: 1, text: '記事を投稿しました', date: '2025-01
 
 ```
 components/
-├── ProfilePage.vue
-├── ProfileHeader.vue
-├── ProfileStats.vue
-└── ProfileActivity.vue
+├── UserProfile.vue
+├── UserHeader.vue
+├── UserStats.vue
+└── UserActivity.vue
 ```
 
-`ProfilePage` でしか使わないのに 4 ファイルに分かれてしまいます。
+`UserProfile` でしか使わないのに 4 ファイルに分かれてしまいます。
 
 ### Vue Vine なら 1 ファイルにまとめられる
 
 Vue Vine を使えば、同じファイル内にコンポーネントを定義できます。
 
-```ts:ProfilePage.vine.ts
-function ProfileHeader() {
+```ts:UserProfile.vine.ts
+function UserHeader() {
   const user = vineProp<{ name: string; avatar: string; bio: string }>();
 
   return vine`
@@ -139,33 +138,33 @@ function ProfileHeader() {
   `;
 }
 
-function ProfileStats() {
+function UserStats() {
   const stats = vineProp<{ posts: number; followers: number; following: number }>();
 
   return vine`
     <div class="stats">
       <div class="stat-item">
         <span class="value">{{ stats.posts }}</span>
-        <span class="label">投稿</span>
+        <span class="label">Posts</span>
       </div>
       <div class="stat-item">
         <span class="value">{{ stats.followers }}</span>
-        <span class="label">フォロワー</span>
+        <span class="label">Followers</span>
       </div>
       <div class="stat-item">
         <span class="value">{{ stats.following }}</span>
-        <span class="label">フォロー中</span>
+        <span class="label">Following</span>
       </div>
     </div>
   `;
 }
 
-function ProfileActivity() {
+function UserActivity() {
   const activities = vineProp<{ id: number; text: string; date: string }[]>();
 
   return vine`
     <div class="activities">
-      <h2>最近のアクティビティ</h2>
+      <h2>Recent Activity</h2>
       <ul>
         <li v-for="activity in activities" :key="activity.id">
           {{ activity.text }} - {{ activity.date }}
@@ -175,22 +174,21 @@ function ProfileActivity() {
   `;
 }
 
-export function ProfilePage() {
-  const user = { name: 'John', avatar: '/avatar.png', bio: '...' };
-  const stats = { posts: 42, followers: 128, following: 64 };
-  const activities = [{ id: 1, text: '記事を投稿しました', date: '2025-01-01' }];
+export function UserProfile() {
+  const { userId } = vineProp<{ userId: string }>();
+  const { user, stats, activities } = useUser(userId);
 
   return vine`
-    <div class="profile-page">
-      <ProfileHeader :user="user" />
-      <ProfileStats :stats="stats" />
-      <ProfileActivity :activities="activities" />
+    <div class="user-profile">
+      <UserHeader :user="user" />
+      <UserStats :stats="stats" />
+      <UserActivity :activities="activities" />
     </div>
   `;
 }
 ```
 
-`ProfileHeader`、`ProfileStats`、`ProfileActivity` は `export` していないため、このファイル内でのみ使用できます。ファイルを分けることなく、テンプレートの見通しを改善できました。
+`UserHeader`、`UserStats`、`UserActivity` は `export` していないため、このファイル内でのみ使用できます。ファイルを分けることなく、テンプレートの見通しを改善できました。
 
 ## マクロ
 
