@@ -188,7 +188,7 @@ function Activity({ activities }: { activities: { id: number; text: string; date
 
 https://vue-vine.dev/specification/props.html
 
-ここまでのコード例を見て props の渡し方に気づいた方もいるでしょう。
+Vue Vine では props はコンポーネント関数の引数として受け取ることができます。
 
 ```ts
 function Header({
