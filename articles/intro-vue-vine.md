@@ -259,7 +259,6 @@ https://vue-vine.dev/specification/props.html#vineprop
 ## マクロ
 
 Vue Vine には props 以外にもマクロが用意されています。
-ここでは特に使用頻度の高いものを紹介します。
 
 ### `vineEmits()`
 
