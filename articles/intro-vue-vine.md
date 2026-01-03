@@ -41,7 +41,6 @@ https://github.com/vue-vine/vue-vine
 ### 作者
 
 Vue Vine は [ShenQingchuan(沈青川)](https://github.com/ShenQingchuan) さんが開発しています。
-Vite や Rollup の中国語ドキュメントのメンテナンスにも携わっている方です。
 
 ![ShenQingchuan さんの GitHub プロフィール](/images/intro-vue-vine/shenqingchuan.png)
 
@@ -49,7 +48,7 @@ Vite や Rollup の中国語ドキュメントのメンテナンスにも携わ�
 
 具体的なコードで見てみましょう。
 ユーザー情報を表示するコンポーネントを作っているとします。
-最初はいつも通りに SFC で書いていきます。
+最初はいつも通りに SFC で。
 
 ```vue:User.vue
 <script setup lang="ts">
