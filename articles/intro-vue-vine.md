@@ -48,7 +48,7 @@ Vue Vine は [ShenQingchuan(沈青川)](https://github.com/ShenQingchuan) さん
 
 具体的なコードで見てみましょう。
 ユーザー情報を表示するコンポーネントを作っているとします。
-最初はいつも通りに SFC で。
+最初は SFC で。
 
 ```vue:User.vue
 <script setup lang="ts">
