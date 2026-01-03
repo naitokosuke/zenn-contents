@@ -1,5 +1,5 @@
 ---
-title: "Vue Vine を知る"
+title: "Vue Vineで 1 ファイルに複数コンポーネント"
 emoji: "🍇"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vue"]
