@@ -204,7 +204,6 @@ function Header({
 }
 ```
 
-Vue Vine では、関数の第一引数で props を受け取ります。
 Vue 3.5 で導入された [Reactive Props Destructure](https://ja.vuejs.org/guide/components/props#reactive-props-destructure) と同様に、分割代入でリアクティブな props を取得できます。
 
 ### TypeScript ファーストな設計
