@@ -3,7 +3,9 @@ title: "Vue Vineで 1 ファイルに複数コンポーネント"
 emoji: "🍇"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vue"]
-published: false
+publication_name: "comm_vue_nuxt"
+published: true
+published_at: 2026-01-03 12:00
 ---
 
 [Vue Advent Calendar 2025](https://qiita.com/advent-calendar/2025/vue) 14 日目の記事です。
